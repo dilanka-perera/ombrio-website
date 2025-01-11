@@ -11,10 +11,7 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
       {topics.map((topic, index) => (
-        <div
-          key={index}
-          className="relative group overflow-hidden max-h-[250px] sm:max-h-none"
-        >
+        <div key={index} className="relative group overflow-hidden h-[360px]">
           <Image
             src={topic.imageSrc}
             alt={topic.title}
@@ -29,7 +26,7 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
 
           {/* Title */}
           <div className="absolute bottom-0 left-0 right-0 p-4">
-            <h2 className="text-white text-xl font-bold group-hover:translate-y-[-120px] sm:group-hover:translate-y-[-180px] transition-transform duration-1000 ease-in-out">
+            <h2 className="text-white text-xl font-bold group-hover:translate-y-[-250px] transition-transform duration-1000 ease-in-out">
               {topic.title}
             </h2>
           </div>
