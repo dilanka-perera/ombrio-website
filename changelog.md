@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - Added Header and Footer
+- Added Homepage Carousel
 
 ### Fixed
 
