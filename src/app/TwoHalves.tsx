@@ -35,8 +35,8 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
 
       {/* Text Side */}
       <div
-        className={`w-full md:w-1/2 flex items-center ${
-          imageFirst ? "justify-center" : ""
+        className={`w-full md:w-1/2 flex items-center justify-center ${
+          imageFirst ? "" : "md:justify-start"
         } text-gray-100 p-8`}
       >
         <div className="max-w-md text-center md:text-left">

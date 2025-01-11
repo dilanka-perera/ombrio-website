@@ -11,6 +11,7 @@ const Carousel: React.FC = () => {
     loop: true,
     mode: "snap",
     slides: { perView: 1 },
+    defaultAnimation: { duration: 2000 },
     slideChanged: (s) => setCurrentSlide(s.track.details.rel), // Update current slide index on change
   });
 
