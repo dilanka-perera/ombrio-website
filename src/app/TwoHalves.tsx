@@ -20,17 +20,19 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
     <div
       className={`flex flex-col py-8 ${
         imageFirst ? "md:flex-row" : "md:flex-row-reverse"
-      } w-full h-auto`}
+      } w-full h-full`}
     >
       {/* Image Side */}
-      <div className="w-full md:w-1/2 relative h-64 sm:h-96 md:h-auto">
-        <Image
-          src={imageSrc}
-          alt="Side Image"
-          layout="fill"
-          objectFit="cover"
-          className="rounded-md"
-        />
+      <div className={`h-full md:h-auto md:w-1/2`}>
+        <div className="h-full">
+          <Image
+            src={imageSrc}
+            alt="Side Image"
+            width={800}
+            height={800}
+            className="rounded-md w-full h-full object-cover"
+          />
+        </div>
       </div>
 
       {/* Text Side */}
