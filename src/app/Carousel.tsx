@@ -37,7 +37,7 @@ const Carousel: React.FC = () => {
   }, [instanceRef, currentSlide]);
 
   return (
-    <div className="relative text-white fade-image">
+    <div className="relative text-white">
       {/* Keen Slider Container */}
       <div ref={sliderRef} className="keen-slider">
         {/* Slide 1 */}
