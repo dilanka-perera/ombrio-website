@@ -31,6 +31,7 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
             width={800}
             height={800}
             className="rounded-md w-full h-full object-cover"
+            unoptimized
           />
         </div>
       </div>

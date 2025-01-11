@@ -3,10 +3,10 @@ import Topic from "./Topic";
 
 const WhyChooseUs: React.FC = () => {
   return (
-    <div>
+    <div className="pb-8">
       {/* Section Title */}
       <div className="pt-10">
-        <Topic text="Why Coose Us?" />
+        <Topic text="Why Choose Us?" />
       </div>
 
       {/* Image Snippets */}

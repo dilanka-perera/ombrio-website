@@ -3,7 +3,7 @@ import Topic from "./Topic";
 
 const OurProcess: React.FC = () => {
   return (
-    <div>
+    <div className="pb-8">
       {/* Section Title */}
       <div className="pt-10">
         <Topic text="Our Process" />
