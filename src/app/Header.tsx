@@ -87,6 +87,9 @@ export default function Header() {
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-16">
+          <Link href="/" className="text-base/6 text-white hover:text-gray-300">
+            Home
+          </Link>
           <Link
             href="/blog"
             className="text-base/6 text-white hover:text-gray-300"
@@ -143,6 +146,13 @@ export default function Header() {
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
+                  <Link
+                    href="/"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                    onClick={() => setIsSidebarOpen(false)} // Close sidebar when clicked
+                  >
+                    Home
+                  </Link>
                   <Link
                     href="/blog"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
