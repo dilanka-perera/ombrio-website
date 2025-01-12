@@ -87,16 +87,16 @@ export default function Header() {
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-16">
-          <Link href="#" className="text-base/6 text-gray-100">
+          <Link href="#" className="text-base/6 text-white hover:text-gray-300">
             Blog
           </Link>
-          <Link href="#" className="text-base/6 text-gray-100">
+          <Link href="#" className="text-base/6 text-white hover:text-gray-300">
             Career
           </Link>
-          <Link href="#" className="text-base/6 text-gray-100">
+          <Link href="#" className="text-base/6 text-white hover:text-gray-300">
             About
           </Link>
-          <Link href="#" className="text-base/6 text-gray-100">
+          <Link href="#" className="text-base/6 text-white hover:text-gray-300">
             Contact
           </Link>
         </div>
