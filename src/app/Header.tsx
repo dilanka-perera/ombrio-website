@@ -34,7 +34,7 @@ export default function Header() {
       } transition-transform duration-500`}
     >
       <div className="flex-1 px-6">
-        <Link href="#" className="-m-1.5 p-1.5">
+        <Link href="/" className="-m-1.5 p-1.5">
           <div className="flex">
             <div className="flex h-18 items-center px-2">
               <Image
@@ -87,16 +87,28 @@ export default function Header() {
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-16">
-          <Link href="#" className="text-base/6 text-white hover:text-gray-300">
+          <Link
+            href="/blog"
+            className="text-base/6 text-white hover:text-gray-300"
+          >
             Blog
           </Link>
-          <Link href="#" className="text-base/6 text-white hover:text-gray-300">
+          <Link
+            href="/career"
+            className="text-base/6 text-white hover:text-gray-300"
+          >
             Career
           </Link>
-          <Link href="#" className="text-base/6 text-white hover:text-gray-300">
+          <Link
+            href="/about-us"
+            className="text-base/6 text-white hover:text-gray-300"
+          >
             About
           </Link>
-          <Link href="#" className="text-base/6 text-white hover:text-gray-300">
+          <Link
+            href="/contact"
+            className="text-base/6 text-white hover:text-gray-300"
+          >
             Contact
           </Link>
         </div>
@@ -132,25 +144,25 @@ export default function Header() {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   <Link
-                    href="#"
+                    href="/blog"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
                     Blog
                   </Link>
                   <Link
-                    href="#"
+                    href="/career"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
                     Career
                   </Link>
                   <Link
-                    href="#"
+                    href="/about-us"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
                     About
                   </Link>
                   <Link
-                    href="#"
+                    href="/contact"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
                     Contact

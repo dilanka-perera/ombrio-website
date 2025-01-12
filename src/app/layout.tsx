@@ -27,11 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <Header />
         <main className="flex-grow bg-gradient-to-r from-neutral-950 via-slate-950 to-neutral-950">
-          {children}
+          <div className="max-w-[1280px] mx-auto lg:pt-[80px]">{children}</div>
         </main>
         <Footer />
       </body>

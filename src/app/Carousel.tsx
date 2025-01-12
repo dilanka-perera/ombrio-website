@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Slide {
   imageSrc: string;
@@ -100,9 +101,12 @@ const Carousel: React.FC = () => {
               <p className="text-xs sm:text-sm md:text-lg mb-6 px-8">
                 {slide.description}
               </p>
-              <button className="px-4 py-1 sm:px-5 sm:py-2 md:px-6 md:py-2 bg-slate-600 bg-opacity-50 hover:bg-slate-700 hover:bg-opacity-70 text-xs sm:text-sm md:text-lg text-white rounded">
+              <Link
+                href="/blog"
+                className="px-4 py-1 sm:px-5 sm:py-2 md:px-6 md:py-2 bg-slate-600 bg-opacity-50 hover:bg-slate-700 hover:bg-opacity-70 text-xs sm:text-sm md:text-lg text-white rounded"
+              >
                 {slide.buttonText}
-              </button>
+              </Link>
             </div>
           </div>
         ))}

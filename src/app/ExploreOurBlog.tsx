@@ -21,7 +21,7 @@ const ExploreOurBlog: React.FC = () => {
         {/* Read Our Blog Link */}
         <div className="pt-6 sm:flex items-end">
           <div className="mr-6 mb-4 sm:mb-0">
-            <MainButton text="Read Our Blog" link="#" />
+            <MainButton text="Read Our Blog" link="/blog" />
           </div>
           <p className="text-xs sm:text-sm md:text-base text-gray-400">
             Discover new ideas, innovations, and industry news.

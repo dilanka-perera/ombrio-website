@@ -20,7 +20,7 @@ const OurWork: React.FC = () => {
         {/* Read Our Blog Link */}
         <div className="pt-6 sm:flex items-end">
           <div className="mr-6 mb-4 sm:mb-0">
-            <MainButton text="View Portfolio" link="#" />
+            <MainButton text="View Portfolio" link="/about-us" />
           </div>
           <p className="text-xs sm:text-sm md:text-base text-gray-400">
             Case studies and success stories.

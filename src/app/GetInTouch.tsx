@@ -19,7 +19,7 @@ const GetInTouch: React.FC = () => {
         {/* Read Our Blog Link */}
         <div className="pt-6 sm:flex items-end">
           <div className="mr-6 mb-4 sm:mb-0">
-            <MainButton text="Contact Us" link="#" />
+            <MainButton text="Contact Us" link="/contact" />
           </div>
           <p className="text-xs sm:text-sm md:text-base text-gray-400">
             Request a consultation, or ask any questions you might have.
