@@ -146,24 +146,28 @@ export default function Header() {
                   <Link
                     href="/blog"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                    onClick={() => setIsSidebarOpen(false)} // Close sidebar when clicked
                   >
                     Blog
                   </Link>
                   <Link
                     href="/career"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                    onClick={() => setIsSidebarOpen(false)} // Close sidebar when clicked
                   >
                     Career
                   </Link>
                   <Link
                     href="/about-us"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                    onClick={() => setIsSidebarOpen(false)} // Close sidebar when clicked
                   >
                     About
                   </Link>
                   <Link
                     href="/contact"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                    onClick={() => setIsSidebarOpen(false)} // Close sidebar when clicked
                   >
                     Contact
                   </Link>
