@@ -2,13 +2,37 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState("up");
+  const [prevScrollY, setPrevScrollY] = useState(0);
+
+  // Detect scroll direction
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > prevScrollY) {
+        setScrollDirection("down"); // Scrolling down
+      } else if (window.scrollY < prevScrollY) {
+        setScrollDirection("up"); // Scrolling up
+      }
+      setPrevScrollY(window.scrollY); // Update the scroll position
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollY]);
 
   return (
-    <header className="bg-gradient-to-r from-slate-600 via-slate-800 to-slate-950 h-20 flex items-center">
+    <header
+      className={`lg:fixed top-0 left-0 w-full z-10 bg-gradient-to-r from-slate-600 via-slate-800 to-slate-950 h-20 flex items-center shadow-md ${
+        scrollDirection === "down" ? "lg:-translate-y-full" : "lg:translate-y-0"
+      } transition-transform duration-500`}
+    >
       <div className="flex-1 px-6">
         <Link href="#" className="-m-1.5 p-1.5">
           <div className="flex">
