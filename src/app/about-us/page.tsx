@@ -2,6 +2,7 @@ import React from "react";
 import { NextPage } from "next";
 import MainButton from "../MainButton";
 import Image from "next/image";
+import ImageSnippets from "../ImageSnippets";
 
 const AboutUs: NextPage = () => {
   return (
@@ -32,28 +33,75 @@ const AboutUs: NextPage = () => {
           <h2 className="text-2xl font-semibold text-yellow-600 mb-4">
             Our Mission
           </h2>
-          <ul className="space-y-4 text-lg">
-            <li className="flex items-start">
-              <span className="font-bold text-yellow-600 mr-2">Innovate:</span>{" "}
-              Develop cutting-edge AI and web solutions that redefine industry
-              standards.
-            </li>
-            <li className="flex items-start">
-              <span className="font-bold text-yellow-600 mr-2">Empower:</span>{" "}
-              Provide businesses with the tools to leverage advanced technology
-              for growth and success.
-            </li>
-            <li className="flex items-start">
-              <span className="font-bold text-yellow-600 mr-2">Inspire:</span>{" "}
-              Foster creativity, collaboration, and continuous learning within
-              the tech community.
-            </li>
-            <li className="flex items-start">
-              <span className="font-bold text-yellow-600 mr-2">Lead:</span>{" "}
-              Drive the next technological revolution by staying at the
-              forefront of emerging technologies.
-            </li>
-          </ul>
+
+          {/* Image Snippets */}
+          <div className="pt-4">
+            <ImageSnippets
+              topics={[
+                {
+                  title: "Innovate",
+                  description:
+                    "Develop cutting-edge AI and web solutions that redefine industry standards.",
+                  imageSrc: "/Mission1.jpg",
+                },
+                {
+                  title: "Empower",
+                  description:
+                    "Provide businesses with the tools to leverage advanced technology for growth and success.",
+                  imageSrc: "/Mission2.jpg",
+                },
+                {
+                  title: "Inspire",
+                  description:
+                    "Foster creativity, collaboration, and continuous learning within the tech community.",
+                  imageSrc: "/Mission3.jpg",
+                },
+                {
+                  title: "Lead",
+                  description:
+                    "Drive the next technological revolution by staying at the forefront of emerging technologies.",
+                  imageSrc: "/Mission4.jpg",
+                },
+              ]}
+            />
+          </div>
+        </section>
+
+        {/* Core Values */}
+        <section>
+          <h2 className="text-2xl font-semibold text-yellow-600 mb-4">
+            Core Values
+          </h2>
+          {/* Image Snippets */}
+          <div className="pt-4">
+            <ImageSnippets
+              topics={[
+                {
+                  title: "Innovation",
+                  description:
+                    "Constantly evolving and pushing boundaries to deliver the best solutions.",
+                  imageSrc: "/Values1.jpg",
+                },
+                {
+                  title: "Integrity",
+                  description: "We do what is right, not what is easy.",
+                  imageSrc: "/Values2.jpg",
+                },
+                {
+                  title: "Collaboration",
+                  description:
+                    "Working together, both within the company and with clients, to achieve the best results.",
+                  imageSrc: "/Values3.jpg",
+                },
+                {
+                  title: "Excellence",
+                  description:
+                    "Striving to deliver top-tier quality in everything we do.",
+                  imageSrc: "/Values4.jpg",
+                },
+              ]}
+            />
+          </div>
         </section>
 
         {/* Meet the Team */}
@@ -74,39 +122,6 @@ const AboutUs: NextPage = () => {
               <p className="text-lg">Founder &amp; CEO</p>
             </div>
           </div>
-        </section>
-
-        {/* Core Values */}
-        <section>
-          <h2 className="text-2xl font-semibold text-yellow-600 mb-4">
-            Core Values
-          </h2>
-          <ul className="space-y-4 text-lg">
-            <li>
-              <span className="font-bold text-yellow-600 mr-2">
-                Innovation:
-              </span>{" "}
-              Constantly evolving and pushing boundaries to deliver the best
-              solutions.
-            </li>
-            <li>
-              <span className="font-bold text-yellow-600 mr-2">Integrity:</span>{" "}
-              We do what is right, not what is easy.
-            </li>
-            <li>
-              <span className="font-bold text-yellow-600 mr-2">
-                Collaboration:
-              </span>{" "}
-              Working together, both within the company and with clients, to
-              achieve the best results.
-            </li>
-            <li>
-              <span className="font-bold text-yellow-600 mr-2">
-                Excellence:
-              </span>{" "}
-              Striving to deliver top-tier quality in everything we do.
-            </li>
-          </ul>
         </section>
 
         {/* Our Story

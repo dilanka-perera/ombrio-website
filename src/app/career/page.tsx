@@ -1,6 +1,7 @@
 import React from "react";
 import { NextPage } from "next";
 import Image from "next/image";
+import ImageSnippets from "../ImageSnippets";
 
 const Career: NextPage = () => {
   return (
@@ -51,50 +52,43 @@ const Career: NextPage = () => {
             inclusive, and collaborative work environment. Here&apos;s what you
             can expect as part of our team:
           </p>
-          <ul className="space-y-4 text-lg">
-            <li>
-              <span className="font-bold text-yellow-600 mr-2">
-                Innovation-Driven:
-              </span>
-              We encourage creativity and new ideas. Every team member is
-              empowered to push boundaries and contribute to the latest
-              technologies that shape the future.
-            </li>
-            <li>
-              <span className="font-bold text-yellow-600 mr-2">
-                Collaboration:
-              </span>
-              We believe that great ideas come from working together. Our team
-              thrives on collaboration across all departments, where
-              everyone&apos;s input is valued.
-            </li>
-            <li>
-              <span className="font-bold text-yellow-600 mr-2">
-                Growth Opportunities:
-              </span>
-              Continuous learning is part of our DNA. We offer numerous
-              resources and support for professional development, allowing our
-              team members to grow within their roles and take on new
-              challenges.
-            </li>
-            <li>
-              <span className="font-bold text-yellow-600 mr-2">
-                Work-Life Balance:
-              </span>
-              We understand the importance of maintaining a healthy work-life
-              balance. Flexible schedules and remote work options ensure that
-              our team members can manage both their professional and personal
-              lives effectively.
-            </li>
-            <li>
-              <span className="font-bold text-yellow-600 mr-2">
-                Inclusive and Respectful:
-              </span>
-              We are committed to creating an inclusive environment where
-              diversity is celebrated and every voice is heard. Respect and
-              kindness are core to our culture.
-            </li>
-          </ul>
+          {/* Image Snippets */}
+          <div className="pt-4">
+            <ImageSnippets
+              topics={[
+                {
+                  title: "Innovation-Driven",
+                  description:
+                    "We encourage creativity and new ideas. Every team member is empowered to push boundaries and contribute to the latest technologies that shape the future.",
+                  imageSrc: "/Culture1.jpg",
+                },
+                {
+                  title: "Collaboration",
+                  description:
+                    "We believe that great ideas come from working together. Our team thrives on collaboration across all departments, where everyone's input is valued.",
+                  imageSrc: "/Culture2.jpg",
+                },
+                {
+                  title: "Growth Opportunities",
+                  description:
+                    "Continuous learning is core to our culture. We provide resources and support for professional development, helping team members grow and take on new challenges.",
+                  imageSrc: "/Culture3.jpg",
+                },
+                {
+                  title: "Work-Life Balance",
+                  description:
+                    "We prioritize a healthy work-life balance with flexible schedules and remote work options, ensuring our team can thrive both professionally and personally.",
+                  imageSrc: "/Culture4.jpg",
+                },
+                {
+                  title: "Inclusive and Respectful",
+                  description:
+                    "We are committed to creating an inclusive environment where diversity is celebrated and every voice is heard. Respect and kindness are core to our culture.",
+                  imageSrc: "/Culture5.jpg",
+                },
+              ]}
+            />
+          </div>
         </section>
 
         {/* Stay Connected */}

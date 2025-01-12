@@ -8,8 +8,18 @@ type Topic = {
 };
 
 const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
+  const gridStyle =
+    topics.length === 1
+      ? "grid-cols-1 sm:grid-cols-1 md:grid-cols-1"
+      : topics.length === 2
+      ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-2"
+      : topics.length === 3
+      ? "grid-cols-1 sm:grid-cols-3 md:grid-cols-3"
+      : topics.length === 5
+      ? "grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5"
+      : "grid-cols-1 sm:grid-cols-2 md:grid-cols-4";
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+    <div className={`grid ${gridStyle} gap-4`}>
       {topics.map((topic, index) => (
         <div key={index} className="relative group overflow-hidden h-[360px]">
           <Image
