@@ -8,7 +8,7 @@ interface TopicProps {
 
 const Topic: React.FC<TopicProps> = ({ text }) => {
   return (
-    <span className="relative text-yellow-600 font-semibold text-3xl sm:text-4xl md:text-5xl px-8">
+    <span className="relative text-yellow-600 font-semibold text-2xl sm:text-3xl md:text-4xl px-8">
       {text}
     </span>
   );
