@@ -1,6 +1,7 @@
 import React from "react";
 import { NextPage } from "next";
 import MainButton from "../MainButton";
+import { FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const ContactUs: NextPage = () => {
   return (
@@ -26,7 +27,7 @@ const ContactUs: NextPage = () => {
               </a>
             </li>
             <li>
-              <strong>Phone:</strong> +94 779817952
+              <strong>Phone:</strong> +94 778917952
             </li>
             <li>
               <strong>Address:</strong> 28, Kappittawatta Road, Kalaeliya,
@@ -53,11 +54,19 @@ const ContactUs: NextPage = () => {
             Follow Us
           </h2>
           <div className="flex space-x-4">
-            <a href="#" className="text-yellow-600 hover:text-yellow-700">
-              Facebook
+            <a
+              href="#"
+              className="text-yellow-600 hover:text-yellow-700 flex items-center space-x-2"
+            >
+              <FaFacebook size={24} />
+              <span>Facebook</span>
             </a>
-            <a href="#" className="text-yellow-600 hover:text-yellow-700">
-              LinkedIn
+            <a
+              href="#"
+              className="text-yellow-600 hover:text-yellow-700 flex items-center space-x-2"
+            >
+              <FaLinkedin size={24} />
+              <span>LinkedIn</span>
             </a>
           </div>
         </section>

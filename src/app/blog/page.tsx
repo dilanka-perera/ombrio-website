@@ -1,5 +1,6 @@
 import React from "react";
 import { NextPage } from "next";
+import { FaFacebook, FaLinkedin } from "react-icons/fa";
 // import Image from "next/image";
 
 const Blog: NextPage = () => {
@@ -38,14 +39,22 @@ const Blog: NextPage = () => {
       {/* Social Media Links */}
       <section className="mt-10">
         <h2 className="text-2xl font-semibold text-yellow-600 mb-4">
-          Follow Us for Updates
+          Follow Us
         </h2>
         <div className="flex space-x-4">
-          <a href="#" className="text-yellow-600 hover:text-yellow-700">
-            Facebook
+          <a
+            href="#"
+            className="text-yellow-600 hover:text-yellow-700 flex items-center space-x-2"
+          >
+            <FaFacebook size={24} />
+            <span>Facebook</span>
           </a>
-          <a href="#" className="text-yellow-600 hover:text-yellow-700">
-            LinkedIn
+          <a
+            href="#"
+            className="text-yellow-600 hover:text-yellow-700 flex items-center space-x-2"
+          >
+            <FaLinkedin size={24} />
+            <span>LinkedIn</span>
           </a>
         </div>
       </section>

@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import MainButton from "../MainButton";
 import Image from "next/image";
 import ImageSnippets from "../ImageSnippets";
+import { FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const AboutUs: NextPage = () => {
   return (
@@ -104,12 +105,38 @@ const AboutUs: NextPage = () => {
           </div>
         </section>
 
+        {/* Our Story*/}
+        <section>
+          <h2 className="text-2xl font-semibold text-yellow-600 mb-4">
+            Our Story
+          </h2>
+          <p className="text-lg">
+            ZynoraX was founded in 2025 with the goal of revolutionizing the way
+            businesses leverage technology. Starting from a small team of
+            passionate engineers, we&apos;ve grown into a global leader in AI
+            and web development. Over the years, we&apos;ve delivered
+            cutting-edge solutions to hundreds of clients, helping them navigate
+            the challenges of the digital world.
+          </p>
+          <p className="text-lg mt-4">
+            Our journey is marked by relentless innovation, collaboration, and a
+            commitment to delivering transformative results. We believe in
+            continuous learning and staying ahead of emerging trends, ensuring
+            our clients benefit from the latest technological advancements.
+          </p>
+        </section>
+
         {/* Meet the Team */}
         <section>
           <h2 className="text-2xl font-semibold text-yellow-600 mb-4">
             Meet the Team
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
+          <p className="text-lg mb-4">
+            Our team is a diverse group of talented professionals driven by
+            curiosity and a passion for excellence. Meet the minds behind
+            ZynoraX.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-8 pt-4">
             <div className="flex flex-col items-center">
               <Image
                 src="/Dilanka.jpg"
@@ -124,26 +151,15 @@ const AboutUs: NextPage = () => {
           </div>
         </section>
 
-        {/* Our Story
-        <section>
-          <h2 className="text-2xl font-semibold text-yellow-600 mb-4">
-            Our Story
-          </h2>
-          <p className="text-lg">
-            ZynoraX was founded in [year] with the goal of revolutionizing the
-            way businesses leverage technology. Starting from a small team of
-            passionate engineers, we&apos;ve grown into a global leader in AI
-            and web development. Over the years, we&apos;ve delivered
-            cutting-edge solutions to hundreds of clients, helping them navigate
-            the challenges of the digital world.
-          </p>
-        </section> */}
-
-        {/* Client Testimonials
+        {/* Client Testimonials*/}
         <section>
           <h2 className="text-2xl font-semibold text-yellow-600 mb-4">
             What Our Clients Say
           </h2>
+          <p className="text-lg mb-4">
+            We are proud to have worked with a wide range of clients who trust
+            us for their technology needs. Here&apos;s what they have to say:
+          </p>
           <div className="space-y-6">
             <div className="flex flex-col p-4 bg-gray-800 rounded-lg shadow-lg">
               <p className="text-lg italic">
@@ -160,7 +176,7 @@ const AboutUs: NextPage = () => {
               </p>
             </div>
           </div>
-        </section> */}
+        </section>
 
         {/* Call to Action */}
         <section className="mt-10">
@@ -180,11 +196,19 @@ const AboutUs: NextPage = () => {
             Follow Us
           </h2>
           <div className="flex space-x-4">
-            <a href="#" className="text-yellow-600 hover:text-yellow-700">
-              Facebook
+            <a
+              href="#"
+              className="text-yellow-600 hover:text-yellow-700 flex items-center space-x-2"
+            >
+              <FaFacebook size={24} />
+              <span>Facebook</span>
             </a>
-            <a href="#" className="text-yellow-600 hover:text-yellow-700">
-              LinkedIn
+            <a
+              href="#"
+              className="text-yellow-600 hover:text-yellow-700 flex items-center space-x-2"
+            >
+              <FaLinkedin size={24} />
+              <span>LinkedIn</span>
             </a>
           </div>
         </section>
