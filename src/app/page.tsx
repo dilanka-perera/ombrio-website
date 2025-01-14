@@ -19,18 +19,16 @@ export default function Home() {
 
   return (
     <div className="pb-8">
-      {isMounted && (
-        <div>
-          <Carousel />
-          <WhatWeDo />
-          <WhyChooseUs />
-          <OurProcess />
-          <OurWork />
-          <ExploreOurBlog />
-          <GetInTouch />
-          <StayAhead />
-        </div>
-      )}
+      <div className={`content ${isMounted ? "fade-in" : ""}`}>
+        <Carousel />
+        <WhatWeDo />
+        <WhyChooseUs />
+        <OurProcess />
+        <OurWork />
+        <ExploreOurBlog />
+        <GetInTouch />
+        <StayAhead />
+      </div>
     </div>
   );
 }
