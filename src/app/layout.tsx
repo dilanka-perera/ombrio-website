@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./Header";
 import Footer from "./Footer";
+import FadeInWrapper from "./FadeInWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,9 @@ export default function RootLayout({
       >
         <Header />
         <main className="flex-grow bg-gradient-to-r from-neutral-950 via-slate-950 to-neutral-950">
-          <div className="max-w-[1280px] mx-auto lg:pt-[80px]">{children}</div>
+          <div className="max-w-[1280px] mx-auto lg:pt-[80px]">
+            <FadeInWrapper>{children}</FadeInWrapper>
+          </div>
         </main>
         <Footer />
       </body>
