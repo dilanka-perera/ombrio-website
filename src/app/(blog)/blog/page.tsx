@@ -91,12 +91,12 @@ export default async function Blog() {
           <h2 className="text-2xl font-semibold text-yellow-600 mb-4">
             Latest Posts
           </h2>
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-4 justify-items-center">
             {blogPosts.length > 0 ? (
               blogPosts.map((post) => (
                 <div
                   key={post.fields.slug}
-                  className="m-1 bg-gray-100 rounded-lg p-8 lg:w-1/2"
+                  className="m-1 bg-gray-100 rounded-lg p-8 max-w-[660px]"
                 >
                   <h3 className="text-xl font-semibold mb-2">
                     {post.fields.title}

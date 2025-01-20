@@ -171,7 +171,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="bg-gray-100 rounded-lg p-8 flex flex-col lg:flex-row-reverse items-center justify-center gap-6 lg:gap-12">
           {/* Title and metadata */}
           <div className="lg:w-1/2 text-center lg:text-left">
-            <h1 className="text-4xl lg:text-6xl font-semibold mb-4 lg:mb-6">
+            <h1 className="text-3xl lg:text-4xl font-semibold mb-4 lg:mb-6">
               {blogPost.fields.title}
             </h1>
 
@@ -238,8 +238,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Categories */}
         <div className="flex gap-4 flex-wrap mt-6">
-          <h3 className="text-xl font-medium text-gray-700">Categories:</h3>
-          {blogPost.fields.category.map((category, index) => {
+          {blogPost.fields.category?.map((category, index) => {
             if (isEntry<CategorySkeleton>(category)) {
               return (
                 <span
