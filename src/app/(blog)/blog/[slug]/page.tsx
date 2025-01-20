@@ -167,7 +167,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <FadeInWrapper>
-      <div className="py-8 px-4 text-black">
+      <div className="pt-8 pb-[100px] px-4 text-black">
         <div className="bg-gray-100 rounded-lg p-8 flex flex-col lg:flex-row-reverse items-center justify-center gap-6 lg:gap-12">
           {/* Title and metadata */}
           <div className="lg:w-1/2 text-center lg:text-left">
@@ -257,7 +257,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div>
           {documentToReactComponents(blogPost.fields.content, renderOptions)}
         </div>
+        {/* Go back to blog page link */}
+        <div className="mt-8 text-center">
+          <Link
+            href="/blog"
+            className="text-yellow-600 hover:text-yellow-700 font-semibold"
+          >
+            &larr; Go back to Blog List
+          </Link>
+        </div>
       </div>
+
+      <div className="overlay fixed bottom-0 left-0 w-full h-1/3 max-h-[200px] bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
     </FadeInWrapper>
   );
 }

@@ -55,9 +55,9 @@ export default function Header() {
         <div className={`${isScrollOverflow ? "h-[0px]" : "h-[80px]"}`}></div>
         <div className="h-[80px] flex items-center">
           <div className="flex-1 px-6">
-            <Link href="/" className="-m-1.5 p-1.5">
+            <div className="-m-1.5 p-1.5">
               <div className="flex">
-                <div className="flex h-18 items-center px-2">
+                <Link href="/" className="flex h-18 items-center px-2">
                   <Image
                     className="drop-shadow-md"
                     src="/LOGO1.gif"
@@ -66,19 +66,20 @@ export default function Header() {
                     height={50}
                     priority
                   />
-                </div>
-                <div className="flex h-18 items-center px-2">
+                </Link>
+
+                <Link href="/blog" className="flex h-18 items-center px-2">
                   <Image
                     className="drop-shadow-md"
-                    src="/LOGO2.png"
+                    src="/LOGO_BLOG.png"
                     alt="Next.js logo"
                     width={150}
                     height={30}
                     priority
                   />
-                </div>
+                </Link>
               </div>
-            </Link>
+            </div>
           </div>
           <nav
             className="mx-auto flex max-w-7xl items-center justify-between p-1 px-8"
