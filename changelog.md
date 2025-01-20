@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Added Homepage Carousel
 - Added Homepage Main Paragraphs
 - Added Homepage Image Snippets
+- Added Blogs
 
 ### Fixed
 

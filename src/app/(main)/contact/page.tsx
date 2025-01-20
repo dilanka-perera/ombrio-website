@@ -1,8 +1,14 @@
 import React from "react";
-import { NextPage } from "next";
+import { Metadata, NextPage } from "next";
 import MainButton from "../MainButton";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import FadeInWrapper from "../FadeInWrapper";
+
+export const metadata: Metadata = {
+  title: "Contact – Zynorax",
+  description:
+    "Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.",
+};
 
 const ContactUs: NextPage = () => {
   return (

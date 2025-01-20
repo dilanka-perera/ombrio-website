@@ -1,12 +1,18 @@
 import React from "react";
-import { NextPage } from "next";
+import { Metadata, NextPage } from "next";
 import MainButton from "../MainButton";
 import Image from "next/image";
 import ImageSnippets from "../ImageSnippets";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import FadeInWrapper from "../FadeInWrapper";
 
-const AboutUs: NextPage = () => {
+export const metadata: Metadata = {
+  title: "About – Zynorax",
+  description:
+    "Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.",
+};
+
+const About: NextPage = () => {
   return (
     <FadeInWrapper>
       <div className="py-8 px-4">
@@ -220,4 +226,4 @@ const AboutUs: NextPage = () => {
   );
 };
 
-export default AboutUs;
+export default About;

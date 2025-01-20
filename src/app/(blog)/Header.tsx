@@ -44,7 +44,7 @@ export default function Header() {
   return (
     <div>
       <header
-        className={` z-10 left-0 w-full bg-gradient-to-r from-slate-600 via-slate-800 to-slate-950 flex-col items-center ${
+        className={` z-10 left-0 w-full bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 flex-col items-center ${
           isScrollOverflow
             ? "absolute translate-y-0"
             : isHeaderVisible
@@ -88,7 +88,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setIsSidebarOpen(true)}
-                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100"
+                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-900"
               >
                 <svg
                   className="size-8"
@@ -110,31 +110,31 @@ export default function Header() {
             <div className="hidden lg:flex lg:gap-x-16">
               <Link
                 href="/"
-                className="text-base/6 text-white hover:text-gray-300"
+                className="text-base/6 text-black hover:text-gray-700"
               >
                 Home
               </Link>
               <Link
                 href="/blog"
-                className="text-base/6 text-white hover:text-gray-300"
+                className="text-base/6 text-black hover:text-gray-700"
               >
                 Blog
               </Link>
               <Link
                 href="/career"
-                className="text-base/6 text-white hover:text-gray-300"
+                className="text-base/6 text-black hover:text-gray-700"
               >
                 Career
               </Link>
               <Link
-                href="/about-us"
-                className="text-base/6 text-white hover:text-gray-300"
+                href="/about"
+                className="text-base/6 text-black hover:text-gray-700"
               >
                 About
               </Link>
               <Link
                 href="/contact"
-                className="text-base/6 text-white hover:text-gray-300"
+                className="text-base/6 text-black hover:text-gray-700"
               >
                 Contact
               </Link>
@@ -195,7 +195,7 @@ export default function Header() {
                       Career
                     </Link>
                     <Link
-                      href="/about-us"
+                      href="/about"
                       className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                       onClick={() => setIsSidebarOpen(false)} // Close sidebar when clicked
                     >

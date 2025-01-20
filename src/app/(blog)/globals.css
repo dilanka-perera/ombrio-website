@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  height: 100%;
+  margin: 0;
+  background-color: #ffffff;
+}
+
+body {
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Smooth fade-in animation for the content */
+.content {
+  opacity: 0;
+  transition: opacity 1.5s ease-out; /* Fade-in over 1.5 seconds */
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+p {
+  text-align: justify;
+}
+
+li > p {
+  margin: 0; /* Remove margins */
+  display: inline; /* Make it behave like inline content */
+}
