@@ -5,7 +5,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS, INLINES, Node } from "@contentful/rich-text-types";
 import Image from "next/image";
 import FadeInWrapper from "@/app/(main)/FadeInWrapper";
-import { AuthorSkeleton, BlogPostSkeleton, CategorySkeleton } from "../cc";
+import { AuthorSkeleton, BlogPostSkeleton, CategorySkeleton } from "../page";
 import Link from "next/link";
 
 export const metadata: Metadata = {
