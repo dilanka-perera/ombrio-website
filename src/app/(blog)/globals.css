@@ -47,4 +47,8 @@ code {
   overflow-y: hidden; /* Hides vertical overflow */
   display: block;
   max-width: 100%;
+  padding: 20px; /* Adjust the padding as needed */
+  background-color: #f4f4f4; /* Light gray background color */
+  color: #333; /* Dark text color */
+  border-radius: 8px;
 }
