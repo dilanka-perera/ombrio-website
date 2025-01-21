@@ -30,7 +30,7 @@ export default function NotFound() {
           />
           <p className="text-sm text-gray-100 text-center">
             You can go back to the{" "}
-            <Link href="/blog" className="text-blue-500">
+            <Link href="/" className="text-blue-500">
               Home Page
             </Link>{" "}
             .
