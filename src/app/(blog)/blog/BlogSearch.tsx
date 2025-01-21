@@ -190,12 +190,25 @@ const BlogSearch: React.FC = () => {
           </div>
 
           {/* Pagination Bar */}
-          <div className="mt-8 flex justify-center items-center space-x-2">
+          <div className="mt-8 flex justify-center items-center gap-1 flex-wrap max-w-full overflow-x-auto">
+            {/* First Button */}
+            <button
+              onClick={() => handlePageChange(1)}
+              disabled={currentPage === 1}
+              className={`px-3 py-2 rounded ${
+                currentPage === 1
+                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  : "bg-gray-300 text-black hover:bg-gray-400"
+              }`}
+            >
+              First
+            </button>
+
             {/* Previous Button */}
             <button
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              className={`px-4 py-2 rounded ${
+              className={`px-3 py-2 rounded ${
                 currentPage === 1
                   ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                   : "bg-gray-300 text-black hover:bg-gray-400"
@@ -205,31 +218,63 @@ const BlogSearch: React.FC = () => {
             </button>
 
             {/* Numbered Page Buttons */}
-            {Array.from({ length: totalPages }, (_, index) => (
-              <button
-                key={index + 1}
-                onClick={() => handlePageChange(index + 1)}
-                className={`px-4 py-2 mx-1 rounded ${
-                  currentPage === index + 1
-                    ? "bg-yellow-600 text-white"
-                    : "bg-gray-300 text-black hover:bg-gray-400"
-                }`}
-              >
-                {index + 1}
-              </button>
-            ))}
+            {(() => {
+              const maxVisiblePages = 7;
+              let startPage = Math.max(
+                currentPage - Math.floor(maxVisiblePages / 2),
+                1
+              );
+              const endPage = Math.min(
+                startPage + maxVisiblePages - 1,
+                totalPages
+              );
+
+              if (endPage - startPage + 1 < maxVisiblePages) {
+                startPage = Math.max(endPage - maxVisiblePages + 1, 1);
+              }
+
+              return Array.from(
+                { length: endPage - startPage + 1 },
+                (_, index) => (
+                  <button
+                    key={startPage + index}
+                    onClick={() => handlePageChange(startPage + index)}
+                    className={`px-3 py-2 rounded ${
+                      currentPage === startPage + index
+                        ? "bg-yellow-600 text-white"
+                        : "bg-gray-300 text-black hover:bg-gray-400"
+                    }`}
+                  >
+                    {startPage + index}
+                  </button>
+                )
+              );
+            })()}
 
             {/* Next Button */}
             <button
               onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              className={`px-4 py-2 rounded ${
-                currentPage === totalPages
+              disabled={currentPage === totalPages || totalPages <= 1}
+              className={`px-3 py-2 rounded ${
+                currentPage === totalPages || totalPages <= 1
                   ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                   : "bg-gray-300 text-black hover:bg-gray-400"
               }`}
             >
               Next
+            </button>
+
+            {/* Last Button */}
+            <button
+              onClick={() => handlePageChange(totalPages)}
+              disabled={currentPage === totalPages || totalPages <= 1}
+              className={`px-3 py-2 rounded ${
+                currentPage === totalPages || totalPages <= 1
+                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  : "bg-gray-300 text-black hover:bg-gray-400"
+              }`}
+            >
+              Last
             </button>
           </div>
         </div>
