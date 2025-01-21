@@ -102,7 +102,7 @@ const Carousel: React.FC = () => {
                 {slide.description}
               </p>
               <Link
-                href="/blog"
+                href="/about"
                 className="px-4 py-1 sm:px-5 sm:py-2 md:px-6 md:py-2 bg-slate-600 bg-opacity-50 hover:bg-slate-700 hover:bg-opacity-70 text-xs sm:text-sm md:text-lg text-white rounded"
               >
                 {slide.buttonText}
