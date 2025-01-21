@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Metadata } from "next";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import FadeInWrapper from "../../(main)/FadeInWrapper";
@@ -18,7 +18,9 @@ export default async function Blog() {
         <h1 className="text-4xl font-semibold mb-6">ZynoraX Blog</h1>
 
         <section className="mt-10">
-          <BlogSearch />
+          <Suspense fallback={<div>Loading search results...</div>}>
+            <BlogSearch />
+          </Suspense>
         </section>
 
         {/* Social Media Links */}
