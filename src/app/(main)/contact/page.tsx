@@ -53,7 +53,7 @@ const ContactUs: NextPage = () => {
               Ready to take the next step? Let&apos;s work together and bring
               your ideas to life with innovative AI and web solutions.
             </p>
-            <MainButton text="Get in Touch" link="/contact"></MainButton>
+            {/* <MainButton text="Get in Touch" link="/contact"></MainButton> */}
           </section>
 
           {/* Social Media Links */}
