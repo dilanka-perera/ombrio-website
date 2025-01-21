@@ -4,24 +4,32 @@ import React, { useEffect, useState } from "react";
 import { Asset, Entry } from "contentful";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation"; // Import Next.js router and useSearchParams
+import { useRouter, useSearchParams } from "next/navigation";
 import { BlogPostSkeleton } from "@/app/api/blogs/route";
 
-async function getBlogs(query: string = "") {
+async function getBlogs(
+  query: string = "",
+  page: number = 1,
+  limit: number = 2
+) {
   try {
-    const response = await fetch(`/api/blogs?query=${query}`, {
-      method: "GET",
-    });
+    const skip = (page - 1) * limit;
+    const response = await fetch(
+      `/api/blogs?query=${query}&skip=${skip}&limit=${limit}`,
+      {
+        method: "GET",
+      }
+    );
 
     if (!response.ok) {
       throw new Error(`Failed to fetch blogs: ${response.statusText}`);
     }
 
     const data = await response.json();
-    return data; // Assuming the API returns an array of blog entries
+    return data; // Assuming the API returns PaginatedResponse<Entry<BlogPostSkeleton>>
   } catch (error) {
     console.error("Error fetching blogs from API:", error);
-    return []; // Return an empty array on error
+    return { items: [], total: 0 }; // Return an empty response on error
   }
 }
 
@@ -33,37 +41,50 @@ function isAsset(item: any): item is Asset {
 const BlogSearch: React.FC = () => {
   const [blogPosts, setBlogPosts] = useState<Entry<BlogPostSkeleton>[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(true); // Add loading state
+  const [loading, setLoading] = useState<boolean>(true);
+  const [totalPosts, setTotalPosts] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const postsPerPage = 2; // Number of posts per page
   const router = useRouter();
-  const searchParams = useSearchParams(); // Get search parameters from URL
+  const searchParams = useSearchParams();
 
   useEffect(() => {
-    // Get the 'query' parameter from the URL (if it exists)
     const query = searchParams.get("search") || "";
-    setSearchQuery(query);
+    const page = parseInt(searchParams.get("page") || "1", 10);
 
-    // Fetch blogs based on the query from the URL
+    setSearchQuery(query);
+    setCurrentPage(page);
+
     const fetchBlogs = async () => {
-      setLoading(true); // Set loading to true before fetching
-      const posts = await getBlogs(query);
-      setBlogPosts(posts);
-      setLoading(false); // Set loading to false after fetching
+      setLoading(true);
+      const response = await getBlogs(query, page, postsPerPage);
+      setBlogPosts(response.items);
+      setTotalPosts(response.total);
+      setLoading(false);
     };
 
     fetchBlogs();
-  }, [searchParams]); // Trigger the effect when searchParams changes
+  }, [searchParams]);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
 
   const handleSubmitSearch = () => {
-    // Update the URL with the search parameters
     const url = searchQuery
-      ? `/blog?search=${encodeURIComponent(searchQuery)}`
-      : `/blog`;
-    router.push(url); // Change the browser URL without reloading the page
+      ? `/blog?search=${encodeURIComponent(searchQuery)}&page=1`
+      : `/blog?page=1`;
+    router.push(url);
   };
+
+  const handlePageChange = (page: number) => {
+    const url = searchQuery
+      ? `/blog?search=${encodeURIComponent(searchQuery)}&page=${page}`
+      : `/blog?page=${page}`;
+    router.push(url);
+  };
+
+  const totalPages = Math.ceil(totalPosts / postsPerPage);
 
   return (
     <div>
@@ -84,7 +105,7 @@ const BlogSearch: React.FC = () => {
         </button>
       </div>
 
-      {/* Loading view */}
+      {/* Loading View */}
       {loading ? (
         <div role="status">
           <svg
@@ -106,64 +127,111 @@ const BlogSearch: React.FC = () => {
           <span className="sr-only">Loading...</span>
         </div>
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-4 justify-items-center">
-          {blogPosts.length > 0 ? (
-            blogPosts.map((post) => {
-              const slug = post.fields.slug;
+        <div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-4 justify-items-center">
+            {blogPosts.length > 0 ? (
+              blogPosts.map((post) => {
+                const slug = post.fields.slug;
 
-              if (typeof slug !== "string" || !slug) return null; // Skip posts with no slug
+                if (typeof slug !== "string" || !slug) return null;
 
-              return (
-                <div
-                  key={slug}
-                  className="m-1 bg-gray-100 rounded-lg p-8 max-w-[660px]"
-                >
-                  <h3 className="text-xl font-semibold mb-2">
-                    {typeof post.fields.title === "string" && post.fields.title
-                      ? post.fields.title
-                      : ""}
-                  </h3>
-
-                  {post.fields.featuredImage &&
-                    isAsset(post.fields.featuredImage) && (
-                      <Image
-                        src={`https:${post.fields.featuredImage.fields.file?.url}`}
-                        alt={
-                          typeof post.fields.title === "string" &&
-                          post.fields.title
-                            ? post.fields.title
-                            : ""
-                        }
-                        width={600}
-                        height={400}
-                        className="mb-4"
-                      />
-                    )}
-
-                  <p className="text-xs lg:text-sm mb-4">
-                    {typeof post.fields.summary === "string" &&
-                    post.fields.summary
-                      ? post.fields.summary
-                      : ""}
-                  </p>
-
-                  <Link
-                    href={`/blog/${slug}`} // Links to dynamic page
-                    className="text-yellow-600 hover:text-yellow-700 font-semibold"
+                return (
+                  <div
+                    key={slug}
+                    className="m-1 bg-gray-100 rounded-lg p-8 max-w-[660px]"
                   >
-                    Read more &rarr;
-                  </Link>
-                </div>
-              );
-            })
-          ) : (
-            <div className="w-full">
-              <p>
-                Sorry, we couldn&apos;t find any posts that match your search.
-                Stay tuned for new content!
-              </p>
-            </div>
-          )}
+                    <h3 className="text-xl font-semibold mb-2">
+                      {typeof post.fields.title === "string" &&
+                      post.fields.title
+                        ? post.fields.title
+                        : ""}
+                    </h3>
+
+                    {post.fields.featuredImage &&
+                      isAsset(post.fields.featuredImage) && (
+                        <Image
+                          src={`https:${post.fields.featuredImage.fields.file?.url}`}
+                          alt={
+                            typeof post.fields.title === "string" &&
+                            post.fields.title
+                              ? post.fields.title
+                              : ""
+                          }
+                          width={600}
+                          height={400}
+                          className="mb-4"
+                        />
+                      )}
+
+                    <p className="text-xs lg:text-sm mb-4">
+                      {typeof post.fields.summary === "string" &&
+                      post.fields.summary
+                        ? post.fields.summary
+                        : ""}
+                    </p>
+
+                    <Link
+                      href={`/blog/${slug}`}
+                      className="text-yellow-600 hover:text-yellow-700 font-semibold"
+                    >
+                      Read more &rarr;
+                    </Link>
+                  </div>
+                );
+              })
+            ) : (
+              <div className="w-full">
+                <p>
+                  Sorry, we couldn&apos;t find any posts that match your search.
+                  Stay tuned for new content!
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Pagination Bar */}
+          <div className="mt-8 flex justify-center items-center space-x-2">
+            {/* Previous Button */}
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className={`px-4 py-2 rounded ${
+                currentPage === 1
+                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  : "bg-gray-300 text-black hover:bg-gray-400"
+              }`}
+            >
+              Previous
+            </button>
+
+            {/* Numbered Page Buttons */}
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index + 1}
+                onClick={() => handlePageChange(index + 1)}
+                className={`px-4 py-2 mx-1 rounded ${
+                  currentPage === index + 1
+                    ? "bg-yellow-600 text-white"
+                    : "bg-gray-300 text-black hover:bg-gray-400"
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+
+            {/* Next Button */}
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className={`px-4 py-2 rounded ${
+                currentPage === totalPages
+                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  : "bg-gray-300 text-black hover:bg-gray-400"
+              }`}
+            >
+              Next
+            </button>
+          </div>
         </div>
       )}
     </div>
