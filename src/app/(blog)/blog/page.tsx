@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Metadata } from "next";
+import { Metadata, NextPage } from "next";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import FadeInWrapper from "../../(main)/FadeInWrapper";
 import BlogSearch from "./BlogSearch";
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.",
 };
 
-export default async function Blog() {
+const Blog: NextPage = () => {
   return (
     <FadeInWrapper>
       <div className="py-8 px-4 text-black">
@@ -48,4 +48,6 @@ export default async function Blog() {
       </div>
     </FadeInWrapper>
   );
-}
+};
+
+export default Blog;
