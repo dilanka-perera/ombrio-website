@@ -5,7 +5,7 @@ import FadeInWrapper from "../../(main)/FadeInWrapper";
 import BlogSearch from "./BlogSearch";
 
 export const metadata: Metadata = {
-  title: "Blog – Zynorax",
+  title: "Blog – ZynoraX",
   description:
     "Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.",
 };

@@ -7,7 +7,7 @@ import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import FadeInWrapper from "../FadeInWrapper";
 
 export const metadata: Metadata = {
-  title: "About – Zynorax",
+  title: "About – ZynoraX",
   description:
     "Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.",
 };

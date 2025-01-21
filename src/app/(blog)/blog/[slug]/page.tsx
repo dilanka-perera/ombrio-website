@@ -12,12 +12,6 @@ import {
 } from "@/app/api/blogs/route";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Blog – Zynorax",
-  description:
-    "Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.",
-};
-
 async function getBlogBySlug(slug: string) {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID ?? "",
@@ -125,6 +119,27 @@ type BlogPostPageProps = {
     slug: string;
   }>;
 };
+
+export async function generateMetadata({
+  params,
+}: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const blogPost = await getBlogBySlug(slug);
+
+  let title = "404: Blog Post Not Found – ZynoraX";
+  let description =
+    "Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.";
+
+  if (blogPost) {
+    title = `${blogPost.fields.title} – ZynoraX`;
+    description = blogPost.fields.summary;
+  }
+
+  return {
+    title,
+    description,
+  };
+}
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;

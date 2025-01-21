@@ -10,7 +10,7 @@ import WhatWeDo from "./WhatWeDo";
 import WhyChooseUs from "./WhyChoosUs";
 
 export const metadata: Metadata = {
-  title: "Zynorax",
+  title: "ZynoraX",
   description:
     "Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.",
 };
