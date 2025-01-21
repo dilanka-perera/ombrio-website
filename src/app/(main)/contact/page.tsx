@@ -1,6 +1,6 @@
 import React from "react";
 import { Metadata, NextPage } from "next";
-import MainButton from "../MainButton";
+// import MainButton from "../MainButton";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import FadeInWrapper from "../FadeInWrapper";
 
