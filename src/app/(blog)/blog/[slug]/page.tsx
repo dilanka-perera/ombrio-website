@@ -126,7 +126,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const blogPost = await getBlogBySlug(slug);
 
-  let title = "404: Blog Post Not Found – ZynoraX";
+  let title = "404: Blog post not found – ZynoraX";
   let description =
     "Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.";
 
@@ -157,7 +157,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               been moved.
             </p>
             <Image
-              src="/404.png"
+              src="/404_BLOG.png"
               alt="Blog Post Not Found"
               width={900}
               height={900}
