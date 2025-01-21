@@ -62,6 +62,24 @@ const renderOptions = {
     [BLOCKS.HR]: () => {
       return <hr className="border-t-2 border-gray-600 mt-6 mb-10" />;
     },
+    [BLOCKS.TABLE]: (node: Node, children: React.ReactNode) => (
+      <div className="overflow-x-auto bg-gray-100 p-6 rounded-lg">
+        <table className="table-auto border-collapse border border-gray-400 w-full">
+          {children}
+        </table>
+      </div>
+    ),
+    [BLOCKS.TABLE_ROW]: (node: Node, children: React.ReactNode) => (
+      <tr className="border border-gray-400">{children}</tr>
+    ),
+    [BLOCKS.TABLE_HEADER_CELL]: (node: Node, children: React.ReactNode) => (
+      <th className="px-4 py-2 text-left border border-gray-400 bg-gray-200 font-semibold">
+        {children}
+      </th>
+    ),
+    [BLOCKS.TABLE_CELL]: (node: Node, children: React.ReactNode) => (
+      <td className="px-4 py-2 border border-gray-400">{children}</td>
+    ),
     [INLINES.EMBEDDED_ENTRY]: (node: Node) => {
       // target the contentType of the EMBEDDED_ENTRY to display as you need
       if (node.data.target.sys.contentType.sys.id === "blogPost") {
