@@ -111,7 +111,6 @@ type BlogPostPageProps = {
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const blogPost = await getBlogBySlug(slug);
-  console.log(blogPost.fields.content.content[33]);
   if (!blogPost) {
     return (
       <FadeInWrapper>

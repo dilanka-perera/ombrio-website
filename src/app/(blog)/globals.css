@@ -43,4 +43,8 @@ li > p {
 
 code {
   white-space: pre;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  overflow-y: hidden; /* Hides vertical overflow */
+  display: block;
+  max-width: 100%;
 }
