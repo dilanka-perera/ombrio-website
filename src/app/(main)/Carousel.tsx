@@ -19,28 +19,28 @@ const slides: Slide[] = [
     title: "Future-Ready AI Solutions",
     description:
       "Redefine possibilities with cutting-edge AI services tailored for your business success.",
-    buttonText: "Our Work →",
+    buttonText: "Our Blog →",
   },
   {
     imageSrc: "/Home2.jpg",
     title: "Your Website, Our Expertise",
     description:
       "Build fast, secure, and scalable websites designed to grow with your business.",
-    buttonText: "Our Work →",
+    buttonText: "Our Blog →",
   },
   {
     imageSrc: "/Home3.jpg",
     title: "Pioneering the Future of Connectivity",
     description:
       "Exploring the latest in 5G, IoT, and beyond to shape the future of faster and more reliable communication.",
-    buttonText: "Our Work →",
+    buttonText: "Our Blog →",
   },
   {
     imageSrc: "/Home4.jpg",
     title: "Creating Positive Global Impact",
     description:
       "Leveraging AI, web development, and wireless technology to address global challenges and drive innovation for a sustainable future.",
-    buttonText: "Our Work →",
+    buttonText: "Our Blog →",
   },
 ];
 
@@ -102,7 +102,7 @@ const Carousel: React.FC = () => {
                 {slide.description}
               </p>
               <Link
-                href="/about"
+                href="/blog"
                 className="px-4 py-1 sm:px-5 sm:py-2 md:px-6 md:py-2 bg-slate-600 bg-opacity-50 hover:bg-slate-700 hover:bg-opacity-70 text-xs sm:text-sm md:text-lg text-white rounded"
               >
                 {slide.buttonText}
