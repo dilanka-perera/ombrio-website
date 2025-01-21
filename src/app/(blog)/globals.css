@@ -40,3 +40,7 @@ li > p {
   margin: 0; /* Remove margins */
   display: inline; /* Make it behave like inline content */
 }
+
+code {
+  white-space: pre;
+}

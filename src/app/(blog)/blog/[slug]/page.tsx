@@ -76,29 +76,6 @@ const renderOptions = {
         );
       }
     },
-    [BLOCKS.EMBEDDED_ENTRY]: (node: Node) => {
-      // target the contentType of the EMBEDDED_ENTRY to display as you need
-      if (node.data.target.sys.contentType.sys.id === "codeBlock") {
-        return (
-          <pre>
-            <code>{node.data.target.fields.code}</code>
-          </pre>
-        );
-      }
-
-      if (node.data.target.sys.contentType.sys.id === "videoEmbed") {
-        return (
-          <iframe
-            src={node.data.target.fields.embedUrl}
-            height="100%"
-            width="100%"
-            title={node.data.target.fields.title}
-            allowFullScreen={true}
-          />
-        );
-      }
-    },
-
     [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
       // render the EMBEDDED_ASSET as you need
       return (
@@ -134,7 +111,7 @@ type BlogPostPageProps = {
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const blogPost = await getBlogBySlug(slug);
-
+  console.log(blogPost.fields.content.content[33]);
   if (!blogPost) {
     return (
       <FadeInWrapper>

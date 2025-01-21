@@ -10,7 +10,7 @@ import { BlogPostSkeleton } from "@/app/api/blogs/route";
 async function getBlogs(
   query: string = "",
   page: number = 1,
-  limit: number = 2
+  limit: number = 10
 ) {
   try {
     const skip = (page - 1) * limit;
@@ -44,7 +44,7 @@ const BlogSearch: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [totalPosts, setTotalPosts] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const postsPerPage = 2; // Number of posts per page
+  const postsPerPage = 10; // Number of posts per page
   const router = useRouter();
   const searchParams = useSearchParams();
 
