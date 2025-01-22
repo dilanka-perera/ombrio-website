@@ -129,15 +129,40 @@ export async function generateMetadata({
   let title = "404: Blog post not found – ZynoraX";
   let description =
     "Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.";
+  let thumbnail = "/default-thumbnail.jpg"; // Default thumbnail in case blog post is not found
 
   if (blogPost) {
     title = `${blogPost.fields.title} – ZynoraX`;
     description = blogPost.fields.summary;
+
+    // Check if the featured image exists and is an asset
+    const featuredImage = blogPost.fields.featuredImage;
+    if (featuredImage && isAsset(featuredImage)) {
+      thumbnail = `https:${featuredImage.fields.file?.url ?? ""}`;
+    }
   }
 
   return {
     title,
     description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: thumbnail,
+          width: 1200, // Ideal width for social media sharing
+          height: 630, // Ideal height for social media sharing
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [thumbnail],
+    },
   };
 }
 
