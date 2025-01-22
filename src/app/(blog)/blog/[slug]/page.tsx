@@ -129,7 +129,7 @@ export async function generateMetadata({
   let title = "404: Blog post not found – ZynoraX";
   let description =
     "Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.";
-  let thumbnail = "/default-thumbnail.jpg"; // Default thumbnail in case blog post is not found
+  let thumbnail = "/OG_BLOG.jpg"; // Default thumbnail in case blog post is not found
 
   if (blogPost) {
     title = `${blogPost.fields.title} – ZynoraX`;
