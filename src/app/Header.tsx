@@ -34,6 +34,13 @@ export default function Header({
   const pathnameParts = pathname.split("/");
   const path = pathnameParts[1];
 
+  const links = [
+    { href: "/blog", text: "Blog" },
+    { href: "/career", text: "Career" },
+    { href: "/about", text: "About" },
+    { href: "/contact", text: "Contact" },
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -112,7 +119,18 @@ export default function Header({
               <button
                 type="button"
                 onClick={() => setIsSidebarOpen(true)}
-                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-900"
+                style={{
+                  color: textColor, // initial color
+                }}
+                onMouseEnter={(e) => {
+                  const target = e.target as HTMLAnchorElement;
+                  target.style.color = textHoverColor;
+                }}
+                onMouseLeave={(e) => {
+                  const target = e.target as HTMLAnchorElement;
+                  target.style.color = textColor;
+                }}
+                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
               >
                 <svg
                   className="size-8"
@@ -131,32 +149,32 @@ export default function Header({
               </button>
             </div>
             <div className="hidden lg:flex lg:gap-x-16">
-              <Link
-                href="/blog"
-                className={`text-base/6 text-${textColor} hover:text-${textHoverColor} ${
-                  path == "blog" ? "underline" : ""
-                }`}
-              >
-                Blog
-              </Link>
-              <Link
-                href="/career"
-                className={`text-base/6 text-${textColor} hover:text-${textHoverColor}`}
-              >
-                Career
-              </Link>
-              <Link
-                href="/about"
-                className={`text-base/6 text-${textColor} hover:text-${textHoverColor}`}
-              >
-                About
-              </Link>
-              <Link
-                href="/contact"
-                className={`text-base/6 text-${textColor} hover:text-${textHoverColor}`}
-              >
-                Contact
-              </Link>
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  style={{
+                    fontSize: "1.15rem", // equivalent to text-base in Tailwind
+                    color: textColor, // initial color
+                    fontWeight: "450",
+                  }}
+                  onMouseEnter={(e) => {
+                    const target = e.target as HTMLAnchorElement;
+                    target.style.color = textHoverColor;
+                  }}
+                  onMouseLeave={(e) => {
+                    const target = e.target as HTMLAnchorElement;
+                    target.style.color = textColor;
+                  }}
+                  className={`text-base ${
+                    "/" + path === link.href
+                      ? "underline underline-offset-8 decoration-4"
+                      : ""
+                  }`}
+                >
+                  {link.text}
+                </Link>
+              ))}
             </div>
           </nav>
         </div>

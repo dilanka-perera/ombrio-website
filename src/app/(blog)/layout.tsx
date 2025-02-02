@@ -30,8 +30,8 @@ export default function RootLayout({
           logo1Link="/"
           logo2="/LOGO2.png"
           logo2Link="/"
-          textColor="black"
-          textHoverColor="gray-700"
+          textColor="#000000" // black in hex
+          textHoverColor="#374151" // gray-700 in hex
         />
         <main className="flex-grow">
           <div className="max-w-[1280px] mx-auto pt-[80px]">{children}</div>
@@ -39,8 +39,8 @@ export default function RootLayout({
         <Footer
           fromColor="#cbd5e1" // slate-300 in hex
           toColor="#64748b" // slate-500 in hex
-          textColor="black"
-          textHoverColor="gray-700"
+          textColor="#000000" // black in hex
+          textHoverColor="#374151" // gray-700 in hex
         />
       </body>
     </html>

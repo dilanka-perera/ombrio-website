@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 interface FooterProps {
@@ -13,6 +15,11 @@ export default function Footer({
   textColor,
   textHoverColor,
 }: FooterProps) {
+  const links = [
+    { href: "#", text: "Privacy Policy" },
+    { href: "#", text: "Terms & Conditions" },
+  ];
+
   return (
     <footer
       style={{
@@ -23,18 +30,27 @@ export default function Footer({
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between md:items-center">
         {/* Links Section - Stacked on small screens, horizontal on larger screens */}
         <div className="flex flex-col md:flex-row gap-6 text-left mb-4 md:mb-0">
-          <Link
-            href="#"
-            className={`text-${textColor} hover:text-${textHoverColor}`}
-          >
-            Privacy Policy
-          </Link>
-          <Link
-            href="#"
-            className={`text-${textColor} hover:text-${textHoverColor}`}
-          >
-            Terms & Conditions
-          </Link>
+          {links.map((link) => (
+            <Link
+              key={link.text} // or use href if text is not unique
+              href={link.href}
+              style={{
+                fontSize: "1rem", // Equivalent to text-base
+                color: textColor, // Initial color
+                textDecoration: "none", // No underline
+              }}
+              onMouseEnter={(e) => {
+                const target = e.target as HTMLAnchorElement;
+                target.style.color = textHoverColor; // Hover color
+              }}
+              onMouseLeave={(e) => {
+                const target = e.target as HTMLAnchorElement;
+                target.style.color = textColor; // Revert to original color
+              }}
+            >
+              {link.text}
+            </Link>
+          ))}
         </div>
 
         {/* Copyright Section with a white border on small screens */}
