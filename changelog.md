@@ -15,7 +15,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Added Homepage Image Snippets
 - Added Blogs
 - Added Blog Search
+- Added Careers Page
+- Added About Page
+- Added Contact Page
+- Added moving background
 
 ### Fixed
 
 - Fixed Header Navigation in Small Screens
+- Fixed Blog search
