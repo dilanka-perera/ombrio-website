@@ -24,3 +24,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - Fixed Header Navigation in Small Screens
 - Fixed Blog search
+
+### Changed
+
+- Changed Header and Footer as reusable components

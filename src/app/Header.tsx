@@ -4,13 +4,32 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-export default function Header() {
+interface HeaderProps {
+  fromColor: string;
+  toColor: string;
+  logo1: string;
+  logo1Link: string;
+  logo2: string;
+  logo2Link: string;
+  textColor: string;
+  textHoverColor: string;
+}
+
+export default function Header({
+  fromColor,
+  toColor,
+  logo1,
+  logo1Link,
+  logo2,
+  logo2Link,
+  textColor,
+  textHoverColor,
+}: HeaderProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [isScrollOverflow, setIsScrollOverflow] = useState(true);
 
-  // Detect scroll direction and header visibility
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -22,20 +41,18 @@ export default function Header() {
         setIsScrollOverflow(false);
       }
 
-      // Keep the header visible if less than 25% of the viewport has been scrolled
       if (scrollY < viewportHeight * 0.25) {
         setIsHeaderVisible(true);
       } else if (scrollY > prevScrollY) {
-        setIsHeaderVisible(false); // Scrolling down
+        setIsHeaderVisible(false);
       } else if (scrollY < prevScrollY) {
-        setIsHeaderVisible(true); // Scrolling up
+        setIsHeaderVisible(true);
       }
 
-      setPrevScrollY(scrollY); // Update the scroll position
+      setPrevScrollY(scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -44,7 +61,7 @@ export default function Header() {
   return (
     <div>
       <header
-        className={` z-10 left-0 w-full bg-gradient-to-r from-slate-500 to-slate-950 flex-col items-center ${
+        className={`z-10 left-0 w-full bg-gradient-to-r from-${fromColor} to-${toColor} flex-col items-center ${
           isScrollOverflow
             ? "absolute translate-y-0"
             : isHeaderVisible
@@ -57,21 +74,22 @@ export default function Header() {
           <div className="flex-1 px-6">
             <div className="-m-1.5 p-1.5">
               <div className="flex">
-                <Link href="/" className="flex h-18 items-center px-2">
+                <Link href={logo1Link} className="flex h-18 items-center px-2">
                   <Image
                     className="drop-shadow-md"
-                    src="/LOGO1.gif"
-                    alt="Next.js logo"
+                    src={logo1}
+                    alt="Logo 1"
                     width={50}
                     height={50}
                     priority
                   />
                 </Link>
-                <Link href="/" className="flex h-18 items-center px-2">
+
+                <Link href={logo2Link} className="flex h-18 items-center px-2">
                   <Image
                     className="drop-shadow-md"
-                    src="/LOGO2.png"
-                    alt="Next.js logo"
+                    src={logo2}
+                    alt="Logo 2"
                     width={150}
                     height={30}
                     priority
@@ -88,7 +106,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setIsSidebarOpen(true)}
-                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100"
+                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-900"
               >
                 <svg
                   className="size-8"
@@ -97,7 +115,6 @@ export default function Header() {
                   strokeWidth="1.5"
                   stroke="currentColor"
                   aria-hidden="true"
-                  data-slot="icon"
                 >
                   <path
                     strokeLinecap="round"
@@ -110,31 +127,31 @@ export default function Header() {
             <div className="hidden lg:flex lg:gap-x-16">
               <Link
                 href="/"
-                className="text-base/6 text-white hover:text-gray-300"
+                className={`text-base/6 text-${textColor} hover:text-${textHoverColor}`}
               >
                 Home
               </Link>
               <Link
                 href="/blog"
-                className="text-base/6 text-white hover:text-gray-300"
+                className={`text-base/6 text-${textColor} hover:text-${textHoverColor}`}
               >
                 Blog
               </Link>
               <Link
                 href="/career"
-                className="text-base/6 text-white hover:text-gray-300"
+                className={`text-base/6 text-${textColor} hover:text-${textHoverColor}`}
               >
                 Career
               </Link>
               <Link
                 href="/about"
-                className="text-base/6 text-white hover:text-gray-300"
+                className={`text-base/6 text-${textColor} hover:text-${textHoverColor}`}
               >
                 About
               </Link>
               <Link
                 href="/contact"
-                className="text-base/6 text-white hover:text-gray-300"
+                className={`text-base/6 text-${textColor} hover:text-${textHoverColor}`}
               >
                 Contact
               </Link>

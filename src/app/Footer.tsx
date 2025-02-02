@@ -1,15 +1,35 @@
 import Link from "next/link";
 
-export default function Footer() {
+interface FooterProps {
+  fromColor: string;
+  toColor: string;
+  textColor: string;
+  textHoverColor: string;
+}
+
+export default function Footer({
+  fromColor,
+  toColor,
+  textColor,
+  textHoverColor,
+}: FooterProps) {
   return (
-    <footer className="bg-gradient-to-r from-slate-500 to-slate-950 text-white p-6">
+    <footer
+      className={`bg-gradient-to-r from-${fromColor} to-${toColor} text-${textColor} p-6`}
+    >
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between md:items-center">
         {/* Links Section - Stacked on small screens, horizontal on larger screens */}
         <div className="flex flex-col md:flex-row gap-6 text-left mb-4 md:mb-0">
-          <Link href="#" className="text-white hover:text-gray-300">
+          <Link
+            href="#"
+            className={`text-${textColor} hover:text-${textHoverColor}`}
+          >
             Privacy Policy
           </Link>
-          <Link href="#" className="text-white hover:text-gray-300">
+          <Link
+            href="#"
+            className={`text-${textColor} hover:text-${textHoverColor}`}
+          >
             Terms & Conditions
           </Link>
         </div>

@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "../Header";
+import Footer from "../Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,11 +34,25 @@ export default function RootLayout({
           <source src="/background-video.mp4" type="video/mp4" />
         </video>
         <div className="fixed inset-0 -z-10 bg-gradient-to-r from-[rgba(3,7,18,0.8)] via-[rgba(23,23,23,0.8)] to-[rgba(3,7,18,0.8)]"></div>
-        <Header />
+        <Header
+          fromColor="slate-500"
+          toColor="slate-950"
+          logo1="/LOGO1.gif"
+          logo1Link="/"
+          logo2="/LOGO2.png"
+          logo2Link="/"
+          textColor="white"
+          textHoverColor="gray-300"
+        />
         <main className="flex-grow">
           <div className="max-w-[1280px] mx-auto pt-[80px]">{children}</div>
         </main>
-        <Footer />
+        <Footer
+          fromColor="slate-500"
+          toColor="slate-950"
+          textColor="white"
+          textHoverColor="gray-300"
+        />
       </body>
     </html>
   );
