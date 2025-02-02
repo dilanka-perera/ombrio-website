@@ -31,7 +31,7 @@ export default function RootLayout({
           playsInline
           className="fixed inset-0 w-full h-full object-cover -z-10"
         >
-          <source src="/background-video-2.mp4" type="video/mp4" />
+          <source src="/background-video.mp4" type="video/mp4" />
         </video>
         <div className="fixed inset-0 -z-10 bg-gradient-to-r from-[rgba(3,7,18,0.8)] via-[rgba(23,23,23,0.8)] to-[rgba(3,7,18,0.8)]"></div>
         <Header />
