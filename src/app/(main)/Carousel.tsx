@@ -93,7 +93,7 @@ const Carousel: React.FC = () => {
               height={720}
               priority
             />
-            <div className="absolute inset-0 bg-black opacity-70"></div>
+            <div className="absolute inset-0 bg-black opacity-60"></div>
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
               <h1 className="text-xl sm:text-3xl md:text-5xl font-bold mb-4 px-8 drop-shadow-lg">
                 {slide.title}

@@ -44,7 +44,7 @@ export default function Header() {
   return (
     <div>
       <header
-        className={` z-10 left-0 w-full bg-gradient-to-r from-indigo-300 to-slate-950 flex-col items-center ${
+        className={` z-10 left-0 w-full bg-gradient-to-r from-slate-500 to-slate-950 flex-col items-center ${
           isScrollOverflow
             ? "absolute translate-y-0"
             : isHeaderVisible

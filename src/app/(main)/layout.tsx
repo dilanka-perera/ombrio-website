@@ -31,9 +31,9 @@ export default function RootLayout({
           playsInline
           className="fixed inset-0 w-full h-full object-cover -z-10"
         >
-          <source src="/background-video-1.mp4" type="video/mp4" />
+          <source src="/background-video-2.mp4" type="video/mp4" />
         </video>
-        <div className="fixed inset-0 -z-10 bg-gradient-to-r from-[rgba(3,7,18,0.9)] via-[rgba(15,23,42,0.9)] to-[rgba(3,7,18,0.9)]"></div>
+        <div className="fixed inset-0 -z-10 bg-gradient-to-r from-[rgba(3,7,18,0.8)] via-[rgba(23,23,23,0.8)] to-[rgba(3,7,18,0.8)]"></div>
         <Header />
         <main className="flex-grow">
           <div className="max-w-[1280px] mx-auto pt-[80px]">{children}</div>
