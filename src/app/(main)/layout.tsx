@@ -21,8 +21,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-gradient-to-r from-neutral-950 via-slate-950 to-neutral-950`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen relative`}
       >
+        <div className="fixed inset-0 bg-gradient-to-r from-slate-700 via-purple-800 to-slate-700 -z-10"></div>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="fixed inset-0 w-full h-full object-cover -z-10"
+        >
+          <source src="/background-video-1.mp4" type="video/mp4" />
+        </video>
+        <div className="fixed inset-0 -z-10 bg-gradient-to-r from-[rgba(3,7,18,0.9)] via-[rgba(15,23,42,0.9)] to-[rgba(3,7,18,0.9)]"></div>
         <Header />
         <main className="flex-grow">
           <div className="max-w-[1280px] mx-auto pt-[80px]">{children}</div>

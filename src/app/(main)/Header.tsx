@@ -44,7 +44,7 @@ export default function Header() {
   return (
     <div>
       <header
-        className={` z-10 left-0 w-full bg-gradient-to-r from-slate-600 via-slate-800 to-slate-950 flex-col items-center ${
+        className={` z-10 left-0 w-full bg-gradient-to-r from-indigo-300 to-slate-950 flex-col items-center ${
           isScrollOverflow
             ? "absolute translate-y-0"
             : isHeaderVisible
@@ -55,9 +55,9 @@ export default function Header() {
         <div className={`${isScrollOverflow ? "h-[0px]" : "h-[80px]"}`}></div>
         <div className="h-[80px] flex items-center">
           <div className="flex-1 px-6">
-            <Link href="/" className="-m-1.5 p-1.5">
+            <div className="-m-1.5 p-1.5">
               <div className="flex">
-                <div className="flex h-18 items-center px-2">
+                <Link href="/" className="flex h-18 items-center px-2">
                   <Image
                     className="drop-shadow-md"
                     src="/LOGO1.gif"
@@ -66,8 +66,8 @@ export default function Header() {
                     height={50}
                     priority
                   />
-                </div>
-                <div className="flex h-18 items-center px-2">
+                </Link>
+                <Link href="/" className="flex h-18 items-center px-2">
                   <Image
                     className="drop-shadow-md"
                     src="/LOGO2.png"
@@ -76,9 +76,9 @@ export default function Header() {
                     height={30}
                     priority
                   />
-                </div>
+                </Link>
               </div>
-            </Link>
+            </div>
           </div>
           <nav
             className="mx-auto flex max-w-7xl items-center justify-between p-1 px-8"
