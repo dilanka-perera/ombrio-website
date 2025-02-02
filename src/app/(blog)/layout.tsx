@@ -24,12 +24,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-white`}
       >
         <Header
-          fromColor="slate-300"
-          toColor="slate-500"
+          fromColor="#cbd5e1" // slate-300 in hex
+          toColor="#64748b" // slate-500 in hex
           logo1="/LOGO1.gif"
           logo1Link="/"
-          logo2="/LOGO_BLOG.png"
-          logo2Link="/blog"
+          logo2="/LOGO2.png"
+          logo2Link="/"
           textColor="black"
           textHoverColor="gray-700"
         />
@@ -37,8 +37,8 @@ export default function RootLayout({
           <div className="max-w-[1280px] mx-auto pt-[80px]">{children}</div>
         </main>
         <Footer
-          fromColor="slate-300"
-          toColor="slate-500"
+          fromColor="#cbd5e1" // slate-300 in hex
+          toColor="#64748b" // slate-500 in hex
           textColor="black"
           textHoverColor="gray-700"
         />

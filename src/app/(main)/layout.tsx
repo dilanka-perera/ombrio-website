@@ -35,8 +35,8 @@ export default function RootLayout({
         </video>
         <div className="fixed inset-0 -z-10 bg-gradient-to-r from-[rgba(3,7,18,0.8)] via-[rgba(23,23,23,0.8)] to-[rgba(3,7,18,0.8)]"></div>
         <Header
-          fromColor="slate-500"
-          toColor="slate-950"
+          fromColor="#64748b" // slate-500 in hex
+          toColor="#020617" // slate-950 in hex
           logo1="/LOGO1.gif"
           logo1Link="/"
           logo2="/LOGO2.png"
@@ -48,8 +48,8 @@ export default function RootLayout({
           <div className="max-w-[1280px] mx-auto pt-[80px]">{children}</div>
         </main>
         <Footer
-          fromColor="slate-500"
-          toColor="slate-950"
+          fromColor="#64748b" // slate-500 in hex
+          toColor="#020617" // slate-950 in hex
           textColor="white"
           textHoverColor="gray-300"
         />

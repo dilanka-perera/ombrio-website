@@ -15,7 +15,10 @@ export default function Footer({
 }: FooterProps) {
   return (
     <footer
-      className={`bg-gradient-to-r from-${fromColor} to-${toColor} text-${textColor} p-6`}
+      style={{
+        background: `linear-gradient(to right, ${fromColor}, ${toColor})`,
+      }}
+      className={` text-${textColor} p-6`}
     >
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between md:items-center">
         {/* Links Section - Stacked on small screens, horizontal on larger screens */}

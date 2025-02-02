@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 interface HeaderProps {
   fromColor: string;
@@ -29,6 +30,9 @@ export default function Header({
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [isScrollOverflow, setIsScrollOverflow] = useState(true);
+  const pathname = usePathname();
+  const pathnameParts = pathname.split("/");
+  const path = pathnameParts[1];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,7 +65,10 @@ export default function Header({
   return (
     <div>
       <header
-        className={`z-10 left-0 w-full bg-gradient-to-r from-${fromColor} to-${toColor} flex-col items-center ${
+        style={{
+          background: `linear-gradient(to right, ${fromColor}, ${toColor})`,
+        }}
+        className={`z-10 left-0 w-full flex-col items-center ${
           isScrollOverflow
             ? "absolute translate-y-0"
             : isHeaderVisible
@@ -84,7 +91,6 @@ export default function Header({
                     priority
                   />
                 </Link>
-
                 <Link href={logo2Link} className="flex h-18 items-center px-2">
                   <Image
                     className="drop-shadow-md"
@@ -126,14 +132,10 @@ export default function Header({
             </div>
             <div className="hidden lg:flex lg:gap-x-16">
               <Link
-                href="/"
-                className={`text-base/6 text-${textColor} hover:text-${textHoverColor}`}
-              >
-                Home
-              </Link>
-              <Link
                 href="/blog"
-                className={`text-base/6 text-${textColor} hover:text-${textHoverColor}`}
+                className={`text-base/6 text-${textColor} hover:text-${textHoverColor} ${
+                  path == "blog" ? "underline" : ""
+                }`}
               >
                 Blog
               </Link>
@@ -190,13 +192,6 @@ export default function Header({
               <div className="mt-6 flow-root">
                 <div className="-my-6 divide-y divide-gray-500/10">
                   <div className="space-y-2 py-6">
-                    <Link
-                      href="/"
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                      onClick={() => setIsSidebarOpen(false)} // Close sidebar when clicked
-                    >
-                      Home
-                    </Link>
                     <Link
                       href="/blog"
                       className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
