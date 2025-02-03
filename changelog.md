@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Added About Page
 - Added Contact Page
 - Added moving background
+- Added Loading Layout Overlay
 
 ### Fixed
 

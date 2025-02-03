@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "../Header";
 import Footer from "../Footer";
+import ZynoraxOverlay from "./ZynoraxOverlay";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,6 +24,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen relative`}
       >
+        <ZynoraxOverlay />
+
         <div className="fixed inset-0 bg-gradient-to-r from-slate-700 via-purple-800 to-slate-700 -z-10"></div>
         <video
           autoPlay
