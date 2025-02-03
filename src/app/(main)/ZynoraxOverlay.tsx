@@ -32,7 +32,7 @@ export default function ZynoraxOverlay() {
       transition={{ duration: 1, delay: 4 }} // Fade-out after animation
     >
       <div
-        className="flex text-white font-bold space-x-1 text-7xl sm:text-8xl md:text-9xl lg:text-10xl"
+        className="flex text-white font-bold space-x-1 text-6xl sm:text-7xl md:text-9xl lg:text-10xl"
         style={{ fontFamily: "Bahnschrift, sans-serif" }}
       >
         {"ZYNORAX".split("").map((letter, index) => (
