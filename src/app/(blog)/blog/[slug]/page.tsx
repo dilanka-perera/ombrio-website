@@ -54,10 +54,10 @@ const renderOptions = {
       <li className="mb-2 text-base leading-7">{children}</li>
     ),
     [BLOCKS.HR]: () => {
-      return <hr className="border-t-2 border-gray-600 mt-6 mb-10" />;
+      return <hr className="border-t-2 border-slate-300 mt-6 mb-10" />;
     },
     [BLOCKS.TABLE]: (node: Node, children: React.ReactNode) => (
-      <div className="overflow-x-auto bg-gray-100 p-6 rounded-lg">
+      <div className="overflow-x-auto bg-slate-100 p-6">
         <table className="table-auto border-collapse border border-gray-400 w-full">
           <tbody>{children}</tbody>
         </table>
@@ -67,7 +67,7 @@ const renderOptions = {
       <tr className="border border-gray-400">{children}</tr>
     ),
     [BLOCKS.TABLE_HEADER_CELL]: (node: Node, children: React.ReactNode) => (
-      <th className="px-4 py-2 text-left border border-gray-400 bg-gray-200 font-semibold">
+      <th className="px-4 py-2 text-left border border-gray-400 bg-slate-400 font-semibold">
         {children}
       </th>
     ),
@@ -169,6 +169,7 @@ export async function generateMetadata({
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const blogPost = await getBlogBySlug(slug);
+  console.log(blogPost);
   if (!blogPost) {
     return (
       <FadeInWrapper>
@@ -206,7 +207,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <FadeInWrapper>
       <div className="pt-8 pb-[100px] px-4 text-black">
-        <div className="bg-gray-100 rounded-lg p-8 flex flex-col lg:flex-row-reverse items-center justify-center gap-6 lg:gap-12">
+        <div className="bg-slate-200 p-8 flex flex-col lg:flex-row-reverse items-center justify-center gap-6 lg:gap-12">
           {/* Title and metadata */}
           <div className="lg:w-1/2 text-center lg:text-left">
             <h1 className="text-3xl lg:text-4xl font-semibold mb-4 lg:mb-6">
@@ -266,7 +267,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 alt={featuredImage.fields.title ?? blogPost.fields.title}
                 width={featuredImage.fields.file?.details.image?.width ?? 1280}
                 height={featuredImage.fields.file?.details.image?.height ?? 720}
-                className="rounded-lg shadow-md"
+                className=" shadow-md"
               />
             </div>
           ) : (
@@ -281,7 +282,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               return (
                 <span
                   key={index}
-                  className="bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm"
+                  className="bg-slate-200 text-gray-800 px-4 py-2 rounded-full text-sm"
                 >
                   {category.fields.name}
                 </span>

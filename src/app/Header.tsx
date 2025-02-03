@@ -75,7 +75,7 @@ export default function Header({
         style={{
           background: `linear-gradient(to right, ${fromColor}, ${toColor})`,
         }}
-        className={`z-10 left-0 w-full flex-col items-center ${
+        className={`z-20 left-0 w-full flex-col items-center ${
           isScrollOverflow
             ? "absolute translate-y-0"
             : isHeaderVisible

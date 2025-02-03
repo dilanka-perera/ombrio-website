@@ -25,7 +25,7 @@ export default function Footer({
       style={{
         background: `linear-gradient(to right, ${fromColor}, ${toColor})`,
       }}
-      className={` text-${textColor} p-6`}
+      className={` text-${textColor} p-6 z-10`}
     >
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between md:items-center">
         {/* Links Section - Stacked on small screens, horizontal on larger screens */}

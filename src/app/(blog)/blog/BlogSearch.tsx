@@ -139,7 +139,7 @@ const BlogSearch: React.FC = () => {
                   return (
                     <div
                       key={slug}
-                      className="m-1 bg-gray-100 rounded-lg p-8 max-w-[660px]"
+                      className="m-1 bg-slate-200 p-8 max-w-[660px]"
                     >
                       <h3 className="text-xl font-semibold mb-2">
                         {typeof post.fields.title === "string" &&
