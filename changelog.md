@@ -30,3 +30,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 - Changed Header and Footer as reusable components
+- Changed Styling

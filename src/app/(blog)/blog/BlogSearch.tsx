@@ -100,11 +100,11 @@ const BlogSearch: React.FC = () => {
               handleSubmitSearch();
             }
           }}
-          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-600"
+          className="w-full p-2 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-600"
         />
         <button
           onClick={handleSubmitSearch}
-          className="ml-4 px-4 py-2 bg-yellow-600 text-white rounded-md hover:bg-yellow-700"
+          className="ml-4 px-4 py-2 bg-yellow-600 text-white hover:bg-yellow-700"
         >
           Search
         </button>
@@ -202,7 +202,7 @@ const BlogSearch: React.FC = () => {
               <button
                 onClick={() => handlePageChange(1)}
                 disabled={currentPage === 1}
-                className={`px-3 py-2 rounded ${
+                className={`px-3 py-2 ${
                   currentPage === 1
                     ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                     : "bg-gray-300 text-black hover:bg-gray-400"
@@ -215,7 +215,7 @@ const BlogSearch: React.FC = () => {
               <button
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
-                className={`px-3 py-2 rounded ${
+                className={`px-3 py-2 ${
                   currentPage === 1
                     ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                     : "bg-gray-300 text-black hover:bg-gray-400"
@@ -246,7 +246,7 @@ const BlogSearch: React.FC = () => {
                     <button
                       key={startPage + index}
                       onClick={() => handlePageChange(startPage + index)}
-                      className={`px-3 py-2 rounded ${
+                      className={`px-3 py-2 ${
                         currentPage === startPage + index
                           ? "bg-yellow-600 text-white"
                           : "bg-gray-300 text-black hover:bg-gray-400"
@@ -262,7 +262,7 @@ const BlogSearch: React.FC = () => {
               <button
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages || totalPages <= 1}
-                className={`px-3 py-2 rounded ${
+                className={`px-3 py-2 ${
                   currentPage === totalPages || totalPages <= 1
                     ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                     : "bg-gray-300 text-black hover:bg-gray-400"
@@ -275,7 +275,7 @@ const BlogSearch: React.FC = () => {
               <button
                 onClick={() => handlePageChange(totalPages)}
                 disabled={currentPage === totalPages || totalPages <= 1}
-                className={`px-3 py-2 rounded ${
+                className={`px-3 py-2 ${
                   currentPage === totalPages || totalPages <= 1
                     ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                     : "bg-gray-300 text-black hover:bg-gray-400"
