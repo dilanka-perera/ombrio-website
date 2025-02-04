@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Metadata, NextPage } from "next";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
-import FadeInWrapper from "../../(main)/FadeInWrapper";
+import FadeInWrapper from "../FadeInWrapper";
 import BlogSearch from "./BlogSearch";
 
 const title = "Blog – ZynoraX";

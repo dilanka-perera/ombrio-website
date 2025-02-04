@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "../globals.css";
-import Header from "../Header";
-import Footer from "../Footer";
+import "./globals.css";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,16 +23,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-white text-black`}
       >
-        <Header
-          fromColor="#64748b" // slate-500 in hex
-          toColor="#020617" // slate-950 in hex
-          logo1="/LOGO1.gif"
-          logo1Link="/"
-          logo2="/LOGO2.png"
-          logo2Link="/"
-          textColor="#ffffff" // white in hex
-          textHoverColor="#d1d5db" // gray-300 in hex
-        />
+        <Header />
         <main className="flex-grow">
           <div className="max-w-[1280px] mx-auto pt-[80px]">{children}</div>
         </main>

@@ -4,7 +4,7 @@ import { Asset, createClient, Entry, EntrySkeletonType } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES, Node } from "@contentful/rich-text-types";
 import Image from "next/image";
-import FadeInWrapper from "@/app/(main)/FadeInWrapper";
+import FadeInWrapper from "@/app/FadeInWrapper";
 import {
   AuthorSkeleton,
   BlogPostSkeleton,

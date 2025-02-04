@@ -5,30 +5,8 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-interface HeaderProps {
-  fromColor: string;
-  toColor: string;
-  logo1: string;
-  logo1Link: string;
-  logo2: string;
-  logo2Link: string;
-  textColor: string;
-  textHoverColor: string;
-}
-
-export default function Header({
-  fromColor,
-  toColor,
-  logo1,
-  logo1Link,
-  logo2,
-  logo2Link,
-  textColor,
-  textHoverColor,
-}: HeaderProps) {
+export default function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [prevScrollY, setPrevScrollY] = useState(0);
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [isScrollOverflow, setIsScrollOverflow] = useState(true);
   const pathname = usePathname();
   const pathnameParts = pathname.split("/");
@@ -51,36 +29,21 @@ export default function Header({
       } else {
         setIsScrollOverflow(false);
       }
-
-      if (scrollY < viewportHeight * 0.25) {
-        setIsHeaderVisible(true);
-      } else if (scrollY > prevScrollY) {
-        setIsHeaderVisible(false);
-      } else if (scrollY < prevScrollY) {
-        setIsHeaderVisible(true);
-      }
-
-      setPrevScrollY(scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [prevScrollY]);
+  }, []);
 
   return (
     <div>
       <header
-        style={{
-          background: `linear-gradient(to right, ${fromColor}, ${toColor})`,
-        }}
-        className={`z-20 left-0 w-full flex-col items-center ${
+        className={`z-20 left-0 bg-white w-full flex-col items-center shadow-md ${
           isScrollOverflow
             ? "absolute translate-y-0"
-            : isHeaderVisible
-            ? "fixed translate-y-0 top-[-80px]"
-            : "fixed translate-y-[-80px] top-[-80px]"
+            : "fixed translate-y-0 top-[-80px]"
         } transition-transform duration-500`}
       >
         <div className={`${isScrollOverflow ? "h-[0px]" : "h-[80px]"}`}></div>
@@ -88,20 +51,20 @@ export default function Header({
           <div className="flex-1">
             <div className="-m-1.5 p-1.5">
               <div className="flex">
-                <Link href={logo1Link} className="flex h-18 items-center px-2">
+                <Link href="/" className="flex h-18 items-center px-2">
                   <Image
                     className="drop-shadow-md"
-                    src={logo1}
+                    src="/LOGO1.gif"
                     alt="Logo 1"
                     width={50}
                     height={50}
                     priority
                   />
                 </Link>
-                <Link href={logo2Link} className="flex h-18 items-center px-2">
+                <Link href="/" className="flex h-18 items-center px-2">
                   <Image
                     className="drop-shadow-md"
-                    src={logo2}
+                    src="/LOGO2.png"
                     alt="Logo 2"
                     width={150}
                     height={30}
@@ -119,18 +82,7 @@ export default function Header({
               <button
                 type="button"
                 onClick={() => setIsSidebarOpen(true)}
-                style={{
-                  color: textColor, // initial color
-                }}
-                onMouseEnter={(e) => {
-                  const target = e.target as HTMLAnchorElement;
-                  target.style.color = textHoverColor;
-                }}
-                onMouseLeave={(e) => {
-                  const target = e.target as HTMLAnchorElement;
-                  target.style.color = textColor;
-                }}
-                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
+                className="-m-2.5 inline-flex text-slate-900 hover:text-slate-700 items-center justify-center rounded-md p-2.5"
               >
                 <svg
                   className="size-8"
@@ -153,22 +105,9 @@ export default function Header({
                 <Link
                   key={link.href}
                   href={link.href}
-                  style={{
-                    fontSize: "1.15rem", // equivalent to text-base in Tailwind
-                    color: textColor, // initial color
-                    fontWeight: "500",
-                  }}
-                  onMouseEnter={(e) => {
-                    const target = e.target as HTMLAnchorElement;
-                    target.style.color = textHoverColor;
-                  }}
-                  onMouseLeave={(e) => {
-                    const target = e.target as HTMLAnchorElement;
-                    target.style.color = textColor;
-                  }}
-                  className={`text-base ${
+                  className={`text-base font-medium text-slate-900 hover:text-slate-700 ${
                     "/" + path === link.href
-                      ? "underline underline-offset-8 decoration-4 decoration-yellow-600"
+                      ? "underline underline-offset-8 decoration-4 decoration-yellow-500"
                       : ""
                   }`}
                 >
@@ -183,7 +122,7 @@ export default function Header({
       <div>
         {isSidebarOpen && (
           <div className="lg:hidden" role="dialog" aria-modal="true">
-            <div className="fixed inset-y-0 right-0 z-30 w-full overflow-y-auto bg-slate-300 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div className="fixed inset-y-0 right-0 z-30 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center justify-end">
                 <button
                   type="button"
