@@ -2,20 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  height: 100%;
+  margin: 0;
+  background-color: #ffffff;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: #000000;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Smooth fade-in animation for the content */
+.content {
+  opacity: 0;
+  transition: opacity 1.5s ease-out; /* Fade-in over 1.5 seconds */
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+p {
+  text-align: justify;
+}
+
+li > p {
+  margin: 0; /* Remove margins */
+  display: inline; /* Make it behave like inline content */
+}
+
+code {
+  white-space: pre;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  overflow-y: hidden; /* Hides vertical overflow */
+  display: block;
+  max-width: 100%;
+  padding: 20px; /* Adjust the padding as needed */
+  background-color: #f4f4f4; /* Light gray background color */
+  color: #333; /* Dark text color */
+  border-radius: 8px;
 }
