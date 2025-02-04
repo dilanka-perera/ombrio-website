@@ -182,13 +182,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               The blog post you&apos;re looking for doesn&apos;t exist or has
               been moved.
             </p>
-            <Image
-              src="/404_BLOG.png"
-              alt="Blog Post Not Found"
-              width={900}
-              height={900}
-              className="mx-auto mb-2"
-            />
+            <div
+              className="text-9xl font-extrabold mb-2 text-center py-20"
+              style={{ fontFamily: "Bahnschrift, sans-serif" }}
+            >
+              4<span className="text-yellow-500">0</span>4
+            </div>
             <p className="text-sm text-gray-500 text-center">
               You can go back to the{" "}
               <Link href="/blog" className="text-blue-500">

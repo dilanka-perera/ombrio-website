@@ -1,6 +1,5 @@
 import Link from "next/link";
-import FadeInWrapper from "../FadeInWrapper";
-import Image from "next/image";
+import FadeInWrapper from "./FadeInWrapper";
 import { Metadata } from "next";
 
 const title = "404: Page not found – ZynoraX";
@@ -37,21 +36,20 @@ export default function NotFound() {
     <FadeInWrapper>
       <div className="flex items-center justify-center text-center p-4">
         <div className="p-8 max-w-lg">
-          <h1 className="text-4xl font-semibold text-gray-300 mb-4 text-center">
+          <h1 className="text-4xl font-semibold mb-4 text-center">
             Page Not Found
           </h1>
-          <p className="text-lg text-gray-300 mb-2 text-center">
+          <p className="text-lg mb-2 text-center">
             The page you&apos;re looking for doesn&apos;t exist or has been
             moved.
           </p>
-          <Image
-            src="/404.png"
-            alt="Blog Post Not Found"
-            width={900}
-            height={900}
-            className="mx-auto mb-2 brightness-60"
-          />
-          <p className="text-sm text-gray-300 text-center">
+          <div
+            className="text-9xl font-extrabold mb-2 text-center py-20"
+            style={{ fontFamily: "Bahnschrift, sans-serif" }}
+          >
+            4<span className="text-yellow-500">0</span>4
+          </div>
+          <p className="text-sm text-center">
             You can go back to the{" "}
             <Link href="/" className="text-blue-500">
               Home Page
