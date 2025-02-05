@@ -8,6 +8,8 @@ import OurWork from "./OurWork";
 import StayAhead from "./StayAhead";
 import WhatWeDo from "./WhatWeDo";
 import WhyChooseUs from "./WhyChoosUs";
+import WideContainer from "./WideContainer";
+import StandardContainer from "./StandardContainer";
 
 const title = "ZynoraX";
 const description =
@@ -41,8 +43,10 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <FadeInWrapper>
-      <div className="pb-8">
+      <WideContainer>
         <Carousel />
+      </WideContainer>
+      <StandardContainer>
         <WhatWeDo />
         <WhyChooseUs />
         <OurProcess />
@@ -50,7 +54,7 @@ export default function Home() {
         <ExploreOurBlog />
         <GetInTouch />
         <StayAhead />
-      </div>
+      </StandardContainer>
     </FadeInWrapper>
   );
 }

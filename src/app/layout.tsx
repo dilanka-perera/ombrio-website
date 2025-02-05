@@ -26,7 +26,7 @@ export default function RootLayout({
         <div className="container flex flex-col min-h-screen bg-white ring-1 ring-gray-500/10 shadow-md">
           <Header />
           <main className="flex-grow">
-            <div className="max-w-[1280px] mx-auto pt-[80px]">{children}</div>
+            <div className="max-w-[1920px] mx-auto pt-[80px]">{children}</div>
           </main>
           <Footer
             fromColor="#64748b" // slate-500 in hex

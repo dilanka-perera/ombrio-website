@@ -86,10 +86,10 @@ const Carousel: React.FC = () => {
             className="keen-slider__slide flex items-center justify-center w-full"
           >
             <Image
-              className="h-[360px] object-cover sm:h-auto sm:object-fill"
+              className="h-[360px] object-cover lg:h-auto lg:object-fill"
               src={slide.imageSrc}
               alt={slide.title}
-              width={1280}
+              width={1920}
               height={720}
               priority
             />
