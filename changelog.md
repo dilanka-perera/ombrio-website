@@ -38,3 +38,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - Fixed Header
 - Fixed Nav Bar
+- Fixed Carousal
