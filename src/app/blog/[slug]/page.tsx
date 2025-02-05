@@ -14,8 +14,8 @@ import Link from "next/link";
 
 async function getBlogBySlug(slug: string) {
   const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID ?? "",
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY ?? "",
+    space: process.env.CONTENTFUL_SPACE_ID!,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY!,
   });
 
   const result = await client.getEntries<BlogPostSkeleton>({

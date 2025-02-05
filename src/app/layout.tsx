@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./Header";
 import Footer from "./Footer";
+import { DataProvider } from "@/contexts/DataContext";
+import { fetchCarousal } from "@/lib/contentful";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,11 +15,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const carousal = await fetchCarousal();
+  const websiteImages = await fetchCarousal();
+
   return (
     <html lang="en">
       <body
@@ -26,7 +31,11 @@ export default function RootLayout({
         <div className="container flex flex-col min-h-screen bg-white ring-1 ring-gray-500/10 shadow-md">
           <Header />
           <main className="flex-grow">
-            <div className="max-w-[1920px] mx-auto pt-[80px]">{children}</div>
+            <div className="max-w-[1920px] mx-auto pt-[80px]">
+              <DataProvider initialData={{ carousal, websiteImages }}>
+                {children}
+              </DataProvider>
+            </div>
           </main>
           <Footer
             fromColor="#64748b" // slate-500 in hex
