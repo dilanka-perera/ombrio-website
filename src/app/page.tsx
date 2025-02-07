@@ -2,10 +2,8 @@ import { Metadata } from "next";
 import Carousel from "./Carousel";
 import ExploreOurBlog from "./ExploreOurBlog";
 import FadeInWrapper from "./FadeInWrapper";
-import GetInTouch from "./GetInTouch";
-import OurProcess from "./OurProcess";
+import ContactSalesBanner from "./ContactSalesBanner";
 import OurWork from "./OurWork";
-import StayAhead from "./StayAhead";
 import WhatWeDo from "./WhatWeDo";
 import WhyChooseUs from "./WhyChoosUs";
 import WideContainer from "./WideContainer";
@@ -48,13 +46,19 @@ export default function Home() {
       </WideContainer>
       <StandardContainer>
         <WhatWeDo />
-        <WhyChooseUs />
-        <OurProcess />
-        <OurWork />
-        <ExploreOurBlog />
-        <GetInTouch />
-        <StayAhead />
       </StandardContainer>
+      <WideContainer>
+        <WhyChooseUs />
+      </WideContainer>
+      <StandardContainer>
+        <OurWork />
+      </StandardContainer>
+      <StandardContainer>
+        <ExploreOurBlog />
+      </StandardContainer>
+      <WideContainer>
+        <ContactSalesBanner />
+      </WideContainer>
     </FadeInWrapper>
   );
 }

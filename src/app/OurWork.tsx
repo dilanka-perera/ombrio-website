@@ -11,10 +11,9 @@ const OurWork: React.FC = () => {
 
       {/* Description Section */}
       <div className="pt-6 px-8">
-        <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed">
           Check out our portfolio to see how we&apos;ve helped businesses thrive
-          with our AI-driven, web development, and wireless technology
-          solutions.
+          with our AI Solutions and Web Development.
         </p>
 
         {/* Read Our Blog Link */}
@@ -22,9 +21,6 @@ const OurWork: React.FC = () => {
           <div className="mr-6 mb-4 sm:mb-0">
             <MainButton text="View Portfolio" link="/about" />
           </div>
-          <p className="text-xs sm:text-sm md:text-base text-gray-400">
-            Case studies and success stories.
-          </p>
         </div>
       </div>
     </div>

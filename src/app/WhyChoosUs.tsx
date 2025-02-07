@@ -1,45 +1,42 @@
+"use client";
+
+import { useData } from "@/contexts/DataContext";
 import ImageSnippets from "./ImageSnippets";
+import StandardContainer from "./StandardContainer";
 import Topic from "./Topic";
 
 const WhyChooseUs: React.FC = () => {
-  return (
-    <div className="pb-8">
-      {/* Section Title */}
-      <div className="pt-10">
-        <Topic text="Why Choose Us?" />
-      </div>
+  const tileCollections = useData().tileCollections;
+  const tileCollection = tileCollections.find(
+    (item) => item.slug === "why-choose-us"
+  );
 
-      {/* Image Snippets */}
-      <div className="pt-6">
-        <ImageSnippets
-          topics={[
-            {
-              title: "Innovative Approach",
-              description:
-                "At ZynoraX, we prioritize creativity and ingenuity, blending AI, web development, and wireless technology research.",
-              imageSrc: "/We1.jpg",
-            },
-            {
-              title: "Experienced Team",
-              description:
-                "Our experts bring years of industry experience in AI, web development, and wireless technology to deliver the best results.",
-              imageSrc: "/We2.jpg",
-            },
-            {
-              title: "Custom Solutions",
-              description:
-                "We tailor every project to fit your specific business needs and goals.",
-              imageSrc: "/We3.jpg",
-            },
-            {
-              title: "Quality & Support",
-              description:
-                "We ensure high-quality deliverables with ongoing support to ensure long-term success.",
-              imageSrc: "/We4.jpg",
-            },
-          ]}
-        />
-      </div>
+  if (!tileCollection) {
+    return null;
+  }
+
+  const topics = tileCollection.tiles.map((tile) => ({
+    slug: tile.slug,
+    title: tile.title,
+    description: tile.description,
+    imageSrc: `https:${tile.image}`,
+  }));
+
+  return (
+    <div className="bg-slate-300">
+      <StandardContainer>
+        <div>
+          {/* Section Title */}
+          <div className="pt-10">
+            <Topic text="Why Choose Us?" />
+          </div>
+
+          {/* Image Snippets */}
+          <div className="pt-6">
+            <ImageSnippets topics={topics} />
+          </div>
+        </div>
+      </StandardContainer>
     </div>
   );
 };

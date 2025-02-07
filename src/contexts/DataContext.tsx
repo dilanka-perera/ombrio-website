@@ -17,9 +17,22 @@ export type WebsiteImage = {
   image: string;
 };
 
+export type Tile = {
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+};
+
+export type TileCollection = {
+  slug: string;
+  tiles: Tile[];
+};
+
 export type DataType = {
   carousal: CarousalItem[];
   websiteImages: WebsiteImage[];
+  tileCollections: TileCollection[];
 };
 
 const DataContext = createContext<DataType | undefined>(undefined);

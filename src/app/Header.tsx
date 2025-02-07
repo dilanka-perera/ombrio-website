@@ -117,16 +117,15 @@ export default function Header() {
               </div>
               <div className="hidden lg:flex lg:gap-x-16">
                 {links.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`text-base font-medium text-slate-900 hover:text-slate-700 ${
-                      "/" + path === link.href
-                        ? "underline underline-offset-8 decoration-4 decoration-yellow-500"
-                        : ""
-                    }`}
-                  >
-                    {link.text}
+                  <Link key={link.href} href={link.href}>
+                    <div className="relative text-base font-medium text-slate-900 hover:text-slate-700">
+                      {link.text}
+                      {"/" + path === link.href ? (
+                        <div className="bottom-0 w-7 h-1 bg-yellow-500" />
+                      ) : (
+                        <></>
+                      )}
+                    </div>
                   </Link>
                 ))}
               </div>

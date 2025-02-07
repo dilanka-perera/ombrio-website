@@ -55,7 +55,7 @@ export default function Footer({
 
         {/* Copyright Section with a white border on small screens */}
         <div
-          className="text-center border-t border-white md:border-none pt-2"
+          className="text-center border-t border-black md:border-none pt-2"
           style={{
             color: textColor, // initial color
           }}

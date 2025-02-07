@@ -30,7 +30,9 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
             alt="Side Image"
             width={800}
             height={800}
-            className="rounded-md w-full h-full object-cover"
+            className={`w-full h-full object-cover 
+              ${imageFirst ? "md:rounded-r-md" : "md:rounded-l-md"} 
+              xl:rounded-md`}
             unoptimized
           />
         </div>
@@ -40,11 +42,11 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
       <div
         className={`w-full md:w-1/2 flex items-center justify-center ${
           imageFirst ? "" : "md:justify-start"
-        } text-gray-100 p-8`}
+        } p-8`}
       >
         <div className="max-w-md text-center md:text-left">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4">{title}</h2>
-          <div className="text-base sm:text-lg text-gray-100">{content}</div>
+          <div className="text-base sm:text-lg">{content}</div>
         </div>
       </div>
     </div>

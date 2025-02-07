@@ -9,7 +9,7 @@ const MainButton: React.FC<ButtonProps> = ({ text, link }) => {
   return (
     <Link
       href={link}
-      className="inline-block bg-gray-800 text-white font-semibold text-sm sm:text-base md:text-lg px-6 py-3 rounded-lg shadow-lg hover:bg-gray-700 transition duration-200 w-[200px] text-center"
+      className="inline-block bg-slate-800 text-white font-semibold text-sm sm:text-base md:text-lg px-6 py-3 shadow-lg hover:bg-slate-700 w-[200px] text-center rounded"
     >
       {text}
     </Link>
