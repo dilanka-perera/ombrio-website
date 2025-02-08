@@ -10,6 +10,7 @@ import {
   fetchWebsiteImages,
 } from "@/lib/contentful";
 import { Ubuntu } from "next/font/google";
+import FadeInWrapper from "./FadeInWrapper";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -34,18 +35,20 @@ export default async function RootLayout({
         <div className="container flex flex-col min-h-screen bg-white ring-1 ring-gray-500/10 shadow-md">
           <Header />
           <main className="flex flex-grow">
-            <div className="flex flex-col flex-grow max-w-[1920px] mx-auto pt-[80px] overflow-hidden">
-              <DataProvider
-                initialData={{
-                  carousal,
-                  websiteImages,
-                  tileCollections,
-                  headBanners,
-                }}
-              >
-                {children}
-              </DataProvider>
-            </div>
+            <FadeInWrapper className="flex flex-grow overflow-hidden">
+              <div className="flex flex-col flex-grow max-w-[1920px] mx-auto pt-[80px] overflow-hidden">
+                <DataProvider
+                  initialData={{
+                    carousal,
+                    websiteImages,
+                    tileCollections,
+                    headBanners,
+                  }}
+                >
+                  {children}
+                </DataProvider>
+              </div>
+            </FadeInWrapper>
           </main>
           <Footer />
         </div>

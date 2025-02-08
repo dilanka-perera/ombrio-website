@@ -2,7 +2,9 @@ import React from "react";
 import { Metadata, NextPage } from "next";
 import { LayoutBreak, LayoutWrapper } from "../LayoutWrapper";
 import WideContainer from "../WideContainer";
-import ContactBanner from "../ContactBanner";
+import HeadBanner from "../HeadBanner";
+import StandardContainer from "../StandardContainer";
+import ContactCards from "./ContactCards";
 
 const title = "Contact – ZynoraX";
 const description =
@@ -33,15 +35,18 @@ export const metadata: Metadata = {
   },
 };
 
-const ContactUs: NextPage = () => {
+const Contact: NextPage = () => {
   return (
     <LayoutWrapper>
-      <LayoutBreak />
       <WideContainer>
-        <ContactBanner />
+        <HeadBanner slug="contact" />
       </WideContainer>
+      <StandardContainer>
+        <ContactCards />
+      </StandardContainer>
+      <LayoutBreak />
     </LayoutWrapper>
   );
 };
 
-export default ContactUs;
+export default Contact;

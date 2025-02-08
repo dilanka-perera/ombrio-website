@@ -8,7 +8,7 @@ interface ContactBannerProps {
 
 const ContactBanner: React.FC<ContactBannerProps> = ({
   title = "Connect with Us",
-  buttonText = "Contact Sales",
+  buttonText = "Request Our Services",
   href = "/contact",
 }) => {
   return (

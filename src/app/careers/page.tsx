@@ -46,7 +46,11 @@ const Careers: NextPage = () => {
       </StandardContainer>
       <LayoutBreak />
       <WideContainer>
-        <ContactBanner />
+        <ContactBanner
+          title="Join Our Team"
+          buttonText="Explore Open Roles"
+          href="#"
+        />
       </WideContainer>
     </LayoutWrapper>
   );
