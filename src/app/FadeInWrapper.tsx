@@ -2,19 +2,21 @@
 
 import { useEffect, useState } from "react";
 
-const FadeInWrapper = ({ children }: { children: React.ReactNode }) => {
+const FadeInWrapper = ({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true); // Set to true after component mounts
+    setIsMounted(true);
   }, []);
 
   return (
-    <div
-      className={`flex flex-grow flex-col overflow-hidden content ${
-        isMounted ? "fade-in" : ""
-      }`}
-    >
+    <div className={`${className} content ${isMounted ? "fade-in" : ""}`}>
       {children}
     </div>
   );
