@@ -74,7 +74,7 @@ export default function Header() {
                   <button
                     type="button"
                     onClick={() => setIsSidebarOpen(false)}
-                    className="-m-2.5 p-2.5 text-gray-700"
+                    className="-m-2.5 inline-flex text-slate-900 hover:text-slate-700 items-center justify-center p-2.5"
                   >
                     <svg
                       className="size-8"
@@ -96,7 +96,7 @@ export default function Header() {
                   <button
                     type="button"
                     onClick={() => setIsSidebarOpen(true)}
-                    className="-m-2.5 inline-flex text-slate-900 hover:text-slate-700 items-center justify-center rounded-md p-2.5"
+                    className="-m-2.5 inline-flex text-slate-900 hover:text-slate-700 items-center justify-center p-2.5"
                   >
                     <svg
                       className="size-8"

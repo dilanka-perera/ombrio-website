@@ -47,12 +47,7 @@ export default async function RootLayout({
               </DataProvider>
             </div>
           </main>
-          <Footer
-            fromColor="#ffffff" // slate-500 in hex
-            toColor="#ffffff" // slate-950 in hex
-            textColor="#000000" // white in hex
-            textHoverColor="#d1d5db" // gray-300 in hex
-          />
+          <Footer />
         </div>
       </body>
     </html>
