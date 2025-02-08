@@ -124,7 +124,8 @@ const BlogSearch: React.FC = () => {
       ) : (
         <></>
       )}
-      <div className={`content ${loading ? "" : "fade-in"}`}>
+      {/* <div className={`content ${loading ? "" : "fade-in"}`}> */}
+      <div>
         {loading ? (
           <></>
         ) : (
