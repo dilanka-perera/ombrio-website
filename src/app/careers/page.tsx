@@ -1,10 +1,10 @@
 import React from "react";
 import { Metadata, NextPage } from "next";
-import FadeInWrapper from "../FadeInWrapper";
-import ContactSalesBanner from "../ContactBanner";
 import WideContainer from "../WideContainer";
 import HeadBanner from "../HeadBanner";
 import StandardContainer from "../StandardContainer";
+import { LayoutBreak, LayoutWrapper } from "../LayoutWrapper";
+import ContactBanner from "../ContactBanner";
 
 const title = "Career – ZynoraX";
 const description =
@@ -37,17 +37,18 @@ export const metadata: Metadata = {
 
 const Careers: NextPage = () => {
   return (
-    <FadeInWrapper>
+    <LayoutWrapper>
       <WideContainer>
         <HeadBanner slug="careers" />
       </WideContainer>
       <StandardContainer>
         <div />
       </StandardContainer>
+      <LayoutBreak />
       <WideContainer>
-        <ContactSalesBanner />
+        <ContactBanner />
       </WideContainer>
-    </FadeInWrapper>
+    </LayoutWrapper>
   );
 };
 

@@ -1,7 +1,5 @@
 import React from "react";
 import { Metadata, NextPage } from "next";
-import FadeInWrapper from "../FadeInWrapper";
-import ContactSalesBanner from "../ContactBanner";
 import WideContainer from "../WideContainer";
 import HeadBanner from "../HeadBanner";
 import StandardContainer from "../StandardContainer";
@@ -10,6 +8,8 @@ import Mission from "./Mission";
 import CoreValues from "./CoreValues";
 import Story from "./Story";
 import Team from "./Team";
+import { LayoutBreak, LayoutWrapper } from "../LayoutWrapper";
+import ContactBanner from "../ContactBanner";
 
 const title = "About – ZynoraX";
 const description =
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 
 const About: NextPage = () => {
   return (
-    <FadeInWrapper>
+    <LayoutWrapper>
       <WideContainer>
         <HeadBanner slug="about" />
       </WideContainer>
@@ -61,10 +61,11 @@ const About: NextPage = () => {
       <StandardContainer>
         <Team />
       </StandardContainer>
+      <LayoutBreak />
       <WideContainer>
-        <ContactSalesBanner />
+        <ContactBanner />
       </WideContainer>
-    </FadeInWrapper>
+    </LayoutWrapper>
   );
 };
 

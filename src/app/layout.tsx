@@ -33,8 +33,8 @@ export default async function RootLayout({
       >
         <div className="container flex flex-col min-h-screen bg-white ring-1 ring-gray-500/10 shadow-md">
           <Header />
-          <main className="flex-grow">
-            <div className="max-w-[1920px] mx-auto pt-[80px]">
+          <main className="flex flex-grow">
+            <div className="flex flex-col flex-grow max-w-[1920px] mx-auto pt-[80px] overflow-hidden">
               <DataProvider
                 initialData={{
                   carousal,

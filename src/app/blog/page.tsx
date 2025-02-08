@@ -1,11 +1,11 @@
 import React, { Suspense } from "react";
 import { Metadata, NextPage } from "next";
-import FadeInWrapper from "../FadeInWrapper";
 import BlogSearch from "./BlogSearch";
 import StandardContainer from "../StandardContainer";
 import WideContainer from "../WideContainer";
-import ContactSalesBanner from "../ContactBanner";
 import HeadBanner from "../HeadBanner";
+import ContactBanner from "../ContactBanner";
+import { LayoutBreak, LayoutWrapper } from "../LayoutWrapper";
 
 const title = "Blog – ZynoraX";
 const description =
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 
 const Blog: NextPage = () => {
   return (
-    <FadeInWrapper>
+    <LayoutWrapper>
       <WideContainer>
         <HeadBanner slug="blog" />
       </WideContainer>
@@ -49,11 +49,11 @@ const Blog: NextPage = () => {
           </Suspense>
         </div>
       </StandardContainer>
-      <div className="flex-grow"></div>
+      <LayoutBreak />
       <WideContainer>
-        <ContactSalesBanner />
+        <ContactBanner />
       </WideContainer>
-    </FadeInWrapper>
+    </LayoutWrapper>
   );
 };
 

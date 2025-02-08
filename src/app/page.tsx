@@ -1,13 +1,13 @@
 import { Metadata } from "next";
 import Carousel from "./Carousel";
 import ExploreOurBlog from "./ExploreOurBlog";
-import FadeInWrapper from "./FadeInWrapper";
 import ContactBanner from "./ContactBanner";
 import OurJourney from "./OurJourney";
 import WhatWeDo from "./WhatWeDo";
 import WhyChooseUs from "./WhyChoosUs";
 import WideContainer from "./WideContainer";
 import StandardContainer from "./StandardContainer";
+import { LayoutBreak, LayoutWrapper } from "./LayoutWrapper";
 
 const title = "ZynoraX";
 const description =
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <FadeInWrapper>
+    <LayoutWrapper>
       <WideContainer>
         <Carousel />
       </WideContainer>
@@ -56,9 +56,10 @@ export default function Home() {
       <StandardContainer>
         <ExploreOurBlog />
       </StandardContainer>
+      <LayoutBreak />
       <WideContainer>
         <ContactBanner />
       </WideContainer>
-    </FadeInWrapper>
+    </LayoutWrapper>
   );
 }

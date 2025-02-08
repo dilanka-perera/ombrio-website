@@ -4,13 +4,16 @@ import { Asset, createClient, Entry, EntrySkeletonType } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES, Node } from "@contentful/rich-text-types";
 import Image from "next/image";
-import FadeInWrapper from "@/app/FadeInWrapper";
 import {
   AuthorSkeleton,
   BlogPostSkeleton,
   CategorySkeleton,
 } from "@/app/api/blogs/route";
 import Link from "next/link";
+import { LayoutBreak, LayoutWrapper } from "@/app/LayoutWrapper";
+import StandardContainer from "@/app/StandardContainer";
+import WideContainer from "@/app/WideContainer";
+import ContactBanner from "@/app/ContactBanner";
 
 async function getBlogBySlug(slug: string) {
   const client = createClient({
@@ -172,141 +175,155 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   console.log(blogPost);
   if (!blogPost) {
     return (
-      <FadeInWrapper>
-        <div className="flex items-center justify-center text-center p-4">
-          <div className="p-8 max-w-lg">
-            <h1 className="text-4xl font-semibold text-gray-800 mb-4 text-center">
-              Blog Post Not Found
-            </h1>
-            <p className="text-lg text-gray-600 mb-2 text-center">
-              The blog post you&apos;re looking for doesn&apos;t exist or has
-              been moved.
-            </p>
-            <div
-              className="text-9xl font-extrabold mb-2 text-center py-20"
-              style={{ fontFamily: "Bahnschrift, sans-serif" }}
-            >
-              4<span className="text-yellow-500">0</span>4
+      <LayoutWrapper>
+        <StandardContainer>
+          <div className="flex items-center justify-center text-center p-4">
+            <div className="p-8 max-w-lg">
+              <h1 className="text-4xl font-semibold text-gray-800 mb-4 text-center">
+                Blog Post Not Found
+              </h1>
+              <p className="text-lg text-gray-600 mb-2 text-center">
+                The blog post you&apos;re looking for doesn&apos;t exist or has
+                been moved.
+              </p>
+              <div
+                className="text-9xl font-extrabold mb-2 text-center py-20"
+                style={{ fontFamily: "Bahnschrift, sans-serif" }}
+              >
+                4<span className="text-yellow-500">0</span>4
+              </div>
+              <p className="text-sm text-gray-500 text-center">
+                You can go back to the{" "}
+                <Link href="/blog" className="text-blue-500">
+                  Blog Home
+                </Link>{" "}
+                or try searching again.
+              </p>
             </div>
-            <p className="text-sm text-gray-500 text-center">
-              You can go back to the{" "}
-              <Link href="/blog" className="text-blue-500">
-                Blog Home
-              </Link>{" "}
-              or try searching again.
-            </p>
           </div>
-        </div>
-      </FadeInWrapper>
+        </StandardContainer>
+        <LayoutBreak />
+        <WideContainer>
+          <ContactBanner />
+        </WideContainer>
+      </LayoutWrapper>
     );
   }
 
   const featuredImage = blogPost.fields.featuredImage;
 
   return (
-    <FadeInWrapper>
-      <div className="pt-8 pb-[100px] px-4 text-black">
-        <div className="bg-slate-200 p-8 flex flex-col lg:flex-row-reverse items-center justify-center gap-6 lg:gap-12">
-          {/* Title and metadata */}
-          <div className="lg:w-1/2 text-center lg:text-left">
-            <h1 className="text-3xl lg:text-4xl font-semibold mb-4 lg:mb-6">
-              {blogPost.fields.title}
-            </h1>
+    <LayoutWrapper>
+      <StandardContainer>
+        <div className="pt-8 pb-[100px] px-4 text-black">
+          <div className="bg-slate-200 p-8 flex flex-col lg:flex-row-reverse items-center justify-center gap-6 lg:gap-12">
+            {/* Title and metadata */}
+            <div className="lg:w-1/2 text-center lg:text-left">
+              <h1 className="text-3xl lg:text-4xl font-semibold mb-4 lg:mb-6">
+                {blogPost.fields.title}
+              </h1>
 
-            {/* Authors and Published Date */}
-            <div className="flex flex-col gap-4 text-gray-600 text-sm lg:text-base">
-              {/* Render each author */}
-              {blogPost.fields.author.map((author, index) => {
-                if (isEntry<AuthorSkeleton>(author)) {
-                  return (
-                    <div
-                      key={index}
-                      className="flex items-center gap-4 justify-center lg:justify-start"
-                    >
-                      {/* Author's Image */}
-                      {isAsset(author.fields.profilePicture) && (
-                        <Image
-                          src={`https:${author.fields.profilePicture.fields.file?.url}`}
-                          alt={author.fields.firstName}
-                          width={48}
-                          height={48}
-                          className="rounded-full shadow-md"
-                        />
-                      )}
-                      {/* Author's Name and Email */}
-                      <div className="text-center lg:text-left">
-                        <p className="font-medium">
-                          {`${author.fields.firstName} ${author.fields.lastName}`}
-                        </p>
-                        {author.fields.email && (
-                          <p className="text-xs lg:text-sm">
-                            {author.fields.email}
-                          </p>
+              {/* Authors and Published Date */}
+              <div className="flex flex-col gap-4 text-gray-600 text-sm lg:text-base">
+                {/* Render each author */}
+                {blogPost.fields.author.map((author, index) => {
+                  if (isEntry<AuthorSkeleton>(author)) {
+                    return (
+                      <div
+                        key={index}
+                        className="flex items-center gap-4 justify-center lg:justify-start"
+                      >
+                        {/* Author's Image */}
+                        {isAsset(author.fields.profilePicture) && (
+                          <Image
+                            src={`https:${author.fields.profilePicture.fields.file?.url}`}
+                            alt={author.fields.firstName}
+                            width={48}
+                            height={48}
+                            className="rounded-full shadow-md"
+                          />
                         )}
+                        {/* Author's Name and Email */}
+                        <div className="text-center lg:text-left">
+                          <p className="font-medium">
+                            {`${author.fields.firstName} ${author.fields.lastName}`}
+                          </p>
+                          {author.fields.email && (
+                            <p className="text-xs lg:text-sm">
+                              {author.fields.email}
+                            </p>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  );
-                }
-                return null;
-              })}
+                    );
+                  }
+                  return null;
+                })}
 
-              {/* Published Date */}
-              <p className="text-center lg:text-left mt-2">
-                Published on{" "}
-                {new Date(blogPost.fields.publishedDate).toLocaleDateString()}
-              </p>
+                {/* Published Date */}
+                <p className="text-center lg:text-left mt-2">
+                  Published on{" "}
+                  {new Date(blogPost.fields.publishedDate).toLocaleDateString()}
+                </p>
+              </div>
             </div>
+
+            {/* Image */}
+            {featuredImage && isAsset(featuredImage) ? (
+              <div className="lg:w-1/2">
+                <Image
+                  src={`https:${featuredImage.fields.file?.url}`}
+                  alt={featuredImage.fields.title ?? blogPost.fields.title}
+                  width={
+                    featuredImage.fields.file?.details.image?.width ?? 1280
+                  }
+                  height={
+                    featuredImage.fields.file?.details.image?.height ?? 720
+                  }
+                  className=" shadow-md"
+                />
+              </div>
+            ) : (
+              <div className="lg:w-1/2"></div>
+            )}
           </div>
 
-          {/* Image */}
-          {featuredImage && isAsset(featuredImage) ? (
-            <div className="lg:w-1/2">
-              <Image
-                src={`https:${featuredImage.fields.file?.url}`}
-                alt={featuredImage.fields.title ?? blogPost.fields.title}
-                width={featuredImage.fields.file?.details.image?.width ?? 1280}
-                height={featuredImage.fields.file?.details.image?.height ?? 720}
-                className=" shadow-md"
-              />
-            </div>
-          ) : (
-            <div className="lg:w-1/2"></div>
-          )}
-        </div>
+          {/* Categories */}
+          <div className="flex gap-4 flex-wrap mt-6">
+            {blogPost.fields.category?.map((category, index) => {
+              if (isEntry<CategorySkeleton>(category)) {
+                return (
+                  <span
+                    key={index}
+                    className="bg-slate-200 text-gray-800 px-4 py-2 rounded-full text-sm"
+                  >
+                    {category.fields.name}
+                  </span>
+                );
+              }
+              return null;
+            })}
+          </div>
 
-        {/* Categories */}
-        <div className="flex gap-4 flex-wrap mt-6">
-          {blogPost.fields.category?.map((category, index) => {
-            if (isEntry<CategorySkeleton>(category)) {
-              return (
-                <span
-                  key={index}
-                  className="bg-slate-200 text-gray-800 px-4 py-2 rounded-full text-sm"
-                >
-                  {category.fields.name}
-                </span>
-              );
-            }
-            return null;
-          })}
+          {/* Content */}
+          <div>
+            {documentToReactComponents(blogPost.fields.content, renderOptions)}
+          </div>
+          {/* Go back to blog page link */}
+          <div className="mt-8 text-center">
+            <Link
+              href="/blog"
+              className="text-yellow-600 hover:text-yellow-700 font-semibold"
+            >
+              &larr; Go back to Blog List
+            </Link>
+          </div>
         </div>
-
-        {/* Content */}
-        <div>
-          {documentToReactComponents(blogPost.fields.content, renderOptions)}
-        </div>
-        {/* Go back to blog page link */}
-        <div className="mt-8 text-center">
-          <Link
-            href="/blog"
-            className="text-yellow-600 hover:text-yellow-700 font-semibold"
-          >
-            &larr; Go back to Blog List
-          </Link>
-        </div>
-      </div>
-
-      <div className="overlay fixed bottom-0 left-0 w-full h-1/3 max-h-[200px] bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
-    </FadeInWrapper>
+      </StandardContainer>
+      <LayoutBreak />
+      <WideContainer>
+        <ContactBanner />
+      </WideContainer>
+    </LayoutWrapper>
   );
 }

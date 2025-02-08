@@ -58,7 +58,7 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
     window.addEventListener("resize", updateSlidesPerView);
 
     return () => window.removeEventListener("resize", updateSlidesPerView);
-  }, []);
+  }, [length]);
 
   useEffect(() => {
     if (instanceRef.current) {
