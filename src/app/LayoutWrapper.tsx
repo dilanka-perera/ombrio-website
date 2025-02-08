@@ -1,5 +1,4 @@
 import React from "react";
-import FadeInWrapper from "./FadeInWrapper";
 
 export const LayoutBreak = () => {
   return <div className="flex-grow overflow-hidden" />;
