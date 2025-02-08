@@ -12,6 +12,7 @@ type Topic = {
 };
 
 const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
+  const length = topics.length;
   const [perView, setPerView] = useState(2); // Default per view for larger screens
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -30,7 +31,27 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
 
   useEffect(() => {
     const updateSlidesPerView = () => {
-      setPerView(window.innerWidth < 640 ? 1 : window.innerWidth < 960 ? 2 : 3); // 1 for sm, 2 for others
+      setPerView(
+        window.innerWidth < 640
+          ? 1
+          : window.innerWidth < 960
+          ? length >= 2
+            ? 2
+            : 1
+          : window.innerWidth < 1280
+          ? length >= 3
+            ? 3
+            : length >= 2
+            ? 2
+            : 1
+          : length >= 4
+          ? 4
+          : length >= 3
+          ? 3
+          : length >= 2
+          ? 2
+          : 1
+      );
     };
 
     updateSlidesPerView(); // Initial check
@@ -55,9 +76,31 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
     }
   }, [instanceRef, currentSlide]);
 
+  const desktopStyle =
+    length <= 1
+      ? "grid grid-cols-1"
+      : length === 2
+      ? "hidden [@media(min-width:640px)]:grid grid-cols-2"
+      : length === 3
+      ? "hidden [@media(min-width:960px)]:grid grid-cols-3"
+      : length === 4
+      ? "hidden [@media(min-width:1280px)]:grid grid-cols-4"
+      : "hidden";
+
+  const mobileStyle =
+    length <= 1
+      ? "hidden"
+      : length === 2
+      ? "flex [@media(min-width:640px)]:hidden"
+      : length === 3
+      ? "flex [@media(min-width:960px)]:hidden"
+      : length === 4
+      ? "flex [@media(min-width:1280px)]:hidden"
+      : "flex";
+
   return (
     <div className="relative text-white pb-6 xl:pb-12">
-      <div className={`hidden xl:grid grid-cols-4 gap-4 px-4 xl:px-0`}>
+      <div className={`${desktopStyle} gap-4 px-4 xl:px-0`}>
         {topics.map((topic, index) => (
           <div key={index} className="relative group overflow-hidden h-[360px]">
             <Image
@@ -87,7 +130,7 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
           </div>
         ))}
       </div>
-      <div className="flex xl:hidden flex-col px-4">
+      <div className={`${mobileStyle} flex-col px-4`}>
         <div ref={sliderRef} className="keen-slider">
           {topics.map((topic) => (
             <div

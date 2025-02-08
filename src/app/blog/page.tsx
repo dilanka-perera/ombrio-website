@@ -1,9 +1,11 @@
 import React, { Suspense } from "react";
 import { Metadata, NextPage } from "next";
-import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import FadeInWrapper from "../FadeInWrapper";
 import BlogSearch from "./BlogSearch";
 import StandardContainer from "../StandardContainer";
+import WideContainer from "../WideContainer";
+import ContactSalesBanner from "../ContactBanner";
+import HeadBanner from "../HeadBanner";
 
 const title = "Blog – ZynoraX";
 const description =
@@ -37,41 +39,20 @@ export const metadata: Metadata = {
 const Blog: NextPage = () => {
   return (
     <FadeInWrapper>
+      <WideContainer>
+        <HeadBanner slug="blog" />
+      </WideContainer>
       <StandardContainer>
         <div className="py-8 px-4 text-black">
-          {/* Blog Title */}
-          <h1 className="text-4xl font-semibold mb-6">ZynoraX Blog</h1>
-
-          <section className="mt-10">
-            <Suspense fallback={<div>Loading search results...</div>}>
-              <BlogSearch />
-            </Suspense>
-          </section>
-
-          {/* Social Media Links */}
-          <section className="mt-10">
-            <h2 className="text-2xl font-semibold text-yellow-600 mb-4">
-              Follow Us
-            </h2>
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-yellow-600 hover:text-yellow-700 flex items-center space-x-2"
-              >
-                <FaFacebook size={24} />
-                <span>Facebook</span>
-              </a>
-              <a
-                href="#"
-                className="text-yellow-600 hover:text-yellow-700 flex items-center space-x-2"
-              >
-                <FaLinkedin size={24} />
-                <span>LinkedIn</span>
-              </a>
-            </div>
-          </section>
+          <Suspense fallback={<div>Loading search results...</div>}>
+            <BlogSearch />
+          </Suspense>
         </div>
       </StandardContainer>
+      <div className="flex-grow"></div>
+      <WideContainer>
+        <ContactSalesBanner />
+      </WideContainer>
     </FadeInWrapper>
   );
 };

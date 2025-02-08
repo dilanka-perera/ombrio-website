@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import Carousel from "./Carousel";
 import ExploreOurBlog from "./ExploreOurBlog";
 import FadeInWrapper from "./FadeInWrapper";
-import ContactSalesBanner from "./ContactSalesBanner";
-import OurWork from "./OurWork";
+import ContactBanner from "./ContactBanner";
+import OurJourney from "./OurJourney";
 import WhatWeDo from "./WhatWeDo";
 import WhyChooseUs from "./WhyChoosUs";
 import WideContainer from "./WideContainer";
@@ -51,13 +51,13 @@ export default function Home() {
         <WhyChooseUs />
       </WideContainer>
       <StandardContainer>
-        <OurWork />
+        <OurJourney />
       </StandardContainer>
       <StandardContainer>
         <ExploreOurBlog />
       </StandardContainer>
       <WideContainer>
-        <ContactSalesBanner />
+        <ContactBanner />
       </WideContainer>
     </FadeInWrapper>
   );

@@ -29,10 +29,17 @@ export type TileCollection = {
   tiles: Tile[];
 };
 
+export type HeadBanner = {
+  slug: string;
+  text: string;
+  image: string;
+};
+
 export type DataType = {
   carousal: CarousalItem[];
   websiteImages: WebsiteImage[];
   tileCollections: TileCollection[];
+  headBanners: HeadBanner[];
 };
 
 const DataContext = createContext<DataType | undefined>(undefined);

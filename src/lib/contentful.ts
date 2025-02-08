@@ -45,6 +45,15 @@ export type TileCollectionSkeleton = {
   };
 };
 
+export type HeadBannerSkeleton = {
+  contentTypeId: "headBanner";
+  fields: {
+    slug: EntryFieldTypes.Text;
+    text: EntryFieldTypes.Text;
+    image: EntryFieldTypes.AssetLink;
+  };
+};
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function isAsset(item: any): item is Asset {
   return item && "fields" in item && item.fields.file;
@@ -136,6 +145,27 @@ export async function fetchTileCollections() {
         };
       }),
   }));
-  
+
   return tileCollections;
+}
+
+export async function fetchHeadBanners() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID!,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY!,
+  });
+
+  const response = await client.getEntries<HeadBannerSkeleton>({
+    content_type: "headBanner",
+  });
+
+  const data = response.items;
+
+  return data.map((item) => ({
+    slug: item.fields.slug,
+    text: item.fields.text,
+    image: isAsset(item.fields.image)
+      ? item.fields.image.fields.file?.url || ""
+      : "",
+  }));
 }

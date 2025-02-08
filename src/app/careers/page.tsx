@@ -5,13 +5,8 @@ import ContactSalesBanner from "../ContactBanner";
 import WideContainer from "../WideContainer";
 import HeadBanner from "../HeadBanner";
 import StandardContainer from "../StandardContainer";
-import Vision from "./Vision";
-import Mission from "./Mission";
-import CoreValues from "./CoreValues";
-import Story from "./Story";
-import Team from "./Team";
 
-const title = "About – ZynoraX";
+const title = "Career – ZynoraX";
 const description =
   "Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.";
 const imageUrl = "/OG.jpg";
@@ -40,26 +35,14 @@ export const metadata: Metadata = {
   },
 };
 
-const About: NextPage = () => {
+const Careers: NextPage = () => {
   return (
     <FadeInWrapper>
       <WideContainer>
-        <HeadBanner slug="about" />
+        <HeadBanner slug="careers" />
       </WideContainer>
       <StandardContainer>
-        <Vision />
-      </StandardContainer>
-      <StandardContainer>
-        <Mission />
-      </StandardContainer>
-      <WideContainer>
-        <CoreValues />
-      </WideContainer>
-      <StandardContainer>
-        <Story />
-      </StandardContainer>
-      <StandardContainer>
-        <Team />
+        <div />
       </StandardContainer>
       <WideContainer>
         <ContactSalesBanner />
@@ -68,4 +51,4 @@ const About: NextPage = () => {
   );
 };
 
-export default About;
+export default Careers;
