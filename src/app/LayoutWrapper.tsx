@@ -1,4 +1,5 @@
 import React from "react";
+import FadeInWrapper from "./FadeInWrapper";
 
 export const LayoutBreak = () => {
   return <div className="flex-grow overflow-hidden" />;
@@ -27,7 +28,7 @@ export const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
   });
 
   return (
-    <div className="flex flex-grow flex-col overflow-hidden">
+    <FadeInWrapper>
       {/* Render before the LayoutBreak */}
       <div className="overflow-hidden">{beforeBreakChildren}</div>
 
@@ -36,6 +37,6 @@ export const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
 
       {/* Render after the LayoutBreak */}
       <div className="overflow-hidden">{afterBreakChildren}</div>
-    </div>
+    </FadeInWrapper>
   );
 };
