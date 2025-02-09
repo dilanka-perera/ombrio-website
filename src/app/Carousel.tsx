@@ -66,7 +66,7 @@ const Carousel: React.FC = () => {
               </p>
               <Link
                 href={item.buttonUrl}
-                className="px-4 py-1 sm:px-5 sm:py-2 md:px-6 md:py-2 bg-white bg-opacity-85 hover:bg-opacity-100 text-sm sm:text-base md:text-lg text-black rounded font-semibold"
+                className="px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-3 bg-white bg-opacity-85 hover:bg-opacity-100 text-sm sm:text-base md:text-lg text-black rounded font-semibold"
               >
                 {item.buttonText}
               </Link>

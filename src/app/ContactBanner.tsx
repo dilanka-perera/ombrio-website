@@ -18,7 +18,7 @@ const ContactBanner: React.FC<ContactBannerProps> = ({
       </p>
       <Link
         href={href}
-        className="bg-white text-slate-900 px-8 py-2 font-semibold hover:bg-slate-200 rounded text-sm sm:text-base md:text-lg"
+        className="bg-white text-slate-900 px-8 py-3 font-semibold hover:bg-slate-200 rounded text-sm sm:text-base md:text-lg"
       >
         {buttonText}
       </Link>
