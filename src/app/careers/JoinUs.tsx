@@ -36,7 +36,10 @@ const JoinUs: React.FC = () => {
               machine learning, and custom web solutions to create impactful
               products that solve real-world challenges.
             </p>
-            <MainButton text="Explore Open Roles" link="#" />
+            <MainButton
+              text="Explore Open Roles"
+              link="https://www.linkedin.com/company/zynorax"
+            />
             <p className="mt-5">
               Don&apos;t see a role that fits? Send us your resume!
             </p>

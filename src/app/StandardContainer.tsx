@@ -1,7 +1,16 @@
-export default function StandardContainer({
-  children,
-}: Readonly<{
+interface StandardContainerProps {
   children: React.ReactNode;
-}>) {
-  return <div className="max-w-[1280px] mx-auto">{children}</div>;
+  id?: string;
 }
+const StandardContainer: React.FC<StandardContainerProps> = ({
+  children,
+  id,
+}) => {
+  return (
+    <div id={id} className="max-w-[1280px] mx-auto">
+      {children}
+    </div>
+  );
+};
+
+export default StandardContainer;

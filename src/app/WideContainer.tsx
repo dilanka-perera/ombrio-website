@@ -1,9 +1,13 @@
-export default function WideContainer({
-  children,
-}: Readonly<{
+interface WideContainerProps {
   children: React.ReactNode;
-}>) {
-  return (
-    <div className="max-w-[1920px] mx-auto overflow-hidden">{children}</div>
-  );
+  id?: string;
 }
+const WideContainer: React.FC<WideContainerProps> = ({ children, id }) => {
+  return (
+    <div id={id} className="max-w-[1920px] mx-auto overflow-hidden">
+      {children}
+    </div>
+  );
+};
+
+export default WideContainer;

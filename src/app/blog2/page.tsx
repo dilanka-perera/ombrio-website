@@ -1,17 +1,16 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Metadata, NextPage } from "next";
+import BlogSearch from "./BlogSearch";
+import StandardContainer from "../StandardContainer";
 import WideContainer from "../WideContainer";
 import HeadBanner from "../HeadBanner";
-import StandardContainer from "../StandardContainer";
-import { LayoutBreak, LayoutWrapper } from "../LayoutWrapper";
 import ContactBanner from "../ContactBanner";
-import StayTuned from "./StayTuned";
-import Breadcrumb from "../Breadcrumb";
+import { LayoutBreak, LayoutWrapper } from "../LayoutWrapper";
 
-const title = "Careers – ZynoraX";
+const title = "Blog – ZynoraX";
 const description =
   "Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.";
-const imageUrl = "/OG.jpg";
+const imageUrl = "/OG_BLOG.jpg";
 
 export const metadata: Metadata = {
   title,
@@ -37,17 +36,18 @@ export const metadata: Metadata = {
   },
 };
 
-const Careers: NextPage = () => {
+const Blog: NextPage = () => {
   return (
     <LayoutWrapper>
-      <WideContainer>
-        <Breadcrumb />
-      </WideContainer>
       <WideContainer>
         <HeadBanner slug="blog" />
       </WideContainer>
       <StandardContainer>
-        <StayTuned />
+        <div className="py-8 px-4 text-black">
+          <Suspense fallback={<div>Loading search results...</div>}>
+            <BlogSearch />
+          </Suspense>
+        </div>
       </StandardContainer>
       <LayoutBreak />
       <WideContainer>
@@ -57,4 +57,4 @@ const Careers: NextPage = () => {
   );
 };
 
-export default Careers;
+export default Blog;

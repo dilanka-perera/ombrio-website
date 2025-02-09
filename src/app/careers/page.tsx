@@ -8,6 +8,7 @@ import ContactBanner from "../ContactBanner";
 import JoinUs from "./JoinUs";
 import AboutZynorax from "./AboutZynorax";
 import WhyWorkAtZynorax from "./WhyWorkAtZynorax";
+import Breadcrumb from "../Breadcrumb";
 
 const title = "Careers – ZynoraX";
 const description =
@@ -42,6 +43,9 @@ const Careers: NextPage = () => {
   return (
     <LayoutWrapper>
       <WideContainer>
+        <Breadcrumb />
+      </WideContainer>
+      <WideContainer>
         <HeadBanner slug="careers" />
       </WideContainer>
       <StandardContainer>
@@ -58,7 +62,7 @@ const Careers: NextPage = () => {
         <ContactBanner
           title="Join Our Team"
           buttonText="Explore Open Roles"
-          href="#"
+          href="https://www.linkedin.com/company/zynorax"
         />
       </WideContainer>
     </LayoutWrapper>

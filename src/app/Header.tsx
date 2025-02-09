@@ -40,7 +40,7 @@ export default function Header() {
   return (
     <div>
       <header
-        className={`z-30 left-0 w-full flex-col items-center ${
+        className={`z-40 left-0 w-full flex-col items-center ${
           isScrollOverflow
             ? "absolute translate-y-0"
             : "fixed translate-y-0 top-[-80px]"

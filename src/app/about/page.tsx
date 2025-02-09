@@ -11,6 +11,7 @@ import Team from "./Team";
 import { LayoutBreak, LayoutWrapper } from "../LayoutWrapper";
 import ContactBanner from "../ContactBanner";
 import AboutUs from "./AboutUs";
+import Breadcrumb from "../Breadcrumb";
 
 const title = "About – ZynoraX";
 const description =
@@ -44,6 +45,9 @@ export const metadata: Metadata = {
 const About: NextPage = () => {
   return (
     <LayoutWrapper>
+      <WideContainer>
+        <Breadcrumb />
+      </WideContainer>
       <WideContainer>
         <HeadBanner slug="about" />
       </WideContainer>
