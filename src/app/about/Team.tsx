@@ -3,9 +3,9 @@ import Image from "next/image";
 
 const Team: React.FC = () => {
   return (
-    <div className="pb-8">
+    <div className="pt-6 pb-8">
       {/* Section Title */}
-      <div className="pt-10">
+      <div>
         <Topic text="Meat the Team" />
       </div>
 

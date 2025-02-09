@@ -44,8 +44,8 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
           imageFirst ? "" : "md:justify-start"
         } p-8`}
       >
-        <div className="max-w-md text-center md:text-left">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4">{title}</h2>
+        <div className="max-w-md md:text-left">
+          <h2 className="text-2xl sm:text-3xl font-medium mb-4">{title}</h2>
           <div className="text-base sm:text-lg">{content}</div>
         </div>
       </div>

@@ -52,7 +52,11 @@ export default function Header() {
             <div className="flex-1">
               <div className="">
                 <div className="flex">
-                  <Link href="/" className="flex h-18 items-center px-4">
+                  <Link
+                    href="/"
+                    onClick={() => setIsSidebarOpen(false)}
+                    className="flex h-18 items-center px-4"
+                  >
                     <Image
                       className="drop-shadow-md"
                       src="/LOGO2.png"

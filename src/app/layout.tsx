@@ -14,7 +14,7 @@ import FadeInWrapper from "./FadeInWrapper";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
-  weight: ["300"],
+  weight: ["300", "400", "500", "700"],
 });
 
 export default async function RootLayout({
@@ -30,7 +30,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${ubuntu.className} antialiased text-black bg-slate-100`}
+        className={`${ubuntu.className} antialiased text-black font-light bg-slate-100`}
       >
         <div className="container flex flex-col min-h-screen bg-white ring-1 ring-gray-500/10 shadow-md">
           <Header />

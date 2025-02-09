@@ -10,8 +10,8 @@ const JoinUs: React.FC = () => {
   const websiteImages = useData().websiteImages;
 
   return (
-    <div>
-      <div className="pt-10">
+    <div className="pt-10">
+      <div>
         <Topic text="Join Us" />
       </div>
 

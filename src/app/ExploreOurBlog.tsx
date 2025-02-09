@@ -3,9 +3,9 @@ import MainButton from "./MainButton";
 
 const ExploreOurBlog: React.FC = () => {
   return (
-    <div className="pb-20">
+    <div className="pt-8 pb-[80px]">
       {/* Section Title */}
-      <div className="pt-10">
+      <div>
         <Topic text="Explore Our Blog" />
       </div>
 

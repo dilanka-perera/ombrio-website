@@ -58,7 +58,7 @@ const Carousel: React.FC = () => {
             />
             <div className="absolute inset-0 bg-black opacity-60"></div>
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-              <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 px-8 drop-shadow-lg">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl font-medium mb-4 px-8 drop-shadow-lg">
                 {item.title}
               </h1>
               <p className="text-xs sm:text-sm md:text-lg mb-6 px-8 text-center">
@@ -66,7 +66,7 @@ const Carousel: React.FC = () => {
               </p>
               <Link
                 href={item.buttonUrl}
-                className="px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-3 bg-white bg-opacity-85 hover:bg-opacity-100 text-sm sm:text-base md:text-lg text-black rounded font-semibold"
+                className="px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-3 bg-white bg-opacity-85 hover:bg-opacity-100 text-sm sm:text-base md:text-lg text-black rounded font-normal"
               >
                 {item.buttonText}
               </Link>

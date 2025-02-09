@@ -28,7 +28,7 @@ const HeadBanner: React.FC<HeadBannerProps> = ({ slug }) => {
       />
       <div className="absolute inset-0 bg-black opacity-60" />
       <div className="absolute inset-0 flex items-center justify-center">
-        <h1 className="text-white text-3xl sm:text-4xl md:text-5xl">
+        <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-normal">
           {banner.text}
         </h1>
       </div>

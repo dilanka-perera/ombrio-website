@@ -2,9 +2,9 @@ import Topic from "../Topic";
 
 const Mission: React.FC = () => {
   return (
-    <div className="pb-[60px]">
+    <div className="pt-6 pb-[60px]">
       {/* Section Title */}
-      <div className="pt-10">
+      <div>
         <Topic text="Our Mission" />
       </div>
 

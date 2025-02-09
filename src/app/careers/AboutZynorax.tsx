@@ -1,9 +1,9 @@
 import Topic from "../Topic";
 const AboutZynorax: React.FC = () => {
   return (
-    <div className="pb-[60px]">
+    <div className="pt-10 pb-[60px]">
       {/* Section Title */}
-      <div className="pt-10">
+      <div>
         <Topic text="About ZynoraX" />
       </div>
 

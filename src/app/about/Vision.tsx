@@ -2,9 +2,9 @@ import Topic from "../Topic";
 
 const Vision: React.FC = () => {
   return (
-    <div className="pb-8">
+    <div className="pt-6 pb-8">
       {/* Section Title */}
-      <div className="pt-10">
+      <div>
         <Topic text="Our Vision" />
       </div>
 
