@@ -9,7 +9,7 @@ const WhatWeDo: React.FC = () => {
   const websiteImages = useData().websiteImages;
 
   return (
-    <div>
+    <div className="pb-8">
       <div className="pt-10">
         <Topic text="What we do" />
       </div>

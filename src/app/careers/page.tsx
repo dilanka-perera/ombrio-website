@@ -5,8 +5,11 @@ import HeadBanner from "../HeadBanner";
 import StandardContainer from "../StandardContainer";
 import { LayoutBreak, LayoutWrapper } from "../LayoutWrapper";
 import ContactBanner from "../ContactBanner";
+import JoinUs from "./JoinUs";
+import AboutZynorax from "./AboutZynorax";
+import WhyWorkAtZynorax from "./WhyWorkAtZynorax";
 
-const title = "Career – ZynoraX";
+const title = "Careers – ZynoraX";
 const description =
   "Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.";
 const imageUrl = "/OG.jpg";
@@ -42,8 +45,14 @@ const Careers: NextPage = () => {
         <HeadBanner slug="careers" />
       </WideContainer>
       <StandardContainer>
-        <div />
+        <JoinUs />
       </StandardContainer>
+      <StandardContainer>
+        <AboutZynorax />
+      </StandardContainer>
+      <WideContainer>
+        <WhyWorkAtZynorax />
+      </WideContainer>
       <LayoutBreak />
       <WideContainer>
         <ContactBanner

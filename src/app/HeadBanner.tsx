@@ -17,7 +17,7 @@ const HeadBanner: React.FC<HeadBannerProps> = ({ slug }) => {
   }
 
   return (
-    <div className="relative w-full  h-[180] sm:h-[220px] md:h-[285px]">
+    <div className="relative w-full h-[180px] sm:h-[285px] md:h-[285px]">
       <Image
         src={banner.image}
         alt={banner.text}

@@ -18,7 +18,7 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
 }) => {
   return (
     <div
-      className={`flex flex-col py-8 ${
+      className={`flex flex-col pt-8 ${
         imageFirst ? "md:flex-row" : "md:flex-row-reverse"
       } w-full h-full`}
     >

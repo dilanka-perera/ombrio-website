@@ -10,6 +10,7 @@ import Story from "./Story";
 import Team from "./Team";
 import { LayoutBreak, LayoutWrapper } from "../LayoutWrapper";
 import ContactBanner from "../ContactBanner";
+import AboutUs from "./AboutUs";
 
 const title = "About – ZynoraX";
 const description =
@@ -46,6 +47,9 @@ const About: NextPage = () => {
       <WideContainer>
         <HeadBanner slug="about" />
       </WideContainer>
+      <StandardContainer>
+        <AboutUs />
+      </StandardContainer>
       <StandardContainer>
         <Vision />
       </StandardContainer>
