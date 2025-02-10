@@ -140,7 +140,7 @@ export default function Header() {
 
       {isSidebarOpen && (
         <div className="lg:hidden" role="dialog" aria-modal="true">
-          <div className="fixed inset-y-0 right-0 top-[70px] z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-500/10 shadow-md">
+          <div className="fixed inset-y-0 right-0 top-[79px] z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-500/10 shadow-md">
             <div className="flow-root">
               <div className="space-y-2 ">
                 {links.map((link) => (
