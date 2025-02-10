@@ -116,7 +116,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
                 />
               </button>
               {isOpen && (
-                <div className="absolute left-0 w-full mt-[40px] bg-white ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-40">
+                <div className="absolute left-0 w-full mt-[40px] bg-white ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-40 -translate-y-0.5">
                   {sections.map((section) => (
                     <button
                       key={section.id}
