@@ -7,6 +7,7 @@ import { LayoutBreak, LayoutWrapper } from "../LayoutWrapper";
 import ContactBanner from "../ContactBanner";
 import StayTuned from "./StayTuned";
 import Breadcrumb from "../Breadcrumb";
+import TableOfContents from "../TableOfContents";
 
 const title = "Careers – ZynoraX";
 const description =
@@ -38,6 +39,8 @@ export const metadata: Metadata = {
 };
 
 const Careers: NextPage = () => {
+  const sections = [{ name: "Stay Tuned", id: "stay-tuned" }];
+
   return (
     <LayoutWrapper>
       <WideContainer>
@@ -46,7 +49,8 @@ const Careers: NextPage = () => {
       <WideContainer>
         <HeadBanner slug="blog" />
       </WideContainer>
-      <StandardContainer>
+      <TableOfContents sections={sections} />
+      <StandardContainer id="stay-tuned">
         <StayTuned />
       </StandardContainer>
       <LayoutBreak />

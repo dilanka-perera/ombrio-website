@@ -9,6 +9,7 @@ import JoinUs from "./JoinUs";
 import AboutZynorax from "./AboutZynorax";
 import WhyWorkAtZynorax from "./WhyWorkAtZynorax";
 import Breadcrumb from "../Breadcrumb";
+import TableOfContents from "../TableOfContents";
 
 const title = "Careers – ZynoraX";
 const description =
@@ -40,6 +41,12 @@ export const metadata: Metadata = {
 };
 
 const Careers: NextPage = () => {
+  const sections = [
+    { name: "Join", id: "join" },
+    { name: "About Us", id: "about-us" },
+    { name: "Why Us", id: "why-us" },
+  ];
+
   return (
     <LayoutWrapper>
       <WideContainer>
@@ -48,13 +55,14 @@ const Careers: NextPage = () => {
       <WideContainer>
         <HeadBanner slug="careers" />
       </WideContainer>
-      <StandardContainer>
+      <TableOfContents sections={sections} />
+      <StandardContainer id="join">
         <JoinUs />
       </StandardContainer>
-      <StandardContainer>
+      <StandardContainer id="about-us">
         <AboutZynorax />
       </StandardContainer>
-      <WideContainer>
+      <WideContainer id="why-us">
         <WhyWorkAtZynorax />
       </WideContainer>
       <LayoutBreak />

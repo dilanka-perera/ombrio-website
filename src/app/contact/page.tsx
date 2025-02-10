@@ -6,6 +6,7 @@ import HeadBanner from "../HeadBanner";
 import StandardContainer from "../StandardContainer";
 import ContactCards from "./ContactCards";
 import Breadcrumb from "../Breadcrumb";
+import TableOfContents from "../TableOfContents";
 
 const title = "Contact – ZynoraX";
 const description =
@@ -37,6 +38,8 @@ export const metadata: Metadata = {
 };
 
 const Contact: NextPage = () => {
+  const sections = [{ name: "Contact Info", id: "contact-info" }];
+
   return (
     <LayoutWrapper>
       <WideContainer>
@@ -45,7 +48,8 @@ const Contact: NextPage = () => {
       <WideContainer>
         <HeadBanner slug="contact" />
       </WideContainer>
-      <StandardContainer>
+      <TableOfContents sections={sections} />
+      <StandardContainer id="contact-info">
         <ContactCards />
       </StandardContainer>
       <LayoutBreak />

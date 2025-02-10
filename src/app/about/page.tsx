@@ -12,6 +12,7 @@ import { LayoutBreak, LayoutWrapper } from "../LayoutWrapper";
 import ContactBanner from "../ContactBanner";
 import AboutUs from "./AboutUs";
 import Breadcrumb from "../Breadcrumb";
+import TableOfContents from "../TableOfContents";
 
 const title = "About – ZynoraX";
 const description =
@@ -43,6 +44,15 @@ export const metadata: Metadata = {
 };
 
 const About: NextPage = () => {
+  const sections = [
+    { name: "About Us", id: "about-us" },
+    { name: "Vision", id: "vision" },
+    { name: "Mission", id: "mission" },
+    { name: "Core Values", id: "core-values" },
+    { name: "Story", id: "story" },
+    { name: "Team", id: "team" },
+  ];
+
   return (
     <LayoutWrapper>
       <WideContainer>
@@ -51,22 +61,23 @@ const About: NextPage = () => {
       <WideContainer>
         <HeadBanner slug="about" />
       </WideContainer>
-      <StandardContainer>
+      <TableOfContents sections={sections} />
+      <StandardContainer id="about-us">
         <AboutUs />
       </StandardContainer>
-      <StandardContainer>
+      <StandardContainer id="vision">
         <Vision />
       </StandardContainer>
-      <StandardContainer>
+      <StandardContainer id="mission">
         <Mission />
       </StandardContainer>
-      <WideContainer>
+      <WideContainer id="core-values">
         <CoreValues />
       </WideContainer>
-      <StandardContainer>
+      <StandardContainer id="story">
         <Story />
       </StandardContainer>
-      <StandardContainer>
+      <StandardContainer id="team">
         <Team />
       </StandardContainer>
       <LayoutBreak />
