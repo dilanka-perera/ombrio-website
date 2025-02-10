@@ -40,7 +40,7 @@ export default function Header() {
   return (
     <div>
       <header
-        className={`z-40 left-0 w-full flex-col items-center ${
+        className={`z-20 left-0 w-full flex-col items-center ${
           isScrollOverflow
             ? "absolute translate-y-0"
             : "fixed translate-y-0 top-[-80px]"
@@ -140,7 +140,7 @@ export default function Header() {
 
       {isSidebarOpen && (
         <div className="lg:hidden" role="dialog" aria-modal="true">
-          <div className="fixed inset-y-0 right-0 top-[70px] z-20 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-500/10 shadow-md">
+          <div className="fixed inset-y-0 right-0 top-[70px] z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-500/10 shadow-md">
             <div className="flow-root">
               <div className="space-y-2 ">
                 {links.map((link) => (

@@ -84,7 +84,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
       <div
         id="toc-container"
         className={`max-w-[1920px] h-[40px] mx-auto bg-white ring-1 ring-gray-500/10 shadow-md transition-all duration-300 ${
-          isFixed ? "fixed top-[79px] left-0 w-full z-40 shadow-lg" : ""
+          isFixed ? "fixed top-[79px] left-0 w-full z-30 shadow-lg" : ""
         }`}
       >
         <div className="this">
@@ -116,7 +116,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
                 />
               </button>
               {isOpen && (
-                <div className="absolute left-0 w-full mt-[40px] bg-white ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-10">
+                <div className="absolute left-0 w-full mt-[40px] bg-white ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-40">
                   {sections.map((section) => (
                     <button
                       key={section.id}
