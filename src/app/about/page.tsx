@@ -49,8 +49,8 @@ const About: NextPage = () => {
     { name: "Vision", id: "vision" },
     { name: "Mission", id: "mission" },
     { name: "Core Values", id: "core-values" },
-    { name: "Story", id: "story" },
-    { name: "Team", id: "team" },
+    { name: "Our Story", id: "story" },
+    { name: "Our Team", id: "team" },
   ];
 
   return (

@@ -90,12 +90,14 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
         <div className="this">
           <StandardContainer>
             {/* Desktop View */}
-            <div className="hidden sm:flex px-6 h-[40px] font-normal items-center space-x-8">
+            <div className="hidden sm:flex px-6 h-[40px] font-normal items-center">
               {sections.map((section) => (
                 <button
                   key={section.id}
                   onClick={(e) => handleSectionClick(e, section.id)}
-                  className="font-normal text-black hover:text-slate-700"
+                  className={`font-normal ${
+                    section.name === activeSection ? "bg-slate-200" : "bg-white"
+                  } hover:text-slate-700 px-4 h-[40px]`}
                 >
                   {section.name}
                 </button>
@@ -106,7 +108,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
             <div className="sm:hidden flex px-6 h-[40px]">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex justify-between items-center text-black font-normal hover:text-slate-700"
+                className="w-full flex justify-between items-center text-black font-medium"
               >
                 {activeSection}
                 <FiChevronDown
@@ -117,11 +119,17 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
               </button>
               {isOpen && (
                 <div className="absolute left-0 w-full mt-[40px] bg-white ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-40 -translate-y-0.5">
-                  {sections.map((section) => (
+                  {sections.map((section, index) => (
                     <button
                       key={section.id}
                       onClick={(e) => handleSectionClick(e, section.id)}
-                      className="block w-full text-left px-4 py-2 text-black hover:bg-gray-100"
+                      className={`block w-full text-left px-4 py-2 text-black font-normal ${
+                        section.name === activeSection
+                          ? "bg-slate-200 hover:bg-slate-200"
+                          : "bg-white hover:bg-slate-100"
+                      } overflow-hidden ${
+                        index === sections.length - 1 ? "rounded-b-lg" : ""
+                      }`}
                     >
                       {section.name}
                     </button>

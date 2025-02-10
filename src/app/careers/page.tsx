@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 
 const Careers: NextPage = () => {
   const sections = [
-    { name: "Join", id: "join" },
+    { name: "Join Us", id: "join" },
     { name: "About Us", id: "about-us" },
     { name: "Why Us", id: "why-us" },
   ];

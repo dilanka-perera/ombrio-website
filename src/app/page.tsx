@@ -41,10 +41,10 @@ export const metadata: Metadata = {
 
 // Define sections for Table of Contents
 const sections = [
-  { name: "Overviw", id: "what-we-do" },
-  { name: "Edge", id: "why-choose-us" },
-  { name: "Journey", id: "our-journey" },
-  { name: "Blog", id: "explore-our-blog" },
+  { name: "What We Do", id: "what-we-do" },
+  { name: "Why Us", id: "why-choose-us" },
+  { name: "About Us", id: "our-journey" },
+  { name: "Our Blog", id: "explore-our-blog" },
 ];
 
 export default function Home() {

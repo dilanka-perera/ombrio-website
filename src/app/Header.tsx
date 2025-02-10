@@ -149,7 +149,7 @@ export default function Header() {
                     href={link.href}
                     className={`-mx-3 block px-3 py-2 text-base/7 text-gray-900 font-semibold  ${
                       "/" + path === link.href
-                        ? "bg-slate-300 hover:bg-slate-400"
+                        ? "bg-slate-300 hover:bg-slate-300"
                         : "hover:bg-slate-200"
                     }`}
                     onClick={() => setIsSidebarOpen(false)} // Close sidebar when clicked
