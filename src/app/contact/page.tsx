@@ -45,13 +45,17 @@ const Contact: NextPage = () => {
       <WideContainer>
         <Breadcrumb />
       </WideContainer>
+
       <WideContainer>
         <HeadBanner slug="contact" />
       </WideContainer>
+
       <TableOfContents sections={sections} />
+
       <StandardContainer id="contact-info">
         <ContactCards />
       </StandardContainer>
+
       <LayoutBreak />
     </LayoutWrapper>
   );

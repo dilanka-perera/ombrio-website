@@ -52,20 +52,27 @@ const Careers: NextPage = () => {
       <WideContainer>
         <Breadcrumb />
       </WideContainer>
+
       <WideContainer>
         <HeadBanner slug="careers" />
       </WideContainer>
+
       <TableOfContents sections={sections} />
+
       <StandardContainer id="join">
         <JoinUs />
       </StandardContainer>
+
       <StandardContainer id="about-us">
         <AboutZynorax />
       </StandardContainer>
+
       <WideContainer id="why-us">
         <WhyWorkAtZynorax />
       </WideContainer>
+
       <LayoutBreak />
+
       <WideContainer>
         <ContactBanner
           title="Join Our Team"

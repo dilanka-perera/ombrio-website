@@ -58,29 +58,39 @@ const About: NextPage = () => {
       <WideContainer>
         <Breadcrumb />
       </WideContainer>
+
       <WideContainer>
         <HeadBanner slug="about" />
       </WideContainer>
+
       <TableOfContents sections={sections} />
+
       <StandardContainer id="about-us">
         <AboutUs />
       </StandardContainer>
+
       <StandardContainer id="vision">
         <Vision />
       </StandardContainer>
+
       <StandardContainer id="mission">
         <Mission />
       </StandardContainer>
+
       <WideContainer id="core-values">
         <CoreValues />
       </WideContainer>
+
       <StandardContainer id="story">
         <Story />
       </StandardContainer>
+
       <StandardContainer id="team">
         <Team />
       </StandardContainer>
+
       <LayoutBreak />
+
       <WideContainer>
         <ContactBanner />
       </WideContainer>

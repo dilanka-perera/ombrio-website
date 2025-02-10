@@ -46,14 +46,19 @@ const Careers: NextPage = () => {
       <WideContainer>
         <Breadcrumb />
       </WideContainer>
+
       <WideContainer>
         <HeadBanner slug="blog" />
       </WideContainer>
+
       <TableOfContents sections={sections} />
+
       <StandardContainer id="stay-tuned">
         <StayTuned />
       </StandardContainer>
+
       <LayoutBreak />
+
       <WideContainer>
         <ContactBanner />
       </WideContainer>
