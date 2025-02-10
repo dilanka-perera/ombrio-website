@@ -8,6 +8,7 @@ import WhyChooseUs from "./WhyChoosUs";
 import WideContainer from "./WideContainer";
 import StandardContainer from "./StandardContainer";
 import { LayoutBreak, LayoutWrapper } from "./LayoutWrapper";
+import TableOfContents from "./TableOfContents";
 
 const title = "ZynoraX";
 const description =
@@ -23,8 +24,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: imageUrl,
-        width: 1200, // Recommended width for Open Graph images
-        height: 630, // Recommended height for Open Graph images
+        width: 1200,
+        height: 630,
         alt: "ZynoraX - AI and Web Development",
       },
     ],
@@ -38,27 +39,54 @@ export const metadata: Metadata = {
   },
 };
 
+// Define sections for Table of Contents
+const sections = [
+  { name: "What We Do", id: "what-we-do" },
+  { name: "Why Choose Us", id: "why-choose-us" },
+  { name: "Our Journey", id: "our-journey" },
+  { name: "Explore Our Blog", id: "explore-our-blog" },
+  { name: "Contact", id: "contact" },
+];
+
 export default function Home() {
   return (
     <LayoutWrapper>
+      <TableOfContents sections={sections} />
+
       <WideContainer>
         <Carousel />
       </WideContainer>
+
       <StandardContainer>
-        <WhatWeDo />
+        <div id="what-we-do">
+          <WhatWeDo />
+        </div>
       </StandardContainer>
+
       <WideContainer>
-        <WhyChooseUs />
+        <div id="why-choose-us">
+          <WhyChooseUs />
+        </div>
       </WideContainer>
+
       <StandardContainer>
-        <OurJourney />
+        <div id="our-journey">
+          <OurJourney />
+        </div>
       </StandardContainer>
+
       <StandardContainer>
-        <ExploreOurBlog />
+        <div id="explore-our-blog">
+          <ExploreOurBlog />
+        </div>
       </StandardContainer>
+
       <LayoutBreak />
+
       <WideContainer>
-        <ContactBanner />
+        <div id="contact">
+          <ContactBanner />
+        </div>
       </WideContainer>
     </LayoutWrapper>
   );

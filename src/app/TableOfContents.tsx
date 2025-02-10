@@ -17,12 +17,13 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
   const [tocTop, setTocTop] = useState(0);
+  const [activeSection, setActiveSection] = useState(sections[0]?.name || ""); // Default to first section
 
   useEffect(() => {
     // Store the TOC's initial position
     const tocElement = document.getElementById("toc-container");
     if (tocElement) {
-      setTocTop(tocElement.offsetTop - 79); // Adjust for the 79px header
+      setTocTop(tocElement.offsetTop - 79); // Adjust for 79px header
     }
 
     const handleScroll = () => {
@@ -31,13 +32,25 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
       } else {
         setIsFixed(false);
       }
+
+      // Detect the current section in view
+      for (const section of sections) {
+        const element = document.getElementById(section.id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 120 && rect.bottom >= 120) {
+            setActiveSection(section.name);
+            break;
+          }
+        }
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [tocTop]);
+  }, [tocTop, sections]);
 
   const handleSectionClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -48,7 +61,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
     if (element) {
       const elementPosition =
         element.getBoundingClientRect().top + window.scrollY;
-      const offset = 119; // Adjust as needed
+      const offset = 117; // Adjust as needed
 
       window.scrollTo({
         top: elementPosition - offset,
@@ -84,16 +97,16 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
               ))}
             </div>
 
-            {/* Mobile Dropdown */}
+            {/* Mobile View: Show Active Section */}
             <div className="sm:hidden flex px-6 h-[40px]">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex justify-between items-center text-black font-normal hover:text-slate-700"
               >
-                Table of Contents
+                {activeSection}
                 <FiChevronDown
                   className={`transition-transform ${
-                    isOpen ? "rotate-1" : "rotate-0"
+                    isOpen ? "rotate-180" : "rotate-0"
                   }`}
                 />
               </button>
