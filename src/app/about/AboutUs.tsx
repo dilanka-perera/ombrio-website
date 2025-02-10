@@ -1,9 +1,9 @@
 import Topic from "../Topic";
 const AboutUs: React.FC = () => {
   return (
-    <div className="pb-8">
+    <div className="pt-10 pb-8">
       {/* Section Title */}
-      <div className="pt-10">
+      <div>
         <Topic text="About Us" />
       </div>
 
