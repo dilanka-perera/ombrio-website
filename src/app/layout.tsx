@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { DataProvider } from "@/contexts/DataContext";
 import {
+  fetchBlogCategories,
   fetchCarousal,
   fetchHeadBanners,
   fetchTileCollections,
@@ -26,6 +27,7 @@ export default async function RootLayout({
   const websiteImages = await fetchWebsiteImages();
   const tileCollections = await fetchTileCollections();
   const headBanners = await fetchHeadBanners();
+  const blogCategories = await fetchBlogCategories();
 
   return (
     <html lang="en">
@@ -43,6 +45,7 @@ export default async function RootLayout({
                     websiteImages,
                     tileCollections,
                     headBanners,
+                    blogCategories,
                   }}
                 >
                   {children}

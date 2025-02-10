@@ -29,17 +29,13 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ nameReplacer }) => {
       <StandardContainer>
         <nav
           aria-label="Breadcrumb"
-          className="px-6 h-[40px] font-normal flex items-center"
+          className="px-6 py-2 min-h-[40px] font-normal flex items-center overflow-hidden"
         >
           <ul
-            style={{
-              listStyleType: "none",
-              padding: 0,
-              margin: 0,
-              display: "flex",
-            }}
+            className="flex flex-wrap w-full max-w-full"
+            style={{ listStyleType: "none", padding: 0, margin: 0 }}
           >
-            <li>
+            <li className="flex max-w-full truncate">
               <Link href="/" className="text-black hover:text-slate-700">
                 Home
               </Link>
@@ -49,10 +45,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ nameReplacer }) => {
               const isLast = index === pathnames.length - 1;
               const displayName = replaceName(pathname);
               return (
-                <li key={href}>
-                  <span className="mx-2">{" / "}</span>
+                <li key={href} className="flex max-w-full truncate">
+                  <span className="mx-2 whitespace-nowrap">{" / "}</span>
                   {isLast ? (
-                    <span>{displayName}</span>
+                    <span className="truncate whitespace-nowrap">
+                      {displayName}
+                    </span>
                   ) : (
                     <Link
                       href={href}

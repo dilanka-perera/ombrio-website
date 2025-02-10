@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext } from "react";
+import { Document } from "@contentful/rich-text-types";
 
 export type CarousalItem = {
   slug: string;
@@ -35,11 +36,41 @@ export type HeadBanner = {
   image: string;
 };
 
+export type BlogAuthor = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  profilePicture: string;
+  bio: Document;
+};
+
+export type BlogContent = {
+  subtitle: string;
+  slug: string;
+  content: Document;
+};
+
+export type BlogPost = {
+  slug: string;
+  title: string;
+  featuredImage: string;
+  publishedDate: string;
+  authors: BlogAuthor[];
+  content: BlogContent[];
+};
+
+export type BlogCategory = {
+  slug: string;
+  name: string;
+  blogs: BlogPost[];
+};
+
 export type DataType = {
   carousal: CarousalItem[];
   websiteImages: WebsiteImage[];
   tileCollections: TileCollection[];
   headBanners: HeadBanner[];
+  blogCategories: BlogCategory[];
 };
 
 const DataContext = createContext<DataType | undefined>(undefined);

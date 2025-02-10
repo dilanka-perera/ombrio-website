@@ -10,7 +10,7 @@ export type WebsiteImageSkeleton = {
   contentTypeId: "websiteImage";
   fields: {
     slug: EntryFieldTypes.Text;
-    image: EntryFieldTypes.AssetLink;
+    image?: EntryFieldTypes.AssetLink;
   };
 };
 
@@ -23,7 +23,7 @@ export type CarousalSkeleton = {
     description: EntryFieldTypes.Text;
     buttonText: EntryFieldTypes.Text;
     buttonUrl: EntryFieldTypes.Text;
-    image: EntryFieldTypes.AssetLink;
+    image?: EntryFieldTypes.AssetLink;
   };
 };
 
@@ -32,7 +32,7 @@ export type TileSkeleton = {
   fields: {
     title: EntryFieldTypes.Text;
     slug: EntryFieldTypes.Text;
-    image: EntryFieldTypes.AssetLink;
+    image?: EntryFieldTypes.AssetLink;
     description: EntryFieldTypes.Text;
   };
 };
@@ -50,7 +50,49 @@ export type HeadBannerSkeleton = {
   fields: {
     slug: EntryFieldTypes.Text;
     text: EntryFieldTypes.Text;
-    image: EntryFieldTypes.AssetLink;
+    image?: EntryFieldTypes.AssetLink;
+  };
+};
+
+export type AuthorSkeleton = {
+  contentTypeId: "author";
+  fields: {
+    slug: EntryFieldTypes.Text;
+    firstName: EntryFieldTypes.Text;
+    lastName: EntryFieldTypes.Text;
+    email: EntryFieldTypes.Text;
+    profilePicture?: EntryFieldTypes.AssetLink;
+    bio: EntryFieldTypes.RichText;
+  };
+};
+
+export type BlogContentSkeleton = {
+  contentTypeId: "blogContent";
+  fields: {
+    subtitle: EntryFieldTypes.Text;
+    slug: EntryFieldTypes.Text;
+    content: EntryFieldTypes.RichText;
+  };
+};
+
+export type BlogPostSkeleton = {
+  contentTypeId: "blogPost";
+  fields: {
+    slug: EntryFieldTypes.Text;
+    title: EntryFieldTypes.Text;
+    featuredImage?: EntryFieldTypes.AssetLink;
+    author: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<AuthorSkeleton>>;
+    publishedDate: EntryFieldTypes.Date;
+    content: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<BlogContentSkeleton>>;
+  };
+};
+
+export type BlogCategorySkeleton = {
+  contentTypeId: "blogCategory";
+  fields: {
+    slug: EntryFieldTypes.Text;
+    name: EntryFieldTypes.Text;
+    blogs: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<BlogPostSkeleton>>;
   };
 };
 
@@ -80,8 +122,8 @@ export async function fetchWebsiteImages() {
   const websiteImages = data.map((item) => ({
     slug: item.fields.slug,
     image: isAsset(item.fields.image)
-      ? item.fields.image.fields.file?.url || ""
-      : "",
+      ? item.fields.image.fields.file?.url || "/no.png"
+      : "/no.png",
   }));
 
   return websiteImages;
@@ -109,8 +151,8 @@ export async function fetchCarousal() {
     buttonText: item.fields.buttonText,
     buttonUrl: item.fields.buttonUrl,
     image: isAsset(item.fields.image)
-      ? item.fields.image.fields.file?.url || ""
-      : "",
+      ? item.fields.image.fields.file?.url || "/no.png"
+      : "/no.png",
   }));
 
   return carousal;
@@ -140,8 +182,8 @@ export async function fetchTileCollections() {
           slug: tileFields.fields.slug,
           description: tileFields.fields.description,
           image: isAsset(tileFields.fields.image)
-            ? tileFields.fields.image?.fields.file?.url || ""
-            : "",
+            ? tileFields.fields.image?.fields.file?.url || "/no.png"
+            : "/no.png",
         };
       }),
   }));
@@ -165,7 +207,70 @@ export async function fetchHeadBanners() {
     slug: item.fields.slug,
     text: item.fields.text,
     image: isAsset(item.fields.image)
-      ? item.fields.image.fields.file?.url || ""
-      : "",
+      ? item.fields.image.fields.file?.url || "/no.png"
+      : "/no.png",
   }));
+}
+
+export async function fetchBlogCategories() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID!,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY!,
+  });
+
+  const response = await client.getEntries<BlogCategorySkeleton>({
+    content_type: "blogCategory",
+    include: 2
+  });
+
+  const data = response.items;
+
+  const categories = await Promise.all(
+    data.map(async (category) => {
+      const blogs = await Promise.all(
+        category.fields.blogs
+          .filter((blog) => isEntry<BlogPostSkeleton>(blog))
+          .map(async (blog) => {
+            const authors = blog.fields.author
+              .filter((author) => isEntry<AuthorSkeleton>(author))
+              .map((author) => ({
+                firstName: author.fields.firstName,
+                lastName: author.fields.lastName,
+                email: author.fields.email,
+                profilePicture: isAsset(author.fields.profilePicture)
+                  ? author.fields.profilePicture.fields.file?.url || "/no.png"
+                  : "/no.png",
+                bio: author.fields.bio,
+              }));
+
+            const contentItems = blog.fields.content
+              .filter((content) => isEntry<BlogContentSkeleton>(content))
+              .map((content) => ({
+                subtitle: content.fields.subtitle,
+                slug: content.fields.slug,
+                content: content.fields.content,
+              }));
+
+            return {
+              slug: blog.fields.slug,
+              title: blog.fields.title,
+              featuredImage: isAsset(blog.fields.featuredImage)
+                ? blog.fields.featuredImage.fields.file?.url || "/no.png"
+                : "/no.png",
+              publishedDate: blog.fields.publishedDate,
+              authors,
+              content: contentItems,
+            };
+          })
+      );
+
+      return {
+        slug: category.fields.slug,
+        name: category.fields.name,
+        blogs,
+      };
+    })
+  );
+
+  return categories;
 }

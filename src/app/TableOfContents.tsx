@@ -16,7 +16,7 @@ interface TableOfContentsProps {
 const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
-  const [activeSection, setActiveSection] = useState(sections[0]?.name || ""); // Default to first section
+  const [activeSection, setActiveSection] = useState(sections[0]?.id || ""); // Default to first section
   const tocRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
           if (element) {
             const rect = element.getBoundingClientRect();
             if (rect.top <= 120 && rect.bottom >= 120) {
-              setActiveSection(section.name);
+              setActiveSection(section.id);
               break;
             }
           }
@@ -87,7 +87,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
           isFixed ? "fixed top-[79px] left-0 w-full z-30 shadow-lg" : ""
         }`}
       >
-        <div className="this">
+        <div>
           <StandardContainer>
             {/* Desktop View */}
             <div className="hidden sm:flex px-6 h-[40px] font-normal items-center">
@@ -96,7 +96,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
                   key={section.id}
                   onClick={(e) => handleSectionClick(e, section.id)}
                   className={`font-normal ${
-                    section.name === activeSection ? "bg-slate-200" : "bg-white"
+                    section.id === activeSection ? "bg-slate-200" : "bg-white"
                   } hover:text-slate-700 px-4 h-[40px]`}
                 >
                   {section.name}
@@ -110,7 +110,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex justify-between items-center text-black font-medium"
               >
-                {activeSection}
+                {sections.find((section) => section.id === activeSection)?.name}
                 <FiChevronDown
                   className={`transition-transform ${
                     isOpen ? "rotate-180" : "rotate-0"
@@ -124,7 +124,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
                       key={section.id}
                       onClick={(e) => handleSectionClick(e, section.id)}
                       className={`block w-full text-left px-4 py-2 text-black font-normal ${
-                        section.name === activeSection
+                        section.id === activeSection
                           ? "bg-slate-200 hover:bg-slate-200"
                           : "bg-white hover:bg-slate-100"
                       } overflow-hidden ${
