@@ -41,52 +41,41 @@ export const metadata: Metadata = {
 
 // Define sections for Table of Contents
 const sections = [
-  { name: "What We Do", id: "what-we-do" },
-  { name: "Why Choose Us", id: "why-choose-us" },
-  { name: "Our Journey", id: "our-journey" },
-  { name: "Explore Our Blog", id: "explore-our-blog" },
-  { name: "Contact", id: "contact" },
+  { name: "Overviw", id: "what-we-do" },
+  { name: "Edge", id: "why-choose-us" },
+  { name: "Journey", id: "our-journey" },
+  { name: "Blog", id: "explore-our-blog" },
 ];
 
 export default function Home() {
   return (
     <LayoutWrapper>
-      <TableOfContents sections={sections} />
-
       <WideContainer>
         <Carousel />
       </WideContainer>
 
-      <StandardContainer>
-        <div id="what-we-do">
-          <WhatWeDo />
-        </div>
+      <TableOfContents sections={sections} />
+
+      <StandardContainer id="what-we-do">
+        <WhatWeDo />
       </StandardContainer>
 
-      <WideContainer>
-        <div id="why-choose-us">
-          <WhyChooseUs />
-        </div>
+      <WideContainer id="why-choose-us">
+        <WhyChooseUs />
       </WideContainer>
 
-      <StandardContainer>
-        <div id="our-journey">
-          <OurJourney />
-        </div>
+      <StandardContainer id="our-journey">
+        <OurJourney />
       </StandardContainer>
 
-      <StandardContainer>
-        <div id="explore-our-blog">
-          <ExploreOurBlog />
-        </div>
+      <StandardContainer id="explore-our-blog">
+        <ExploreOurBlog />
       </StandardContainer>
 
       <LayoutBreak />
 
       <WideContainer>
-        <div id="contact">
-          <ContactBanner />
-        </div>
+        <ContactBanner />
       </WideContainer>
     </LayoutWrapper>
   );

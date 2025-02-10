@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import StandardContainer from "./StandardContainer";
 import { FiChevronDown } from "react-icons/fi";
 
@@ -16,41 +16,44 @@ interface TableOfContentsProps {
 const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
-  const [tocTop, setTocTop] = useState(0);
   const [activeSection, setActiveSection] = useState(sections[0]?.name || ""); // Default to first section
+  const tocRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Store the TOC's initial position
-    const tocElement = document.getElementById("toc-container");
-    if (tocElement) {
-      setTocTop(tocElement.offsetTop - 79); // Adjust for 79px header
-    }
-
+    // Handle scroll event
     const handleScroll = () => {
-      if (window.scrollY > tocTop) {
-        setIsFixed(true);
-      } else {
-        setIsFixed(false);
-      }
+      if (tocRef.current) {
+        const tocTop = tocRef.current.offsetTop - 79;
 
-      // Detect the current section in view
-      for (const section of sections) {
-        const element = document.getElementById(section.id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 120 && rect.bottom >= 120) {
-            setActiveSection(section.name);
-            break;
+        if (window.scrollY > tocTop) {
+          setIsFixed(true);
+        } else {
+          setIsFixed(false);
+        }
+
+        // Detect the current section in view
+        for (const section of sections) {
+          const element = document.getElementById(section.id);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 120 && rect.bottom >= 120) {
+              setActiveSection(section.name);
+              break;
+            }
           }
         }
       }
     };
 
+    // Initial call to handle scroll position
+    handleScroll();
+
+    // Add event listener for scroll
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [tocTop, sections]);
+  }, [sections]);
 
   const handleSectionClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -74,12 +77,14 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
   return (
     <>
       {/* Placeholder to prevent layout shift when TOC becomes fixed */}
-      {isFixed && <div style={{ height: "40px" }}></div>}
+      <div ref={tocRef}>
+        {isFixed && <div style={{ height: "40px" }}></div>}
+      </div>
 
       <div
         id="toc-container"
         className={`max-w-[1920px] h-[40px] mx-auto bg-white ring-1 ring-gray-500/10 shadow-md transition-all duration-300 ${
-          isFixed ? "fixed top-[79px] left-0 w-full z-50 shadow-lg" : ""
+          isFixed ? "fixed top-[79px] left-0 w-full z-40 shadow-lg" : ""
         }`}
       >
         <div className="this">
