@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState, useRef } from "react";
-import StandardContainer from "./StandardContainer";
-import { FiChevronDown } from "react-icons/fi";
+import React, { useEffect, useState, useRef } from 'react';
+import StandardContainer from './StandardContainer';
+import { FiChevronDown } from 'react-icons/fi';
 
 interface Section {
   name: string;
@@ -16,7 +16,7 @@ interface TableOfContentsProps {
 const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
-  const [activeSection, setActiveSection] = useState(sections[0]?.id || ""); // Default to first section
+  const [activeSection, setActiveSection] = useState(sections[0]?.id || ''); // Default to first section
   const tocRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -49,15 +49,15 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
     handleScroll();
 
     // Add event listener for scroll
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [sections]);
 
   const handleSectionClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    id: string
+    id: string,
   ) => {
     event.preventDefault();
     const element = document.getElementById(id);
@@ -68,7 +68,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
 
       window.scrollTo({
         top: elementPosition - offset,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
       setIsOpen(false); // Close dropdown after selection
     }
@@ -78,13 +78,13 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
     <>
       {/* Placeholder to prevent layout shift when TOC becomes fixed */}
       <div ref={tocRef}>
-        {isFixed && <div style={{ height: "40px" }}></div>}
+        {isFixed && <div style={{ height: '40px' }}></div>}
       </div>
 
       <div
         id="toc-container"
         className={`max-w-[1920px] h-[40px] mx-auto bg-white ring-1 ring-gray-500/10 shadow-md transition-all duration-300 ${
-          isFixed ? "fixed top-[79px] left-0 w-full z-30 shadow-lg" : ""
+          isFixed ? 'fixed top-[79px] left-0 w-full z-30 shadow-lg' : ''
         }`}
       >
         <div>
@@ -96,7 +96,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
                   key={section.id}
                   onClick={(e) => handleSectionClick(e, section.id)}
                   className={`font-normal ${
-                    section.id === activeSection ? "bg-slate-200" : "bg-white"
+                    section.id === activeSection ? 'bg-slate-200' : 'bg-white'
                   } hover:text-slate-700 px-4 h-[40px]`}
                 >
                   {section.name}
@@ -113,7 +113,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
                 {sections.find((section) => section.id === activeSection)?.name}
                 <FiChevronDown
                   className={`transition-transform ${
-                    isOpen ? "rotate-180" : "rotate-0"
+                    isOpen ? 'rotate-180' : 'rotate-0'
                   }`}
                 />
               </button>
@@ -125,10 +125,10 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
                       onClick={(e) => handleSectionClick(e, section.id)}
                       className={`block w-full text-left px-4 py-2 text-black font-normal ${
                         section.id === activeSection
-                          ? "bg-slate-200 hover:bg-slate-200"
-                          : "bg-white hover:bg-slate-100"
+                          ? 'bg-slate-200 hover:bg-slate-200'
+                          : 'bg-white hover:bg-slate-100'
                       } overflow-hidden ${
-                        index === sections.length - 1 ? "rounded-b-lg" : ""
+                        index === sections.length - 1 ? 'rounded-b-lg' : ''
                       }`}
                     >
                       {section.name}

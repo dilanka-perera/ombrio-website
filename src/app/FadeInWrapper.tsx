@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const FadeInWrapper = ({
   children,
-  className = "",
+  className = '',
 }: {
   children: React.ReactNode;
   className?: string;
@@ -16,7 +16,7 @@ const FadeInWrapper = ({
   }, []);
 
   return (
-    <div className={`${className} content ${isMounted ? "fade-in" : ""}`}>
+    <div className={`${className} content ${isMounted ? 'fade-in' : ''}`}>
       {children}
     </div>
   );

@@ -1,12 +1,12 @@
-import Link from "next/link";
-import { Metadata } from "next";
-import { LayoutWrapper } from "./LayoutWrapper";
-import StandardContainer from "./StandardContainer";
+import Link from 'next/link';
+import { Metadata } from 'next';
+import { LayoutWrapper } from './LayoutWrapper';
+import StandardContainer from './StandardContainer';
 
-const title = "404: Page not found – ZynoraX";
+const title = '404: Page not found – ZynoraX';
 const description =
-  "Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.";
-const imageUrl = "/OG.jpg";
+  'Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.';
+const imageUrl = '/OG.jpg';
 
 export const metadata: Metadata = {
   title,
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
         url: imageUrl,
         width: 1200, // Recommended width for Open Graph images
         height: 630, // Recommended height for Open Graph images
-        alt: "ZynoraX - AI and Web Development",
+        alt: 'ZynoraX - AI and Web Development',
       },
     ],
-    type: "website",
+    type: 'website',
   },
   twitter: {
-    card: "summary_large_image",
+    card: 'summary_large_image',
     title,
     description,
     images: [imageUrl],
@@ -47,15 +47,15 @@ export default function NotFound() {
             </p>
             <div
               className="text-9xl font-extrabold mb-2 text-center py-20"
-              style={{ fontFamily: "Bahnschrift, sans-serif" }}
+              style={{ fontFamily: 'Bahnschrift, sans-serif' }}
             >
               4<span className="text-yellow-500">0</span>4
             </div>
             <p className="text-sm text-center">
-              You can go back to the{" "}
+              You can go back to the{' '}
               <Link href="/" className="text-blue-500">
                 Home Page
-              </Link>{" "}
+              </Link>{' '}
               .
             </p>
           </div>

@@ -1,21 +1,21 @@
-import "./globals.css";
-import "keen-slider/keen-slider.min.css";
-import Header from "./Header";
-import Footer from "./Footer";
-import { DataProvider } from "@/contexts/DataContext";
+import './globals.css';
+import 'keen-slider/keen-slider.min.css';
+import Header from './Header';
+import Footer from './Footer';
+import { DataProvider } from '@/contexts/DataContext';
 import {
   fetchBlogs,
   fetchCarousal,
   fetchHeadBanners,
   fetchTileCollections,
   fetchWebsiteImages,
-} from "@/lib/contentful";
-import { Ubuntu } from "next/font/google";
-import FadeInWrapper from "./FadeInWrapper";
+} from '@/lib/contentful';
+import { Ubuntu } from 'next/font/google';
+import FadeInWrapper from './FadeInWrapper';
 
 const ubuntu = Ubuntu({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '700'],
 });
 
 export default async function RootLayout({

@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import { useKeenSlider } from "keen-slider/react";
-import Image from "next/image";
-import Link from "next/link";
-import { useData } from "@/contexts/DataContext";
+import React, { useEffect, useState } from 'react';
+import { useKeenSlider } from 'keen-slider/react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useData } from '@/contexts/DataContext';
 
 const Carousel: React.FC = () => {
   const { carousal } = useData();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
-    mode: "snap",
+    mode: 'snap',
     slides: { perView: 1 },
     defaultAnimation: { duration: 2000 },
     slideChanged: (s) => setCurrentSlide(s.track.details.rel), // Update current slide index on change
@@ -81,7 +81,7 @@ const Carousel: React.FC = () => {
           <button
             key={index}
             className={`w-5 h-1 ${
-              currentSlide === index ? "bg-yellow-500" : "bg-white"
+              currentSlide === index ? 'bg-yellow-500' : 'bg-white'
             }`}
             onClick={() => handleDotClick(index)}
           ></button>

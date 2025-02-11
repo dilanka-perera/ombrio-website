@@ -1,5 +1,5 @@
-import Topic from "./Topic";
-import MainButton from "./MainButton";
+import Topic from './Topic';
+import MainButton from './MainButton';
 
 const ExploreOurBlog: React.FC = () => {
   return (

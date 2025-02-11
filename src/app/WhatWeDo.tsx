@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React from "react";
-import TwoHalves from "./TwoHalves";
-import Topic from "./Topic";
-import { useData } from "@/contexts/DataContext";
+import React from 'react';
+import TwoHalves from './TwoHalves';
+import Topic from './Topic';
+import { useData } from '@/contexts/DataContext';
 
 const WhatWeDo: React.FC = () => {
   const { websiteImages } = useData();
@@ -17,8 +17,8 @@ const WhatWeDo: React.FC = () => {
       <TwoHalves
         title="AI Solutions"
         imageSrc={`https:${
-          websiteImages.find((item) => item.slug === "home-ai-technology")
-            ?.image || "/no.png"
+          websiteImages.find((item) => item.slug === 'home-ai-technology')
+            ?.image || '/no.png'
         }`}
         imageFirst={true}
         content={
@@ -55,8 +55,8 @@ const WhatWeDo: React.FC = () => {
       <TwoHalves
         title="Web Development"
         imageSrc={`https:${
-          websiteImages.find((item) => item.slug === "home-website-development")
-            ?.image || "/no.png"
+          websiteImages.find((item) => item.slug === 'home-website-development')
+            ?.image || '/no.png'
         }`}
         imageFirst={false}
         content={

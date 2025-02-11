@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React, { ReactNode } from "react";
-import Image from "next/image";
+import React, { ReactNode } from 'react';
+import Image from 'next/image';
 
 interface TwoHalvesProps {
   imageSrc: string; // URL for the image
@@ -19,7 +19,7 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
   return (
     <div
       className={`flex flex-col pt-8 ${
-        imageFirst ? "md:flex-row" : "md:flex-row-reverse"
+        imageFirst ? 'md:flex-row' : 'md:flex-row-reverse'
       } w-full h-full`}
     >
       {/* Image Side */}
@@ -31,7 +31,7 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
             width={800}
             height={800}
             className={`w-full h-full object-cover 
-              ${imageFirst ? "md:rounded-r-md" : "md:rounded-l-md"} 
+              ${imageFirst ? 'md:rounded-r-md' : 'md:rounded-l-md'} 
               xl:rounded-md`}
             unoptimized
           />
@@ -41,7 +41,7 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
       {/* Text Side */}
       <div
         className={`w-full md:w-1/2 flex items-center justify-center ${
-          imageFirst ? "" : "md:justify-start"
+          imageFirst ? '' : 'md:justify-start'
         } p-8`}
       >
         <div className="max-w-md md:text-left">

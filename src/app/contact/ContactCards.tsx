@@ -1,4 +1,4 @@
-import ContactCard from "./ContactCard"; // Import your ContactCard component
+import ContactCard from './ContactCard'; // Import your ContactCard component
 
 const ContactCards: React.FC = () => {
   return (

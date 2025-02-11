@@ -1,4 +1,4 @@
-import Topic from "../Topic";
+import Topic from '../Topic';
 
 const Vision: React.FC = () => {
   return (

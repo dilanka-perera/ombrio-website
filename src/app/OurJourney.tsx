@@ -1,5 +1,5 @@
-import Topic from "./Topic";
-import MainButton from "./MainButton";
+import Topic from './Topic';
+import MainButton from './MainButton';
 
 const OurJourney: React.FC = () => {
   return (
@@ -9,7 +9,6 @@ const OurJourney: React.FC = () => {
         <Topic text="Discover Who We Are" />
       </div>
 
-      {/* Description Section */}
       <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
           At ZynoraX, we are driven by a passion for technology and a commitment
@@ -23,7 +22,6 @@ const OurJourney: React.FC = () => {
           transformative solutions to businesses around the globe.
         </p>
 
-        {/* Read Our Blog Link */}
         <div className="pt-6 sm:flex items-end">
           <div className="mr-6 mb-4 sm:mb-0">
             <MainButton text="View Our Story" link="/about" />

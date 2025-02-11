@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isScrollOverflow, setIsScrollOverflow] = useState(true);
   const pathname = usePathname();
-  const pathnameParts = pathname.split("/");
+  const pathnameParts = pathname.split('/');
   const path = pathnameParts[1];
 
   const links = [
-    { href: "/blog", text: "Blog" },
-    { href: "/careers", text: "Careers" },
-    { href: "/about", text: "About" },
-    { href: "/contact", text: "Contact" },
+    { href: '/blog', text: 'Blog' },
+    { href: '/careers', text: 'Careers' },
+    { href: '/about', text: 'About' },
+    { href: '/contact', text: 'Contact' },
   ];
 
   useEffect(() => {
@@ -31,9 +31,9 @@ export default function Header() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -42,12 +42,12 @@ export default function Header() {
       <header
         className={`z-20 left-0 w-full flex-col items-center ${
           isScrollOverflow
-            ? "absolute translate-y-0"
-            : "fixed translate-y-0 top-[-80px]"
+            ? 'absolute translate-y-0'
+            : 'fixed translate-y-0 top-[-80px]'
         } transition-transform duration-500`}
       >
         <div className="bg-white max-w-[1920px] mx-auto ring-1 ring-gray-500/10 shadow-md">
-          <div className={`${isScrollOverflow ? "h-[0px]" : "h-[80px]"}`}></div>
+          <div className={`${isScrollOverflow ? 'h-[0px]' : 'h-[80px]'}`}></div>
           <div className="max-w-7xl mx-auto h-[80px] flex items-center">
             <div className="flex-1">
               <div className="">
@@ -124,7 +124,7 @@ export default function Header() {
                   <Link key={link.href} href={link.href}>
                     <div className="relative text-base font-medium text-slate-900 hover:text-slate-700">
                       {link.text}
-                      {"/" + path === link.href ? (
+                      {'/' + path === link.href ? (
                         <div className="bottom-0 w-7 h-1 bg-yellow-500" />
                       ) : (
                         <></>
@@ -148,9 +148,9 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     className={`-mx-3 block px-3 py-2 text-base/7 text-gray-900 font-semibold  ${
-                      "/" + path === link.href
-                        ? "bg-slate-300 hover:bg-slate-300"
-                        : "hover:bg-slate-200"
+                      '/' + path === link.href
+                        ? 'bg-slate-300 hover:bg-slate-300'
+                        : 'hover:bg-slate-200'
                     }`}
                     onClick={() => setIsSidebarOpen(false)} // Close sidebar when clicked
                   >

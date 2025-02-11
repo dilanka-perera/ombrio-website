@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import React from "react";
-import TwoHalves from "../TwoHalves";
-import Topic from "../Topic";
-import { useData } from "@/contexts/DataContext";
-import MainButton from "../MainButton";
+import React from 'react';
+import TwoHalves from '../TwoHalves';
+import Topic from '../Topic';
+import { useData } from '@/contexts/DataContext';
+import MainButton from '../MainButton';
 
 const JoinUs: React.FC = () => {
   const { websiteImages } = useData();
@@ -18,8 +18,8 @@ const JoinUs: React.FC = () => {
       <TwoHalves
         title="Join the Future of AI & Web Innovation at ZynoraX!"
         imageSrc={`https:${
-          websiteImages.find((item) => item.slug === "careers-join-us")
-            ?.image || "/no.png"
+          websiteImages.find((item) => item.slug === 'careers-join-us')
+            ?.image || '/no.png'
         }`}
         imageFirst={true}
         content={

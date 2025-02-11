@@ -1,5 +1,5 @@
-import Topic from "../Topic";
-import Image from "next/image";
+import Topic from '../Topic';
+import Image from 'next/image';
 
 const Team: React.FC = () => {
   return (

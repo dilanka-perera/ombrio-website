@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useData } from "@/contexts/DataContext";
-import ImageSnippets from "../ImageSnippets";
-import StandardContainer from "../StandardContainer";
-import Topic from "../Topic";
+import { useData } from '@/contexts/DataContext';
+import ImageSnippets from '../ImageSnippets';
+import StandardContainer from '../StandardContainer';
+import Topic from '../Topic';
 
 const CoreValues: React.FC = () => {
   const { tileCollections } = useData();
   const tileCollection = tileCollections.find(
-    (item) => item.slug === "core-values"
+    (item) => item.slug === 'core-values',
   );
 
   if (!tileCollection) {

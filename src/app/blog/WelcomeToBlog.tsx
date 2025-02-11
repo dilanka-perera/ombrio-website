@@ -1,4 +1,4 @@
-import Topic from "../Topic";
+import Topic from '../Topic';
 const WelcomeToBlog: React.FC = () => {
   return (
     <div className="pt-10 pb-8">

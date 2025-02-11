@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useData } from "@/contexts/DataContext";
-import ImageSnippets from "../ImageSnippets";
-import StandardContainer from "../StandardContainer";
-import Topic from "../Topic";
+import { useData } from '@/contexts/DataContext';
+import ImageSnippets from '../ImageSnippets';
+import StandardContainer from '../StandardContainer';
+import Topic from '../Topic';
 
 const WhyWorkAtZynorax: React.FC = () => {
   const { tileCollections } = useData();
   const tileCollection = tileCollections.find(
-    (item) => item.slug === "why-work-at-zynorax"
+    (item) => item.slug === 'why-work-at-zynorax',
   );
 
   if (!tileCollection) {

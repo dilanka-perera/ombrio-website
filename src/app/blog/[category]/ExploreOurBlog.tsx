@@ -1,6 +1,6 @@
-import Topic from "../../Topic";
-import { BlogPostCard } from "../BlogCard";
-import BlogList from "../BlogList";
+import Topic from '../../Topic';
+import { BlogPostCard } from '../BlogCard';
+import BlogList from '../BlogList';
 
 interface ExploreOurBlogProps {
   posts: BlogPostCard[];

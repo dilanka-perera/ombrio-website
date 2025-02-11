@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React, { createContext, useContext } from "react";
-import { Document } from "@contentful/rich-text-types";
+import React, { createContext, useContext } from 'react';
+import { Document } from '@contentful/rich-text-types';
 
 export type CarousalItem = {
   slug: string;
@@ -97,7 +97,7 @@ export function DataProvider({ initialData, children }: DataProviderProps) {
 export function useData() {
   const context = useContext(DataContext);
   if (context === undefined) {
-    throw new Error("useData must be used within a DataProvider");
+    throw new Error('useData must be used within a DataProvider');
   }
   return context;
 }

@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import { useKeenSlider } from "keen-slider/react";
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { useKeenSlider } from 'keen-slider/react';
 
 type Topic = {
   slug: string;
@@ -17,7 +17,7 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
-    mode: "snap",
+    mode: 'snap',
     slides: { perView, spacing: 15 },
     defaultAnimation: { duration: 2000 },
     slideChanged: (s) => setCurrentSlide(s.track.details.rel), // Update current slide index on change
@@ -35,29 +35,29 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
         window.innerWidth < 640
           ? 1
           : window.innerWidth < 960
-          ? length >= 2
-            ? 2
-            : 1
-          : window.innerWidth < 1280
-          ? length >= 3
-            ? 3
-            : length >= 2
-            ? 2
-            : 1
-          : length >= 4
-          ? 4
-          : length >= 3
-          ? 3
-          : length >= 2
-          ? 2
-          : 1
+            ? length >= 2
+              ? 2
+              : 1
+            : window.innerWidth < 1280
+              ? length >= 3
+                ? 3
+                : length >= 2
+                  ? 2
+                  : 1
+              : length >= 4
+                ? 4
+                : length >= 3
+                  ? 3
+                  : length >= 2
+                    ? 2
+                    : 1,
       );
     };
 
     updateSlidesPerView(); // Initial check
-    window.addEventListener("resize", updateSlidesPerView);
+    window.addEventListener('resize', updateSlidesPerView);
 
-    return () => window.removeEventListener("resize", updateSlidesPerView);
+    return () => window.removeEventListener('resize', updateSlidesPerView);
   }, [length]);
 
   useEffect(() => {
@@ -78,25 +78,25 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
 
   const desktopStyle =
     length <= 1
-      ? "grid grid-cols-1"
+      ? 'grid grid-cols-1'
       : length === 2
-      ? "hidden [@media(min-width:640px)]:grid grid-cols-2"
-      : length === 3
-      ? "hidden [@media(min-width:960px)]:grid grid-cols-3"
-      : length === 4
-      ? "hidden [@media(min-width:1280px)]:grid grid-cols-4"
-      : "hidden";
+        ? 'hidden [@media(min-width:640px)]:grid grid-cols-2'
+        : length === 3
+          ? 'hidden [@media(min-width:960px)]:grid grid-cols-3'
+          : length === 4
+            ? 'hidden [@media(min-width:1280px)]:grid grid-cols-4'
+            : 'hidden';
 
   const mobileStyle =
     length <= 1
-      ? "hidden"
+      ? 'hidden'
       : length === 2
-      ? "flex [@media(min-width:640px)]:hidden"
-      : length === 3
-      ? "flex [@media(min-width:960px)]:hidden"
-      : length === 4
-      ? "flex [@media(min-width:1280px)]:hidden"
-      : "flex";
+        ? 'flex [@media(min-width:640px)]:hidden'
+        : length === 3
+          ? 'flex [@media(min-width:960px)]:hidden'
+          : length === 4
+            ? 'flex [@media(min-width:1280px)]:hidden'
+            : 'flex';
 
   return (
     <div className="relative text-white pb-6 xl:pb-12">
@@ -175,7 +175,7 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
             <button
               key={`mobile-${topic.slug}`}
               className={`w-5 h-1 ${
-                currentSlide === index ? "bg-yellow-500" : "bg-white"
+                currentSlide === index ? 'bg-yellow-500' : 'bg-white'
               }`}
               onClick={() => handleDotClick(index)}
             ></button>

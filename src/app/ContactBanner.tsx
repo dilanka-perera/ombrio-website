@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 interface ContactBannerProps {
   title?: string;
@@ -7,9 +7,9 @@ interface ContactBannerProps {
 }
 
 const ContactBanner: React.FC<ContactBannerProps> = ({
-  title = "Connect with Us",
-  buttonText = "Request Our Services",
-  href = "/contact",
+  title = 'Connect with Us',
+  buttonText = 'Request Our Services',
+  href = '/contact',
 }) => {
   return (
     <div className="flex flex-col w-full bg-gradient-to-r from-slate-700 via-slate-600 to-slate-500 h-[250px] items-center justify-center">

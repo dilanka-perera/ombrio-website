@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
 // Breadcrumb.tsx
-import React from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import StandardContainer from "./StandardContainer";
+import React from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import StandardContainer from './StandardContainer';
 
 interface BreadcrumbProps {
   nameReplacer?: Record<string, string>;
@@ -12,7 +12,7 @@ interface BreadcrumbProps {
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ nameReplacer }) => {
   const pathname = usePathname();
-  const pathnames = pathname?.split("/").filter((x) => x);
+  const pathnames = pathname?.split('/').filter((x) => x);
 
   const capitalize = (str: string) =>
     str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
@@ -33,7 +33,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ nameReplacer }) => {
         >
           <ul
             className="flex flex-wrap w-full max-w-full"
-            style={{ listStyleType: "none", padding: 0, margin: 0 }}
+            style={{ listStyleType: 'none', padding: 0, margin: 0 }}
           >
             <li className="flex max-w-full truncate">
               <Link href="/" className="text-black hover:text-slate-700">
@@ -41,12 +41,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ nameReplacer }) => {
               </Link>
             </li>
             {pathnames?.map((pathname, index) => {
-              const href = `/${pathnames.slice(0, index + 1).join("/")}`;
+              const href = `/${pathnames.slice(0, index + 1).join('/')}`;
               const isLast = index === pathnames.length - 1;
               const displayName = replaceName(pathname);
               return (
                 <li key={href} className="flex max-w-full truncate">
-                  <span className="mx-2 whitespace-nowrap">{" / "}</span>
+                  <span className="mx-2 whitespace-nowrap">{' / '}</span>
                   {isLast ? (
                     <span className="truncate whitespace-nowrap">
                       {displayName}

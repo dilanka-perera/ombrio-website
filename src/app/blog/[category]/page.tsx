@@ -1,6 +1,6 @@
-import { fetchBlogs } from "@/lib/contentful";
-import CategoryPage from "./CategoryPage";
-import { Metadata } from "next";
+import { fetchBlogs } from '@/lib/contentful';
+import CategoryPage from './CategoryPage';
+import { Metadata } from 'next';
 
 interface CategoryParams {
   category: string;
@@ -10,7 +10,7 @@ export async function generateStaticParams(): Promise<CategoryParams[]> {
   const blogs = await fetchBlogs();
 
   const categories =
-    blogs.find((blog) => blog.slug === "blog")?.categories ?? [];
+    blogs.find((blog) => blog.slug === 'blog')?.categories ?? [];
 
   return categories.map((category) => ({ category: category.slug }));
 }

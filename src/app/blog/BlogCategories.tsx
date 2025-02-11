@@ -1,26 +1,26 @@
-import { useState, useEffect } from "react";
-import { BlogCategory, BlogPost } from "@/contexts/DataContext";
-import BlogList from "./BlogList";
-import Topic from "@/app/Topic";
-import MainButton from "../MainButton";
+import { useState, useEffect } from 'react';
+import { BlogCategory, BlogPost } from '@/contexts/DataContext';
+import BlogList from './BlogList';
+import Topic from '@/app/Topic';
+import MainButton from '../MainButton';
 
 interface BlogCategoriesProps {
   categories: BlogCategory[];
 }
 
 const BlogCategories: React.FC<BlogCategoriesProps> = ({ categories }) => {
-  const [viewport, setViewport] = useState<string>("");
+  const [viewport, setViewport] = useState<string>('');
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
-        setViewport("xl"); // Extra-large screens (xl)
+        setViewport('xl'); // Extra-large screens (xl)
       } else if (window.innerWidth >= 768) {
-        setViewport("lg"); // Large screens (lg)
+        setViewport('lg'); // Large screens (lg)
       } else if (window.innerWidth >= 640) {
-        setViewport("md"); // Medium screens (md)
+        setViewport('md'); // Medium screens (md)
       } else {
-        setViewport("sm"); // Small screens (sm)
+        setViewport('sm'); // Small screens (sm)
       }
     };
 
@@ -28,22 +28,22 @@ const BlogCategories: React.FC<BlogCategoriesProps> = ({ categories }) => {
     handleResize();
 
     // Add event listener for resizing
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     // Cleanup on component unmount
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Define how many posts to show based on viewport size
   const postsToShow = (viewport: string, posts: BlogPost[]) => {
     switch (viewport) {
-      case "xl":
+      case 'xl':
         return posts.slice(0, 4); // Show 8 posts on extra-large screens
-      case "lg":
+      case 'lg':
         return posts.slice(0, 3); // Show 6 posts on large screens
-      case "md":
+      case 'md':
         return posts.slice(0, 4); // Show 5 posts on medium screens
-      case "sm":
+      case 'sm':
       default:
         return posts.slice(0, 3); // Show 4 posts on small screens
     }

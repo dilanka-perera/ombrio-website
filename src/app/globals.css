@@ -52,8 +52,8 @@ code {
   overflow-y: hidden; /* Hides vertical overflow */
   display: block;
   max-width: 100%;
-  margin-top: 10px; 
-  margin-bottom: 10px; 
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 20px; /* Adjust the padding as needed */
   background-color: #f1f5f9; /* Light gray background color */
   color: #333; /* Dark text color */

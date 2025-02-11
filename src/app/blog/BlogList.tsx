@@ -1,5 +1,5 @@
-import React from "react";
-import BlogCard, { BlogPostCard } from "./BlogCard";
+import React from 'react';
+import BlogCard, { BlogPostCard } from './BlogCard';
 
 interface BlogListProps {
   posts: BlogPostCard[];

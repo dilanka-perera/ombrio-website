@@ -1,4 +1,4 @@
-import Topic from "@/app/Topic";
+import Topic from '@/app/Topic';
 
 interface AboutCategoryProps {
   description: string;

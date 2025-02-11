@@ -1,4 +1,4 @@
-import Topic from "../Topic";
+import Topic from '../Topic';
 const StayTuned: React.FC = () => {
   return (
     <div className="pt-10 pb-[60px]">

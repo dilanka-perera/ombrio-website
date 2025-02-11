@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import React from "react";
-import Image from "next/image";
-import { useData } from "@/contexts/DataContext";
+import React from 'react';
+import Image from 'next/image';
+import { useData } from '@/contexts/DataContext';
 
 interface HeadBannerProps {
   slug: string;

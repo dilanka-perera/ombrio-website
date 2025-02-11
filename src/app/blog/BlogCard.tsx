@@ -1,7 +1,7 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ChevronRight } from 'lucide-react';
 
 export interface BlogPostCard {
   slug: string;
@@ -36,10 +36,10 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
           </div>
 
           <p className="text-slate-500 font-normal text-md mt-2">
-            {new Date(post.publishedDate).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "short",
-              day: "numeric",
+            {new Date(post.publishedDate).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric',
             })}
           </p>
         </div>

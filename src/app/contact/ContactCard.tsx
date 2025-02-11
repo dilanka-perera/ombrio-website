@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Topic from "../Topic";
+import Image from 'next/image';
+import Topic from '../Topic';
 // import MainButton from "../MainButton";
 
 interface ContactCardProps {

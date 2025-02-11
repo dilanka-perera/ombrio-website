@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import React, { useEffect, useRef, useState } from "react";
-import { BlogPost } from "@/contexts/DataContext";
-import Image from "next/image";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS, INLINES, Node } from "@contentful/rich-text-types";
-import BlogTopic from "./BlogTopic";
-import { FiChevronDown } from "react-icons/fi";
+import React, { useEffect, useRef, useState } from 'react';
+import { BlogPost } from '@/contexts/DataContext';
+import Image from 'next/image';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, INLINES, Node } from '@contentful/rich-text-types';
+import BlogTopic from './BlogTopic';
+import { FiChevronDown } from 'react-icons/fi';
 
 interface BlogHeroProps {
   post: BlogPost;
@@ -61,13 +61,13 @@ const renderOptions = {
     ),
     [INLINES.EMBEDDED_ENTRY]: (node: Node) => {
       // target the contentType of the EMBEDDED_ENTRY to display as you need
-      if (node.data.target.sys.contentType.sys.id === "blogPost") {
+      if (node.data.target.sys.contentType.sys.id === 'blogPost') {
         return (
           <a
             href={`/blog/${node.data.target.fields.slug}`}
             className="text-black"
           >
-            {" "}
+            {' '}
             {node.data.target.fields.title}
           </a>
         );
@@ -94,7 +94,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
   const [isFixed, setIsFixed] = useState(false);
   const [isAbsolute, setIsAbsolute] = useState(false);
   const [activeSection, setActiveSection] = useState(
-    post.content[0]?.slug || ""
+    post.content[0]?.slug || '',
   );
 
   const tocRef = useRef<HTMLDivElement | null>(null);
@@ -141,15 +141,15 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
     handleScroll();
 
     // Add event listener for scroll
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [post]);
 
   const handleSectionClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    id: string
+    id: string,
   ) => {
     event.preventDefault();
     const element = document.getElementById(id);
@@ -160,7 +160,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
 
       window.scrollTo({
         top: elementPosition - offset,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
       setIsOpen(false); // Close dropdown after selection
     }
@@ -169,13 +169,13 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
   return (
     <div ref={tocRef}>
       <div className="md:hidden">
-        {isFixed && <div style={{ height: "40px" }}></div>}
+        {isFixed && <div style={{ height: '40px' }}></div>}
       </div>
 
       <div
         id="toc-container"
         className={`md:hidden max-w-screen h-[40px] mx-auto bg-white ring-1 ring-gray-500/10 shadow-md transition-all duration-300 ${
-          isFixed ? "fixed top-[79px] left-0 w-full z-30 shadow-lg" : ""
+          isFixed ? 'fixed top-[79px] left-0 w-full z-30 shadow-lg' : ''
         }`}
       >
         <div className="md:hidden flex px-6 h-[40px]">
@@ -189,7 +189,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
             }
             <FiChevronDown
               className={`transition-transform ${
-                isOpen ? "rotate-180" : "rotate-0"
+                isOpen ? 'rotate-180' : 'rotate-0'
               }`}
             />
           </button>
@@ -201,10 +201,10 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
                   onClick={(e) => handleSectionClick(e, section.slug)}
                   className={`block w-full text-left px-4 py-2 text-black font-normal ${
                     section.slug === activeSection
-                      ? "bg-slate-200 hover:bg-slate-200"
-                      : "bg-white hover:bg-slate-100"
+                      ? 'bg-slate-200 hover:bg-slate-200'
+                      : 'bg-white hover:bg-slate-100'
                   } overflow-hidden ${
-                    index === post.content.length - 1 ? "rounded-b-lg" : ""
+                    index === post.content.length - 1 ? 'rounded-b-lg' : ''
                   }`}
                 >
                   {section.subtitle}
@@ -223,10 +223,10 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
               ref={tableRef}
               className={` max-w-[25vw] xl:max-w-[320px] w-[25vw] xl:w-[320px] max-h-screen ${
                 isAbsolute
-                  ? "absolute bottom-0"
+                  ? 'absolute bottom-0'
                   : isFixed
-                  ? "fixed top-[129px]  left-auto right-auto"
-                  : ""
+                    ? 'fixed top-[129px]  left-auto right-auto'
+                    : ''
               }`}
             >
               <div className="flex flex-col pl-5">
@@ -242,8 +242,8 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
                         onClick={(e) => handleSectionClick(e, content.slug)}
                         className={`p-4 border-l-2 hover:text-slate-700 text-left ${
                           content.slug === activeSection
-                            ? "font-medium border-yellow-500 bg-slate-200"
-                            : "font-normal border-slate-800 bg-slate-100"
+                            ? 'font-medium border-yellow-500 bg-slate-200'
+                            : 'font-normal border-slate-800 bg-slate-100'
                         }`}
                       >
                         {content.subtitle}

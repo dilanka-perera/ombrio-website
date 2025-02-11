@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function Footer() {
   const links = [
-    { href: "#", text: "Privacy Policy" },
-    { href: "#", text: "Terms & Conditions" },
+    { href: '#', text: 'Privacy Policy' },
+    { href: '#', text: 'Terms & Conditions' },
   ];
 
   return (

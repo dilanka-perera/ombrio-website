@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React from "react";
-import StandardContainer from "@/app/StandardContainer";
-import { BlogPost } from "@/contexts/DataContext";
-import Image from "next/image";
+import React from 'react';
+import StandardContainer from '@/app/StandardContainer';
+import { BlogPost } from '@/contexts/DataContext';
+import Image from 'next/image';
 
 interface BlogHeroProps {
   post: BlogPost;
@@ -54,11 +54,11 @@ const BlogHero: React.FC<BlogHeroProps> = ({ post }) => {
 
               {/* Published Date */}
               <p className="text-center md:text-left mt-2">
-                Published on{" "}
-                {new Date(post.publishedDate).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
+                Published on{' '}
+                {new Date(post.publishedDate).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric',
                 })}
               </p>
             </div>

@@ -4,10 +4,10 @@ import {
   Entry,
   EntryFieldTypes,
   EntrySkeletonType,
-} from "contentful";
+} from 'contentful';
 
 export type WebsiteImageSkeleton = {
-  contentTypeId: "websiteImage";
+  contentTypeId: 'websiteImage';
   fields: {
     slug: EntryFieldTypes.Text;
     image?: EntryFieldTypes.AssetLink;
@@ -15,7 +15,7 @@ export type WebsiteImageSkeleton = {
 };
 
 export type CarousalSkeleton = {
-  contentTypeId: "carousal";
+  contentTypeId: 'carousal';
   fields: {
     slug: EntryFieldTypes.Text;
     order: EntryFieldTypes.Number;
@@ -28,7 +28,7 @@ export type CarousalSkeleton = {
 };
 
 export type TileSkeleton = {
-  contentTypeId: "tile";
+  contentTypeId: 'tile';
   fields: {
     title: EntryFieldTypes.Text;
     slug: EntryFieldTypes.Text;
@@ -38,7 +38,7 @@ export type TileSkeleton = {
 };
 
 export type TileCollectionSkeleton = {
-  contentTypeId: "tileCollection";
+  contentTypeId: 'tileCollection';
   fields: {
     slug: EntryFieldTypes.Text;
     tiles: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TileSkeleton>>;
@@ -46,7 +46,7 @@ export type TileCollectionSkeleton = {
 };
 
 export type HeadBannerSkeleton = {
-  contentTypeId: "headBanner";
+  contentTypeId: 'headBanner';
   fields: {
     slug: EntryFieldTypes.Text;
     text: EntryFieldTypes.Text;
@@ -55,7 +55,7 @@ export type HeadBannerSkeleton = {
 };
 
 export type AuthorSkeleton = {
-  contentTypeId: "author";
+  contentTypeId: 'author';
   fields: {
     slug: EntryFieldTypes.Text;
     firstName: EntryFieldTypes.Text;
@@ -67,7 +67,7 @@ export type AuthorSkeleton = {
 };
 
 export type BlogContentSkeleton = {
-  contentTypeId: "blogContent";
+  contentTypeId: 'blogContent';
   fields: {
     subtitle: EntryFieldTypes.Text;
     slug: EntryFieldTypes.Text;
@@ -76,19 +76,21 @@ export type BlogContentSkeleton = {
 };
 
 export type BlogPostSkeleton = {
-  contentTypeId: "blogPost";
+  contentTypeId: 'blogPost';
   fields: {
     slug: EntryFieldTypes.Text;
     title: EntryFieldTypes.Text;
     featuredImage?: EntryFieldTypes.AssetLink;
     author: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<AuthorSkeleton>>;
     publishedDate: EntryFieldTypes.Date;
-    content?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<BlogContentSkeleton>>;
+    content?: EntryFieldTypes.Array<
+      EntryFieldTypes.EntryLink<BlogContentSkeleton>
+    >;
   };
 };
 
 export type BlogCategorySkeleton = {
-  contentTypeId: "blogCategory";
+  contentTypeId: 'blogCategory';
   fields: {
     slug: EntryFieldTypes.Text;
     name: EntryFieldTypes.Text;
@@ -98,22 +100,23 @@ export type BlogCategorySkeleton = {
   };
 };
 
-
 export type BlogSkeleton = {
-  contentTypeId: "blog";
+  contentTypeId: 'blog';
   fields: {
     slug: EntryFieldTypes.Text;
-    blogCategory?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<BlogCategorySkeleton>>;
+    blogCategory?: EntryFieldTypes.Array<
+      EntryFieldTypes.EntryLink<BlogCategorySkeleton>
+    >;
   };
 };
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function isAsset(item: any): item is Asset {
-  return item && "fields" in item && item.fields.file;
+  return item && 'fields' in item && item.fields.file;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function isEntry<T extends EntrySkeletonType>(item: any): item is Entry<T> {
-  return item && "fields" in item;
+  return item && 'fields' in item;
 }
 
 export async function fetchWebsiteImages() {
@@ -124,7 +127,7 @@ export async function fetchWebsiteImages() {
 
   // Replace 'yourContentType' with your actual content type ID
   const response = await client.getEntries<WebsiteImageSkeleton>({
-    content_type: "websiteImage",
+    content_type: 'websiteImage',
   });
 
   const data = response.items;
@@ -132,8 +135,8 @@ export async function fetchWebsiteImages() {
   const websiteImages = data.map((item) => ({
     slug: item.fields.slug,
     image: isAsset(item.fields.image)
-      ? item.fields.image.fields.file?.url || "/no.png"
-      : "/no.png",
+      ? item.fields.image.fields.file?.url || '/no.png'
+      : '/no.png',
   }));
 
   return websiteImages;
@@ -147,8 +150,8 @@ export async function fetchCarousal() {
 
   // Replace 'yourContentType' with your actual content type ID
   const response = await client.getEntries<CarousalSkeleton>({
-    content_type: "carousal",
-    order: ["fields.order"],
+    content_type: 'carousal',
+    order: ['fields.order'],
   });
 
   const data = response.items;
@@ -161,8 +164,8 @@ export async function fetchCarousal() {
     buttonText: item.fields.buttonText,
     buttonUrl: item.fields.buttonUrl,
     image: isAsset(item.fields.image)
-      ? item.fields.image.fields.file?.url || "/no.png"
-      : "/no.png",
+      ? item.fields.image.fields.file?.url || '/no.png'
+      : '/no.png',
   }));
 
   return carousal;
@@ -175,7 +178,7 @@ export async function fetchTileCollections() {
   });
 
   const response = await client.getEntries<TileCollectionSkeleton>({
-    content_type: "tileCollection",
+    content_type: 'tileCollection',
   });
 
   const data = response.items;
@@ -192,8 +195,8 @@ export async function fetchTileCollections() {
           slug: tileFields.fields.slug,
           description: tileFields.fields.description,
           image: isAsset(tileFields.fields.image)
-            ? tileFields.fields.image?.fields.file?.url || "/no.png"
-            : "/no.png",
+            ? tileFields.fields.image?.fields.file?.url || '/no.png'
+            : '/no.png',
         };
       }),
   }));
@@ -208,7 +211,7 @@ export async function fetchHeadBanners() {
   });
 
   const response = await client.getEntries<HeadBannerSkeleton>({
-    content_type: "headBanner",
+    content_type: 'headBanner',
   });
 
   const data = response.items;
@@ -217,8 +220,8 @@ export async function fetchHeadBanners() {
     slug: item.fields.slug,
     text: item.fields.text,
     image: isAsset(item.fields.image)
-      ? item.fields.image.fields.file?.url || "/no.png"
-      : "/no.png",
+      ? item.fields.image.fields.file?.url || '/no.png'
+      : '/no.png',
   }));
 }
 
@@ -229,55 +232,58 @@ export async function fetchBlogs() {
   });
 
   const response = await client.getEntries<BlogSkeleton>({
-    content_type: "blog",
-    include: 3
+    content_type: 'blog',
+    include: 3,
   });
 
   const data = response.items;
 
   const blogs = data.map((blog) => ({
     slug: blog.fields.slug,
-    categories: blog.fields.blogCategory
-      ?.filter((category) => isEntry<BlogCategorySkeleton>(category))
-      .map((category) => ({
-        slug: category.fields.slug,
-        name: category.fields.name,
-        description: category.fields.description,
-        headerImageSlug: isEntry<HeadBannerSkeleton>(category.fields.headerImage)
-          ? category.fields.headerImage.fields.slug
-          : "",
-        blogPosts: (category.fields.blogs ?? [])
-          .filter((blogPost) => isEntry<BlogPostSkeleton>(blogPost))
-          .map((blogPost) => ({
-            slug: blogPost.fields.slug,
-            title: blogPost.fields.title,
-            featuredImage: isAsset(blogPost.fields.featuredImage)
-              ? blogPost.fields.featuredImage.fields.file?.url || "/no.png"
-              : "/no.png",
-            publishedDate: blogPost.fields.publishedDate,
-            authors: blogPost.fields.author
-              .filter((author) => isEntry<AuthorSkeleton>(author))
-              .map((author) => ({
-                slug: author.fields.slug,
-                firstName: author.fields.firstName,
-                lastName: author.fields.lastName,
-                email: author.fields.email,
-                profilePicture: isAsset(author.fields.profilePicture)
-                  ? author.fields.profilePicture.fields.file?.url || "/no.png"
-                  : "/no.png",
-                bio: author.fields.bio,
-              })),
-            content: (blogPost.fields.content ?? [])
-              .filter((content) => isEntry<BlogContentSkeleton>(content))
-              .map((content) => ({
-                subtitle: content.fields.subtitle,
-                slug: content.fields.slug,
-                content: content.fields.content,
-              })),
-          })),
-      })) || [],
+    categories:
+      blog.fields.blogCategory
+        ?.filter((category) => isEntry<BlogCategorySkeleton>(category))
+        .map((category) => ({
+          slug: category.fields.slug,
+          name: category.fields.name,
+          description: category.fields.description,
+          headerImageSlug: isEntry<HeadBannerSkeleton>(
+            category.fields.headerImage,
+          )
+            ? category.fields.headerImage.fields.slug
+            : '',
+          blogPosts: (category.fields.blogs ?? [])
+
+            .filter((blogPost) => isEntry<BlogPostSkeleton>(blogPost))
+            .map((blogPost) => ({
+              slug: blogPost.fields.slug,
+              title: blogPost.fields.title,
+              featuredImage: isAsset(blogPost.fields.featuredImage)
+                ? blogPost.fields.featuredImage.fields.file?.url || '/no.png'
+                : '/no.png',
+              publishedDate: blogPost.fields.publishedDate,
+              authors: blogPost.fields.author
+                .filter((author) => isEntry<AuthorSkeleton>(author))
+                .map((author) => ({
+                  slug: author.fields.slug,
+                  firstName: author.fields.firstName,
+                  lastName: author.fields.lastName,
+                  email: author.fields.email,
+                  profilePicture: isAsset(author.fields.profilePicture)
+                    ? author.fields.profilePicture.fields.file?.url || '/no.png'
+                    : '/no.png',
+                  bio: author.fields.bio,
+                })),
+              content: (blogPost.fields.content ?? [])
+                .filter((content) => isEntry<BlogContentSkeleton>(content))
+                .map((content) => ({
+                  subtitle: content.fields.subtitle,
+                  slug: content.fields.slug,
+                  content: content.fields.content,
+                })),
+            })),
+        })) || [],
   }));
 
   return blogs;
 }
-  

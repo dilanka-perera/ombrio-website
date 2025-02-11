@@ -1,4 +1,4 @@
-import Topic from "../Topic";
+import Topic from '../Topic';
 
 const Story: React.FC = () => {
   return (
