@@ -6,7 +6,7 @@ import Topic from "./Topic";
 import { useData } from "@/contexts/DataContext";
 
 const WhatWeDo: React.FC = () => {
-  const websiteImages = useData().websiteImages;
+  const { websiteImages } = useData();
 
   return (
     <div className="pb-8">

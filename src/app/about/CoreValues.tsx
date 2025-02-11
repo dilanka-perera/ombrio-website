@@ -6,7 +6,7 @@ import StandardContainer from "../StandardContainer";
 import Topic from "../Topic";
 
 const CoreValues: React.FC = () => {
-  const tileCollections = useData().tileCollections;
+  const { tileCollections } = useData();
   const tileCollection = tileCollections.find(
     (item) => item.slug === "core-values"
   );

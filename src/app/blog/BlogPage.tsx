@@ -6,44 +6,44 @@ import { LayoutBreak, LayoutWrapper } from "@/app/LayoutWrapper";
 import WideContainer from "@/app/WideContainer";
 import Breadcrumb from "@/app/Breadcrumb";
 import ContactBanner from "@/app/ContactBanner";
-import BlogHero from "./BlogHero";
-import BlogContent from "./BlogContent";
 import StandardContainer from "@/app/StandardContainer";
+import HeadBanner from "@/app/HeadBanner";
+import TableOfContents from "@/app/TableOfContents";
+import BlogCategories from "./BlogCategories";
+import WelcomeToBlog from "./WelcomeToBlog";
 
-export default function BlogPostPage({
-  data,
-}: {
-  data: { category: string; blogPost: string };
-}) {
+export default function BlogPage() {
   const { blogs } = useData();
-  const { category, blogPost } = data;
 
   const blogData = blogs.find((blog) => blog.slug === "blog");
   if (!blogData) return notFound();
 
-  const categoryData = blogData.categories.find((cat) => cat.slug === category);
-  if (!categoryData) return notFound();
-
-  const post = categoryData.blogPosts.find((blog) => blog.slug === blogPost);
-  if (!post) return notFound();
+  const sections = [
+    { name: "Welcome", id: "welcome-to-blog" },
+    ...blogData.categories.map((cat) => ({
+      name: cat.name,
+      id: cat.slug,
+    })),
+  ];
 
   return (
     <LayoutWrapper>
       <WideContainer>
-        <Breadcrumb
-          nameReplacer={{
-            [categoryData.slug]: categoryData.name,
-            [post.slug]: post.title,
-          }}
-        />
+        <Breadcrumb />
       </WideContainer>
 
       <WideContainer>
-        <BlogHero post={post} />
+        <HeadBanner slug="blog" />
       </WideContainer>
 
+      <TableOfContents sections={sections} />
+
+      <StandardContainer id="welcome-to-blog">
+        <WelcomeToBlog />
+      </StandardContainer>
+
       <StandardContainer>
-        <BlogContent post={post} />
+        <BlogCategories categories={blogData.categories} />
       </StandardContainer>
 
       <LayoutBreak />

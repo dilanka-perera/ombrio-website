@@ -7,7 +7,7 @@ import { useData } from "@/contexts/DataContext";
 import MainButton from "../MainButton";
 
 const JoinUs: React.FC = () => {
-  const websiteImages = useData().websiteImages;
+  const { websiteImages } = useData();
 
   return (
     <div className="pt-10">

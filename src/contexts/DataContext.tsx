@@ -64,6 +64,8 @@ export type BlogCategory = {
   slug: string;
   name: string;
   blogPosts: BlogPost[];
+  description: string;
+  headerImageSlug: string;
 };
 
 export type Blog = {

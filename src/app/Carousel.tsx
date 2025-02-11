@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useData } from "@/contexts/DataContext";
 
 const Carousel: React.FC = () => {
-  const carousal = useData().carousal;
+  const { carousal } = useData();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,

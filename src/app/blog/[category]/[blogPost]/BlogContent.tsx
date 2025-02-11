@@ -218,33 +218,42 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
       <div ref={contentRef} className="md:grid grid-cols-4 pb-20 ">
         <div className="hidden md:flex flex-col col-span-1 relative">
           <div className="h-[50px]"></div>
-          <div
-            ref={tableRef}
-            className={` max-w-[25vw] xl:max-w-[320px] w-[25vw] xl:w-[320px] max-h-full overflow-y-auto ${
-              isAbsolute
-                ? "absolute bottom-0"
-                : isFixed
-                ? "fixed top-[129px]  left-auto right-auto"
-                : ""
-            }`}
-          >
-            <div className="flex flex-col pl-5">
-              <p className="pb-5 font-medium text-xl">Table of Content</p>
-              {post.content.map((content) => {
-                return (
-                  <button
-                    key={`desktop-${content.slug}`}
-                    onClick={(e) => handleSectionClick(e, content.slug)}
-                    className={`p-4 border-l-4 hover:text-slate-700 text-left ${
-                      content.slug === activeSection
-                        ? "font-medium border-yellow-500"
-                        : "font-normal border-slate-300 "
-                    }`}
-                  >
-                    {content.subtitle}
-                  </button>
-                );
-              })}
+          <div className="h-full ">
+            <div
+              ref={tableRef}
+              className={` max-w-[25vw] xl:max-w-[320px] w-[25vw] xl:w-[320px] max-h-screen ${
+                isAbsolute
+                  ? "absolute bottom-0"
+                  : isFixed
+                  ? "fixed top-[129px]  left-auto right-auto"
+                  : ""
+              }`}
+            >
+              <div className="flex flex-col pl-5">
+                {/* <div className="h-[20px]"></div> */}
+                <p className="pb-5 font-medium text-xl h-[50px]">
+                  Table of Content
+                </p>
+                <div className="flex flex-col max-h-[calc(100vh-200px)] overflow-y-auto">
+                  {post.content.map((content) => {
+                    return (
+                      <button
+                        key={`desktop-${content.slug}`}
+                        onClick={(e) => handleSectionClick(e, content.slug)}
+                        className={`p-4 border-l-2 hover:text-slate-700 text-left ${
+                          content.slug === activeSection
+                            ? "font-medium border-yellow-500 bg-slate-200"
+                            : "font-normal border-slate-800 bg-slate-100"
+                        }`}
+                      >
+                        {content.subtitle}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* <div className="h-[20px]"></div> */}
+              </div>
             </div>
           </div>
         </div>

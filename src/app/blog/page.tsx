@@ -1,13 +1,6 @@
 import React from "react";
 import { Metadata, NextPage } from "next";
-import WideContainer from "../WideContainer";
-import HeadBanner from "../HeadBanner";
-import StandardContainer from "../StandardContainer";
-import { LayoutBreak, LayoutWrapper } from "../LayoutWrapper";
-import ContactBanner from "../ContactBanner";
-import StayTuned from "./StayTuned";
-import Breadcrumb from "../Breadcrumb";
-import TableOfContents from "../TableOfContents";
+import CategoryPage from "./BlogPage";
 
 const title = "Careers – ZynoraX";
 const description =
@@ -38,32 +31,8 @@ export const metadata: Metadata = {
   },
 };
 
-const Careers: NextPage = () => {
-  const sections = [{ name: "Stay Tuned", id: "stay-tuned" }];
-
-  return (
-    <LayoutWrapper>
-      <WideContainer>
-        <Breadcrumb />
-      </WideContainer>
-
-      <WideContainer>
-        <HeadBanner slug="blog" />
-      </WideContainer>
-
-      <TableOfContents sections={sections} />
-
-      <StandardContainer id="stay-tuned">
-        <StayTuned />
-      </StandardContainer>
-
-      <LayoutBreak />
-
-      <WideContainer>
-        <ContactBanner />
-      </WideContainer>
-    </LayoutWrapper>
-  );
+const Blog: NextPage = () => {
+  return <CategoryPage />;
 };
 
-export default Careers;
+export default Blog;

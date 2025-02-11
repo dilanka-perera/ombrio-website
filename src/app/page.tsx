@@ -16,6 +16,7 @@ const description =
 const imageUrl = "/OG.jpg";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://zynorax-website-project-1.vercel.app/"),
   title,
   description,
   openGraph: {

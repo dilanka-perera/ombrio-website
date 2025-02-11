@@ -83,7 +83,7 @@ export type BlogPostSkeleton = {
     featuredImage?: EntryFieldTypes.AssetLink;
     author: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<AuthorSkeleton>>;
     publishedDate: EntryFieldTypes.Date;
-    content: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<BlogContentSkeleton>>;
+    content?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<BlogContentSkeleton>>;
   };
 };
 
@@ -92,9 +92,12 @@ export type BlogCategorySkeleton = {
   fields: {
     slug: EntryFieldTypes.Text;
     name: EntryFieldTypes.Text;
-    blogs: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<BlogPostSkeleton>>;
+    blogs?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<BlogPostSkeleton>>;
+    description: EntryFieldTypes.Text;
+    headerImage?: EntryFieldTypes.EntryLink<HeadBannerSkeleton>;
   };
 };
+
 
 export type BlogSkeleton = {
   contentTypeId: "blog";
@@ -239,7 +242,11 @@ export async function fetchBlogs() {
       .map((category) => ({
         slug: category.fields.slug,
         name: category.fields.name,
-        blogPosts: category.fields.blogs
+        description: category.fields.description,
+        headerImageSlug: isEntry<HeadBannerSkeleton>(category.fields.headerImage)
+          ? category.fields.headerImage.fields.slug
+          : "",
+        blogPosts: (category.fields.blogs ?? [])
           .filter((blogPost) => isEntry<BlogPostSkeleton>(blogPost))
           .map((blogPost) => ({
             slug: blogPost.fields.slug,
@@ -260,7 +267,7 @@ export async function fetchBlogs() {
                   : "/no.png",
                 bio: author.fields.bio,
               })),
-            content: blogPost.fields.content
+            content: (blogPost.fields.content ?? [])
               .filter((content) => isEntry<BlogContentSkeleton>(content))
               .map((content) => ({
                 subtitle: content.fields.subtitle,

@@ -6,17 +6,14 @@ import { LayoutBreak, LayoutWrapper } from "@/app/LayoutWrapper";
 import WideContainer from "@/app/WideContainer";
 import Breadcrumb from "@/app/Breadcrumb";
 import ContactBanner from "@/app/ContactBanner";
-import BlogHero from "./BlogHero";
-import BlogContent from "./BlogContent";
 import StandardContainer from "@/app/StandardContainer";
+import HeadBanner from "@/app/HeadBanner";
+import TableOfContents from "@/app/TableOfContents";
+import AboutCategory from "./AboutCategory";
+import ExploreOurBlog from "./ExploreOurBlog";
 
-export default function BlogPostPage({
-  data,
-}: {
-  data: { category: string; blogPost: string };
-}) {
+export default function CategoryPage({ category }: { category: string }) {
   const { blogs } = useData();
-  const { category, blogPost } = data;
 
   const blogData = blogs.find((blog) => blog.slug === "blog");
   if (!blogData) return notFound();
@@ -24,8 +21,19 @@ export default function BlogPostPage({
   const categoryData = blogData.categories.find((cat) => cat.slug === category);
   if (!categoryData) return notFound();
 
-  const post = categoryData.blogPosts.find((blog) => blog.slug === blogPost);
-  if (!post) return notFound();
+  const sections = [
+    { name: "Intro", id: "intro" },
+    { name: "Blog", id: "blog" },
+  ];
+
+  const blogPostCards = categoryData.blogPosts.map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    featuredImage: post.featuredImage,
+    publishedDate: post.publishedDate,
+    category: categoryData.name,
+    categorySlug: categoryData.slug,
+  }));
 
   return (
     <LayoutWrapper>
@@ -33,17 +41,22 @@ export default function BlogPostPage({
         <Breadcrumb
           nameReplacer={{
             [categoryData.slug]: categoryData.name,
-            [post.slug]: post.title,
           }}
         />
       </WideContainer>
 
       <WideContainer>
-        <BlogHero post={post} />
+        <HeadBanner slug={categoryData.headerImageSlug} />
       </WideContainer>
 
-      <StandardContainer>
-        <BlogContent post={post} />
+      <TableOfContents sections={sections} />
+
+      <StandardContainer id="intro">
+        <AboutCategory description={categoryData.description} />
+      </StandardContainer>
+
+      <StandardContainer id="blog">
+        <ExploreOurBlog posts={blogPostCards} />
       </StandardContainer>
 
       <LayoutBreak />

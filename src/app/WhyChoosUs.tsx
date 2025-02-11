@@ -6,7 +6,7 @@ import StandardContainer from "./StandardContainer";
 import Topic from "./Topic";
 
 const WhyChooseUs: React.FC = () => {
-  const tileCollections = useData().tileCollections;
+  const { tileCollections } = useData();
   const tileCollection = tileCollections.find(
     (item) => item.slug === "why-choose-us"
   );
