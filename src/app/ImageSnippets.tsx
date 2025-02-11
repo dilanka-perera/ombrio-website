@@ -109,7 +109,6 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
               width={240}
               height={360}
               className="w-full h-full object-cover"
-              unoptimized
             />
 
             {/* Dark overlay */}
@@ -147,7 +146,6 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
                   width={240}
                   height={360}
                   className="w-full h-full object-cover"
-                  unoptimized
                 />
 
                 {/* Dark overlay */}

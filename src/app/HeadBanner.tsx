@@ -24,7 +24,6 @@ const HeadBanner: React.FC<HeadBannerProps> = ({ slug }) => {
         width={1920}
         height={285}
         className={`w-full h-full object-cover`}
-        unoptimized
       />
       <div className="absolute inset-0 bg-black opacity-60" />
       <div className="absolute inset-0 flex items-center justify-center">

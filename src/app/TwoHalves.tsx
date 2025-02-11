@@ -33,7 +33,6 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
             className={`w-full h-full object-cover 
               ${imageFirst ? 'md:rounded-r-md' : 'md:rounded-l-md'} 
               xl:rounded-md`}
-            unoptimized
           />
         </div>
       </div>
