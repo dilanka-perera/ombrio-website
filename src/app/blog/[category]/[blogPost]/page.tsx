@@ -1,4 +1,4 @@
-import { fetchBlogCategories } from "@/lib/contentful";
+import { fetchBlogs } from "@/lib/contentful";
 import BlogPostPage from "./BlogPostPage";
 import { Metadata } from "next";
 
@@ -8,12 +8,15 @@ interface BlogPostParams {
 }
 
 export async function generateStaticParams(): Promise<BlogPostParams[]> {
-  const categories = await fetchBlogCategories();
+  const blogs = await fetchBlogs();
+
+  const categories =
+    blogs.find((blog) => blog.slug === "blog")?.categories ?? [];
 
   return categories.flatMap((category) =>
-    category.blogs.map((blog) => ({
+    category.blogPosts.map((blogPost) => ({
       category: category.slug,
-      blogPost: blog.slug,
+      blogPost: blogPost.slug,
     }))
   );
 }

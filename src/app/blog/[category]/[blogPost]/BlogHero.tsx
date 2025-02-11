@@ -23,10 +23,10 @@ const BlogHero: React.FC<BlogHeroProps> = ({ post }) => {
             {/* Authors and Published Date */}
             <div className="flex flex-col gap-4 text-gray-600 text-sm sm:text-base">
               {/* Render each author */}
-              {post.authors.map((author, index) => {
+              {post.authors.map((author) => {
                 return (
                   <div
-                    key={index}
+                    key={author.slug}
                     className="flex items-center gap-4 justify-center md:justify-start"
                   >
                     {/* Author's Image */}
@@ -54,7 +54,12 @@ const BlogHero: React.FC<BlogHeroProps> = ({ post }) => {
 
               {/* Published Date */}
               <p className="text-center md:text-left mt-2">
-                Published on {new Date(post.publishedDate).toLocaleDateString()}
+                Published on{" "}
+                {new Date(post.publishedDate).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}
               </p>
             </div>
           </div>

@@ -220,7 +220,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
           <div className="h-[50px]"></div>
           <div
             ref={tableRef}
-            className={` max-w-[25vw] xl:max-w-[320px] w-[25vw] xl:w-[320px] max-h-[75vh] overflow-y-auto ${
+            className={` max-w-[25vw] xl:max-w-[320px] w-[25vw] xl:w-[320px] max-h-full overflow-y-auto ${
               isAbsolute
                 ? "absolute bottom-0"
                 : isFixed
@@ -228,7 +228,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
                 : ""
             }`}
           >
-            <div className="pl-5">
+            <div className="flex flex-col pl-5">
               <p className="pb-5 font-medium text-xl">Table of Content</p>
               {post.content.map((content) => {
                 return (

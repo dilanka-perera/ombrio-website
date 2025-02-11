@@ -37,6 +37,7 @@ export type HeadBanner = {
 };
 
 export type BlogAuthor = {
+  slug: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -62,7 +63,12 @@ export type BlogPost = {
 export type BlogCategory = {
   slug: string;
   name: string;
-  blogs: BlogPost[];
+  blogPosts: BlogPost[];
+};
+
+export type Blog = {
+  slug: string;
+  categories: BlogCategory[];
 };
 
 export type DataType = {
@@ -70,7 +76,7 @@ export type DataType = {
   websiteImages: WebsiteImage[];
   tileCollections: TileCollection[];
   headBanners: HeadBanner[];
-  blogCategories: BlogCategory[];
+  blogs: Blog[];
 };
 
 const DataContext = createContext<DataType | undefined>(undefined);

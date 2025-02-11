@@ -15,13 +15,16 @@ export default function BlogPostContent({
 }: {
   data: { category: string; blogPost: string };
 }) {
-  const { blogCategories } = useData();
+  const { blogs } = useData();
   const { category, blogPost } = data;
 
-  const categoryData = blogCategories.find((cat) => cat.slug === category);
+  const blogData = blogs.find((blog) => blog.slug === "blog");
+  if (!blogData) return notFound();
+
+  const categoryData = blogData.categories.find((cat) => cat.slug === category);
   if (!categoryData) return notFound();
 
-  const post = categoryData.blogs.find((blog) => blog.slug === blogPost);
+  const post = categoryData.blogPosts.find((blog) => blog.slug === blogPost);
   if (!post) return notFound();
 
   return (

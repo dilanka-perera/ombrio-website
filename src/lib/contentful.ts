@@ -96,6 +96,13 @@ export type BlogCategorySkeleton = {
   };
 };
 
+export type BlogSkeleton = {
+  contentTypeId: "blog";
+  fields: {
+    slug: EntryFieldTypes.Text;
+    blogCategory?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<BlogCategorySkeleton>>;
+  };
+};
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function isAsset(item: any): item is Asset {
   return item && "fields" in item && item.fields.file;
@@ -212,28 +219,39 @@ export async function fetchHeadBanners() {
   }));
 }
 
-export async function fetchBlogCategories() {
+export async function fetchBlogs() {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID!,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY!,
   });
 
-  const response = await client.getEntries<BlogCategorySkeleton>({
-    content_type: "blogCategory",
-    include: 2
+  const response = await client.getEntries<BlogSkeleton>({
+    content_type: "blog",
+    include: 3
   });
 
   const data = response.items;
 
-  const categories = await Promise.all(
-    data.map(async (category) => {
-      const blogs = await Promise.all(
-        category.fields.blogs
-          .filter((blog) => isEntry<BlogPostSkeleton>(blog))
-          .map(async (blog) => {
-            const authors = blog.fields.author
+  const blogs = data.map((blog) => ({
+    slug: blog.fields.slug,
+    categories: blog.fields.blogCategory
+      ?.filter((category) => isEntry<BlogCategorySkeleton>(category))
+      .map((category) => ({
+        slug: category.fields.slug,
+        name: category.fields.name,
+        blogPosts: category.fields.blogs
+          .filter((blogPost) => isEntry<BlogPostSkeleton>(blogPost))
+          .map((blogPost) => ({
+            slug: blogPost.fields.slug,
+            title: blogPost.fields.title,
+            featuredImage: isAsset(blogPost.fields.featuredImage)
+              ? blogPost.fields.featuredImage.fields.file?.url || "/no.png"
+              : "/no.png",
+            publishedDate: blogPost.fields.publishedDate,
+            authors: blogPost.fields.author
               .filter((author) => isEntry<AuthorSkeleton>(author))
               .map((author) => ({
+                slug: author.fields.slug,
                 firstName: author.fields.firstName,
                 lastName: author.fields.lastName,
                 email: author.fields.email,
@@ -241,36 +259,18 @@ export async function fetchBlogCategories() {
                   ? author.fields.profilePicture.fields.file?.url || "/no.png"
                   : "/no.png",
                 bio: author.fields.bio,
-              }));
-
-            const contentItems = blog.fields.content
+              })),
+            content: blogPost.fields.content
               .filter((content) => isEntry<BlogContentSkeleton>(content))
               .map((content) => ({
                 subtitle: content.fields.subtitle,
                 slug: content.fields.slug,
                 content: content.fields.content,
-              }));
+              })),
+          })),
+      })) || [],
+  }));
 
-            return {
-              slug: blog.fields.slug,
-              title: blog.fields.title,
-              featuredImage: isAsset(blog.fields.featuredImage)
-                ? blog.fields.featuredImage.fields.file?.url || "/no.png"
-                : "/no.png",
-              publishedDate: blog.fields.publishedDate,
-              authors,
-              content: contentItems,
-            };
-          })
-      );
-
-      return {
-        slug: category.fields.slug,
-        name: category.fields.name,
-        blogs,
-      };
-    })
-  );
-
-  return categories;
+  return blogs;
 }
+  
