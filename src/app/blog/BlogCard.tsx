@@ -21,7 +21,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
     <div className="bg-white border border-slate-100 shadow-md overflow-hidden">
       <div className="relative w-full h-40">
         <Image
-          src={`https://${post.featuredImage}`}
+          src={`https:${post.featuredImage}`}
           alt={post.title}
           width={1280}
           height={720}
