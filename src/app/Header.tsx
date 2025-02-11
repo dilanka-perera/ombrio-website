@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isScrollOverflow, setIsScrollOverflow] = useState(true);
+  const [isScrollOverflow, setIsScrollOverflow] = useState(false);
   const pathname = usePathname();
   const pathnameParts = pathname.split('/');
   const path = pathnameParts[1];
@@ -22,9 +22,8 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const viewportHeight = window.innerHeight;
 
-      if (scrollY < viewportHeight * 0) {
+      if (scrollY < 0) {
         setIsScrollOverflow(true);
       } else {
         setIsScrollOverflow(false);
