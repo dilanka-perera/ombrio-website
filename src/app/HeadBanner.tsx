@@ -19,7 +19,7 @@ const HeadBanner: React.FC<HeadBannerProps> = ({ slug }) => {
   return (
     <div className="relative w-full h-[180px] sm:h-[285px] md:h-[285px]">
       <Image
-        src={banner.image}
+        src={`https:${banner.image}`}
         alt={banner.text}
         width={1920}
         height={285}
