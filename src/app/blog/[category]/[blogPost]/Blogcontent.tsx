@@ -92,22 +92,35 @@ const renderOptions = {
 const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
+  const [isAbsolute, setIsAbsolute] = useState(false);
   const [activeSection, setActiveSection] = useState(
     post.content[0]?.slug || ""
   );
 
   const tocRef = useRef<HTMLDivElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  const tableRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     // Handle scroll event
     const handleScroll = () => {
-      if (tocRef.current) {
+      if (tocRef.current && contentRef.current && tableRef.current) {
         const tocTop = tocRef.current.offsetTop - 79;
+        const contentBottom = contentRef.current.getBoundingClientRect().bottom;
+        const tableBottom = tableRef.current.getBoundingClientRect().bottom;
+        const tableTop = tableRef.current.getBoundingClientRect().top;
+        const tableHeight = tableBottom - tableTop;
 
         if (window.scrollY > tocTop) {
-          setIsFixed(true);
+          setIsFixed(true); // Stick to the top until the bottom of the content
         } else {
-          setIsFixed(false);
+          setIsFixed(false); // Revert to normal flow once it's beyond content
+        }
+
+        if (contentBottom < 210 + tableHeight) {
+          setIsAbsolute(true);
+        } else {
+          setIsAbsolute(false);
         }
 
         // Detect the current section in view
@@ -143,7 +156,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
     if (element) {
       const elementPosition =
         element.getBoundingClientRect().top + window.scrollY;
-      const offset = 117; // Adjust as needed
+      const offset = window.innerWidth >= 768 ? 77 : 117; // Adjust as needed
 
       window.scrollTo({
         top: elementPosition - offset,
@@ -155,17 +168,17 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
 
   return (
     <div ref={tocRef}>
-      <div className="sm:hidden">
+      <div className="md:hidden">
         {isFixed && <div style={{ height: "40px" }}></div>}
       </div>
 
       <div
         id="toc-container"
-        className={`sm:hidden max-w-screen h-[40px] mx-auto bg-white ring-1 ring-gray-500/10 shadow-md transition-all duration-300 ${
+        className={`md:hidden max-w-screen h-[40px] mx-auto bg-white ring-1 ring-gray-500/10 shadow-md transition-all duration-300 ${
           isFixed ? "fixed top-[79px] left-0 w-full z-30 shadow-lg" : ""
         }`}
       >
-        <div className="sm:hidden flex px-6 h-[40px]">
+        <div className="md:hidden flex px-6 h-[40px]">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="w-full flex justify-between items-center text-black font-medium"
@@ -184,7 +197,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
             <div className="absolute left-0 w-full mt-[40px] bg-white ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-40 -translate-y-0.5">
               {post.content.map((section, index) => (
                 <button
-                  key={section.slug}
+                  key={`mobile-${section.slug}`}
                   onClick={(e) => handleSectionClick(e, section.slug)}
                   className={`block w-full text-left px-4 py-2 text-black font-normal ${
                     section.slug === activeSection
@@ -202,43 +215,37 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
         </div>
       </div>
 
-      <div className="sm:grid grid-cols-4 gap-8 pb-20 ">
-        <div className="hidden sm:flex flex-col col-span-1 relative">
+      <div ref={contentRef} className="md:grid grid-cols-4 pb-20 ">
+        <div className="hidden md:flex flex-col col-span-1 relative">
           <div className="h-[50px]"></div>
           <div
-            className={`w-[inherit] max-h-[300px] bg-gray-100 overflow-y-auto ${
-              isFixed ? "fixed top-[129px]  left-auto right-auto" : ""
+            ref={tableRef}
+            className={` max-w-[25vw] xl:max-w-[320px] w-[25vw] xl:w-[320px] max-h-[75vh] overflow-y-auto ${
+              isAbsolute
+                ? "absolute bottom-0"
+                : isFixed
+                ? "fixed top-[129px]  left-auto right-auto"
+                : ""
             }`}
           >
-            <p>
-              Test Text Text Text Text Text Text Test Text Text Text Text Text
-              Text
-            </p>
-            <p>Test Text</p>
-            <p>Test Text</p>
-            <p>Test Text</p>
-
-            <p>Test Text</p>
-            <p>Test Text</p>
-            <p>Test Text</p>
-            <p>Test Text</p>
-            <p>Test Text</p>
-            <p>Test Text</p>
-            <p>Test Text</p>
-            <p>Test Text</p>
-            <p>Test Text</p>
-            <p>Test Text</p>
-            <p>Test Text</p>
-
-            <p>Test Text</p>
-            <p>Test Text</p>
-            <p>Test Text</p>
-            <p>Test Text</p>
-
-            <p>Test Text</p>
-            <p>Test Text</p>
-            <p>Test Text</p>
-            <p>Test Text</p>
+            <div className="pl-5">
+              <p className="pb-5 font-medium text-xl">Table of Content</p>
+              {post.content.map((content) => {
+                return (
+                  <button
+                    key={`desktop-${content.slug}`}
+                    onClick={(e) => handleSectionClick(e, content.slug)}
+                    className={`p-4 border-l-4 hover:text-slate-700 text-left ${
+                      content.slug === activeSection
+                        ? "font-medium border-yellow-500"
+                        : "font-normal border-slate-300 "
+                    }`}
+                  >
+                    {content.subtitle}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
