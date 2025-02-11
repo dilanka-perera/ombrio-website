@@ -55,8 +55,8 @@ code {
   margin-top: 10px; 
   margin-bottom: 10px; 
   padding: 20px; /* Adjust the padding as needed */
-  background-color: #f4f4f4; /* Light gray background color */
+  background-color: #f1f5f9; /* Light gray background color */
   color: #333; /* Dark text color */
-  border-radius: 8px;
+  border-radius: 0.25rem;
   font-family: 'Courier New', Courier, monospace;
 }

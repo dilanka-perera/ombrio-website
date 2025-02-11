@@ -16,7 +16,7 @@ const BlogHero: React.FC<BlogHeroProps> = ({ post }) => {
         <div className="bg-slate-300 p-8 flex flex-col md:flex-row-reverse items-center justify-center gap-6 md:gap-12">
           {/* Title and metadata */}
           <div className="md:w-1/2 text-center md:text-left">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 md:mb-6">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-4 md:mb-6">
               {post.title}
             </h1>
 

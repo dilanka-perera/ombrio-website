@@ -42,22 +42,22 @@ const renderOptions = {
       return <></>;
     },
     [BLOCKS.TABLE]: (node: Node, children: React.ReactNode) => (
-      <div className="overflow-x-auto bg-slate-100 p-6">
-        <table className="table-auto border-collapse border border-gray-400 w-full">
+      <div className="overflow-x-auto bg-slate-100 p-6 rounded-sm">
+        <table className="table-auto border-collapse border border-slate-600 w-full">
           <tbody>{children}</tbody>
         </table>
       </div>
     ),
     [BLOCKS.TABLE_ROW]: (node: Node, children: React.ReactNode) => (
-      <tr className="border border-gray-400">{children}</tr>
+      <tr className="border border-slate-600">{children}</tr>
     ),
     [BLOCKS.TABLE_HEADER_CELL]: (node: Node, children: React.ReactNode) => (
-      <th className="px-4 py-2 text-left border border-gray-400 bg-slate-400 font-semibold">
+      <th className="px-4 py-2 text-left border border-slate-600 bg-slate-400 font-normal">
         {children}
       </th>
     ),
     [BLOCKS.TABLE_CELL]: (node: Node, children: React.ReactNode) => (
-      <td className="px-4 py-2 border border-gray-400">{children}</td>
+      <td className="px-4 py-2 border border-slate-600">{children}</td>
     ),
     [INLINES.EMBEDDED_ENTRY]: (node: Node) => {
       // target the contentType of the EMBEDDED_ENTRY to display as you need
