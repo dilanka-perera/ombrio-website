@@ -41,7 +41,7 @@ export type TileCollectionSkeleton = {
   contentTypeId: 'tileCollection';
   fields: {
     slug: EntryFieldTypes.Text;
-    tiles: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TileSkeleton>>;
+    tiles?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TileSkeleton>>;
   };
 };
 
@@ -81,7 +81,7 @@ export type BlogPostSkeleton = {
     slug: EntryFieldTypes.Text;
     title: EntryFieldTypes.Text;
     featuredImage?: EntryFieldTypes.AssetLink;
-    author: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<AuthorSkeleton>>;
+    author?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<AuthorSkeleton>>;
     publishedDate: EntryFieldTypes.Date;
     content?: EntryFieldTypes.Array<
       EntryFieldTypes.EntryLink<BlogContentSkeleton>
@@ -185,7 +185,7 @@ export async function fetchTileCollections() {
 
   const tileCollections = data.map((item) => ({
     slug: item.fields.slug,
-    tiles: item.fields.tiles
+    tiles: (item.fields.tiles ?? [])
       .filter((tile) => isEntry<TileSkeleton>(tile))
       .map((tile) => {
         const tileFields = tile;
@@ -253,7 +253,6 @@ export async function fetchBlogs() {
             ? category.fields.headerImage.fields.slug
             : '',
           blogPosts: (category.fields.blogs ?? [])
-
             .filter((blogPost) => isEntry<BlogPostSkeleton>(blogPost))
             .map((blogPost) => ({
               slug: blogPost.fields.slug,
@@ -262,7 +261,7 @@ export async function fetchBlogs() {
                 ? blogPost.fields.featuredImage.fields.file?.url || '/no.png'
                 : '/no.png',
               publishedDate: blogPost.fields.publishedDate,
-              authors: blogPost.fields.author
+              authors: (blogPost.fields.author ?? [])
                 .filter((author) => isEntry<AuthorSkeleton>(author))
                 .map((author) => ({
                   slug: author.fields.slug,
