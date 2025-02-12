@@ -184,10 +184,13 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
             onClick={() => setIsOpen(!isOpen)}
             className="w-full flex justify-between items-center text-black font-medium"
           >
-            {
-              post.content.find((section) => section.slug === activeSection)
-                ?.subtitle
-            }
+            <div className="truncate whitespace-nowrap">
+              {
+                post.content.find((section) => section.slug === activeSection)
+                  ?.subtitle
+              }
+            </div>
+
             <FiChevronDown
               className={`transition-transform ${
                 isOpen ? 'rotate-180' : 'rotate-0'

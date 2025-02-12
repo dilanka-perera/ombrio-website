@@ -112,7 +112,13 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex justify-between items-center text-black font-medium"
               >
-                {sections.find((section) => section.id === activeSection)?.name}
+                <div className="truncate whitespace-nowrap">
+                  {
+                    sections.find((section) => section.id === activeSection)
+                      ?.name
+                  }
+                </div>
+
                 <FiChevronDown
                   className={`transition-transform ${
                     isOpen ? 'rotate-180' : 'rotate-0'
