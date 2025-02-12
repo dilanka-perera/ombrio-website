@@ -20,10 +20,45 @@ export async function generateMetadata({
 }: {
   params: Promise<CategoryParams>;
 }): Promise<Metadata> {
-  const data = await params;
+  const { category } = await params;
+  const blogs = await fetchBlogs();
+
+  let categoryName = '';
+  const imageUrl = '/OG.jpg';
+  const twitterImageUrl = '/TWITTER.jpg';
+
+  const blogData = blogs.find((blog) => blog.slug === 'blog');
+  if (blogData) {
+    const categoryData = blogData.categories.find(
+      (cat) => cat.slug === category,
+    );
+    if (categoryData) {
+      categoryName = categoryData.name;
+    }
+  }
+
   return {
-    title: `Category | ${data.category}`,
-    description: `Explore blog posts under the category: ${data.category}.`,
+    title: `${categoryName} | ZynoraX Blog`,
+    description: `Explore posts in the ${categoryName} category.`,
+    openGraph: {
+      title: `${categoryName} | ZynoraX Blog`,
+      description: `Explore posts in the ${categoryName} category.`,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: `ZynoraX - Category: ${categoryName}`,
+        },
+      ],
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${categoryName} - ZynoraX Blog`,
+      description: `Explore posts in the ${categoryName} category.`,
+      images: [twitterImageUrl],
+    },
   };
 }
 

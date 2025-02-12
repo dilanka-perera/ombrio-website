@@ -14,12 +14,14 @@ import AboutUs from './AboutUs';
 import Breadcrumb from '../Breadcrumb';
 import TableOfContents from '../TableOfContents';
 
-const title = 'About – ZynoraX';
+const title = 'About Us | ZynoraX';
 const description =
-  'Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.';
+  'ZynoraX is a leading AI and web development company that delivers innovative solutions. We specialize in AI-powered apps, custom web solutions, and wireless technologies to help businesses thrive in the digital age.';
 const imageUrl = '/OG.jpg';
+const twitterImageUrl = '/TWITTER.jpg';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://zynorax-website-project-1.vercel.app/'),
   title,
   description,
   openGraph: {
@@ -28,9 +30,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: imageUrl,
-        width: 1200, // Recommended width for Open Graph images
-        height: 630, // Recommended height for Open Graph images
-        alt: 'ZynoraX - AI and Web Development',
+        width: 1200,
+        height: 630,
+        alt: 'ZynoraX - About Us',
       },
     ],
     type: 'website',
@@ -39,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title,
     description,
-    images: [imageUrl],
+    images: [twitterImageUrl],
   },
 };
 

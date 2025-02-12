@@ -8,12 +8,14 @@ import ContactCards from './ContactCards';
 import Breadcrumb from '../Breadcrumb';
 import TableOfContents from '../TableOfContents';
 
-const title = 'Contact – ZynoraX';
+const title = 'Contact | ZynoraX';
 const description =
-  'Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.';
+  'Get in touch with ZynoraX. Reach out for inquiries, support, or to learn more about our AI and web development services. We’re here to help your business succeed.';
 const imageUrl = '/OG.jpg';
+const twitterImageUrl = '/TWITTER.jpg';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://zynorax-website-project-1.vercel.app/'),
   title,
   description,
   openGraph: {
@@ -22,9 +24,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: imageUrl,
-        width: 1200, // Recommended width for Open Graph images
-        height: 630, // Recommended height for Open Graph images
-        alt: 'ZynoraX - AI and Web Development',
+        width: 1200,
+        height: 630,
+        alt: 'ZynoraX - Contact',
       },
     ],
     type: 'website',
@@ -33,7 +35,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title,
     description,
-    images: [imageUrl],
+    images: [twitterImageUrl],
   },
 };
 

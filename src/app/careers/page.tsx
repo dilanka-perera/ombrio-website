@@ -11,12 +11,14 @@ import WhyWorkAtZynorax from './WhyWorkAtZynorax';
 import Breadcrumb from '../Breadcrumb';
 import TableOfContents from '../TableOfContents';
 
-const title = 'Careers – ZynoraX';
+const title = 'Careers | ZynoraX';
 const description =
-  'Welcome to ZynoraX, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.';
+  'Join the ZynoraX team! Explore exciting career opportunities in AI, web development, and technology. Be part of a forward-thinking company that values innovation and growth.';
 const imageUrl = '/OG.jpg';
+const twitterImageUrl = '/TWITTER.jpg';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://zynorax-website-project-1.vercel.app/'),
   title,
   description,
   openGraph: {
@@ -25,9 +27,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: imageUrl,
-        width: 1200, // Recommended width for Open Graph images
-        height: 630, // Recommended height for Open Graph images
-        alt: 'ZynoraX - AI and Web Development',
+        width: 1200,
+        height: 630,
+        alt: 'ZynoraX - Careers',
       },
     ],
     type: 'website',
@@ -36,7 +38,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title,
     description,
-    images: [imageUrl],
+    images: [twitterImageUrl],
   },
 };
 

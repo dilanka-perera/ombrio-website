@@ -37,26 +37,26 @@ export default async function RootLayout({
         className={`${ubuntu.className} antialiased text-black font-light bg-slate-100`}
       >
         <div className="container flex flex-col min-h-screen bg-white ring-1 ring-gray-500/10 shadow-md">
-          <Header />
-          <main className="flex flex-grow">
-            <FadeInWrapper className="flex flex-grow overflow-hidden">
-              <div className="flex flex-col flex-grow max-w-[1920px] mx-auto pt-[80px] overflow-hidden">
-                <DataProvider
-                  initialData={{
-                    carousal,
-                    websiteImages,
-                    tileCollections,
-                    headBanners,
-                    blogs,
-                    teams,
-                  }}
-                >
+          <DataProvider
+            initialData={{
+              carousal,
+              websiteImages,
+              tileCollections,
+              headBanners,
+              blogs,
+              teams,
+            }}
+          >
+            <Header />
+            <main className="flex flex-grow">
+              <FadeInWrapper className="flex flex-grow overflow-hidden">
+                <div className="flex flex-col flex-grow max-w-[1920px] mx-auto pt-[80px] overflow-hidden">
                   {children}
-                </DataProvider>
-              </div>
-            </FadeInWrapper>
-          </main>
-          <Footer />
+                </div>
+              </FadeInWrapper>
+            </main>
+            <Footer />
+          </DataProvider>
         </div>
       </body>
     </html>

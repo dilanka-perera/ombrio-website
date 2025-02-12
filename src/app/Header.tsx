@@ -58,8 +58,8 @@ export default function Header() {
                   >
                     <Image
                       className="drop-shadow-md"
-                      src="/LOGO2.png"
-                      alt="Logo 2"
+                      src="/LOGO.png"
+                      alt="Logo"
                       width={150}
                       height={30}
                       priority
