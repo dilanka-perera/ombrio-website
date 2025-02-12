@@ -1,7 +1,17 @@
+'use client';
+
+import { useData } from '@/contexts/DataContext';
 import Topic from '../Topic';
 import Image from 'next/image';
 
 const Team: React.FC = () => {
+  const { teams } = useData();
+  const team = teams.find((item) => item.slug === 'management-team');
+
+  if (!team) {
+    return null;
+  }
+
   return (
     <div className="pt-6 pb-8">
       {/* Section Title */}
@@ -15,19 +25,21 @@ const Team: React.FC = () => {
           Our team is a diverse group of talented professionals driven by
           curiosity and a passion for excellence. Meet the minds behind ZynoraX.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-1 gap-8 pt-4">
-          <div className="flex flex-col items-center">
-            <Image
-              src="/Dilanka.jpg"
-              alt="Team Member 1"
-              width={300}
-              height={300}
-              className="rounded-full mb-4"
-              unoptimized
-            />
-            <h3 className="text-xl font-semibold">Dilanka Perera</h3>
-            <p className="text-lg">Founder &amp; CEO</p>
-          </div>
+        <div className="flex flex-wrap justify-center gap-8 pt-4">
+          {team.teamMembers.map((member) => (
+            <div key={member.slug} className="flex flex-col items-center">
+              <Image
+                src={member.profilePicture}
+                alt={`${member.firstName} ${member.lastName}`}
+                width={300}
+                height={300}
+                className="rounded-full mb-4"
+                unoptimized
+              />
+              <h3 className="text-xl font-semibold">{`${member.firstName} ${member.lastName}`}</h3>
+              <p className="text-lg">{member.role}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

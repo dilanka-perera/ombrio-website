@@ -7,6 +7,7 @@ import {
   fetchBlogs,
   fetchCarousal,
   fetchHeadBanners,
+  fetchTeams,
   fetchTileCollections,
   fetchWebsiteImages,
 } from '@/lib/contentful';
@@ -28,6 +29,7 @@ export default async function RootLayout({
   const tileCollections = await fetchTileCollections();
   const headBanners = await fetchHeadBanners();
   const blogs = await fetchBlogs();
+  const teams = await fetchTeams();
 
   return (
     <html lang="en">
@@ -46,6 +48,7 @@ export default async function RootLayout({
                     tileCollections,
                     headBanners,
                     blogs,
+                    teams,
                   }}
                 >
                   {children}

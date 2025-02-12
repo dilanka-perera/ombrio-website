@@ -109,6 +109,29 @@ export type BlogSkeleton = {
     >;
   };
 };
+
+export type TeamMemberSkeleton = {
+  contentTypeId: 'teamMember';
+  fields: {
+    slug: EntryFieldTypes.Text;
+    firstName: EntryFieldTypes.Text;
+    lastName: EntryFieldTypes.Text;
+    role: EntryFieldTypes.Text;
+    profilePicture?: EntryFieldTypes.AssetLink;
+  };
+};
+
+export type TeamSkeleton = {
+  contentTypeId: 'team';
+  fields: {
+    slug: EntryFieldTypes.Text;
+    teamName: EntryFieldTypes.Text;
+    teamMembers?: EntryFieldTypes.Array<
+      EntryFieldTypes.EntryLink<TeamMemberSkeleton>
+    >;
+  };
+};
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function isAsset(item: any): item is Asset {
   return item && 'fields' in item && item.fields.file;
@@ -179,6 +202,7 @@ export async function fetchTileCollections() {
 
   const response = await client.getEntries<TileCollectionSkeleton>({
     content_type: 'tileCollection',
+    include: 2,
   });
 
   const data = response.items;
@@ -285,4 +309,36 @@ export async function fetchBlogs() {
   }));
 
   return blogs;
+}
+
+export async function fetchTeams() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID!,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY!,
+  });
+
+  const response = await client.getEntries<TeamSkeleton>({
+    content_type: 'team',
+    include: 2,
+  });
+
+  const data = response.items;
+
+  const teams = data.map((team) => ({
+    slug: team.fields.slug,
+    teamName: team.fields.teamName,
+    teamMembers: (team.fields.teamMembers ?? [])
+      .filter((member) => isEntry<TeamMemberSkeleton>(member))
+      .map((member) => ({
+        slug: member.fields.slug,
+        firstName: member.fields.firstName,
+        lastName: member.fields.lastName,
+        role: member.fields.role,
+        profilePicture: isAsset(member.fields.profilePicture)
+          ? member.fields.profilePicture.fields.file?.url || '/no.png'
+          : '/no.png',
+      })),
+  }));
+
+  return teams;
 }

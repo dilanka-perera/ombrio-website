@@ -73,12 +73,27 @@ export type Blog = {
   categories: BlogCategory[];
 };
 
+export type TeamMember = {
+  slug: string;
+  firstName: string;
+  lastName: string;
+  role: string;
+  profilePicture: string;
+};
+
+export type Team = {
+  slug: string;
+  teamName: string;
+  teamMembers: TeamMember[];
+};
+
 export type DataType = {
   carousal: CarousalItem[];
   websiteImages: WebsiteImage[];
   tileCollections: TileCollection[];
   headBanners: HeadBanner[];
   blogs: Blog[];
+  teams: Team[];
 };
 
 const DataContext = createContext<DataType | undefined>(undefined);
