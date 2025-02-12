@@ -37,6 +37,7 @@ const BlogHero: React.FC<BlogHeroProps> = ({ post }) => {
                       width={48}
                       height={48}
                       className="rounded-full shadow-md"
+                      unoptimized
                     />
 
                     {/* Author's Name and Email */}
@@ -73,6 +74,7 @@ const BlogHero: React.FC<BlogHeroProps> = ({ post }) => {
               width={1280}
               height={720}
               className=" shadow-md"
+              unoptimized
             />
           </div>
         </div>

@@ -27,6 +27,7 @@ const ContactCard: React.FC<ContactCardProps> = ({
         alt={title}
         width={150}
         height={150}
+        unoptimized
       />
 
       <Topic text={title} />

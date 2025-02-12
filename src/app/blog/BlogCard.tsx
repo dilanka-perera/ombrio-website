@@ -26,6 +26,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
           width={1280}
           height={720}
           className="w-full h-40 object-cover"
+          unoptimized
         />
       </div>
 

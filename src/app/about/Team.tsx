@@ -23,6 +23,7 @@ const Team: React.FC = () => {
               width={300}
               height={300}
               className="rounded-full mb-4"
+              unoptimized
             />
             <h3 className="text-xl font-semibold">Dilanka Perera</h3>
             <p className="text-lg">Founder &amp; CEO</p>
