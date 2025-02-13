@@ -58,7 +58,7 @@ export default function Header() {
                   >
                     <Image
                       className="drop-shadow-md"
-                      src="/LOGO.png"
+                      src="/Logo.png"
                       alt="Logo"
                       width={150}
                       height={30}
