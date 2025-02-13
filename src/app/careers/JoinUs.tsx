@@ -43,7 +43,7 @@ const JoinUs: React.FC = () => {
             <p className="mt-5">
               Don&apos;t see a role that fits? Send us your resume!
             </p>
-            <p className="text-blue-600">Email: careers@zynorax.com</p>
+            <p className="text-blue-600">Email: careers@ceynora.com</p>
           </>
         }
       />

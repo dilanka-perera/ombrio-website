@@ -16,7 +16,7 @@ const ContactCards: React.FC = () => {
           }`}
           title="Contact Services"
           description="Reach out for service inquiries, consultations, or custom solutions."
-          email="services@zynorax.com"
+          email="services@ceynora.com"
           buttonText="Get in Touch"
           buttonUrl="/contact"
         />
@@ -30,7 +30,7 @@ const ContactCards: React.FC = () => {
           }`}
           title="General Inquiries"
           description="For any general questions or inquiries, feel free to reach out to us."
-          email="info@zynorax.com"
+          email="info@ceynora.com"
           buttonText="Contact Us"
           buttonUrl="/contact"
         />
