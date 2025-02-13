@@ -53,24 +53,24 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${blogPostTitle} | ZynoraX Blog`,
+    title: `${blogPostTitle} | Ceynora Blog`,
     description: `Read the full article on "${blogPostTitle}" and explore insights on ${categoryName}.`,
     openGraph: {
-      title: `${blogPostTitle} | ZynoraX Blog`,
+      title: `${blogPostTitle} | Ceynora Blog`,
       description: `Read the full article on "${blogPostTitle}" and explore insights on ${categoryName}.`,
       images: [
         {
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: `ZynoraX - Blog Post: ${blogPostTitle}`,
+          alt: `Ceynora - Blog Post: ${blogPostTitle}`,
         },
       ],
       type: 'article',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${blogPostTitle} - ZynoraX Blog`,
+      title: `${blogPostTitle} - Ceynora Blog`,
       description: `Read the full article on "${blogPostTitle}".`,
       images: [twitterImageUrl],
     },

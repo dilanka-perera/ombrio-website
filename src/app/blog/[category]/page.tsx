@@ -38,24 +38,24 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${categoryName} | ZynoraX Blog`,
+    title: `${categoryName} | Ceynora Blog`,
     description: `Explore posts in the ${categoryName} category.`,
     openGraph: {
-      title: `${categoryName} | ZynoraX Blog`,
+      title: `${categoryName} | Ceynora Blog`,
       description: `Explore posts in the ${categoryName} category.`,
       images: [
         {
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: `ZynoraX - Category: ${categoryName}`,
+          alt: `Ceynora - Category: ${categoryName}`,
         },
       ],
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${categoryName} - ZynoraX Blog`,
+      title: `${categoryName} - Ceynora Blog`,
       description: `Explore posts in the ${categoryName} category.`,
       images: [twitterImageUrl],
     },

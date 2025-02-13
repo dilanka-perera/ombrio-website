@@ -14,9 +14,9 @@ import AboutUs from './AboutUs';
 import Breadcrumb from '../Breadcrumb';
 import TableOfContents from '../TableOfContents';
 
-const title = 'About Us | ZynoraX';
+const title = 'About Us | Ceynora';
 const description =
-  'ZynoraX is a leading AI and web development company that delivers innovative solutions. We specialize in AI-powered apps, custom web solutions, and wireless technologies to help businesses thrive in the digital age.';
+  'Ceynora is a leading AI and web development company that delivers innovative solutions. We specialize in AI-powered apps, custom web solutions, and wireless technologies to help businesses thrive in the digital age.';
 const imageUrl = '/OG.jpg';
 const twitterImageUrl = '/TWITTER.jpg';
 
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         url: imageUrl,
         width: 1200,
         height: 630,
-        alt: 'ZynoraX - About Us',
+        alt: 'Ceynora - About Us',
       },
     ],
     type: 'website',

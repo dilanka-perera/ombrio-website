@@ -1,16 +1,16 @@
 import Topic from '../Topic';
-const AboutZynorax: React.FC = () => {
+const AboutCompany: React.FC = () => {
   return (
     <div className="pt-10 pb-[60px]">
       {/* Section Title */}
       <div>
-        <Topic text="About ZynoraX" />
+        <Topic text="About Ceynora" />
       </div>
 
       {/* Description Section */}
       <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-          At ZynoraX, we are a pioneering AI and web development company
+          At Ceynora, we are a pioneering AI and web development company
           dedicated to creating innovative solutions for businesses worldwide.
           Our expertise spans artificial intelligence, machine learning, web
           technologies, and wireless solutions, empowering companies to stay
@@ -20,16 +20,16 @@ const AboutZynorax: React.FC = () => {
           We believe in fostering a collaborative and dynamic work environment
           where creativity and technology merge to solve real-world challenges.
           If you are passionate about innovation and eager to make an impact,
-          ZynoraX is the place for you.
+          Ceynora is the place for you.
         </p>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed pt-5">
           Join us and be part of a team that is shaping the future of AI and web
           development. Explore our career opportunities and start your journey
-          with ZynoraX today.
+          with Ceynora today.
         </p>
       </div>
     </div>
   );
 };
 
-export default AboutZynorax;
+export default AboutCompany;

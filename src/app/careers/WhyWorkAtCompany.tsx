@@ -5,7 +5,7 @@ import ImageSnippets from '../ImageSnippets';
 import StandardContainer from '../StandardContainer';
 import Topic from '../Topic';
 
-const WhyWorkAtZynorax: React.FC = () => {
+const WhyWorkAtCompany: React.FC = () => {
   const { tileCollections } = useData();
   const tileCollection = tileCollections.find(
     (item) => item.slug === 'why-work-at-zynorax',
@@ -28,7 +28,7 @@ const WhyWorkAtZynorax: React.FC = () => {
         <div>
           {/* Section Title */}
           <div className="pt-10">
-            <Topic text="Why Work at ZynoraX?" />
+            <Topic text="Why Work at Ceynora?" />
           </div>
 
           {/* Image Snippets */}
@@ -41,4 +41,4 @@ const WhyWorkAtZynorax: React.FC = () => {
   );
 };
 
-export default WhyWorkAtZynorax;
+export default WhyWorkAtCompany;

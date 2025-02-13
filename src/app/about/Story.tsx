@@ -11,7 +11,7 @@ const Story: React.FC = () => {
       {/* Description Section */}
       <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-          ZynoraX was founded in 2025 with the goal of revolutionizing the way
+          Ceynora was founded in 2025 with the goal of revolutionizing the way
           businesses leverage technology. Starting from a small team of
           passionate engineers, we&apos;ve grown into a global leader in AI and
           web development. Over the years, we&apos;ve delivered cutting-edge

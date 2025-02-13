@@ -23,7 +23,7 @@ const Team: React.FC = () => {
       <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
           Our team is a diverse group of talented professionals driven by
-          curiosity and a passion for excellence. Meet the minds behind ZynoraX.
+          curiosity and a passion for excellence. Meet the minds behind Ceynora.
         </p>
         <div className="flex flex-wrap justify-center gap-8 pt-4">
           {team.teamMembers.map((member) => (

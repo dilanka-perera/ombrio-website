@@ -8,9 +8,9 @@ import ContactCards from './ContactCards';
 import Breadcrumb from '../Breadcrumb';
 import TableOfContents from '../TableOfContents';
 
-const title = 'Contact | ZynoraX';
+const title = 'Contact | Ceynora';
 const description =
-  'Get in touch with ZynoraX. Reach out for inquiries, support, or to learn more about our AI and web development services. We’re here to help your business succeed.';
+  'Get in touch with Ceynora. Reach out for inquiries, support, or to learn more about our AI and web development services. We’re here to help your business succeed.';
 const imageUrl = '/OG.jpg';
 const twitterImageUrl = '/TWITTER.jpg';
 
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         url: imageUrl,
         width: 1200,
         height: 630,
-        alt: 'ZynoraX - Contact',
+        alt: 'Ceynora - Contact',
       },
     ],
     type: 'website',

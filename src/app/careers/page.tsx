@@ -6,14 +6,14 @@ import StandardContainer from '../StandardContainer';
 import { LayoutBreak, LayoutWrapper } from '../LayoutWrapper';
 import ContactBanner from '../ContactBanner';
 import JoinUs from './JoinUs';
-import AboutZynorax from './AboutZynorax';
-import WhyWorkAtZynorax from './WhyWorkAtZynorax';
+import AboutCompany from './AboutCompany';
+import WhyWorkAtCompany from './WhyWorkAtCompany';
 import Breadcrumb from '../Breadcrumb';
 import TableOfContents from '../TableOfContents';
 
-const title = 'Careers | ZynoraX';
+const title = 'Careers | Ceynora';
 const description =
-  'Join the ZynoraX team! Explore exciting career opportunities in AI, web development, and technology. Be part of a forward-thinking company that values innovation and growth.';
+  'Join the Ceynora team! Explore exciting career opportunities in AI, web development, and technology. Be part of a forward-thinking company that values innovation and growth.';
 const imageUrl = '/OG.jpg';
 const twitterImageUrl = '/TWITTER.jpg';
 
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: imageUrl,
         width: 1200,
         height: 630,
-        alt: 'ZynoraX - Careers',
+        alt: 'Ceynora - Careers',
       },
     ],
     type: 'website',
@@ -66,11 +66,11 @@ const Careers: NextPage = () => {
       </StandardContainer>
 
       <StandardContainer id="about-us">
-        <AboutZynorax />
+        <AboutCompany />
       </StandardContainer>
 
       <WideContainer id="why-us">
-        <WhyWorkAtZynorax />
+        <WhyWorkAtCompany />
       </WideContainer>
 
       <LayoutBreak />

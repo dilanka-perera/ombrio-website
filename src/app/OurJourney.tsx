@@ -11,7 +11,7 @@ const OurJourney: React.FC = () => {
 
       <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-          At ZynoraX, we are driven by a passion for technology and a commitment
+          At Ceynora, we are driven by a passion for technology and a commitment
           to innovation. Our team of experts leverages the latest advancements
           in AI and web development to create solutions that empower businesses
           to thrive. We believe in pushing boundaries to deliver exceptional

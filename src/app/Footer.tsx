@@ -25,7 +25,7 @@ export default function Footer() {
 
         {/* Copyright Section with a white border on small screens */}
         <div className="text-center border-t border-black md:border-none pt-2 text-slate-900">
-          <p>© ZynoraX 2025. All rights reserved.</p>
+          <p>© Ceynora 2025. All rights reserved.</p>
         </div>
       </div>
     </footer>

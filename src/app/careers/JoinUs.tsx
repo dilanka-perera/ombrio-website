@@ -16,7 +16,7 @@ const JoinUs: React.FC = () => {
       </div>
 
       <TwoHalves
-        title="Join the Future of AI & Web Innovation at ZynoraX!"
+        title="Join the Future of AI & Web Innovation at Ceynora!"
         imageSrc={`https:${
           websiteImages.find((item) => item.slug === 'careers-join-us')
             ?.image || '/no.png'
@@ -25,7 +25,7 @@ const JoinUs: React.FC = () => {
         content={
           <>
             <p>
-              At ZynoraX, we are driven by innovation, creativity, and
+              At Ceynora, we are driven by innovation, creativity, and
               cutting-edge technology. Our mission is to empower businesses with
               AI-driven solutions and advanced web development, transforming
               industries with intelligent, scalable, and future-ready digital

@@ -10,7 +10,7 @@ const StayTuned: React.FC = () => {
       {/* Description Section */}
       <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-          Stay tuned for our ZynoraX blog page.
+          Stay tuned for our Ceynora blog page.
         </p>
       </div>
     </div>
