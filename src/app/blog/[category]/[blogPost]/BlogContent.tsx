@@ -10,6 +10,7 @@ import { FiChevronDown } from 'react-icons/fi';
 
 interface BlogHeroProps {
   post: BlogPost;
+  categoryName: string;
 }
 
 const renderOptions = {
@@ -90,11 +91,14 @@ const renderOptions = {
   },
 };
 
-const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
+const BlogContent: React.FC<BlogHeroProps> = ({ post, categoryName }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
   const [isAbsolute, setIsAbsolute] = useState(false);
-  const [activeSection, setActiveSection] = useState(
+  const [activeSectionD, setActiveSectionD] = useState(
+    post.content[0]?.slug || '',
+  );
+  const [activeSectionM, setActiveSectionM] = useState(
     post.content[0]?.slug || '',
   );
 
@@ -130,7 +134,21 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
           if (element) {
             const rect = element.getBoundingClientRect();
             if (rect.top <= 120 && rect.bottom >= 120) {
-              setActiveSection(section.slug);
+              setActiveSectionD(section.slug);
+              break;
+            }
+          }
+        }
+
+        const sectionSlugs = post.content.map((section) => section.slug);
+        sectionSlugs.push('featured');
+
+        for (const sectionSlug of sectionSlugs) {
+          const element = document.getElementById(sectionSlug);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 120 && rect.bottom >= 120) {
+              setActiveSectionM(sectionSlug);
               break;
             }
           }
@@ -185,10 +203,8 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
             className="w-full flex justify-between items-center text-black font-medium"
           >
             <div className="truncate whitespace-nowrap">
-              {
-                post.content.find((section) => section.slug === activeSection)
-                  ?.subtitle
-              }
+              {post.content.find((section) => section.slug === activeSectionM)
+                ?.subtitle ?? `Featured in ${categoryName}`}
             </div>
 
             <FiChevronDown
@@ -199,27 +215,36 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
           </button>
           {isOpen && (
             <div className="absolute left-0 w-full mt-[40px] bg-white ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-40 -translate-y-0.5">
-              {post.content.map((section, index) => (
+              {post.content.map((section) => (
                 <button
                   key={`mobile-${section.slug}`}
                   onClick={(e) => handleSectionClick(e, section.slug)}
                   className={`block w-full text-left px-4 py-2 text-black font-normal ${
-                    section.slug === activeSection
+                    section.slug === activeSectionM
                       ? 'bg-slate-200 hover:bg-slate-200'
                       : 'bg-white hover:bg-slate-100'
-                  } overflow-hidden ${
-                    index === post.content.length - 1 ? 'rounded-b-lg' : ''
-                  }`}
+                  } overflow-hidden`}
                 >
                   {section.subtitle}
                 </button>
               ))}
+              <button
+                key={`mobile-featured`}
+                onClick={(e) => handleSectionClick(e, 'featured')}
+                className={`block w-full text-left px-4 py-2 text-black font-normal ${
+                  'featured' === activeSectionM
+                    ? 'bg-slate-200 hover:bg-slate-200'
+                    : 'bg-white hover:bg-slate-100'
+                } overflow-hidden rounded-b-lg`}
+              >
+                {`Featured in ${categoryName}`}
+              </button>
             </div>
           )}
         </div>
       </div>
 
-      <div ref={contentRef} className="md:grid grid-cols-4 pb-20 ">
+      <div ref={contentRef} className="md:grid grid-cols-4 md:pb-10 ">
         <div className="hidden md:flex flex-col col-span-1 relative">
           <div className="h-[50px]"></div>
           <div className="h-full ">
@@ -245,7 +270,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post }) => {
                         key={`desktop-${content.slug}`}
                         onClick={(e) => handleSectionClick(e, content.slug)}
                         className={`p-4 border-l-2 hover:text-slate-700 text-left ${
-                          content.slug === activeSection
+                          content.slug === activeSectionD
                             ? 'font-medium border-yellow-500 bg-slate-200'
                             : 'font-normal border-slate-800 bg-slate-100'
                         }`}

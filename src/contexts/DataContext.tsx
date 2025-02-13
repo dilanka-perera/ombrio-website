@@ -73,6 +73,11 @@ export type Blog = {
   categories: BlogCategory[];
 };
 
+export type BlogCollection = {
+  slug: string;
+  blogs: BlogPost[];
+};
+
 export type TeamMember = {
   slug: string;
   firstName: string;
@@ -94,6 +99,7 @@ export type DataType = {
   headBanners: HeadBanner[];
   blogs: Blog[];
   teams: Team[];
+  blogCollections: BlogCollection[];
 };
 
 const DataContext = createContext<DataType | undefined>(undefined);

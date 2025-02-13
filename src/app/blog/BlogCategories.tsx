@@ -13,14 +13,12 @@ const BlogCategories: React.FC<BlogCategoriesProps> = ({ categories }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setViewport('xl'); // Extra-large screens (xl)
-      } else if (window.innerWidth >= 768) {
-        setViewport('lg'); // Large screens (lg)
+      if (window.innerWidth >= 960) {
+        setViewport('960');
       } else if (window.innerWidth >= 640) {
-        setViewport('md'); // Medium screens (md)
+        setViewport('640');
       } else {
-        setViewport('sm'); // Small screens (sm)
+        setViewport('0');
       }
     };
 
@@ -37,15 +35,13 @@ const BlogCategories: React.FC<BlogCategoriesProps> = ({ categories }) => {
   // Define how many posts to show based on viewport size
   const postsToShow = (viewport: string, posts: BlogPost[]) => {
     switch (viewport) {
-      case 'xl':
-        return posts.slice(0, 4); // Show 8 posts on extra-large screens
-      case 'lg':
-        return posts.slice(0, 3); // Show 6 posts on large screens
-      case 'md':
-        return posts.slice(0, 4); // Show 5 posts on medium screens
-      case 'sm':
+      case '960':
+        return posts.slice(0, 3);
+      case '640':
+        return posts.slice(0, 4);
+      case '0':
       default:
-        return posts.slice(0, 3); // Show 4 posts on small screens
+        return posts.slice(0, 3);
     }
   };
 

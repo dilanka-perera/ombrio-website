@@ -18,7 +18,7 @@ export interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
   return (
-    <div className="bg-white border border-slate-100 shadow-md overflow-hidden">
+    <div className="bg-white border border-slate-100 shadow-md overflow-hidden max-w-[400px] justify-center">
       <div className="relative w-full h-40">
         <Image
           src={`https:${post.featuredImage}`}

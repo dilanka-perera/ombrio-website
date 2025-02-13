@@ -9,6 +9,7 @@ import ContactBanner from '@/app/ContactBanner';
 import BlogHero from './BlogHero';
 import BlogContent from './BlogContent';
 import StandardContainer from '@/app/StandardContainer';
+import FeaturedBlogs from './FeaturedBlogs';
 
 export default function BlogPostPage({
   data,
@@ -43,7 +44,11 @@ export default function BlogPostPage({
       </WideContainer>
 
       <StandardContainer>
-        <BlogContent post={post} />
+        <BlogContent post={post} categoryName={categoryData.name} />
+      </StandardContainer>
+
+      <StandardContainer id="featured">
+        <FeaturedBlogs category={categoryData} slug={post.slug} />
       </StandardContainer>
 
       <LayoutBreak />

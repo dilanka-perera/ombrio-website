@@ -110,6 +110,14 @@ export type BlogSkeleton = {
   };
 };
 
+export type BlogCollectionSkeleton = {
+  contentTypeId: 'blogCollection';
+  fields: {
+    slug: EntryFieldTypes.Text;
+    blogs?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<BlogPostSkeleton>>;
+  };
+};
+
 export type TeamMemberSkeleton = {
   contentTypeId: 'teamMember';
   fields: {
@@ -142,12 +150,12 @@ function isEntry<T extends EntrySkeletonType>(item: any): item is Entry<T> {
   return item && 'fields' in item;
 }
 
-export async function fetchWebsiteImages() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID!,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY!,
-  });
+const client = createClient({
+  space: process.env.CONTENTFUL_SPACE_ID!,
+  accessToken: process.env.CONTENTFUL_ACCESS_KEY!,
+});
 
+export async function fetchWebsiteImages() {
   // Replace 'yourContentType' with your actual content type ID
   const response = await client.getEntries<WebsiteImageSkeleton>({
     content_type: 'websiteImage',
@@ -166,11 +174,6 @@ export async function fetchWebsiteImages() {
 }
 
 export async function fetchCarousal() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID!,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY!,
-  });
-
   // Replace 'yourContentType' with your actual content type ID
   const response = await client.getEntries<CarousalSkeleton>({
     content_type: 'carousal',
@@ -195,11 +198,6 @@ export async function fetchCarousal() {
 }
 
 export async function fetchTileCollections() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID!,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY!,
-  });
-
   const response = await client.getEntries<TileCollectionSkeleton>({
     content_type: 'tileCollection',
     include: 2,
@@ -229,11 +227,6 @@ export async function fetchTileCollections() {
 }
 
 export async function fetchHeadBanners() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID!,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY!,
-  });
-
   const response = await client.getEntries<HeadBannerSkeleton>({
     content_type: 'headBanner',
   });
@@ -250,11 +243,6 @@ export async function fetchHeadBanners() {
 }
 
 export async function fetchBlogs() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID!,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY!,
-  });
-
   const response = await client.getEntries<BlogSkeleton>({
     content_type: 'blog',
     include: 3,
@@ -311,12 +299,51 @@ export async function fetchBlogs() {
   return blogs;
 }
 
-export async function fetchTeams() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID!,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY!,
+export async function fetchBlogCollections() {
+  const response = await client.getEntries<BlogCollectionSkeleton>({
+    content_type: 'blogCollection',
+    include: 2,
   });
 
+  const data = response.items;
+
+  const blogCollections = data.map((collection) => ({
+    slug: collection.fields.slug,
+    blogs: (collection.fields.blogs ?? [])
+      .filter((blogPost) => isEntry<BlogPostSkeleton>(blogPost))
+      .map((blogPost) => ({
+        slug: blogPost.fields.slug,
+        title: blogPost.fields.title,
+        featuredImage: isAsset(blogPost.fields.featuredImage)
+          ? blogPost.fields.featuredImage.fields.file?.url || '/no.png'
+          : '/no.png',
+        publishedDate: blogPost.fields.publishedDate,
+        authors: (blogPost.fields.author ?? [])
+          .filter((author) => isEntry<AuthorSkeleton>(author))
+          .map((author) => ({
+            slug: author.fields.slug,
+            firstName: author.fields.firstName,
+            lastName: author.fields.lastName,
+            email: author.fields.email,
+            profilePicture: isAsset(author.fields.profilePicture)
+              ? author.fields.profilePicture.fields.file?.url || '/no.png'
+              : '/no.png',
+            bio: author.fields.bio,
+          })),
+        content: (blogPost.fields.content ?? [])
+          .filter((content) => isEntry<BlogContentSkeleton>(content))
+          .map((content) => ({
+            subtitle: content.fields.subtitle,
+            slug: content.fields.slug,
+            content: content.fields.content,
+          })),
+      })),
+  }));
+
+  return blogCollections;
+}
+
+export async function fetchTeams() {
   const response = await client.getEntries<TeamSkeleton>({
     content_type: 'team',
     include: 2,
