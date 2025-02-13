@@ -10,22 +10,23 @@ const AboutCompany: React.FC = () => {
       {/* Description Section */}
       <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-          At Ceynora, we are a pioneering AI and web development company
-          dedicated to creating innovative solutions for businesses worldwide.
-          Our expertise spans artificial intelligence, machine learning, web
-          technologies, and wireless solutions, empowering companies to stay
-          ahead in the digital landscape.
+          Ceynora is a leading AI and web development company dedicated to
+          providing innovative solutions that drive digital transformation. With
+          expertise in artificial intelligence, machine learning, and web
+          technologies, we help businesses harness the power of intelligent,
+          scalable solutions to tackle real-world challenges.
         </p>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed pt-5">
-          We believe in fostering a collaborative and dynamic work environment
-          where creativity and technology merge to solve real-world challenges.
-          If you are passionate about innovation and eager to make an impact,
-          Ceynora is the place for you.
+          We believe in the power of creativity and collaboration to push
+          technological boundaries and deliver impactful, future-ready products.
+          At Ceynora, we partner with businesses to create tailored solutions
+          that evolve with their needs, empowering them to stay ahead in a
+          fast-paced digital landscape.
         </p>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed pt-5">
-          Join us and be part of a team that is shaping the future of AI and web
-          development. Explore our career opportunities and start your journey
-          with Ceynora today.
+          As a dynamic and growing team, we foster a culture of continuous
+          learning and innovation, ensuring our clients and employees thrive in
+          an ever-changing technological world.
         </p>
       </div>
     </div>

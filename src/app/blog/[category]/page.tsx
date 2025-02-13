@@ -24,8 +24,8 @@ export async function generateMetadata({
   const blogs = await fetchBlogs();
 
   let categoryName = '';
-  const imageUrl = '/OG.jpg';
-  const twitterImageUrl = '/TWITTER.jpg';
+  const imageUrl = '/OG.png';
+  const twitterImageUrl = '/Twitter.png';
 
   const blogData = blogs.find((blog) => blog.slug === 'blog');
   if (blogData) {

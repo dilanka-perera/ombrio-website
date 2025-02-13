@@ -31,8 +31,8 @@ export async function generateMetadata({
 
   let blogPostTitle = '';
   let categoryName = '';
-  let imageUrl = '/OG.jpg';
-  let twitterImageUrl = '/TWITTER.jpg';
+  let imageUrl = '/OG.png';
+  let twitterImageUrl = '/Twitter.png';
 
   const blogData = blogs.find((blog) => blog.slug === 'blog');
   if (blogData) {
@@ -46,8 +46,8 @@ export async function generateMetadata({
       );
       if (post) {
         blogPostTitle = post.title;
-        imageUrl = post.featuredImage || '/OG.jpg';
-        twitterImageUrl = post.featuredImage || '/TWITTER.jpg';
+        imageUrl = post.featuredImage || '/OG.png';
+        twitterImageUrl = post.featuredImage || '/Twitter.png';
       }
     }
   }

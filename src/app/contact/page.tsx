@@ -11,8 +11,8 @@ import TableOfContents from '../TableOfContents';
 const title = 'Contact | Ceynora';
 const description =
   'Get in touch with Ceynora. Reach out for inquiries, support, or to learn more about our AI and web development services. We’re here to help your business succeed.';
-const imageUrl = '/OG.jpg';
-const twitterImageUrl = '/TWITTER.jpg';
+const imageUrl = '/OG.png';
+const twitterImageUrl = '/Twitter.png';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://zynorax-website-project-1.vercel.app/'),

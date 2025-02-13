@@ -6,7 +6,7 @@ import StandardContainer from './StandardContainer';
 const title = '404: Page not found – Ceynora';
 const description =
   'Welcome to Ceynora, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.';
-const imageUrl = '/OG.jpg';
+const imageUrl = '/OG.png';
 
 export const metadata: Metadata = {
   title,

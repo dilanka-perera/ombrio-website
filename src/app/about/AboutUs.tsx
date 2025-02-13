@@ -10,11 +10,12 @@ const AboutUs: React.FC = () => {
       {/* Description Section */}
       <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-          Welcome to Ceynora. We are a leading AI and web development company
-          committed to delivering innovative solutions that transform businesses
-          worldwide. Our expertise spans artificial intelligence, machine
-          learning, web technologies, and wireless solutions, enabling companies
-          to thrive in an evolving digital landscape.
+          Welcome to <strong>Ceynora</strong>. We are a leading AI and web
+          development company committed to delivering innovative solutions that
+          transform businesses worldwide. Our expertise spans artificial
+          intelligence, machine learning, web technologies, and wireless
+          solutions, enabling companies to thrive in an evolving digital
+          landscape.
         </p>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed pt-5">
           Our services include AI-powered applications, custom web solutions,
@@ -25,12 +26,12 @@ const AboutUs: React.FC = () => {
           solutions.
         </p>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed pt-5">
-          At Ceynora, we embrace innovation and problem-solving. We tackle
-          complex challenges across industries, from optimizing operations with
-          AI automation to crafting high-performance web applications. Our
-          mission is to empower businesses with technology that drives
-          productivity, enhances decision-making, and unlocks new opportunities
-          for success.
+          At <strong>Ceynora</strong>, we embrace innovation and
+          problem-solving. We tackle complex challenges across industries, from
+          optimizing operations with AI automation to crafting high-performance
+          web applications. Our mission is to empower businesses with technology
+          that drives productivity, enhances decision-making, and unlocks new
+          opportunities for success.
         </p>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed pt-5">
           Our team of dedicated engineers, developers, and AI experts is

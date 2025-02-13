@@ -17,8 +17,8 @@ import TableOfContents from '../TableOfContents';
 const title = 'About Us | Ceynora';
 const description =
   'Ceynora is a leading AI and web development company that delivers innovative solutions. We specialize in AI-powered apps, custom web solutions, and wireless technologies to help businesses thrive in the digital age.';
-const imageUrl = '/OG.jpg';
-const twitterImageUrl = '/TWITTER.jpg';
+const imageUrl = '/OG.png';
+const twitterImageUrl = '/Twitter.png';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://zynorax-website-project-1.vercel.app/'),

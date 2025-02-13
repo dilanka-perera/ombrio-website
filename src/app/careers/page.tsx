@@ -14,8 +14,8 @@ import TableOfContents from '../TableOfContents';
 const title = 'Careers | Ceynora';
 const description =
   'Join the Ceynora team! Explore exciting career opportunities in AI, web development, and technology. Be part of a forward-thinking company that values innovation and growth.';
-const imageUrl = '/OG.jpg';
-const twitterImageUrl = '/TWITTER.jpg';
+const imageUrl = '/OG.png';
+const twitterImageUrl = '/Twitter.png';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://zynorax-website-project-1.vercel.app/'),
