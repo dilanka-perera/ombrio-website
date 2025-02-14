@@ -16,7 +16,7 @@ const JoinUs: React.FC = () => {
       </div>
 
       <TwoHalves
-        title="Join the Future of AI & Web Innovation at Ceynora!"
+        title="Join the Future of AI & Web Innovation at Ombrio!"
         imageSrc={`https:${
           websiteImages.find((item) => item.slug === 'careers-join-us')
             ?.image || '/no.png'
@@ -25,7 +25,7 @@ const JoinUs: React.FC = () => {
         content={
           <>
             <p>
-              At <strong>Ceynora</strong>, we&apos;re committed to advancing the
+              At <strong>Ombrio</strong>, we&apos;re committed to advancing the
               digital frontier with the power of artificial intelligence and
               cutting-edge web technologies. Our mission is to empower
               businesses with AI-driven solutions and advanced web development,
@@ -47,7 +47,7 @@ const JoinUs: React.FC = () => {
               Don&apos;t see the perfect fit? Send us your resume and let&apos;s
               talk about how you can contribute to our mission.
             </p>
-            <p className="text-blue-600">Email: careers@ceynora.com</p>
+            <p className="text-blue-600">Email: careers@ombrio.io</p>
           </>
         }
       />

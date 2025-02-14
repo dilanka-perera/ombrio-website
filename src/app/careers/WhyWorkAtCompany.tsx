@@ -28,7 +28,7 @@ const WhyWorkAtCompany: React.FC = () => {
         <div>
           {/* Section Title */}
           <div className="pt-10">
-            <Topic text="Why Work at Ceynora?" />
+            <Topic text="Why Work at Ombrio?" />
           </div>
 
           {/* Image Snippets */}

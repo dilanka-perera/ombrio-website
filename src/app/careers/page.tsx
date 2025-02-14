@@ -11,11 +11,11 @@ import WhyWorkAtCompany from './WhyWorkAtCompany';
 import Breadcrumb from '../Breadcrumb';
 import TableOfContents from '../TableOfContents';
 
-const title = 'Careers | Ceynora';
+const title = 'Careers | Ombrio';
 const description =
-  'Join the Ceynora team! Explore exciting career opportunities in AI, web development, and technology. Be part of a forward-thinking company that values innovation and growth.';
-const imageUrl = '/OG.png';
-const twitterImageUrl = '/Twitter.png';
+  'Join the Ombrio team! Explore exciting career opportunities in AI, web development, and technology. Be part of a forward-thinking company that values innovation and growth.';
+const imageUrl = '/OG.jpg';
+const twitterImageUrl = '/Twitter.jpg';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://zynorax-website-project-1.vercel.app/'),
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: imageUrl,
         width: 1200,
         height: 630,
-        alt: 'Ceynora - Careers',
+        alt: 'Ombrio - Careers',
       },
     ],
     type: 'website',

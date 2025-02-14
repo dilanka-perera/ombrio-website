@@ -24,8 +24,8 @@ export async function generateMetadata({
   const blogs = await fetchBlogs();
 
   let categoryName = '';
-  const imageUrl = '/OG.png';
-  const twitterImageUrl = '/Twitter.png';
+  const imageUrl = '/OG.jpg';
+  const twitterImageUrl = '/Twitter.jpg';
 
   const blogData = blogs.find((blog) => blog.slug === 'blog');
   if (blogData) {
@@ -38,24 +38,24 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${categoryName} | Ceynora Blog`,
+    title: `${categoryName} | Ombrio Blog`,
     description: `Explore posts in the ${categoryName} category.`,
     openGraph: {
-      title: `${categoryName} | Ceynora Blog`,
+      title: `${categoryName} | Ombrio Blog`,
       description: `Explore posts in the ${categoryName} category.`,
       images: [
         {
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: `Ceynora - Category: ${categoryName}`,
+          alt: `Ombrio - Category: ${categoryName}`,
         },
       ],
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${categoryName} - Ceynora Blog`,
+      title: `${categoryName} - Ombrio Blog`,
       description: `Explore posts in the ${categoryName} category.`,
       images: [twitterImageUrl],
     },

@@ -11,7 +11,7 @@ const Story: React.FC = () => {
       {/* Description Section */}
       <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-          Founded in 2025, <strong>Ceynora</strong> began as a small group of
+          Founded in 2025, <strong>Ombrio</strong> began as a small group of
           passionate engineers with a vision to revolutionize the way businesses
           use technology. Over the years, we&apos;ve grown into a global leader
           in AI and web development, delivering innovative solutions to hundreds

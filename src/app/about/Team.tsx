@@ -24,7 +24,7 @@ const Team: React.FC = () => {
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
           Our team is a dynamic and diverse group of talented professionals who
           are curious, driven, and passionate about excellence. Meet the
-          brilliant minds behind <strong>Ceynora</strong>, and see how our
+          brilliant minds behind <strong>Ombrio</strong>, and see how our
           combined expertise is shaping the future of technology.
         </p>
         <div className="flex flex-wrap justify-center gap-8 pt-4">

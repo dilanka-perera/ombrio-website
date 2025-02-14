@@ -3,10 +3,10 @@ import { Metadata } from 'next';
 import { LayoutWrapper } from './LayoutWrapper';
 import StandardContainer from './StandardContainer';
 
-const title = '404: Page not found – Ceynora';
+const title = '404: Page not found – Ombrio';
 const description =
-  'Welcome to Ceynora, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.';
-const imageUrl = '/OG.png';
+  'Welcome to Ombrio, where innovation meets excellence. We are a forward-thinking AI and Web Development company dedicated to empowering businesses with cutting-edge technology solutions that drive growth and success.';
+const imageUrl = '/OG.jpg';
 
 export const metadata: Metadata = {
   title,
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         url: imageUrl,
         width: 1200, // Recommended width for Open Graph images
         height: 630, // Recommended height for Open Graph images
-        alt: 'Ceynora - AI and Web Development',
+        alt: 'Ombrio - AI and Web Development',
       },
     ],
     type: 'website',

@@ -31,8 +31,8 @@ export async function generateMetadata({
 
   let blogPostTitle = '';
   let categoryName = '';
-  let imageUrl = '/OG.png';
-  let twitterImageUrl = '/Twitter.png';
+  let imageUrl = '/OG.jpg';
+  let twitterImageUrl = '/Twitter.jpg';
 
   const blogData = blogs.find((blog) => blog.slug === 'blog');
   if (blogData) {
@@ -46,31 +46,31 @@ export async function generateMetadata({
       );
       if (post) {
         blogPostTitle = post.title;
-        imageUrl = post.featuredImage || '/OG.png';
-        twitterImageUrl = post.featuredImage || '/Twitter.png';
+        imageUrl = post.featuredImage || '/OG.jpg';
+        twitterImageUrl = post.featuredImage || '/Twitter.jpg';
       }
     }
   }
 
   return {
-    title: `${blogPostTitle} | Ceynora Blog`,
+    title: `${blogPostTitle} | Ombrio Blog`,
     description: `Read the full article on "${blogPostTitle}" and explore insights on ${categoryName}.`,
     openGraph: {
-      title: `${blogPostTitle} | Ceynora Blog`,
+      title: `${blogPostTitle} | Ombrio Blog`,
       description: `Read the full article on "${blogPostTitle}" and explore insights on ${categoryName}.`,
       images: [
         {
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: `Ceynora - Blog Post: ${blogPostTitle}`,
+          alt: `Ombrio - Blog Post: ${blogPostTitle}`,
         },
       ],
       type: 'article',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${blogPostTitle} - Ceynora Blog`,
+      title: `${blogPostTitle} - Ombrio Blog`,
       description: `Read the full article on "${blogPostTitle}".`,
       images: [twitterImageUrl],
     },

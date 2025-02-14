@@ -8,11 +8,11 @@ import ContactCards from './ContactCards';
 import Breadcrumb from '../Breadcrumb';
 import TableOfContents from '../TableOfContents';
 
-const title = 'Contact | Ceynora';
+const title = 'Contact | Ombrio';
 const description =
-  'Get in touch with Ceynora. Reach out for inquiries, support, or to learn more about our AI and web development services. We’re here to help your business succeed.';
-const imageUrl = '/OG.png';
-const twitterImageUrl = '/Twitter.png';
+  'Get in touch with Ombrio. Reach out for inquiries, support, or to learn more about our AI and web development services. We’re here to help your business succeed.';
+const imageUrl = '/OG.jpg';
+const twitterImageUrl = '/Twitter.jpg';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://zynorax-website-project-1.vercel.app/'),
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         url: imageUrl,
         width: 1200,
         height: 630,
-        alt: 'Ceynora - Contact',
+        alt: 'Ombrio - Contact',
       },
     ],
     type: 'website',

@@ -4,13 +4,13 @@ const WelcomeToBlog: React.FC = () => {
     <div className="pt-10 pb-8">
       {/* Section Title */}
       <div>
-        <Topic text="Welcome to Ceynora Blog" />
+        <Topic text="Welcome to Ombrio Blog" />
       </div>
 
       {/* Description Section */}
       <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-          At Ceynora, we are passionate about the ever-evolving world of
+          At Ombrio, we are passionate about the ever-evolving world of
           Artificial Intelligence and Web Development. Our blog serves as a hub
           where we explore cutting-edge advancements in AI, innovative web
           technologies, and trends that are shaping the future of the tech

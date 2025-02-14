@@ -14,11 +14,11 @@ import AboutUs from './AboutUs';
 import Breadcrumb from '../Breadcrumb';
 import TableOfContents from '../TableOfContents';
 
-const title = 'About Us | Ceynora';
+const title = 'About Us | Ombrio';
 const description =
-  'Ceynora is a leading AI and web development company that delivers innovative solutions. We specialize in AI-powered apps, custom web solutions, and wireless technologies to help businesses thrive in the digital age.';
-const imageUrl = '/OG.png';
-const twitterImageUrl = '/Twitter.png';
+  'Ombrio is a leading AI and web development company that delivers innovative solutions. We specialize in AI-powered apps, custom web solutions, and wireless technologies to help businesses thrive in the digital age.';
+const imageUrl = '/OG.jpg';
+const twitterImageUrl = '/Twitter.jpg';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://zynorax-website-project-1.vercel.app/'),
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         url: imageUrl,
         width: 1200,
         height: 630,
-        alt: 'Ceynora - About Us',
+        alt: 'Ombrio - About Us',
       },
     ],
     type: 'website',
