@@ -15,7 +15,7 @@ const imageUrl = '/OG.jpg';
 const twitterImageUrl = '/Twitter.jpg';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://zynorax-website-project-1.vercel.app/'),
+  metadataBase: new URL('https://ombrio-website.vercel.app/'),
   title,
   description,
   openGraph: {

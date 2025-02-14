@@ -17,11 +17,11 @@ const links = {
   ],
   contact: [
     { href: '/contact', text: 'General Inquiries' },
-    { href: '/contact', text: 'Contact Services' },
+    { href: '/contact', text: 'Services' },
   ],
   legal: [
-    { href: '#', text: 'Privacy Policy' },
-    { href: '#', text: 'Terms & Conditions' },
+    { href: '/legal/privacy-policy', text: 'Privacy Policy' },
+    { href: '/legal/terms-and-conditions', text: 'Terms & Conditions' },
   ],
 };
 
