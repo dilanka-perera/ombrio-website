@@ -46,9 +46,9 @@ const BlogCategories: React.FC<BlogCategoriesProps> = ({ categories }) => {
   };
 
   return (
-    <div>
+    <div className="pb-[20px]">
       {categories.map((category) => (
-        <div key={category.slug} id={category.slug} className="pt-10 pb-[60px]">
+        <div key={category.slug} id={category.slug} className="pt-10 pb-8">
           <div>
             <Topic text={category.name} />
           </div>
