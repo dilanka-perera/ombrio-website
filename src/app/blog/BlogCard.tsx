@@ -48,13 +48,14 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
           <h3 className="text-lg font-medium mt-2 line-clamp-3">
             {post.title}
           </h3>
-
-          <Link
-            href={`/blog/${post.categorySlug}/${post.slug}`}
-            className="text-blue-600 hover:text-blue-400 font-medium mt-3 flex items-center gap-1"
-          >
-            Learn more <ChevronRight size={18} />
-          </Link>
+          <div className="flex">
+            <Link
+              href={`/blog/${post.categorySlug}/${post.slug}`}
+              className="text-slate-600 hover:text-slate-500 font-medium mt-3 flex items-center gap-1"
+            >
+              Learn more <ChevronRight size={18} />
+            </Link>
+          </div>
         </div>
       </div>
     </div>
