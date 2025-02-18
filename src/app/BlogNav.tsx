@@ -115,6 +115,7 @@ const BlogNav: React.FC<BlogNavProps> = ({ setIsDropdownOpen }) => {
                                     <div className="flex">
                                       <Link
                                         href={`/blog/${category.slug}/${post.slug}`}
+                                        onClick={() => setIsDropdownOpen(null)}
                                         className="text-sm text-slate-600 hover:text-slate-500 font-medium mt-3 flex items-center gap-1"
                                       >
                                         Learn more <ChevronRight size={18} />
