@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Topic from '../Topic';
-// import MainButton from "../MainButton";
+import MainButton from '../MainButton';
 
 interface ContactCardProps {
   imageSrc: string;
@@ -16,8 +16,8 @@ const ContactCard: React.FC<ContactCardProps> = ({
   title,
   description,
   email,
-  //   buttonText,
-  //   buttonUrl,
+  buttonText,
+  buttonUrl,
 }) => {
   return (
     <div className="flex flex-col items-center justify-center overflow-hidden md:px-20 py-8 w-full mx-auto text-center">
@@ -38,7 +38,7 @@ const ContactCard: React.FC<ContactCardProps> = ({
         Email: {email}
       </p>
 
-      {/* <MainButton text={buttonText} link={buttonUrl} /> */}
+      <MainButton text={buttonText} link={buttonUrl} />
     </div>
   );
 };

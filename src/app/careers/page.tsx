@@ -79,7 +79,7 @@ const Careers: NextPage = () => {
         <ContactBanner
           title="Join Our Team"
           buttonText="Explore Open Roles"
-          href="https://www.linkedin.com/company/zynorax"
+          href="https://www.linkedin.com/company/ombrio-io"
         />
       </WideContainer>
     </LayoutWrapper>

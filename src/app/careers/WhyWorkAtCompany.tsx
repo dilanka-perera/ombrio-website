@@ -8,7 +8,7 @@ import Topic from '../Topic';
 const WhyWorkAtCompany: React.FC = () => {
   const { tileCollections } = useData();
   const tileCollection = tileCollections.find(
-    (item) => item.slug === 'why-work-at-zynorax',
+    (item) => item.slug === 'why-work-at-ombrio',
   );
 
   if (!tileCollection) {

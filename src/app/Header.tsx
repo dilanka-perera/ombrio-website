@@ -189,7 +189,7 @@ export default function Header() {
                         <div>
                           {link.text}
                           <div
-                            className={`bottom-0 ${isDropdownOpen === index ? 'w-7' : 'w-0'} group-hover:w-7 h-1 bg-yellow-500`}
+                            className={`bottom-0 ${isDropdownOpen === index ? 'w-7' : 'w-0'} group-hover:w-7 h-[3px] bg-yellow-500`}
                           />
                         </div>
                       </button>
@@ -206,7 +206,7 @@ export default function Header() {
                       <div className="flex pt-2 justify-center w-[80px] h-[40px] text-base font-medium text-slate-900 bg-white">
                         <div>
                           {link.text}
-                          <div className="bottom-0 w-0 group-hover:w-7 h-1 bg-yellow-500" />
+                          <div className="bottom-0 w-0 group-hover:w-7 h-[3px] bg-yellow-500" />
                         </div>
                       </div>
                     </Link>

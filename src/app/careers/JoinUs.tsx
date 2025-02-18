@@ -41,7 +41,7 @@ const JoinUs: React.FC = () => {
             </p>
             <MainButton
               text="Explore Open Roles"
-              link="https://www.linkedin.com/company/zynorax"
+              link="https://www.linkedin.com/company/ombrio-io"
             />
             <p className="mt-5">
               Don&apos;t see the perfect fit? Send us your resume and let&apos;s

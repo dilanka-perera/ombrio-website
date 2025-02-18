@@ -39,3 +39,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Fixed Header
 - Fixed Nav Bar
 - Fixed Carousal
+- Fixed Footer
+
+### Changed
+
+- Changed Homepage
+- Changed About Page
+- Changed Careers Page
+- Changed Contact Page
+- Changed Blog Page
+- Changed Blog Post Pages
+- Changed Styling
+
+### Added
+
+- Added Blog Category Pages
+- Added Breadcrumb
+- Added Table of Content
+- Added Blog Table of Content
+
+### Removed
+
+- Removed Blog Search
