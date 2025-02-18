@@ -194,7 +194,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post, categoryName }) => {
       <div
         id="toc-container"
         className={`md:hidden max-w-screen h-[40px] mx-auto bg-white ring-1 ring-gray-500/10 shadow-md transition-all duration-300 ${
-          isFixed ? 'fixed top-[79px] left-0 w-full z-30 shadow-lg' : ''
+          isFixed ? 'fixed top-[79px] left-0 w-full z-20 shadow-lg' : ''
         }`}
       >
         <div className="md:hidden flex px-6 h-[40px]">
@@ -214,7 +214,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post, categoryName }) => {
             />
           </button>
           {isOpen && (
-            <div className="absolute left-0 w-full mt-[40px] bg-white ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-40 -translate-y-0.5">
+            <div className="absolute left-0 w-full mt-[40px] bg-white ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-30 -translate-y-0.5">
               {post.content.map((section) => (
                 <button
                   key={`mobile-${section.slug}`}

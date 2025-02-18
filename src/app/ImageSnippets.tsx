@@ -125,7 +125,9 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
 
             {/* Description */}
             <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-1000 ease-in-out">
-              <p className="text-white text-md">{topic.description}</p>
+              <p className="text-white text-left text-md">
+                {topic.description}
+              </p>
             </div>
           </div>
         ))}
@@ -163,7 +165,9 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
 
                 {/* Description */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-1000 ease-in-out">
-                  <p className="text-white text-md">{topic.description}</p>
+                  <p className="text-white text-left text-md">
+                    {topic.description}
+                  </p>
                 </div>
               </div>
             </div>

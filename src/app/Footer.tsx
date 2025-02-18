@@ -27,7 +27,7 @@ const links = {
 
 export default function Footer() {
   return (
-    <footer className="z-10">
+    <footer>
       <div className="bg-slate-200">
         <div className="max-w-7xl mx-auto flex flex-col justify-between px-6 py-10">
           {/* Logo Section */}
