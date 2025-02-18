@@ -8,8 +8,11 @@ import { ChevronDown } from 'lucide-react';
 import StandardContainer from './StandardContainer';
 import WideContainer from './WideContainer';
 import ContactNav from './ContactNav';
+import { useData } from '@/contexts/DataContext';
+import BlogNav from './BlogNav';
 
 export default function Header() {
+  const { blogs } = useData();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isScrollOverflow, setIsScrollOverflow] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState<number | null>(null);
@@ -21,13 +24,13 @@ export default function Header() {
       href: '/blog',
       text: 'Blog',
       ref: 'blog',
-      // dropdown: [
-      //   {
-      //     href: '/blog/artificial-intelligence',
-      //     text: 'Artificial Intelligence',
-      //   },
-      //   { href: '/blog/web-development', text: 'Web Development' },
-      // ],
+      dropdown:
+        blogs
+          .find((blog) => blog.slug === 'blog')
+          ?.categories.map((category) => ({
+            href: `/blog/${category.slug}`,
+            text: category.name,
+          })) || undefined,
     },
     { href: '/careers', text: 'Careers' },
     { href: '/about', text: 'About' },
@@ -221,8 +224,8 @@ export default function Header() {
       {isDropdownOpen !== null && (
         <div className="z-40 hidden lg:flex left-0 w-full flex-col items-center fixed transition-transform duration-500 translate-y-0 top-[79px]">
           <nav className="relative bg-slate-100 w-full max-w-[1920px] mx-auto ring-1 ring-gray-500/10 shadow-md">
-            {links[isDropdownOpen].ref === 'blog1' ? (
-              <></>
+            {links[isDropdownOpen].ref === 'blog' ? (
+              <BlogNav setIsDropdownOpen={setIsDropdownOpen} />
             ) : links[isDropdownOpen].ref === 'contact' ? (
               <ContactNav setIsDropdownOpen={setIsDropdownOpen} />
             ) : (

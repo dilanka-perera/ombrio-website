@@ -57,6 +57,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Added Breadcrumb
 - Added Table of Content
 - Added Blog Table of Content
+- Added Dropdown of Header
 
 ### Removed
 
