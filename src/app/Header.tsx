@@ -40,7 +40,7 @@ export default function Header() {
       ref: 'contact',
       dropdown: [
         { href: '/contact/general-inquiries', text: 'General Inquiries' },
-        { href: '/contact/services', text: 'Services' },
+        { href: '/contact/contact-services', text: 'Contact Services' },
       ],
     },
   ];

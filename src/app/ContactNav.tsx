@@ -20,7 +20,7 @@ const ContactNav: React.FC<ContactNavProps> = ({ setIsDropdownOpen }) => {
         'Reach out for service inquiries, consultations, or custom solutions.',
       email: 'services@ombrio.io',
       buttonText: 'Get in Touch',
-      buttonUrl: '/contact',
+      buttonUrl: '/contact/contact-services',
     },
     {
       slug: 'contact-general',
@@ -29,7 +29,7 @@ const ContactNav: React.FC<ContactNavProps> = ({ setIsDropdownOpen }) => {
         'For any general questions or inquiries, feel free to reach out to us.',
       email: 'info@ombrio.io',
       buttonText: 'Contact Us',
-      buttonUrl: '/contact',
+      buttonUrl: '/contact/general-inquiries',
     },
   ];
 

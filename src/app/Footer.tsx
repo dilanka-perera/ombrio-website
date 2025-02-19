@@ -8,7 +8,7 @@ const links = {
   company: [
     { href: '/about', text: 'About' },
     { href: '/careers', text: 'Careers' },
-    { href: '/contact', text: 'Contact Us' },
+    { href: '/contact', text: 'Contact' },
   ],
   Learn: [
     { href: '/blog', text: 'Blog' },
@@ -16,8 +16,8 @@ const links = {
     { href: '/blog/web-development', text: 'Web Development' },
   ],
   contact: [
-    { href: '/contact', text: 'General Inquiries' },
-    { href: '/contact', text: 'Services' },
+    { href: '/contact/general-inquiries', text: 'General Inquiries' },
+    { href: '/contact/contact-services', text: 'Contact Services' },
   ],
   legal: [
     { href: '/legal/privacy-policy', text: 'Privacy Policy' },

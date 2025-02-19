@@ -18,7 +18,7 @@ const ContactCards: React.FC = () => {
           description="Reach out for service inquiries, consultations, or custom solutions."
           email="services@ombrio.io"
           buttonText="Get in Touch"
-          buttonUrl="/contact"
+          buttonUrl="/contact/contact-services"
         />
       </div>
 
@@ -32,7 +32,7 @@ const ContactCards: React.FC = () => {
           description="For any general questions or inquiries, feel free to reach out to us."
           email="info@ombrio.io"
           buttonText="Contact Us"
-          buttonUrl="/contact"
+          buttonUrl="/contact/general-inquiries"
         />
       </div>
     </div>

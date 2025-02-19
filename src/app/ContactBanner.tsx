@@ -12,7 +12,7 @@ const ContactBanner: React.FC<ContactBannerProps> = ({
   href = '/contact',
 }) => {
   return (
-    <div className="flex flex-col w-full bg-gradient-to-r from-slate-700 via-slate-600 to-slate-500 h-[250px] items-center justify-center">
+    <div className="flex flex-col w-full bg-slate-700 h-[250px] items-center justify-center">
       <p className="text-white text-2xl sm:text-3xl md:text-4xl mb-8">
         {title}
       </p>
