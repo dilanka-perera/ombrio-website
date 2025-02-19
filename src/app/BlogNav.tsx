@@ -54,16 +54,30 @@ const BlogNav: React.FC<BlogNavProps> = ({ setIsDropdownOpen }) => {
                 <div>
                   {blogData.categories.map((category) => (
                     <div key={category.slug}>
-                      <button
+                      <Link
+                        href={`/blog/${category.slug}`}
                         onMouseEnter={() => setActiveCategory(category.slug)}
-                        className={`w-full h-[80px] text-left px-10 font-medium transition ${
+                        onClick={() => setIsDropdownOpen(null)}
+                        className={`block group w-full h-[80px] text-left font-medium transition ${
                           activeCategory === category.slug
                             ? 'bg-slate-100 border-l-2 border-yellow-500'
                             : ''
                         }`}
                       >
-                        {category.name}
-                      </button>
+                        <div className="flex px-5 flex-row space-x-4 items-center h-[80px]">
+                          <Image
+                            className="object-contain h-[60px] w-[60px]"
+                            src={`https:${category.icon}`}
+                            alt={category.name}
+                            width={100}
+                            height={100}
+                            unoptimized
+                          />
+                          <p className="group-hover:underline">
+                            {category.name}
+                          </p>
+                        </div>
+                      </Link>
                     </div>
                   ))}
                 </div>
@@ -127,6 +141,14 @@ const BlogNav: React.FC<BlogNavProps> = ({ setIsDropdownOpen }) => {
                             </div>
                           ))}
                           <div className="flex flex-col justify-center w-full">
+                            <Image
+                              className="object-contain mx-auto pb-5"
+                              src={`https:${category.icon}`}
+                              alt={category.name}
+                              width={100}
+                              height={100}
+                              unoptimized
+                            />
                             <p className="pb-6 px-8 text-base text-left text-md leading-relaxed">
                               {`Discover more insights in our ${category.name} section!`}
                             </p>

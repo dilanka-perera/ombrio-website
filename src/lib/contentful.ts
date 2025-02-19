@@ -97,6 +97,7 @@ export type BlogCategorySkeleton = {
     blogs?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<BlogPostSkeleton>>;
     description: EntryFieldTypes.Text;
     headerImage?: EntryFieldTypes.EntryLink<HeadBannerSkeleton>;
+    icon?: EntryFieldTypes.AssetLink;
   };
 };
 
@@ -264,6 +265,9 @@ export async function fetchBlogs() {
           )
             ? category.fields.headerImage.fields.slug
             : '',
+            icon: isAsset(category.fields.icon)
+            ? category.fields.icon?.fields.file?.url || '/no.png'
+            : '/no.png',
           blogPosts: (category.fields.blogs ?? [])
             .filter((blogPost) => isEntry<BlogPostSkeleton>(blogPost))
             .map((blogPost) => ({
