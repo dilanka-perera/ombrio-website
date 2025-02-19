@@ -9,7 +9,7 @@ interface ContactBannerProps {
 const ContactBanner: React.FC<ContactBannerProps> = ({
   title = 'Connect with Us',
   buttonText = 'Request Our Services',
-  href = '/contact',
+  href = '/contact/contact-services',
 }) => {
   return (
     <div className="flex flex-col w-full bg-slate-700 h-[250px] items-center justify-center">
