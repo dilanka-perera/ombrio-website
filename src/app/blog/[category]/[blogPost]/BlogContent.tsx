@@ -29,11 +29,11 @@ const renderOptions = {
       <p className="text-base sm:text-lg  leading-7 my-2">{children}</p>
     ),
     [BLOCKS.UL_LIST]: (node: Node, children: React.ReactNode) => (
-      <ul className="list-disc list-inside pl-4 my-4">{children}</ul>
+      <ul className="list-disc pl-4 my-4">{children}</ul>
     ),
     // Ordered list (numbering)
     [BLOCKS.OL_LIST]: (node: Node, children: React.ReactNode) => (
-      <ol className="list-decimal list-inside pl-4 my-4">{children}</ol>
+      <ol className="list-decimal pl-4 my-4">{children}</ol>
     ),
     // List item
     [BLOCKS.LIST_ITEM]: (node: Node, children: React.ReactNode) => (
