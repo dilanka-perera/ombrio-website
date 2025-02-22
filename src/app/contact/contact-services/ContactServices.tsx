@@ -56,22 +56,23 @@ const ContactServices: React.FC = () => {
           next steps. Let&apos;s create something extraordinary together!
         </p>
         <div className="flex items-center justify-center w-full">
-          <Image
-            className="p-5 invert"
-            src={`https:${
-              websiteImages.find((item) => item.slug === 'contact-service')
-                ?.image || '/no.png'
-            }`}
-            alt={'Contact Services'}
-            width={150}
-            height={150}
-            unoptimized
-          />
+          <div className="flex flex-col bg-slate-200 p-6 mx-6 my-6 rounded-lg shadow-lg w-full max-w-[350px] items-center justify-center">
+            <Image
+              className="opacity-80"
+              src={`https:${
+                websiteImages.find((item) => item.slug === 'contact-service')
+                  ?.image || '/no.png'
+              }`}
+              alt={'General Inquiries'}
+              width={150}
+              height={150}
+              unoptimized
+            />
+            <p className="text-center mt-5 text-sm sm:text-base md:text-lg text-blue-600">
+              Email: services@ombrio.io
+            </p>
+          </div>
         </div>
-
-        <p className="text-center mt-2 mb-5 text-sm sm:text-base md:text-lg text-yellow-500">
-          Email: services@ombrio.io
-        </p>
       </div>
 
       <div className="xl:w-1/2 flex">
