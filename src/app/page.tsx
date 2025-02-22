@@ -4,7 +4,7 @@ import ExploreOurBlog from './ExploreOurBlog';
 import ContactBanner from './ContactBanner';
 import OurJourney from './OurJourney';
 import WhatWeDo from './WhatWeDo';
-import WhyChooseUs from './WhyChoosUs';
+import WhyChooseUs from './WhyChooseUs';
 import WideContainer from './WideContainer';
 import StandardContainer from './StandardContainer';
 import { LayoutBreak, LayoutWrapper } from './LayoutWrapper';

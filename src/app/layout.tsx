@@ -1,5 +1,4 @@
 import './globals.css';
-import 'keen-slider/keen-slider.min.css';
 import Header from './Header';
 import Footer from './Footer';
 import { DataProvider } from '@/contexts/DataContext';
