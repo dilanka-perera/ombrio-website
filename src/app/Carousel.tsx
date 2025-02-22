@@ -7,7 +7,11 @@ import Link from 'next/link';
 import { useData } from '@/contexts/DataContext';
 
 const Carousel: React.FC = () => {
-  const { carousal } = useData();
+  const { carousalCollections } = useData();
+  const carousalCollection = carousalCollections.find(
+    (item) => item.slug === 'home-page-carousal',
+  );
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
@@ -39,11 +43,15 @@ const Carousel: React.FC = () => {
     }
   }, [instanceRef, currentSlide]);
 
+  if (!carousalCollection) {
+    return null;
+  }
+
   return (
     <div className="relative text-white">
       {/* Keen Slider Container */}
       <div ref={sliderRef} className="keen-slider">
-        {carousal.map((item) => (
+        {carousalCollection.carousals.map((item) => (
           <div
             key={item.slug}
             className="keen-slider__slide flex items-center justify-center w-full"
@@ -78,7 +86,7 @@ const Carousel: React.FC = () => {
 
       {/* Dots */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {carousal.map((_, index) => (
+        {carousalCollection.carousals.map((_, index) => (
           <button
             key={index}
             className={`w-5 h-1 ${

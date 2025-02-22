@@ -6,7 +6,7 @@ import { DataProvider } from '@/contexts/DataContext';
 import {
   fetchBlogCollections,
   fetchBlogs,
-  fetchCarousal,
+  fetchCarousalCollections,
   fetchHeadBanners,
   fetchTeams,
   fetchTileCollections,
@@ -25,7 +25,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const carousal = await fetchCarousal();
+  const carousalCollections = await fetchCarousalCollections();
   const websiteImages = await fetchWebsiteImages();
   const tileCollections = await fetchTileCollections();
   const headBanners = await fetchHeadBanners();
@@ -41,7 +41,7 @@ export default async function RootLayout({
         <div className="container flex flex-col min-h-screen bg-white ring-1 ring-gray-500/10 shadow-md">
           <DataProvider
             initialData={{
-              carousal,
+              carousalCollections,
               websiteImages,
               tileCollections,
               headBanners,

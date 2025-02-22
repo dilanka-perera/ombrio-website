@@ -18,12 +18,19 @@ export type CarousalSkeleton = {
   contentTypeId: 'carousal';
   fields: {
     slug: EntryFieldTypes.Text;
-    order: EntryFieldTypes.Number;
     title: EntryFieldTypes.Text;
     description: EntryFieldTypes.Text;
     buttonText: EntryFieldTypes.Text;
     buttonUrl: EntryFieldTypes.Text;
     image?: EntryFieldTypes.AssetLink;
+  };
+};
+
+export type CarousalCollectionSkeleton = {
+  contentTypeId: 'carousalCollection';
+  fields: {
+    slug: EntryFieldTypes.Text;
+    carousals?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<CarousalSkeleton>>;
   };
 };
 
@@ -174,28 +181,31 @@ export async function fetchWebsiteImages() {
   return websiteImages;
 }
 
-export async function fetchCarousal() {
-  // Replace 'yourContentType' with your actual content type ID
-  const response = await client.getEntries<CarousalSkeleton>({
-    content_type: 'carousal',
-    order: ['fields.order'],
+export async function fetchCarousalCollections() {
+  const response = await client.getEntries<CarousalCollectionSkeleton>({
+    content_type: 'carousalCollection',
+    include: 2, // Include linked entries
   });
 
   const data = response.items;
 
-  const carousal = data.map((item) => ({
-    slug: item.fields.slug,
-    order: item.fields.order,
-    title: item.fields.title,
-    description: item.fields.description,
-    buttonText: item.fields.buttonText,
-    buttonUrl: item.fields.buttonUrl,
-    image: isAsset(item.fields.image)
-      ? item.fields.image.fields.file?.url || '/no.png'
-      : '/no.png',
+  const carousalCollections = data.map((collection) => ({
+    slug: collection.fields.slug,
+    carousals: (collection.fields.carousals ?? [])
+      .filter((carousal) => isEntry<CarousalSkeleton>(carousal))
+      .map((carousal) => ({
+        slug: carousal.fields.slug,
+        title: carousal.fields.title,
+        description: carousal.fields.description,
+        buttonText: carousal.fields.buttonText,
+        buttonUrl: carousal.fields.buttonUrl,
+        image: isAsset(carousal.fields.image)
+          ? carousal.fields.image.fields.file?.url || '/no.png'
+          : '/no.png',
+      })),
   }));
 
-  return carousal;
+  return carousalCollections;
 }
 
 export async function fetchTileCollections() {

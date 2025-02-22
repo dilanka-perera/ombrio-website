@@ -5,12 +5,16 @@ import { Document } from '@contentful/rich-text-types';
 
 export type CarousalItem = {
   slug: string;
-  order: number;
   title: string;
   description: string;
   buttonText: string;
   buttonUrl: string;
   image: string;
+};
+
+export type CarousalCollection = {
+  slug: string;
+  carousals: CarousalItem[];
 };
 
 export type WebsiteImage = {
@@ -94,7 +98,7 @@ export type Team = {
 };
 
 export type DataType = {
-  carousal: CarousalItem[];
+  carousalCollections: CarousalCollection[];
   websiteImages: WebsiteImage[];
   tileCollections: TileCollection[];
   headBanners: HeadBanner[];
