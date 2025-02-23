@@ -32,7 +32,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Changed Header and Footer as reusable components
 - Changed Styling
 
-## [Unreleased] - yyyy-mm-dd
+## [2.0.0] - 2025-02-23
 
 ### Fixed
 
@@ -63,3 +63,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 - Removed Blog Search
+
+## [Unreleased] - yyyy-mm-dd
