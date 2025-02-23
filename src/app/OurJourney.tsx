@@ -1,15 +1,38 @@
+'use client';
+
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Topic from './Topic';
 import MainButton from './MainButton';
 
 const OurJourney: React.FC = () => {
-  return (
-    <div className="pb-8">
-      {/* Section Title */}
-      <div className="pt-10">
-        <Topic text="Discover Who We Are" />
-      </div>
+  // Ref for the entire component
+  const sectionRef = useRef<HTMLDivElement>(null);
 
-      <div className="pt-6 px-8">
+  // Scroll tracking for fade-in and slide-up effect
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  // Fade-in effect
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+
+  // Slide-up effect
+  const translateY = useTransform(scrollYProgress, [0, 0.3], [50, 0]);
+
+  return (
+    <motion.div
+      ref={sectionRef}
+      style={{ opacity, y: translateY }}
+      className="pb-8"
+    >
+      {/* Section Title */}
+      <motion.div style={{ opacity, y: translateY }} className="pt-10">
+        <Topic text="Discover Who We Are" />
+      </motion.div>
+
+      <motion.div style={{ opacity, y: translateY }} className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
           At <strong>Ombrio</strong>, we are driven by a passion for technology
           and a commitment to innovation. Our team of experts leverages the
@@ -28,8 +51,8 @@ const OurJourney: React.FC = () => {
             <MainButton text="View Our Story" link="/about" />
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

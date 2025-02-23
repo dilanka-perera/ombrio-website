@@ -12,6 +12,7 @@ import {
   fetchWebsiteImages,
 } from '@/lib/contentful';
 import { Ubuntu } from 'next/font/google';
+import FadeInWrapper from './FadeInWrapper';
 
 const ubuntu = Ubuntu({
   subsets: ['latin'],
@@ -40,12 +41,15 @@ export default async function RootLayout({
         className={`${ubuntu.className} antialiased text-black font-light bg-slate-100`}
       >
         {/* Background Image Container (Fixed Position) */}
-        <div
-          className="fixed inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${backgroundImageUrl})`,
-          }}
-        ></div>
+        <div className="fixed inset-0 max-w-[1920px] mx-auto">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${backgroundImageUrl})`,
+              opacity: 0.5, // Adjust the opacity here
+            }}
+          ></div>
+        </div>
 
         <div className="container flex flex-col min-h-screen bg-white ring-1 ring-gray-500/10 shadow-md">
           <DataProvider
@@ -61,10 +65,11 @@ export default async function RootLayout({
           >
             <Header />
             <main className="relative flex flex-grow overflow-hidden w-full min-h-screen">
-              {/* Content Layer */}
-              <div className="relative flex flex-col flex-grow max-w-[1920px] mx-auto pt-[80px] overflow-hidden">
-                {children}
-              </div>
+              <FadeInWrapper className="flex flex-grow overflow-hidden">
+                <div className="flex flex-col flex-grow max-w-[1920px] mx-auto pt-[80px] overflow-hidden">
+                  {children}
+                </div>
+              </FadeInWrapper>
             </main>
             <Footer />
           </DataProvider>

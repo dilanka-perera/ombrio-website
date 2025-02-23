@@ -35,15 +35,11 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
 
   // Animations for Image
   const imageOpacity = useTransform(imageScroll, [0, 0.3], [0, 1]);
-  const imageSlide = useTransform(
-    imageScroll,
-    [0, 0.3],
-    [imageFirst ? -100 : 100, 0],
-  );
+  const imageSlide = useTransform(imageScroll, [0, 0.3], [50, 0]);
 
   // Animations for Text
   const textOpacity = useTransform(textScroll, [0, 0.3], [0, 1]);
-  const textSlide = useTransform(textScroll, [0, 0.3], [100, 0]);
+  const textSlide = useTransform(textScroll, [0, 0.3], [50, 0]);
 
   return (
     <div
@@ -55,7 +51,7 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
       <motion.div
         ref={imageRef}
         className="h-full lg:h-auto lg:w-1/2"
-        style={{ opacity: imageOpacity, x: imageSlide }}
+        style={{ opacity: imageOpacity, y: imageSlide }}
       >
         <div className="h-full max-h-[700px]">
           <Image

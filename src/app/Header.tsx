@@ -85,7 +85,7 @@ export default function Header() {
   return (
     <div ref={dropdownRef}>
       <header
-        className={`${isDropdownOpen !== null ? 'z-50' : 'z-10'} left-0 w-full flex-col items-center ${
+        className={`${isDropdownOpen !== null ? 'z-50' : 'z-20'} left-0 w-full flex-col items-center ${
           isScrollOverflow
             ? 'absolute translate-y-0'
             : 'fixed translate-y-0 top-[-80px]'
@@ -106,8 +106,8 @@ export default function Header() {
                     className="flex h-18 items-center px-4"
                   >
                     <Image
-                      className="drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]"
-                      src="/Logo.png"
+                      className="drop-shadow-[0_0_15px_rgba(0,0,0,0.8)]"
+                      src="/Logo-white.png"
                       alt="Logo"
                       width={150}
                       height={30}
@@ -130,7 +130,7 @@ export default function Header() {
                       setIsSidebarOpen(false);
                       setIsDropdownOpen(null);
                     }}
-                    className="-m-2.5 inline-flex text-slate-900 hover:text-slate-700 items-center justify-center p-2.5"
+                    className="-m-2.5 inline-flex text-white hover:text-slate-200 items-center justify-center p-2.5 drop-shadow-[0_0_15px_rgba(0,0,0,0.8)]"
                   >
                     <svg
                       className="size-8"
@@ -155,7 +155,7 @@ export default function Header() {
                       setIsSidebarOpen(true);
                       setIsDropdownOpen(null);
                     }}
-                    className="-m-2.5 inline-flex text-slate-900 hover:text-slate-700 items-center justify-center p-2.5"
+                    className="-m-2.5 inline-flex text-white hover:text-slate-200 items-center justify-center p-2.5 drop-shadow-[0_0_15px_rgba(0,0,0,0.8)]"
                   >
                     <svg
                       className="size-8"
@@ -182,7 +182,7 @@ export default function Header() {
                       className="group mx-[20px]"
                     >
                       <button
-                        className="flex pt-2 justify-center w-[80px] h-[40px] text-base font-medium text-slate-900 text-white"
+                        className="flex pt-2 justify-center w-[80px] h-[40px] text-base font-medium text-slate-900 text-white drop-shadow-[0_0_15px_rgba(0,0,0,0.8)]"
                         onClick={() =>
                           setIsDropdownOpen(
                             isDropdownOpen === index ? null : index,
@@ -206,7 +206,7 @@ export default function Header() {
                         setIsDropdownOpen(null);
                       }}
                     >
-                      <div className="flex pt-2 justify-center w-[80px] h-[40px] text-base font-medium text-slate-900 text-white">
+                      <div className="flex pt-2 justify-center w-[80px] h-[40px] text-base font-medium text-slate-900 text-white drop-shadow-[0_0_15px_rgba(0,0,0,0.8)]">
                         <div>
                           {link.text}
                           <div className="bottom-0 w-0 group-hover:w-7 h-[3px] bg-yellow-500" />
@@ -222,7 +222,7 @@ export default function Header() {
       </header>
 
       {isDropdownOpen !== null && (
-        <div className="z-40 hidden lg:flex left-0 w-full flex-col items-center fixed transition-transform duration-500 translate-y-0 top-[79px]">
+        <div className="z-50 hidden lg:flex left-0 w-full flex-col items-center fixed transition-transform duration-500 translate-y-0 top-[79px]">
           <nav className="relative bg-slate-100 w-full max-w-[1920px] mx-auto ring-1 ring-gray-500/10 shadow-md">
             {links[isDropdownOpen].ref === 'blog' ? (
               <BlogNav setIsDropdownOpen={setIsDropdownOpen} />

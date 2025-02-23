@@ -38,35 +38,35 @@ const WhatWeDo: React.FC = () => {
                   title: 'Machine Learning Models',
                   description:
                     'Building predictive models to forecast trends and behaviors.',
-                  bg: 'bg-slate-200',
+                  bg: 'bg-indigo-200',
                 },
                 {
                   slug: 'home-natural-language-processing',
                   title: 'Natural Language Processing (NLP)',
                   description:
                     'Improving communication through smart chatbots and voice assistants.',
-                  bg: 'bg-slate-100',
+                  bg: 'bg-indigo-100',
                 },
                 {
                   slug: 'home-data-analytics',
                   title: 'Data Analytics & Insights',
                   description:
                     'Extracting valuable insights from your data to drive strategic decisions.',
-                  bg: 'bg-slate-300',
+                  bg: 'bg-white',
                 },
                 {
                   slug: 'home-automation',
                   title: 'AI-driven Automation',
                   description:
                     'Streamlining business operations with AI-powered automation tools.',
-                  bg: 'bg-slate-200',
+                  bg: 'bg-indigo-200',
                 },
                 {
                   slug: 'home-computer-vision',
                   title: 'Computer Vision',
                   description:
                     'Leverage AI to analyze and interpret visual data for enhanced business applications.',
-                  bg: 'bg-slate-100',
+                  bg: 'bg-indigo-100',
                   center: true, // Custom flag for styling
                 },
               ].map((item, index) => (
@@ -123,35 +123,35 @@ const WhatWeDo: React.FC = () => {
                   title: 'Custom Web Development',
                   description:
                     'Tailored solutions that align with your business goals.',
-                  bg: 'bg-slate-200',
+                  bg: 'bg-indigo-200',
                 },
                 {
                   slug: 'home-responsive-design',
                   title: 'Responsive Design',
                   description:
                     'Ensuring an optimal experience across all devices.',
-                  bg: 'bg-slate-100',
+                  bg: 'bg-indigo-100',
                 },
                 {
                   slug: 'home-ecommerce',
                   title: 'E-Commerce Solutions',
                   description:
                     'Building secure and feature-rich online stores.',
-                  bg: 'bg-slate-300',
+                  bg: 'bg-white',
                 },
                 {
                   slug: 'home-maintenance',
                   title: 'Website Maintenance & Support',
                   description:
                     'Keeping your website updated, secure, and running smoothly.',
-                  bg: 'bg-slate-200',
+                  bg: 'bg-indigo-200',
                 },
                 {
                   slug: 'home-performance',
                   title: 'Performance Optimization',
                   description:
                     'Enhance loading speed and user experience for better engagement.',
-                  bg: 'bg-slate-100',
+                  bg: 'bg-indigo-100',
                   center: true,
                 },
               ].map((item, index) => (

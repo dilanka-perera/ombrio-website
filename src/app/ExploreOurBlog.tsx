@@ -1,10 +1,11 @@
 'use client';
 
+import { useEffect, useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Topic from './Topic';
 import MainButton from './MainButton';
 import { BlogPost, useData } from '@/contexts/DataContext';
 import BlogList from './blog/BlogList';
-import { useEffect, useState } from 'react';
 
 type ExtendedBlogPost = BlogPost & {
   categoryName: string;
@@ -14,6 +15,17 @@ type ExtendedBlogPost = BlogPost & {
 const ExploreOurBlog: React.FC = () => {
   const { blogs, blogCollections } = useData();
   const [viewport, setViewport] = useState<string>('');
+
+  // Refs for scroll animations
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  // Fade-in and slide-up effect
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const translateY = useTransform(scrollYProgress, [0, 0.3], [50, 0]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,17 +38,11 @@ const ExploreOurBlog: React.FC = () => {
       }
     };
 
-    // Initial check
     handleResize();
-
-    // Add event listener for resizing
     window.addEventListener('resize', handleResize);
-
-    // Cleanup on component unmount
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Define how many posts to show based on viewport size
   const postsToShow = (viewport: string, posts: ExtendedBlogPost[]) => {
     switch (viewport) {
       case '960':
@@ -71,21 +77,26 @@ const ExploreOurBlog: React.FC = () => {
   });
 
   return (
-    <div className="pt-8 pb-[80px]">
+    <motion.div
+      ref={sectionRef}
+      style={{ opacity, y: translateY }}
+      className="pt-8 pb-[80px]"
+    >
       {/* Section Title */}
-      <div>
+      <motion.div style={{ opacity, y: translateY }}>
         <Topic text="Explore Our Blog" />
-      </div>
+      </motion.div>
 
       {/* Description Section */}
-      <div className="pt-6 px-8">
+      <motion.div style={{ opacity, y: translateY }} className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
           Stay updated with the latest trends, insights, and breakthroughs in
           Artificial Intelligence and Web Development.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="pt-6">
+      {/* Blog List */}
+      <motion.div style={{ opacity, y: translateY }} className="pt-6">
         <BlogList
           posts={postsToShow(viewport, sortedPosts).map((post) => ({
             slug: post.slug,
@@ -96,15 +107,18 @@ const ExploreOurBlog: React.FC = () => {
             categorySlug: post.categorySlug,
           }))}
         />
-      </div>
+      </motion.div>
 
       {/* Read Our Blog Link */}
-      <div className="pt-6 px-8 sm:flex items-end">
+      <motion.div
+        style={{ opacity, y: translateY }}
+        className="pt-6 px-8 sm:flex items-end"
+      >
         <div className="mr-6 mb-4 sm:mb-0">
           <MainButton text="Read Our Blog" link="/blog" />
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
