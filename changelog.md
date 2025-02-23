@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Added Blog Search
 - Added Careers Page
 - Added About Page
-- Added Contact Pagegit push --set-upstream origin 2.0
+- Added Contact Page
 - Added moving background
 - Added Loading Layout Overlay
 
