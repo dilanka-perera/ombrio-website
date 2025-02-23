@@ -11,9 +11,9 @@ interface BlogHeroProps {
 
 const BlogHero: React.FC<BlogHeroProps> = ({ post }) => {
   return (
-    <div className="bg-slate-300">
+    <div className="bg-blue-500 bg-opacity-20 shadow-lg">
       <StandardContainer>
-        <div className="bg-slate-300 p-8 flex flex-col md:flex-row-reverse items-center justify-center gap-6 md:gap-12">
+        <div className="p-8 flex flex-col md:flex-row-reverse items-center justify-center gap-6 md:gap-12">
           {/* Title and metadata */}
           <div className="md:w-1/2 text-center md:text-left">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-4 md:mb-6">

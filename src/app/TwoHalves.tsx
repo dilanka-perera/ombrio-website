@@ -1,13 +1,20 @@
 'use client';
 
-import React, { ReactNode } from 'react';
+import React, { RefObject } from 'react';
 import Image from 'next/image';
+import { motion, MotionValue } from 'framer-motion';
 
 interface TwoHalvesProps {
-  imageSrc: string; // URL for the image
-  title: string; // Title for the paragraph section
-  content: ReactNode; // Paragraph text
-  imageFirst?: boolean; // Option to place the image first (default: true)
+  imageSrc: string;
+  title: string;
+  content: React.ReactNode;
+  imageFirst?: boolean;
+  imageRef: RefObject<HTMLDivElement | null>;
+  textRef: RefObject<HTMLDivElement | null>;
+  imageOpacity: MotionValue<number>;
+  imageSlide: MotionValue<number>;
+  textOpacity: MotionValue<number>;
+  textSlide: MotionValue<number>;
 }
 
 const TwoHalves: React.FC<TwoHalvesProps> = ({
@@ -15,6 +22,12 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
   title,
   content,
   imageFirst = true,
+  imageRef,
+  textRef,
+  imageOpacity,
+  imageSlide,
+  textOpacity,
+  textSlide,
 }) => {
   return (
     <div
@@ -22,8 +35,12 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
         imageFirst ? 'lg:flex-row' : 'lg:flex-row-reverse'
       } w-full h-full`}
     >
-      {/* Image Side */}
-      <div className={`h-full lg:h-auto lg:w-1/2`}>
+      {/* Image Side with Motion */}
+      <motion.div
+        ref={imageRef}
+        className="h-full lg:h-auto lg:w-1/2"
+        style={{ opacity: imageOpacity, y: imageSlide }}
+      >
         <div className="h-full max-h-[700px]">
           <Image
             src={imageSrc}
@@ -36,19 +53,21 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
             unoptimized
           />
         </div>
-      </div>
+      </motion.div>
 
-      {/* Text Side */}
-      <div
+      {/* Text Side with Motion */}
+      <motion.div
+        ref={textRef}
         className={`w-full lg:w-1/2 flex items-center justify-center ${
           imageFirst ? '' : 'lg:justify-start'
         } ${imageFirst ? 'pl-8 lg:pl-16 pr-8 py-8' : 'pr-8 lg:pr-16 pl-8 py-8'}`}
+        style={{ opacity: textOpacity, y: textSlide }}
       >
         <div className="lg:text-left">
           <h2 className="text-2xl sm:text-3xl font-medium mb-4">{title}</h2>
           <div className="text-base sm:text-lg">{content}</div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

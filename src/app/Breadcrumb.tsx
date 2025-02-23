@@ -25,7 +25,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ nameReplacer }) => {
   };
 
   return (
-    <div className="bg-slate-200">
+    <div className="bg-blue-200">
       <StandardContainer>
         <nav
           aria-label="Breadcrumb"

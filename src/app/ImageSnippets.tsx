@@ -118,7 +118,7 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
 
             {/* Title */}
             <div className="absolute bottom-0 left-0 right-0 p-4">
-              <h2 className="text-white text-xl font-medium group-hover:translate-y-[-250px] transition-transform duration-1000 ease-in-out">
+              <h2 className="text-white text-xl font-medium group-hover:translate-y-[-150px] transition-transform duration-1000 ease-in-out">
                 {topic.title}
               </h2>
             </div>
@@ -158,7 +158,7 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
 
                 {/* Title */}
                 <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h2 className="text-white text-xl font-bold group-hover:translate-y-[-250px] transition-transform duration-1000 ease-in-out">
+                  <h2 className="text-white text-xl font-bold group-hover:translate-y-[-150px] transition-transform duration-1000 ease-in-out">
                     {topic.title}
                   </h2>
                 </div>
