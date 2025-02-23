@@ -174,8 +174,8 @@ export async function fetchWebsiteImages() {
   const websiteImages = data.map((item) => ({
     slug: item.fields.slug,
     image: isAsset(item.fields.image)
-      ? item.fields.image.fields.file?.url || '/no.png'
-      : '/no.png',
+      ? item.fields.image.fields.file?.url || 'no.png'
+      : 'no.png',
   }));
 
   return websiteImages;
@@ -200,8 +200,8 @@ export async function fetchCarousalCollections() {
         buttonText: carousal.fields.buttonText,
         buttonUrl: carousal.fields.buttonUrl,
         image: isAsset(carousal.fields.image)
-          ? carousal.fields.image.fields.file?.url || '/no.png'
-          : '/no.png',
+          ? carousal.fields.image.fields.file?.url || 'no.png'
+          : 'no.png',
       })),
   }));
 
@@ -228,8 +228,8 @@ export async function fetchTileCollections() {
           slug: tileFields.fields.slug,
           description: tileFields.fields.description,
           image: isAsset(tileFields.fields.image)
-            ? tileFields.fields.image?.fields.file?.url || '/no.png'
-            : '/no.png',
+            ? tileFields.fields.image?.fields.file?.url || 'no.png'
+            : 'no.png',
         };
       }),
   }));
@@ -248,8 +248,8 @@ export async function fetchHeadBanners() {
     slug: item.fields.slug,
     text: item.fields.text,
     image: isAsset(item.fields.image)
-      ? item.fields.image.fields.file?.url || '/no.png'
-      : '/no.png',
+      ? item.fields.image.fields.file?.url || 'no.png'
+      : 'no.png',
   }));
 }
 
@@ -276,16 +276,16 @@ export async function fetchBlogs() {
             ? category.fields.headerImage.fields.slug
             : '',
             icon: isAsset(category.fields.icon)
-            ? category.fields.icon?.fields.file?.url || '/no.png'
-            : '/no.png',
+            ? category.fields.icon?.fields.file?.url || 'no.png'
+            : 'no.png',
           blogPosts: (category.fields.blogs ?? [])
             .filter((blogPost) => isEntry<BlogPostSkeleton>(blogPost))
             .map((blogPost) => ({
               slug: blogPost.fields.slug,
               title: blogPost.fields.title,
               featuredImage: isAsset(blogPost.fields.featuredImage)
-                ? blogPost.fields.featuredImage.fields.file?.url || '/no.png'
-                : '/no.png',
+                ? blogPost.fields.featuredImage.fields.file?.url || 'no.png'
+                : 'no.png',
               publishedDate: blogPost.fields.publishedDate,
               authors: (blogPost.fields.author ?? [])
                 .filter((author) => isEntry<AuthorSkeleton>(author))
@@ -295,8 +295,8 @@ export async function fetchBlogs() {
                   lastName: author.fields.lastName,
                   email: author.fields.email,
                   profilePicture: isAsset(author.fields.profilePicture)
-                    ? author.fields.profilePicture.fields.file?.url || '/no.png'
-                    : '/no.png',
+                    ? author.fields.profilePicture.fields.file?.url || 'no.png'
+                    : 'no.png',
                   bio: author.fields.bio,
                 })),
               content: (blogPost.fields.content ?? [])
@@ -329,8 +329,8 @@ export async function fetchBlogCollections() {
         slug: blogPost.fields.slug,
         title: blogPost.fields.title,
         featuredImage: isAsset(blogPost.fields.featuredImage)
-          ? blogPost.fields.featuredImage.fields.file?.url || '/no.png'
-          : '/no.png',
+          ? blogPost.fields.featuredImage.fields.file?.url || 'no.png'
+          : 'no.png',
         publishedDate: blogPost.fields.publishedDate,
         authors: (blogPost.fields.author ?? [])
           .filter((author) => isEntry<AuthorSkeleton>(author))
@@ -340,8 +340,8 @@ export async function fetchBlogCollections() {
             lastName: author.fields.lastName,
             email: author.fields.email,
             profilePicture: isAsset(author.fields.profilePicture)
-              ? author.fields.profilePicture.fields.file?.url || '/no.png'
-              : '/no.png',
+              ? author.fields.profilePicture.fields.file?.url || 'no.png'
+              : 'no.png',
             bio: author.fields.bio,
           })),
         content: (blogPost.fields.content ?? [])
@@ -376,8 +376,8 @@ export async function fetchTeams() {
         lastName: member.fields.lastName,
         role: member.fields.role,
         profilePicture: isAsset(member.fields.profilePicture)
-          ? member.fields.profilePicture.fields.file?.url || '/no.png'
-          : '/no.png',
+          ? member.fields.profilePicture.fields.file?.url || 'no.png'
+          : 'no.png',
       })),
   }));
 

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import TwoHalves from '../TwoHalves';
+import TwoHalvesCareers from './TwoHalvesCareers';
 import Topic from '../Topic';
 import { useData } from '@/contexts/DataContext';
 import MainButton from '../MainButton';
@@ -15,11 +15,11 @@ const JoinUs: React.FC = () => {
         <Topic text="Join Us" />
       </div>
 
-      <TwoHalves
+      <TwoHalvesCareers
         title="Join the Future of AI & Web Innovation at Ombrio!"
         imageSrc={`https:${
           websiteImages.find((item) => item.slug === 'careers-join-us')
-            ?.image || '/no.png'
+            ?.image || 'no.png'
         }`}
         imageFirst={true}
         content={

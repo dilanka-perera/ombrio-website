@@ -90,7 +90,7 @@ const ExploreOurBlog: React.FC = () => {
           posts={postsToShow(viewport, sortedPosts).map((post) => ({
             slug: post.slug,
             title: post.title,
-            featuredImage: post.featuredImage || '/no.png',
+            featuredImage: post.featuredImage || 'no.png',
             publishedDate: post.publishedDate,
             category: post.categoryName,
             categorySlug: post.categorySlug,

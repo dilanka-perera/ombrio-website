@@ -48,7 +48,7 @@ const ContactGeneral: React.FC = () => {
               className="opacity-80"
               src={`https:${
                 websiteImages.find((item) => item.slug === 'contact-general')
-                  ?.image || '/no.png'
+                  ?.image || 'no.png'
               }`}
               alt={'General Inquiries'}
               width={150}

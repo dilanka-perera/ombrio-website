@@ -12,7 +12,7 @@ const ContactCards: React.FC = () => {
         <ContactCard
           imageSrc={`https:${
             websiteImages.find((item) => item.slug === 'contact-service')
-              ?.image || '/no.png'
+              ?.image || 'no.png'
           }`}
           title="Contact Services"
           description="Reach out for service inquiries, consultations, or custom solutions."
@@ -26,7 +26,7 @@ const ContactCards: React.FC = () => {
         <ContactCard
           imageSrc={`https:${
             websiteImages.find((item) => item.slug === 'contact-general')
-              ?.image || '/no.png'
+              ?.image || 'no.png'
           }`}
           title="General Inquiries"
           description="For any general questions or inquiries, feel free to reach out to us."

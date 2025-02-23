@@ -47,7 +47,7 @@ const ContactNav: React.FC<ContactNavProps> = ({ setIsDropdownOpen }) => {
                   <div className="flex space-x-4">
                     <Image
                       className="opacity-90 pb-5 object-contain w-1/4 mt-5"
-                      src={`https:${websiteImages.find((item) => item.slug === slug)?.image || '/no.png'}`}
+                      src={`https:${websiteImages.find((item) => item.slug === slug)?.image || 'no.png'}`}
                       alt={title}
                       width={100}
                       height={100}

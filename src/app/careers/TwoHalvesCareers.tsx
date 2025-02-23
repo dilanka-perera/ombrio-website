@@ -3,14 +3,14 @@
 import React, { ReactNode } from 'react';
 import Image from 'next/image';
 
-interface TwoHalvesProps {
+interface TwoHalvesCareersProps {
   imageSrc: string; // URL for the image
   title: string; // Title for the paragraph section
   content: ReactNode; // Paragraph text
   imageFirst?: boolean; // Option to place the image first (default: true)
 }
 
-const TwoHalves: React.FC<TwoHalvesProps> = ({
+const TwoHalvesCareers: React.FC<TwoHalvesCareersProps> = ({
   imageSrc,
   title,
   content,
@@ -42,9 +42,9 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
       <div
         className={`w-full lg:w-1/2 flex items-center justify-center ${
           imageFirst ? '' : 'lg:justify-start'
-        } ${imageFirst ? 'pl-8 lg:pl-16 pr-8 py-8' : 'pr-8 lg:pr-16 pl-8 py-8'}`}
+        } p-8`}
       >
-        <div className="lg:text-left">
+        <div className="lg:max-w-md lg:text-left">
           <h2 className="text-2xl sm:text-3xl font-medium mb-4">{title}</h2>
           <div className="text-base sm:text-lg">{content}</div>
         </div>
@@ -53,4 +53,4 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
   );
 };
 
-export default TwoHalves;
+export default TwoHalvesCareers;
