@@ -23,10 +23,10 @@ const WhyChooseUs: React.FC = () => {
   });
 
   // Fade-in effect
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
 
   // Slide-up effect
-  const translateY = useTransform(scrollYProgress, [0, 0.3], [50, 0]);
+  const translateY = useTransform(scrollYProgress, [0, 0.4], [50, 0]);
 
   if (!tileCollection) {
     return null;

@@ -1,14 +1,20 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { RefObject } from 'react';
 import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, MotionValue } from 'framer-motion';
 
 interface TwoHalvesProps {
   imageSrc: string;
   title: string;
   content: React.ReactNode;
   imageFirst?: boolean;
+  imageRef: RefObject<HTMLDivElement | null>;
+  textRef: RefObject<HTMLDivElement | null>;
+  imageOpacity: MotionValue<number>;
+  imageSlide: MotionValue<number>;
+  textOpacity: MotionValue<number>;
+  textSlide: MotionValue<number>;
 }
 
 const TwoHalves: React.FC<TwoHalvesProps> = ({
@@ -16,31 +22,13 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
   title,
   content,
   imageFirst = true,
+  imageRef,
+  textRef,
+  imageOpacity,
+  imageSlide,
+  textOpacity,
+  textSlide,
 }) => {
-  // Refs for Image and Text containers
-  const imageRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
-
-  // Scroll tracking for Image
-  const { scrollYProgress: imageScroll } = useScroll({
-    target: imageRef,
-    offset: ['start end', 'end start'],
-  });
-
-  // Scroll tracking for Text
-  const { scrollYProgress: textScroll } = useScroll({
-    target: textRef,
-    offset: ['start end', 'end start'],
-  });
-
-  // Animations for Image
-  const imageOpacity = useTransform(imageScroll, [0, 0.3], [0, 1]);
-  const imageSlide = useTransform(imageScroll, [0, 0.3], [50, 0]);
-
-  // Animations for Text
-  const textOpacity = useTransform(textScroll, [0, 0.3], [0, 1]);
-  const textSlide = useTransform(textScroll, [0, 0.3], [50, 0]);
-
   return (
     <div
       className={`flex flex-col pt-8 ${

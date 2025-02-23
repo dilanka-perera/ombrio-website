@@ -57,7 +57,7 @@ const Carousel: React.FC = () => {
             className="keen-slider__slide flex items-center justify-center w-full"
           >
             <Image
-              className="h-[240px] sm:h-[360px] object-cover lg:h-auto lg:object-fill [mask-image:linear-gradient(to_bottom,white_0%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,white_0%,transparent)]"
+              className="h-[240px] sm:h-[360px] object-cover lg:h-auto lg:object-fill [mask-image:linear-gradient(to_bottom,white_25%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,white_25%,transparent)]"
               src={`https:${item.image}`}
               alt={item.title}
               width={1920}

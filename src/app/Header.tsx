@@ -106,7 +106,7 @@ export default function Header() {
                     className="flex h-18 items-center px-4"
                   >
                     <Image
-                      className="drop-shadow-[0_0_15px_rgba(0,0,0,0.8)]"
+                      className="drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]"
                       src="/Logo-white.png"
                       alt="Logo"
                       width={150}
