@@ -23,10 +23,10 @@ const HeadBanner: React.FC<HeadBannerProps> = ({ slug }) => {
         alt={banner.text}
         width={1920}
         height={285}
-        className={`w-full h-full object-cover`}
+        className={`w-full h-full object-cover [mask-image:linear-gradient(to_bottom,white_0%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,white_0%,transparent)]`}
         unoptimized
       />
-      <div className="absolute inset-0 bg-black opacity-60" />
+      <div className="absolute inset-0 bg-blue-700 opacity-0" />
       <div className="absolute inset-0 flex items-center justify-center">
         <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-normal">
           {banner.text}

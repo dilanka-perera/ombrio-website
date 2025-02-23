@@ -57,7 +57,7 @@ const Carousel: React.FC = () => {
             className="keen-slider__slide flex items-center justify-center w-full"
           >
             <Image
-              className="h-[360px] object-cover lg:h-auto lg:object-fill"
+              className="h-[360px] object-cover lg:h-auto lg:object-fill [mask-image:linear-gradient(to_bottom,white_0%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,white_0%,transparent)]"
               src={`https:${item.image}`}
               alt={item.title}
               width={1920}
@@ -65,20 +65,22 @@ const Carousel: React.FC = () => {
               priority
               unoptimized
             />
-            <div className="absolute inset-0 bg-black opacity-60"></div>
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-              <h1 className="text-2xl sm:text-4xl md:text-5xl font-medium mb-4 px-8 drop-shadow-lg">
+            <div className="absolute inset-0 bg-black opacity-0"></div>
+            <div className="absolute inset-0 flex flex-col items-end justify-end pb-8 text-end">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl font-medium mb-4 px-8 drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]">
                 {item.title}
               </h1>
-              <p className="text-xs sm:text-sm md:text-lg mb-6 px-8 text-center">
+              <p className="text-xs sm:text-sm md:text-lg mb-6 px-8 text-end drop-shadow-[0_4px_4px_rgba(0,0,0,0.6)]">
                 {item.description}
               </p>
-              <Link
-                href={item.buttonUrl}
-                className="px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-3 bg-white bg-opacity-85 hover:bg-opacity-100 text-sm sm:text-base md:text-lg text-black rounded font-normal"
-              >
-                {item.buttonText}
-              </Link>
+              <div className="px-8">
+                <Link
+                  href={item.buttonUrl}
+                  className="px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-3 bg-white bg-opacity-85 hover:bg-opacity-100 text-sm sm:text-base md:text-lg text-black rounded font-normal"
+                >
+                  {item.buttonText}
+                </Link>
+              </div>
             </div>
           </div>
         ))}

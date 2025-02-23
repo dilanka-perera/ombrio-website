@@ -91,7 +91,7 @@ export default function Header() {
             : 'fixed translate-y-0 top-[-80px]'
         } transition-transform duration-500`}
       >
-        <nav className="bg-white max-w-[1920px] mx-auto ring-1 ring-gray-500/10 shadow-md">
+        <nav className="bg-blue-900 max-w-[1920px] mx-auto ring-1 ring-gray-500/10 shadow-md">
           <div className={`${isScrollOverflow ? 'h-[0px]' : 'h-[80px]'}`}></div>
           <div className="max-w-7xl mx-auto h-[80px] flex items-center">
             <div className="flex-1">
@@ -106,7 +106,7 @@ export default function Header() {
                     className="flex h-18 items-center px-4"
                   >
                     <Image
-                      className="drop-shadow-md"
+                      className="drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]"
                       src="/Logo.png"
                       alt="Logo"
                       width={150}
@@ -182,7 +182,7 @@ export default function Header() {
                       className="group mx-[20px]"
                     >
                       <button
-                        className="flex pt-2 justify-center w-[80px] h-[40px] text-base font-medium text-slate-900"
+                        className="flex pt-2 justify-center w-[80px] h-[40px] text-base font-medium text-slate-900 text-white"
                         onClick={() =>
                           setIsDropdownOpen(
                             isDropdownOpen === index ? null : index,
@@ -206,7 +206,7 @@ export default function Header() {
                         setIsDropdownOpen(null);
                       }}
                     >
-                      <div className="flex pt-2 justify-center w-[80px] h-[40px] text-base font-medium text-slate-900 bg-white">
+                      <div className="flex pt-2 justify-center w-[80px] h-[40px] text-base font-medium text-slate-900 text-white">
                         <div>
                           {link.text}
                           <div className="bottom-0 w-0 group-hover:w-7 h-[3px] bg-yellow-500" />
