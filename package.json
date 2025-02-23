@@ -1,12 +1,13 @@
 {
-  "name": "zynorax-website-project-1",
-  "version": "1.0.0",
+  "name": "ombrio-website",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^17.0.0",
@@ -14,6 +15,7 @@
     "contentful": "^11.4.3",
     "framer-motion": "^12.0.11",
     "keen-slider": "^6.8.6",
+    "lucide-react": "^0.475.0",
     "next": "15.1.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -27,6 +29,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.1.4",
     "postcss": "^8",
+    "prettier": "^3.5.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

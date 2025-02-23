@@ -1,3 +1,5 @@
+@import 'keen-slider/keen-slider.min.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,12 +7,17 @@
 html {
   height: 100%;
   margin: 0;
-  background-color: #ffffff;
 }
 
 body {
   color: #000000;
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto; /* Center the content */
+  background-color: white; /* Ensure content area has a white background */
+  min-height: 100vh; /* Full height */
 }
 
 @keyframes loading {
@@ -47,8 +54,11 @@ code {
   overflow-y: hidden; /* Hides vertical overflow */
   display: block;
   max-width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 20px; /* Adjust the padding as needed */
-  background-color: #f4f4f4; /* Light gray background color */
+  background-color: #f1f5f9; /* Light gray background color */
   color: #333; /* Dark text color */
-  border-radius: 8px;
+  border-radius: 0.25rem;
+  font-family: 'Courier New', Courier, monospace;
 }
