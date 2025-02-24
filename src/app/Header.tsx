@@ -223,7 +223,7 @@ export default function Header() {
 
       {isDropdownOpen !== null && (
         <div className="z-50 hidden lg:flex left-0 w-full flex-col items-center fixed transition-transform duration-500 translate-y-0 top-[79px]">
-          <nav className="relative bg-slate-100 w-full max-w-[1920px] mx-auto ring-1 ring-gray-500/10 shadow-md">
+          <nav className="relative bg-blue-100 bg-opacity-0 backdrop-blur-lg w-full max-w-[1920px] mx-auto ring-1 ring-gray-500/10 shadow-md">
             {links[isDropdownOpen].ref === 'blog' ? (
               <BlogNav setIsDropdownOpen={setIsDropdownOpen} />
             ) : links[isDropdownOpen].ref === 'contact' ? (

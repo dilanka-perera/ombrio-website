@@ -54,7 +54,7 @@ const Carousel: React.FC = () => {
         {carousalCollection.carousals.map((item) => (
           <div
             key={item.slug}
-            className="keen-slider__slide flex items-center justify-center w-full"
+            className="keen-slider__slide flex items-center justify-center w-full backdrop-blur-lg"
           >
             <Image
               className="h-[240px] sm:h-[360px] object-cover lg:h-auto lg:object-fill [mask-image:linear-gradient(to_bottom,white_25%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,white_25%,transparent)]"

@@ -35,10 +35,9 @@ const WhyChooseUs: React.FC = () => {
   }));
 
   return (
-    <motion.div
+    <div
       ref={sectionRef}
-      style={{ opacity, y: translateY }}
-      className="bg-white bg-opacity-20 shadow-lg"
+      className="bg-white bg-opacity-20 shadow-lg backdrop-blur-lg"
     >
       <StandardContainer>
         <div>
@@ -51,7 +50,7 @@ const WhyChooseUs: React.FC = () => {
           </motion.div>
         </div>
       </StandardContainer>
-    </motion.div>
+    </div>
   );
 };
 
