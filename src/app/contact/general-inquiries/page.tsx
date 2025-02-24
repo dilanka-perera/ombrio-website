@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 
 const Contact: NextPage = () => {
   return (
-    <div className="max-w-[1920px] w-full mx-auto bg-slate-700 flex flex-grow overflow-hidden">
+    <div className="max-w-[1920px] w-full mx-auto bg-blue-950 bg-opacity-80 backdrop-blur-lg flex flex-grow overflow-hidden">
       <LayoutWrapper>
         <WideContainer>
           <Breadcrumb
