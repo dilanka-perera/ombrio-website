@@ -18,11 +18,11 @@ const WhatWeDo: React.FC = () => {
   // Scroll tracking for First Section
   const { scrollYProgress: imageScroll1 } = useScroll({
     target: imageRef1,
-    offset: ['start end', 'start -500px'],
+    offset: ['start end', 'start -100px'],
   });
   const { scrollYProgress: textScroll1 } = useScroll({
     target: textRef1,
-    offset: ['start end', 'start -500px'],
+    offset: ['start end', 'start -100px'],
   });
 
   // Animations for First Section
@@ -34,11 +34,11 @@ const WhatWeDo: React.FC = () => {
   // Scroll tracking for Second Section
   const { scrollYProgress: imageScroll2 } = useScroll({
     target: imageRef2,
-    offset: ['start end', 'start -500px'],
+    offset: ['start end', 'start -100px'],
   });
   const { scrollYProgress: textScroll2 } = useScroll({
     target: textRef2,
-    offset: ['start end', 'start -500px'],
+    offset: ['start end', 'start -100px'],
   });
 
   // Animations for Second Section

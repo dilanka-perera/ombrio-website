@@ -1,8 +1,26 @@
+'use client';
+
+import { useRef } from 'react';
 import Topic from '../Topic';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Story: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'start -100px'],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  const translateY = useTransform(scrollYProgress, [0, 0.5], [50, 0]);
+
   return (
-    <div className="pb-8">
+    <motion.div
+      ref={sectionRef}
+      style={{ opacity, y: translateY, willChange: 'opacity, transform' }}
+      className="pb-8"
+    >
       {/* Section Title */}
       <div className="pt-10">
         <Topic text="Our Story" />
@@ -24,7 +42,7 @@ const Story: React.FC = () => {
           the latest advancements in technology.
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

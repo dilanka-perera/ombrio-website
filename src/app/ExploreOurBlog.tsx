@@ -20,7 +20,7 @@ const ExploreOurBlog: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ['start end', 'start -500px'],
+    offset: ['start end', 'start -100px'],
   });
 
   // Fade-in and slide-up effect

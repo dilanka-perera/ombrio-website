@@ -100,7 +100,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ['start end', 'start -500px'],
+    offset: ['start end', 'start -100px'],
   });
 
   const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);

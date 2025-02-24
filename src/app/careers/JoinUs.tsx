@@ -15,11 +15,11 @@ const JoinUs: React.FC = () => {
 
   const { scrollYProgress: imageScroll } = useScroll({
     target: imageRef,
-    offset: ['start end', 'start -500px'],
+    offset: ['start end', 'start -100px'],
   });
   const { scrollYProgress: textScroll } = useScroll({
     target: textRef,
-    offset: ['start end', 'start -500px'],
+    offset: ['start end', 'start -100px'],
   });
 
   // Animations for First Section
