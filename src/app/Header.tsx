@@ -241,8 +241,8 @@ export default function Header() {
                           setIsDropdownOpen(null);
                         }}
                       >
-                        <div className="bg-white shadow-md p-4 hover:bg-gray-100 transition">
-                          <p className="text-gray-900 font-normal">
+                        <div className="bg-white shadow-md p-4 hover:bg-blue-100 transition">
+                          <p className="text-slate-900 font-normal">
                             {item.text}
                           </p>
                         </div>
@@ -284,7 +284,7 @@ export default function Header() {
       {isSidebarOpen && (
         <div className="lg:hidden" role="dialog" aria-modal="true">
           <div
-            className={`fixed inset-y-0 right-0 top-[79px] z-50 w-full overflow-y-auto bg-white px-3 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-500/10 shadow-md`}
+            className={`fixed inset-y-0 right-0 top-[79px] z-50 w-full overflow-y-auto bg-blue-100 px-3 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-500/10 shadow-md`}
           >
             <div className="flow-root">
               <div className="space-y-2">
@@ -292,7 +292,7 @@ export default function Header() {
                   link.dropdown ? (
                     <div key={link.href}>
                       <button
-                        className="w-full flex items-center justify-between px-3 py-2 text-base/7 text-gray-900 font-semibold hover:bg-slate-200"
+                        className="w-full flex items-center justify-between px-3 py-2 text-base/7 text-slate-900 font-semibold hover:bg-blue-200"
                         onClick={() =>
                           setIsDropdownOpen(
                             isDropdownOpen === index ? null : index,
@@ -312,7 +312,7 @@ export default function Header() {
                             <Link
                               key={item.href}
                               href={item.href}
-                              className="block border-l-2 border-black px-3 py-2 text-base/7 text-gray-900 font-medium hover:bg-slate-200"
+                              className="block border-l-2 border-blue-900 px-3 py-2 text-base/7 text-slate-900 font-medium hover:bg-blue-200"
                               onClick={() => {
                                 setIsSidebarOpen(false);
                                 setIsDropdownOpen(null);
@@ -328,7 +328,7 @@ export default function Header() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="block px-3 py-2 text-base/7 text-gray-900 font-semibold hover:bg-slate-200"
+                      className="block px-3 py-2 text-base/7 text-slate-900 font-semibold hover:bg-blue-200"
                       onClick={() => {
                         setIsSidebarOpen(false);
                         setIsDropdownOpen(null);
