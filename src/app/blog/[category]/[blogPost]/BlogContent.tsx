@@ -141,7 +141,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post, categoryName }) => {
         <div
           className={`${
             isFixed ? 'fixed top-[119px]' : 'absolute'
-          } sm:hidden right-0 w-full bg-blue-300 bg-opacity-40 backdrop-blur-lg ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-40`}
+          } sm:hidden right-0 w-full bg-slate-300 bg-opacity-40 backdrop-blur-lg ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-40`}
         >
           {post.content.map((section) => (
             <button
@@ -149,7 +149,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post, categoryName }) => {
               onClick={(e) => handleSectionClick(e, section.slug)}
               className={`block w-full text-left px-4 py-2 text-slate-900 font-normal ${
                 section.slug === activeSectionM
-                  ? 'bg-blue-100 bg-opacity-50'
+                  ? 'bg-slate-100 bg-opacity-50'
                   : 'hover:bg-white hover:bg-opacity-20'
               } overflow-hidden`}
             >
@@ -161,7 +161,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post, categoryName }) => {
             onClick={(e) => handleSectionClick(e, 'featured')}
             className={`block w-full text-left px-4 py-2 text-slate-900 font-normal ${
               'featured' === activeSectionM
-                ? 'bg-blue-100 bg-opacity-50'
+                ? 'bg-slate-100 bg-opacity-50'
                 : 'hover:bg-white hover:bg-opacity-20'
             } overflow-hidden rounded-b-lg`}
           >
@@ -189,7 +189,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post, categoryName }) => {
                 <p className="pb-5 font-medium text-xl h-[50px]">
                   Table of Content
                 </p>
-                <div className="flex flex-col max-h-[calc(100vh-200px)] bg-blue-400 bg-opacity-20 backdrop-blur-lg overflow-y-auto">
+                <div className="flex flex-col max-h-[calc(100vh-200px)] bg-slate-400 bg-opacity-20 backdrop-blur-lg overflow-y-auto">
                   {post.content.map((content) => {
                     return (
                       <button
@@ -197,7 +197,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post, categoryName }) => {
                         onClick={(e) => handleSectionClick(e, content.slug)}
                         className={`p-4 border-l-2 hover:text-slate-800 text-left ${
                           content.slug === activeSectionD
-                            ? 'font-medium border-yellow-500 bg-blue-100 bg-opacity-40'
+                            ? 'font-medium border-yellow-500 bg-slate-100 bg-opacity-40'
                             : 'font-normal border-slate-800'
                         }`}
                       >

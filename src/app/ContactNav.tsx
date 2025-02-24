@@ -36,7 +36,7 @@ const ContactNav: React.FC<ContactNavProps> = ({ setIsDropdownOpen }) => {
   return (
     <div>
       <WideContainer>
-        <div className="relative w-full align-left bg-blue-100 bg-opacity-50">
+        <div className="relative w-full align-left bg-slate-100 bg-opacity-50">
           <StandardContainer>
             <div className="flex flex-wrap justify-center">
               {contactItems.map(

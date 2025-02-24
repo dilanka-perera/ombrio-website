@@ -135,7 +135,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
         <div
           className={`${
             isFixed ? 'fixed top-[119px]' : 'absolute'
-          } sm:hidden right-0 w-full bg-blue-300 bg-opacity-40 backdrop-blur-lg ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-40`}
+          } sm:hidden right-0 w-full bg-slate-300 bg-opacity-40 backdrop-blur-lg ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-40`}
         >
           {sections.map((section, index) => (
             <button
@@ -143,7 +143,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
               onClick={(e) => handleSectionClick(e, section.id)}
               className={`block w-full text-left px-4 py-2 text-slate-900 font-normal ${
                 section.id === activeSection
-                  ? 'bg-blue-100 bg-opacity-50'
+                  ? 'bg-slate-100 bg-opacity-50'
                   : 'hover:bg-white hover:bg-opacity-20'
               } overflow-hidden ${
                 index === sections.length - 1 ? 'rounded-b-lg' : ''
