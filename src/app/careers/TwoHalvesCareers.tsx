@@ -1,13 +1,20 @@
 'use client';
 
-import React, { ReactNode } from 'react';
+import React, { ReactNode, RefObject } from 'react';
 import Image from 'next/image';
+import { motion, MotionValue } from 'framer-motion';
 
 interface TwoHalvesCareersProps {
   imageSrc: string; // URL for the image
   title: string; // Title for the paragraph section
   content: ReactNode; // Paragraph text
   imageFirst?: boolean; // Option to place the image first (default: true)
+  imageRef: RefObject<HTMLDivElement | null>;
+  textRef: RefObject<HTMLDivElement | null>;
+  imageOpacity: MotionValue<number>;
+  imageSlide: MotionValue<number>;
+  textOpacity: MotionValue<number>;
+  textSlide: MotionValue<number>;
 }
 
 const TwoHalvesCareers: React.FC<TwoHalvesCareersProps> = ({
@@ -15,6 +22,12 @@ const TwoHalvesCareers: React.FC<TwoHalvesCareersProps> = ({
   title,
   content,
   imageFirst = true,
+  imageRef,
+  textRef,
+  imageOpacity,
+  imageSlide,
+  textOpacity,
+  textSlide,
 }) => {
   return (
     <div
@@ -23,7 +36,15 @@ const TwoHalvesCareers: React.FC<TwoHalvesCareersProps> = ({
       } w-full h-full`}
     >
       {/* Image Side */}
-      <div className={`h-full lg:h-auto lg:w-1/2`}>
+      <motion.div
+        ref={imageRef}
+        className={`h-full lg:h-auto lg:w-1/2`}
+        style={{
+          opacity: imageOpacity,
+          y: imageSlide,
+          willChange: 'opacity, transform',
+        }}
+      >
         <div className="h-full max-h-[700px]">
           <Image
             src={imageSrc}
@@ -36,19 +57,25 @@ const TwoHalvesCareers: React.FC<TwoHalvesCareersProps> = ({
             unoptimized
           />
         </div>
-      </div>
+      </motion.div>
 
       {/* Text Side */}
-      <div
+      <motion.div
+        ref={textRef}
         className={`w-full lg:w-1/2 flex items-center justify-center ${
           imageFirst ? '' : 'lg:justify-start'
         } p-8`}
+        style={{
+          opacity: textOpacity,
+          y: textSlide,
+          willChange: 'opacity, transform',
+        }}
       >
         <div className="lg:max-w-md lg:text-left">
           <h2 className="text-2xl sm:text-3xl font-medium mb-4">{title}</h2>
           <div className="text-base sm:text-lg">{content}</div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
