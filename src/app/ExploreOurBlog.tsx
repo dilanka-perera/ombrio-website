@@ -82,21 +82,18 @@ const ExploreOurBlog: React.FC = () => {
       style={{ opacity, y: translateY }}
       className="pt-8 pb-[80px]"
     >
-      {/* Section Title */}
-      <motion.div style={{ opacity, y: translateY }}>
+      <div>
         <Topic text="Explore Our Blog" />
-      </motion.div>
+      </div>
 
-      {/* Description Section */}
-      <motion.div style={{ opacity, y: translateY }} className="pt-6 px-8">
+      <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
           Stay updated with the latest trends, insights, and breakthroughs in
           Artificial Intelligence and Web Development.
         </p>
-      </motion.div>
+      </div>
 
-      {/* Blog List */}
-      <motion.div style={{ opacity, y: translateY }} className="pt-6">
+      <div className="pt-6">
         <BlogList
           posts={postsToShow(viewport, sortedPosts).map((post) => ({
             slug: post.slug,
@@ -107,17 +104,13 @@ const ExploreOurBlog: React.FC = () => {
             categorySlug: post.categorySlug,
           }))}
         />
-      </motion.div>
+      </div>
 
-      {/* Read Our Blog Link */}
-      <motion.div
-        style={{ opacity, y: translateY }}
-        className="pt-6 px-8 sm:flex items-end"
-      >
+      <div className="pt-6 px-8 sm:flex items-end">
         <div className="mr-6 mb-4 sm:mb-0">
           <MainButton text="Read Our Blog" link="/blog" />
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };

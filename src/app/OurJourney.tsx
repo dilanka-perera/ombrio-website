@@ -22,12 +22,11 @@ const OurJourney: React.FC = () => {
       style={{ opacity, y: translateY }}
       className="pb-8"
     >
-      {/* Section Title */}
-      <motion.div style={{ opacity, y: translateY }} className="pt-10">
+      <div className="pt-10">
         <Topic text="Discover Who We Are" />
-      </motion.div>
+      </div>
 
-      <motion.div style={{ opacity, y: translateY }} className="pt-6 px-8">
+      <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
           At <strong>Ombrio</strong>, we are driven by a passion for technology
           and a commitment to innovation. Our team of experts leverages the
@@ -46,7 +45,7 @@ const OurJourney: React.FC = () => {
             <MainButton text="View Our Story" link="/about" />
           </div>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };

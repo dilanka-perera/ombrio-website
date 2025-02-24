@@ -40,15 +40,15 @@ const WhyChooseUs: React.FC = () => {
       className="bg-white bg-opacity-20 shadow-lg backdrop-blur-lg"
     >
       <StandardContainer>
-        <div>
-          <motion.div style={{ opacity, y: translateY }} className="pt-10">
+        <motion.div style={{ opacity, y: translateY }}>
+          <div className="pt-10">
             <Topic text="Why Choose Us?" />
-          </motion.div>
+          </div>
 
-          <motion.div style={{ opacity, y: translateY }} className="pt-6">
+          <div className="pt-6">
             <ImageSnippets topics={topics} />
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </StandardContainer>
     </div>
   );
