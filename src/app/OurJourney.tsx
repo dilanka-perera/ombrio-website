@@ -6,20 +6,15 @@ import Topic from './Topic';
 import MainButton from './MainButton';
 
 const OurJourney: React.FC = () => {
-  // Ref for the entire component
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Scroll tracking for fade-in and slide-up effect
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ['start end', 'end start'],
+    offset: ['start end', 'start start'],
   });
 
-  // Fade-in effect
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-
-  // Slide-up effect
-  const translateY = useTransform(scrollYProgress, [0, 0.3], [50, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  const translateY = useTransform(scrollYProgress, [0, 0.5], [50, 0]);
 
   return (
     <motion.div

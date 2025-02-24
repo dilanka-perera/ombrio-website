@@ -10,6 +10,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const WhatWeDo: React.FC = () => {
   const { websiteImages } = useData();
   const imageRef1 = useRef<HTMLDivElement>(null);
+  const imageRef1Dummy = useRef<HTMLDivElement>(null);
   const textRef1 = useRef<HTMLDivElement>(null);
   const imageRef2 = useRef<HTMLDivElement>(null);
   const textRef2 = useRef<HTMLDivElement>(null);
@@ -17,39 +18,40 @@ const WhatWeDo: React.FC = () => {
   // Scroll tracking for First Section
   const { scrollYProgress: imageScroll1 } = useScroll({
     target: imageRef1,
-    offset: ['start end', 'end start'],
+    offset: ['start end', 'start start'],
   });
   const { scrollYProgress: textScroll1 } = useScroll({
     target: textRef1,
-    offset: ['start end', 'end start'],
+    offset: ['start end', 'start start'],
   });
 
   // Animations for First Section
-  const imageOpacity1 = useTransform(imageScroll1, [0, 0.3], [0, 1]);
-  const imageSlide1 = useTransform(imageScroll1, [0, 0.3], [50, 0]);
-  const textOpacity1 = useTransform(textScroll1, [0, 0.3], [0, 1]);
-  const textSlide1 = useTransform(textScroll1, [0, 0.3], [50, 0]);
+  const imageOpacity1 = useTransform(imageScroll1, [0, 0.5], [0, 1]);
+  const imageSlide1 = useTransform(imageScroll1, [0, 0.5], [50, 0]);
+  const textOpacity1 = useTransform(textScroll1, [0, 0.5], [0, 1]);
+  const textSlide1 = useTransform(textScroll1, [0, 0.5], [50, 0]);
 
   // Scroll tracking for Second Section
   const { scrollYProgress: imageScroll2 } = useScroll({
     target: imageRef2,
-    offset: ['start end', 'end start'],
+    offset: ['start end', 'start start'],
   });
   const { scrollYProgress: textScroll2 } = useScroll({
     target: textRef2,
-    offset: ['start end', 'end start'],
+    offset: ['start end', 'start start'],
   });
 
   // Animations for Second Section
-  const imageOpacity2 = useTransform(imageScroll2, [0, 0.3], [0, 1]);
-  const imageSlide2 = useTransform(imageScroll2, [0, 0.3], [50, 0]);
-  const textOpacity2 = useTransform(textScroll2, [0, 0.3], [0, 1]);
-  const textSlide2 = useTransform(textScroll2, [0, 0.3], [50, 0]);
+  const imageOpacity2 = useTransform(imageScroll2, [0, 0.5], [0, 1]);
+  const imageSlide2 = useTransform(imageScroll2, [0, 0.5], [50, 0]);
+  const textOpacity2 = useTransform(textScroll2, [0, 0.5], [0, 1]);
+  const textSlide2 = useTransform(textScroll2, [0, 0.5], [50, 0]);
 
   return (
     <div className="pb-8 lg:pb-16">
       <motion.div
         className="pt-10"
+        ref={imageRef1}
         style={{ opacity: imageOpacity1, y: imageSlide1 }}
       >
         <Topic text="What we do" />
@@ -62,7 +64,7 @@ const WhatWeDo: React.FC = () => {
             ?.image || 'no.png'
         }`}
         imageFirst={true}
-        imageRef={imageRef1}
+        imageRef={imageRef1Dummy}
         textRef={textRef1}
         imageOpacity={imageOpacity1}
         imageSlide={imageSlide1}

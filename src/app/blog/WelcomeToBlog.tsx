@@ -1,13 +1,27 @@
+import { useRef } from 'react';
 import Topic from '../Topic';
+import { motion, useScroll, useTransform } from 'framer-motion';
 const WelcomeToBlog: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'start start'],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  const translateY = useTransform(scrollYProgress, [0, 0.5], [50, 0]);
+
   return (
-    <div className="pt-10 pb-8">
-      {/* Section Title */}
+    <motion.div
+      className="pt-10 pb-8"
+      ref={sectionRef}
+      style={{ opacity, y: translateY }}
+    >
       <div>
         <Topic text="Welcome to Ombrio Blog" />
       </div>
 
-      {/* Description Section */}
       <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
           At Ombrio, we are passionate about the ever-evolving world of
@@ -21,7 +35,7 @@ const WelcomeToBlog: React.FC = () => {
           intersection of AI and web development!
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -13,20 +13,15 @@ const WhyChooseUs: React.FC = () => {
     (item) => item.slug === 'why-choose-us',
   );
 
-  // Ref for the component
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Scroll tracking for fade-in and slide-up effect
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ['start end', 'end start'],
+    offset: ['start end', 'start start'],
   });
 
-  // Fade-in effect
-  const opacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
-
-  // Slide-up effect
-  const translateY = useTransform(scrollYProgress, [0, 0.4], [50, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  const translateY = useTransform(scrollYProgress, [0, 0.5], [50, 0]);
 
   if (!tileCollection) {
     return null;
@@ -47,12 +42,10 @@ const WhyChooseUs: React.FC = () => {
     >
       <StandardContainer>
         <div>
-          {/* Section Title */}
           <motion.div style={{ opacity, y: translateY }} className="pt-10">
             <Topic text="Why Choose Us?" />
           </motion.div>
 
-          {/* Image Snippets */}
           <motion.div style={{ opacity, y: translateY }} className="pt-6">
             <ImageSnippets topics={topics} />
           </motion.div>
