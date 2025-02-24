@@ -23,7 +23,7 @@ const BlogNav: React.FC<BlogNavProps> = ({ setIsDropdownOpen }) => {
   if (!blogData || !blogData.categories.length) {
     return (
       <WideContainer>
-        <div className="relative w-full align-left bg-blue-300 h-[40px]">
+        <div className="relative w-full align-left bg-blue-300 bg-opacity-50 h-[40px]">
           <StandardContainer>
             <div className="ml-5 flex flex-row justify-between">
               <Link

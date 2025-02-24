@@ -2,9 +2,9 @@
 
 import Image from 'next/image';
 import Topic from '../Topic';
-import MainButton from '../MainButton';
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Link from 'next/link';
 
 interface ContactCardProps {
   imageSrc: string;
@@ -60,7 +60,12 @@ const ContactCard: React.FC<ContactCardProps> = ({
         Email: {email}
       </p>
 
-      <MainButton text={buttonText} link={buttonUrl} />
+      <Link
+        href={buttonUrl}
+        className="inline-block bg-blue-950 bg-opacity-80 hover:bg-opacity-90 text-white font-normal text-sm sm:text-base md:text-lg px-6 py-3 shadow-lg min-w-[200px] text-center rounded bg-opacity-75 "
+      >
+        {buttonText}
+      </Link>
     </motion.div>
   );
 };
