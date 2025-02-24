@@ -21,7 +21,7 @@ const AboutCategory: React.FC<AboutCategoryProps> = ({ description }) => {
     <motion.div
       className="pt-10 pb-8"
       ref={sectionRef}
-      style={{ opacity, y: translateY }}
+      style={{ opacity, y: translateY, willChange: 'opacity, transform' }}
     >
       {/* Category Title */}
       <div>

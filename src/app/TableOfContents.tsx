@@ -127,29 +127,33 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
                   }`}
                 />
               </button>
-              {isOpen && (
-                <div className="absolute right-0 w-full mt-[40px] bg-blue-300 ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-40">
-                  {sections.map((section, index) => (
-                    <button
-                      key={section.id}
-                      onClick={(e) => handleSectionClick(e, section.id)}
-                      className={`block w-full text-left px-4 py-2 text-black font-normal ${
-                        section.id === activeSection
-                          ? 'bg-blue-100 hover:bg-blue-100'
-                          : 'bg-blue-300 hover:bg-blue-200'
-                      } overflow-hidden ${
-                        index === sections.length - 1 ? 'rounded-b-lg' : ''
-                      }`}
-                    >
-                      {section.name}
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
           </StandardContainer>
         </div>
       </div>
+      {isOpen && (
+        <div
+          className={`${
+            isFixed ? 'fixed top-[119px]' : 'absolute'
+          } sm:hidden right-0 w-full bg-blue-300 bg-opacity-40 backdrop-blur-lg ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-40`}
+        >
+          {sections.map((section, index) => (
+            <button
+              key={section.id}
+              onClick={(e) => handleSectionClick(e, section.id)}
+              className={`block w-full text-left px-4 py-2 text-slate-900 font-normal ${
+                section.id === activeSection
+                  ? 'bg-blue-100 bg-opacity-50'
+                  : 'hover:bg-white hover:bg-opacity-20'
+              } overflow-hidden ${
+                index === sections.length - 1 ? 'rounded-b-lg' : ''
+              }`}
+            >
+              {section.name}
+            </button>
+          ))}
+        </div>
+      )}
     </>
   );
 };

@@ -39,7 +39,11 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
       <motion.div
         ref={imageRef}
         className="h-full lg:h-auto lg:w-1/2"
-        style={{ opacity: imageOpacity, y: imageSlide }}
+        style={{
+          opacity: imageOpacity,
+          y: imageSlide,
+          willChange: 'opacity, transform',
+        }}
       >
         <div className="h-full max-h-[700px]">
           <Image
@@ -61,7 +65,11 @@ const TwoHalves: React.FC<TwoHalvesProps> = ({
         className={`w-full lg:w-1/2 flex items-center justify-center ${
           imageFirst ? '' : 'lg:justify-start'
         } ${imageFirst ? 'pl-8 lg:pl-16 pr-8 py-8' : 'pr-8 lg:pr-16 pl-8 py-8'}`}
-        style={{ opacity: textOpacity, y: textSlide }}
+        style={{
+          opacity: textOpacity,
+          y: textSlide,
+          willChange: 'opacity, transform',
+        }}
       >
         <div className="lg:text-left">
           <h2 className="text-2xl sm:text-3xl font-medium mb-4">{title}</h2>

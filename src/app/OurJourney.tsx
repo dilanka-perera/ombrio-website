@@ -19,7 +19,7 @@ const OurJourney: React.FC = () => {
   return (
     <motion.div
       ref={sectionRef}
-      style={{ opacity, y: translateY }}
+      style={{ opacity, y: translateY, willChange: 'opacity, transform' }}
       className="pb-8"
     >
       <div className="pt-10">

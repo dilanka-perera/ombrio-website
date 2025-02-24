@@ -23,7 +23,7 @@ const ExploreOurBlog: React.FC<ExploreOurBlogProps> = ({ posts }) => {
     <motion.div
       className="pt-10 pb-[60px]"
       ref={sectionRef}
-      style={{ opacity, y: translateY }}
+      style={{ opacity, y: translateY, willChange: 'opacity, transform' }}
     >
       <div>
         <Topic text="Explore Our Blog" />

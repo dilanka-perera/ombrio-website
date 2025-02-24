@@ -193,8 +193,10 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post, categoryName }) => {
 
       <div
         id="toc-container"
-        className={`md:hidden max-w-screen h-[40px] mx-auto bg-white ring-1 ring-gray-500/10 shadow-md transition-all duration-300 ${
-          isFixed ? 'fixed top-[79px] left-0 w-full z-30 shadow-lg' : ''
+        className={`md:hidden max-w-screen h-[40px] mx-auto bg-blue-100 ring-1 ring-gray-500/10 shadow-md ${
+          isFixed
+            ? 'fixed top-[79px] right-1/2 transform translate-x-1/2 w-full z-30 shadow-lg'
+            : 'bg-opacity-20 backdrop-blur-lg'
         }`}
       >
         <div className="md:hidden flex px-6 h-[40px]">
@@ -213,36 +215,41 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post, categoryName }) => {
               }`}
             />
           </button>
-          {isOpen && (
-            <div className="absolute left-0 w-full mt-[40px] bg-white ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-40 -translate-y-0.5">
-              {post.content.map((section) => (
-                <button
-                  key={`mobile-${section.slug}`}
-                  onClick={(e) => handleSectionClick(e, section.slug)}
-                  className={`block w-full text-left px-4 py-2 text-black font-normal ${
-                    section.slug === activeSectionM
-                      ? 'bg-slate-200 hover:bg-slate-200'
-                      : 'bg-white hover:bg-slate-100'
-                  } overflow-hidden`}
-                >
-                  {section.subtitle}
-                </button>
-              ))}
-              <button
-                key={`mobile-featured`}
-                onClick={(e) => handleSectionClick(e, 'featured')}
-                className={`block w-full text-left px-4 py-2 text-black font-normal ${
-                  'featured' === activeSectionM
-                    ? 'bg-slate-200 hover:bg-slate-200'
-                    : 'bg-white hover:bg-slate-100'
-                } overflow-hidden rounded-b-lg`}
-              >
-                {`Featured in ${categoryName}`}
-              </button>
-            </div>
-          )}
         </div>
       </div>
+
+      {isOpen && (
+        <div
+          className={`${
+            isFixed ? 'fixed top-[119px]' : 'absolute'
+          } sm:hidden right-0 w-full bg-blue-300 bg-opacity-40 backdrop-blur-lg ring-1 ring-gray-500/10 shadow-md rounded-b-lg z-40`}
+        >
+          {post.content.map((section) => (
+            <button
+              key={`mobile-${section.slug}`}
+              onClick={(e) => handleSectionClick(e, section.slug)}
+              className={`block w-full text-left px-4 py-2 text-slate-900 font-normal ${
+                section.slug === activeSectionM
+                  ? 'bg-blue-100 bg-opacity-50'
+                  : 'hover:bg-white hover:bg-opacity-20'
+              } overflow-hidden`}
+            >
+              {section.subtitle}
+            </button>
+          ))}
+          <button
+            key={`mobile-featured`}
+            onClick={(e) => handleSectionClick(e, 'featured')}
+            className={`block w-full text-left px-4 py-2 text-slate-900 font-normal ${
+              'featured' === activeSectionM
+                ? 'bg-blue-100 bg-opacity-50'
+                : 'hover:bg-white hover:bg-opacity-20'
+            } overflow-hidden rounded-b-lg`}
+          >
+            {`Featured in ${categoryName}`}
+          </button>
+        </div>
+      )}
 
       <div ref={contentRef} className="md:grid grid-cols-4 md:pb-10 ">
         <div className="hidden md:flex flex-col col-span-1 relative">
@@ -263,7 +270,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post, categoryName }) => {
                 <p className="pb-5 font-medium text-xl h-[50px]">
                   Table of Content
                 </p>
-                <div className="flex flex-col max-h-[calc(100vh-200px)] overflow-y-auto">
+                <div className="flex flex-col max-h-[calc(100vh-200px)] bg-blue-400 bg-opacity-20 backdrop-blur-lg overflow-y-auto">
                   {post.content.map((content) => {
                     return (
                       <button
@@ -271,8 +278,8 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post, categoryName }) => {
                         onClick={(e) => handleSectionClick(e, content.slug)}
                         className={`p-4 border-l-2 hover:text-slate-700 text-left ${
                           content.slug === activeSectionD
-                            ? 'font-medium border-yellow-500 bg-slate-200'
-                            : 'font-normal border-slate-800 bg-slate-100'
+                            ? 'font-medium border-yellow-500 bg-blue-100 bg-opacity-40'
+                            : 'font-normal border-slate-800'
                         }`}
                       >
                         {content.subtitle}

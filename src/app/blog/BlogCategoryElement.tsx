@@ -45,7 +45,7 @@ const BlogCategoryElement: React.FC<BlogCategoryElementProps> = ({
       <motion.div
         ref={sectionRef}
         className="pt-10 pb-8"
-        style={{ opacity, y: translateY }} // Apply motion styles
+        style={{ opacity, y: translateY, willChange: 'opacity, transform' }} // Apply motion styles
       >
         <div>
           <Topic text={category.name} />

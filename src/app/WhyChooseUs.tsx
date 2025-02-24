@@ -40,7 +40,9 @@ const WhyChooseUs: React.FC = () => {
       className="bg-white bg-opacity-20 shadow-lg backdrop-blur-lg"
     >
       <StandardContainer>
-        <motion.div style={{ opacity, y: translateY }}>
+        <motion.div
+          style={{ opacity, y: translateY, willChange: 'opacity, transform' }}
+        >
           <div className="pt-10">
             <Topic text="Why Choose Us?" />
           </div>

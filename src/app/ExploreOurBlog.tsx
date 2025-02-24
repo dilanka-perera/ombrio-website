@@ -79,13 +79,15 @@ const ExploreOurBlog: React.FC = () => {
   return (
     <motion.div
       ref={sectionRef}
-      style={{ opacity, y: translateY }}
+      style={{ opacity, y: translateY, willChange: 'opacity, transform' }}
       className="pt-8 pb-[80px]"
     >
+      {/* Section Title */}
       <div>
         <Topic text="Explore Our Blog" />
       </div>
 
+      {/* Description Section */}
       <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
           Stay updated with the latest trends, insights, and breakthroughs in
@@ -93,6 +95,7 @@ const ExploreOurBlog: React.FC = () => {
         </p>
       </div>
 
+      {/* Blog List */}
       <div className="pt-6">
         <BlogList
           posts={postsToShow(viewport, sortedPosts).map((post) => ({
@@ -106,6 +109,7 @@ const ExploreOurBlog: React.FC = () => {
         />
       </div>
 
+      {/* Read Our Blog Link */}
       <div className="pt-6 px-8 sm:flex items-end">
         <div className="mr-6 mb-4 sm:mb-0">
           <MainButton text="Read Our Blog" link="/blog" />
