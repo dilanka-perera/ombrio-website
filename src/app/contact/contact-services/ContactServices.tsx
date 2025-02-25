@@ -56,7 +56,7 @@ const ContactServices: React.FC = () => {
           next steps. Let&apos;s create something extraordinary together!
         </p>
         <div className="flex items-center justify-center w-full">
-          <div className="flex flex-col bg-blue-200 p-6 mx-6 my-6 shadow-lg w-full max-w-[350px] items-center justify-center">
+          <div className="flex flex-col bg-blue-100 p-6 mx-6 my-6 shadow-lg w-full max-w-[350px] items-center justify-center">
             <Image
               className="opacity-80"
               src={`https:${
