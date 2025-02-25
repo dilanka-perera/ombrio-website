@@ -102,11 +102,14 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
     <div className="relative text-white pb-6 xl:pb-12">
       <div className={`${desktopStyle} gap-4 px-4 xl:px-0`}>
         {topics.map((topic, index) => (
-          <div key={index} className="relative group overflow-hidden h-[360px]">
+          <div
+            key={index}
+            className="relative group overflow-hidden h-[360px] w-full"
+          >
             <Image
               src={topic.imageSrc}
               alt={topic.title}
-              width={240}
+              width={720}
               height={360}
               className="w-full h-full object-cover"
               unoptimized
@@ -141,7 +144,7 @@ const ImageSnippets: React.FC<{ topics: Topic[] }> = ({ topics }) => {
             >
               <div
                 key={`desktop-${topic.slug}`}
-                className="relative group overflow-hidden h-[360px]"
+                className="relative group overflow-hidden h-[360px] w-full"
               >
                 <Image
                   src={topic.imageSrc}

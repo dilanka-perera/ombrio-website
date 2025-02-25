@@ -57,7 +57,7 @@ const Carousel: React.FC = () => {
             className="keen-slider__slide flex items-center justify-center w-full backdrop-blur-lg"
           >
             <Image
-              className="h-[240px] sm:h-[360px] object-cover lg:h-auto lg:object-fill [mask-image:linear-gradient(to_bottom,white_25%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,white_25%,transparent)]"
+              className="h-[240px] sm:h-[360px] object-cover lg:h-auto lg:object-fill [mask-image:linear-gradient(to_bottom,white_40%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,white_40%,transparent)]"
               src={`https:${item.image}`}
               alt={item.title}
               width={1920}
@@ -65,7 +65,7 @@ const Carousel: React.FC = () => {
               priority
               unoptimized
             />
-            <div className="absolute inset-0 bg-gradient-to-bl from-black/70 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-tl from-black/40 to-transparent"></div>
             <div className="absolute inset-0 flex flex-col items-end justify-end pb-16 text-end">
               <h1 className="text-2xl sm:text-4xl md:text-5xl font-medium mb-4 px-8 drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]">
                 {item.title}
