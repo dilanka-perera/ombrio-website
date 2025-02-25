@@ -115,7 +115,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post, categoryName }) => {
         className={`md:hidden max-w-screen h-[40px] mx-auto bg-blue-100 ring-1 ring-gray-500/10 shadow-md ${
           isFixed
             ? 'fixed top-[79px] right-1/2 transform translate-x-1/2 w-full z-30 shadow-lg'
-            : 'bg-opacity-20 backdrop-blur-lg'
+            : 'bg-opacity-60 backdrop-blur-lg'
         }`}
       >
         <div className="md:hidden flex px-6 h-[40px]">
