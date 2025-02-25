@@ -38,6 +38,7 @@ export async function generateMetadata({
   }
 
   return {
+    metadataBase: new URL('https://ombrio.vercel.app/'),
     title: `${categoryName} | Ombrio Blog`,
     description: `Explore posts in the ${categoryName} category.`,
     openGraph: {

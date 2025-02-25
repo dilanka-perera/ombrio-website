@@ -13,7 +13,7 @@ const imageUrl = '/OG.jpg';
 const twitterImageUrl = '/Twitter.jpg';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ombrio-website.vercel.app/'),
+  metadataBase: new URL('https://ombrio.vercel.app/'),
   title,
   description,
   openGraph: {
