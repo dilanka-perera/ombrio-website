@@ -67,10 +67,10 @@ const Carousel: React.FC = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-bl from-black/70 to-transparent"></div>
             <div className="absolute inset-0 flex flex-col items-end justify-end pb-16 text-end">
-              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium mb-4 px-8 drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl font-medium mb-4 px-8 drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]">
                 {item.title}
               </h1>
-              <p className="text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl  mb-6 px-8 text-end drop-shadow-[0_4px_4px_rgba(0,0,0,0.6)]">
+              <p className="text-xs sm:text-sm md:text-lg mb-6 px-8 text-end drop-shadow-[0_4px_4px_rgba(0,0,0,0.6)]">
                 {item.description}
               </p>
               <div className="px-8">
