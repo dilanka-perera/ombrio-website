@@ -86,7 +86,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
         className={`max-w-[1920px] h-[40px] mx-auto bg-blue-100 ring-1 ring-gray-500/10 shadow-md ${
           isFixed
             ? 'fixed top-[79px] right-1/2 transform translate-x-1/2 w-full z-30 shadow-lg'
-            : 'bg-opacity-20 backdrop-blur-lg'
+            : ''
         }`}
       >
         <div>

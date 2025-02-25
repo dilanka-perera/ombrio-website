@@ -57,7 +57,7 @@ const Carousel: React.FC = () => {
             className="keen-slider__slide flex items-center justify-center w-full backdrop-blur-lg"
           >
             <Image
-              className="h-[240px] sm:h-[360px] object-cover lg:h-auto lg:object-fill [mask-image:linear-gradient(to_bottom,white_0%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,white_0%,transparent)]"
+              className="h-[240px] sm:h-[360px] object-cover lg:h-auto lg:object-fill"
               src={`https:${item.image}`}
               alt={item.title}
               width={1920}
@@ -65,12 +65,12 @@ const Carousel: React.FC = () => {
               priority
               unoptimized
             />
-            <div className="absolute inset-0 bg-gradient-to-bl from-blue-900/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-l from-black to-transparent"></div>
             <div className="absolute inset-0 flex flex-col items-end justify-end pb-16 text-end">
-              <h1 className="text-2xl sm:text-4xl md:text-5xl font-medium mb-4 px-8 drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl font-medium mb-4 px-8 drop-shadow-[0_6px_6px_rgba(0,0,0,0.9)]">
                 {item.title}
               </h1>
-              <p className="text-xs sm:text-sm md:text-lg mb-6 px-8 text-end drop-shadow-[0_4px_4px_rgba(0,0,0,0.6)]">
+              <p className="text-xs sm:text-sm md:text-lg mb-6 px-8 text-end drop-shadow-[0_6px_6px_rgba(0,0,0,0.9)]">
                 {item.description}
               </p>
               <div className="px-8">

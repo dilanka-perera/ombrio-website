@@ -229,7 +229,7 @@ export default function Header() {
             ) : links[isDropdownOpen].ref === 'contact' ? (
               <ContactNav setIsDropdownOpen={setIsDropdownOpen} />
             ) : (
-              <div>
+              <div className="relative w-full align-left bg-slate-200 bg-opacity-50">
                 <StandardContainer>
                   <div className="grid grid-cols-2 gap-4 p-4">
                     {links[isDropdownOpen]?.dropdown?.map((item) => (
@@ -241,7 +241,7 @@ export default function Header() {
                           setIsDropdownOpen(null);
                         }}
                       >
-                        <div className="bg-white shadow-md p-4 hover:bg-blue-100 transition">
+                        <div className="bg-blue-100 shadow-md p-4 hover:bg-white transition">
                           <p className="text-slate-900 font-normal">
                             {item.text}
                           </p>
@@ -251,11 +251,11 @@ export default function Header() {
                   </div>
                 </StandardContainer>
                 <WideContainer>
-                  <div className="relative w-full align-left bg-slate-300 h-[40px]">
+                  <div className="relative w-full align-left bg-blue-300 bg-opacity-70 h-[40px]">
                     <StandardContainer>
                       <div className="ml-5 flex flex-row justify-between">
                         <Link
-                          className="flex flex-row h-[40px] text-base font-medium text-slate-900 items-center"
+                          className="flex flex-row h-[40px] text-base font-medium text-slate-900 hover:text-slate-700 items-center"
                           key={links[isDropdownOpen].href}
                           href={links[isDropdownOpen].href}
                           onClick={() => {
@@ -266,7 +266,7 @@ export default function Header() {
                           <ChevronDown className="w-5 h-5 -rotate-90" />
                         </Link>
                         <button
-                          className="mr-5"
+                          className="mr-5 text-slate-900 hover:text-slate-700"
                           onClick={() => setIsDropdownOpen(null)}
                         >
                           <ChevronDown className="w-5 h-5 rotate-180" />

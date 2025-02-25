@@ -23,7 +23,7 @@ const BlogNav: React.FC<BlogNavProps> = ({ setIsDropdownOpen }) => {
   if (!blogData || !blogData.categories.length) {
     return (
       <WideContainer>
-        <div className="relative w-full align-left bg-blue-300 bg-opacity-50 h-[40px]">
+        <div className="relative w-full align-left bg-blue-300 bg-opacity-70 h-[40px]">
           <StandardContainer>
             <div className="ml-5 flex flex-row justify-between">
               <Link
@@ -108,28 +108,18 @@ const BlogNav: React.FC<BlogNavProps> = ({ setIsDropdownOpen }) => {
                                       alt={post.title}
                                       width={1280}
                                       height={720}
-                                      className="w-full h-full object-cover [mask-image:linear-gradient(to_bottom,white_0%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,white_0%,transparent)] transition-transform duration-300 ease-in-out group-hover:scale-105"
+                                      className="w-full h-full object-cover [mask-image:linear-gradient(to_bottom,white_40%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,white_40%,transparent)] transition-transform duration-300 ease-in-out group-hover:scale-105"
                                       unoptimized
                                     />
                                   </div>
 
-                                  <div className="-mt-[50px] p-4 relative">
+                                  <div className="-mt-[65px] p-4 relative">
                                     <div className="flex justify-between">
-                                      <div className="bg-blue-300 text-xs font-semibold px-3 py-2 rounded-lg">
+                                      <div className="bg-slate-300 text-xs font-semibold px-3 py-2 rounded-lg">
                                         Blog
                                       </div>
-
-                                      <p className="text-slate-600 font-normal text-md mt-2">
-                                        {new Date(
-                                          post.publishedDate,
-                                        ).toLocaleDateString('en-US', {
-                                          year: 'numeric',
-                                          month: 'short',
-                                          day: 'numeric',
-                                        })}
-                                      </p>
                                     </div>
-                                    <div className="flex flex-col justify-between min-h-[150px] h-[150px] pt-4">
+                                    <div className="flex flex-col justify-between min-h-[140px] h-[140px] pt-4">
                                       <h3 className="text-md font-medium mt-2 line-clamp-3">
                                         {post.title}
                                       </h3>
@@ -174,7 +164,7 @@ const BlogNav: React.FC<BlogNavProps> = ({ setIsDropdownOpen }) => {
         </div>
       </WideContainer>
       <WideContainer>
-        <div className="relative w-full align-left bg-blue-300 bg-opacity-50 h-[40px]">
+        <div className="relative w-full align-left bg-blue-300 bg-opacity-70 h-[40px]">
           <StandardContainer>
             <div className="ml-5 flex flex-row justify-between">
               <Link
