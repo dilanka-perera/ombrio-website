@@ -108,7 +108,7 @@ const BlogNav: React.FC<BlogNavProps> = ({ setIsDropdownOpen }) => {
                                       alt={post.title}
                                       width={1280}
                                       height={720}
-                                      className="w-full h-full object-cover [mask-image:linear-gradient(to_bottom,white_0%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,white_0%,transparent)] transition-transform duration-300 ease-in-out group-hover:scale-110"
+                                      className="w-full h-full object-cover [mask-image:linear-gradient(to_bottom,white_0%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,white_0%,transparent)] transition-transform duration-300 ease-in-out group-hover:scale-105"
                                       unoptimized
                                     />
                                   </div>
