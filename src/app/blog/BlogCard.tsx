@@ -33,7 +33,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
 
         <div className="-mt-20 p-4 relative">
           <div className="flex justify-between">
-            <div className="bg-blue-300 text-xs font-semibold px-3 py-2 rounded-lg">
+            <div className="bg-blue-300 text-xs font-bold px-3 py-2 rounded-lg">
               Blog
             </div>
 

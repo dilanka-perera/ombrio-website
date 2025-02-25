@@ -292,7 +292,7 @@ export default function Header() {
                   link.dropdown ? (
                     <div key={link.href}>
                       <button
-                        className="w-full flex items-center justify-between px-3 py-2 text-base/7 text-slate-900 font-semibold hover:bg-blue-200"
+                        className="w-full flex items-center justify-between px-3 py-2 text-base/7 text-slate-900 font-bold hover:bg-blue-200"
                         onClick={() =>
                           setIsDropdownOpen(
                             isDropdownOpen === index ? null : index,
@@ -328,7 +328,7 @@ export default function Header() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="block px-3 py-2 text-base/7 text-slate-900 font-semibold hover:bg-blue-200"
+                      className="block px-3 py-2 text-base/7 text-slate-900 font-bold hover:bg-blue-200"
                       onClick={() => {
                         setIsSidebarOpen(false);
                         setIsDropdownOpen(null);

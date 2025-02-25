@@ -54,7 +54,7 @@ const Team: React.FC = () => {
                 className="rounded-full mb-4"
                 unoptimized
               />
-              <h3 className="text-xl font-semibold">{`${member.firstName} ${member.lastName}`}</h3>
+              <h3 className="text-xl font-bold">{`${member.firstName} ${member.lastName}`}</h3>
               <p className="text-lg">{member.role}</p>
             </div>
           ))}
