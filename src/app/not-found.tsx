@@ -38,7 +38,7 @@ export default function NotFound() {
       <StandardContainer>
         <div className="flex items-center justify-center text-center p-4">
           <div className="p-8 max-w-lg">
-            <h1 className="text-4xl font-bold mb-4 text-center">
+            <h1 className="text-4xl font-semibold mb-4 text-center">
               Page Not Found
             </h1>
             <p className="text-lg mb-2 text-center">

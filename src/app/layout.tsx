@@ -11,12 +11,12 @@ import {
   fetchTileCollections,
   fetchWebsiteImages,
 } from '@/lib/contentful';
-import { Ubuntu } from 'next/font/google';
+import { Roboto_Flex } from 'next/font/google';
 import FadeInWrapper from './FadeInWrapper';
 
-const ubuntu = Ubuntu({
+const roboto = Roboto_Flex({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '700'],
+  weight: 'variable',
 });
 
 export default async function RootLayout({
@@ -38,7 +38,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${ubuntu.className} antialiased text-black font-light bg-slate-100`}
+        className={`${roboto.className} antialiased text-black font-light bg-slate-100`}
       >
         {/* Background Image Container (Fixed Position) */}
         <div className="fixed inset-0 max-w-[1920px] mx-auto">
@@ -46,7 +46,7 @@ export default async function RootLayout({
             className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: `url(${backgroundImageUrl})`,
-              opacity: 0.5, // Adjust the opacity here
+              opacity: 0.5,
             }}
           ></div>
         </div>
