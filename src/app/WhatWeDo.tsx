@@ -48,9 +48,10 @@ const WhatWeDo: React.FC = () => {
   const textSlide2 = useTransform(textScroll2, [0, 0.5], [50, 0]);
 
   return (
-    <div ref={imageRef1} className="pb-8 lg:pb-16">
+    <div className="pb-8 lg:pb-16">
       <motion.div
         className="pt-10"
+        ref={imageRef1}
         style={{
           opacity: imageOpacity1,
           y: imageSlide1,
