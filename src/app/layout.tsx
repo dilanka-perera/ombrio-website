@@ -14,7 +14,6 @@ import {
 import { Roboto_Flex } from 'next/font/google';
 import FadeInWrapper from './FadeInWrapper';
 import BackgroundImage from './BackgroundImage';
-import DraggableNavButton from './DraggableNavButton';
 
 const roboto = Roboto_Flex({
   subsets: ['latin'],
@@ -67,8 +66,6 @@ export default async function RootLayout({
             <Footer />
           </DataProvider>
         </div>
-
-        <DraggableNavButton />
       </body>
     </html>
   );
