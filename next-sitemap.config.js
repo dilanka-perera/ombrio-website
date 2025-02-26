@@ -4,6 +4,10 @@ const config = {
   sitemapSize: 7000,
   changefreq: 'monthly',
   priority: 0.7,
+  exclude: [
+    '/apple-icon.png',
+    '/icon.png',
+  ],
 };
 
 export default config;
