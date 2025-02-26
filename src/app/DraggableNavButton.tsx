@@ -1,19 +1,31 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Menu, Home, FileText, Briefcase, Mail, Info } from 'lucide-react';
+import Link from 'next/link'; // Use this if you're using Next.js router
+import { usePathname } from 'next/navigation'; // Import usePathname from next/navigation
+import {
+  LayoutDashboard,
+  House,
+  BookOpen,
+  Briefcase,
+  PhoneCall,
+  User,
+} from 'lucide-react';
 
 const DraggableNavButton = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname(); // Get the current route
 
   // Set initial position once on the client side
   useEffect(() => {
+    const isSmallScreen = window.innerWidth < 640;
     setPosition({
-      x: window.innerWidth - 100,
-      y: window.innerHeight - 100,
+      x: isSmallScreen ? window.innerWidth - 60 : window.innerWidth - 100,
+      y: isSmallScreen ? window.innerHeight - 60 : window.innerHeight - 100,
     });
   }, []);
 
@@ -54,9 +66,10 @@ const DraggableNavButton = () => {
 
   useEffect(() => {
     const handleResize = () => {
+      const isSmallScreen = window.innerWidth < 640;
       setPosition({
-        x: window.innerWidth - 100,
-        y: window.innerHeight - 100,
+        x: isSmallScreen ? window.innerWidth - 60 : window.innerWidth - 100,
+        y: isSmallScreen ? window.innerHeight - 60 : window.innerHeight - 100,
       });
     };
     window.addEventListener('resize', handleResize);
@@ -66,12 +79,29 @@ const DraggableNavButton = () => {
     };
   }, []);
 
+  // Prevent closing the menu if the button is clicked
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target as Node) &&
+        !buttonRef.current?.contains(e.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   const menuItems = [
-    { icon: <Home size={20} />, label: 'Home' },
-    { icon: <FileText size={20} />, label: 'Blog' },
-    { icon: <Briefcase size={20} />, label: 'Careers' },
-    { icon: <Mail size={20} />, label: 'Contact' },
-    { icon: <Info size={20} />, label: 'About' },
+    { icon: <House size={20} />, label: 'Home', link: '/' },
+    { icon: <BookOpen size={20} />, label: 'Blog', link: '/blog' },
+    { icon: <Briefcase size={20} />, label: 'Careers', link: '/careers' },
+    { icon: <PhoneCall size={20} />, label: 'Contact', link: '/contact' },
+    { icon: <User size={20} />, label: 'About', link: '/about' },
   ];
 
   return (
@@ -80,41 +110,65 @@ const DraggableNavButton = () => {
         ref={buttonRef}
         onMouseDown={handleMouseDown}
         onClick={toggleMenu}
-        className="fixed z-50 p-3 rounded-full bg-blue-500 text-white shadow-lg"
+        className="fixed z-[55] p-3 rounded-full bg-blue-950 text-white shadow-lg hover:bg-blue-900 transition-colors group"
         style={{ left: `${position.x}px`, top: `${position.y}px` }}
       >
-        <Menu size={24} />
+        <LayoutDashboard size={24} />
+        {/* Tooltip for draggable button */}
+        <span className="absolute bottom-full left-1/2 mb-2 w-max px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 transition-opacity transform -translate-x-1/2">
+          Ombrio Assistant
+        </span>
       </button>
 
       {/* Radial Menu */}
       {isMenuOpen && (
-        <div className="fixed z-40">
+        <div
+          ref={menuRef}
+          className="fixed z-50"
+          style={{
+            left: `${position.x}px`,
+            top: `${position.y}px`,
+            transform: 'translate(-50%, -50%)',
+          }}
+        >
           {menuItems.map((item, index) => {
             const angle = (index / menuItems.length) * (2 * Math.PI);
             const offset = 80;
             const x =
-              position.x +
               offset * Math.cos(angle) +
               (buttonRef.current?.offsetWidth ?? 0) / 2;
             const y =
-              position.y +
               offset * Math.sin(angle) +
               (buttonRef.current?.offsetHeight ?? 0) / 2;
 
+            // Check if the item is active (current route)
+            const isActive = pathname === item.link;
+
             return (
-              <button
+              <div
                 key={index}
-                className="absolute flex items-center justify-center w-10 h-10 rounded-full bg-white text-gray-700 shadow-md hover:bg-gray-100"
+                className="absolute"
                 style={{
                   left: `${x}px`,
                   top: `${y}px`,
                   transform: 'translate(-50%, -50%)',
-                  zIndex: 60,
                 }}
               >
-                {item.icon}
-                <span className="sr-only">{item.label}</span>
-              </button>
+                <Link href={item.link}>
+                  <button
+                    className={`relative z-50 flex items-center justify-center w-12 h-12 rounded-full text-gray-700 shadow-md group ${
+                      isActive ? 'bg-blue-400' : 'bg-white hover:bg-blue-100'
+                    }`}
+                  >
+                    {item.icon}
+                    <span className="sr-only">{item.label}</span>
+                    {/* Tooltip for radial menu items */}
+                    <span className="absolute bottom-full left-1/2 mb-2 w-max px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 transition-opacity transform -translate-x-1/2">
+                      {item.label}
+                    </span>
+                  </button>
+                </Link>
+              </div>
             );
           })}
         </div>
