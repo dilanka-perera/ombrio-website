@@ -46,13 +46,18 @@ export async function generateMetadata({
       );
       if (post) {
         blogPostTitle = post.title;
-        imageUrl = post.featuredImage || '/OG.jpg';
-        twitterImageUrl = post.featuredImage || '/Twitter.jpg';
+        imageUrl = process.env.NEXT_PUBLIC_SITE_URL
+          ? `https:${process.env.NEXT_PUBLIC_SITE_URL}`
+          : '/OG.jpg';
+        twitterImageUrl = process.env.NEXT_PUBLIC_SITE_URL
+          ? `https:${process.env.NEXT_PUBLIC_SITE_URL}`
+          : '/Twitter.jpg';
       }
     }
   }
 
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || ''),
     title: `${blogPostTitle} | Ombrio Blog`,
     description: `Read the full article on "${blogPostTitle}" and explore insights on ${categoryName}.`,
     openGraph: {
