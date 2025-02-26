@@ -38,7 +38,6 @@ export async function generateMetadata({
   }
 
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || ''),
     title: `${categoryName} | Ombrio Blog`,
     description: `Explore posts in the ${categoryName} category.`,
     openGraph: {
