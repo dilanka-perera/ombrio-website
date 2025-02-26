@@ -57,7 +57,7 @@ export default async function RootLayout({
             }}
           >
             <Header />
-            <main className="relative flex flex-grow overflow-hidden w-full min-h-screen">
+            <main className="relative flex flex-grow overflow-hidden w-full">
               <FadeInWrapper className="flex flex-grow overflow-hidden">
                 <div className="flex flex-col flex-grow max-w-[1920px] mx-auto pt-[80px] overflow-hidden">
                   {children}
