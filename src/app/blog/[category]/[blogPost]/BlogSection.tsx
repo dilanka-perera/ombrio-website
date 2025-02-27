@@ -1,11 +1,8 @@
-'use client';
-
-import React, { useRef } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES, Node, Document } from '@contentful/rich-text-types';
 import BlogTopic from './BlogTopic';
-import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface BlogSectionProps {
   slug: string;
@@ -96,29 +93,16 @@ const BlogSection: React.FC<BlogSectionProps> = ({
   subtitle,
   content,
 }) => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'start -100px'],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const translateY = useTransform(scrollYProgress, [0, 0.5], [50, 0]);
-
   return (
     <div key={slug} id={slug}>
-      <motion.div
-        ref={sectionRef}
-        style={{ opacity, y: translateY, willChange: 'opacity, transform' }}
-      >
+      <div>
         <div className="pt-10">
           <BlogTopic text={subtitle} />
         </div>
         <div className="px-8 pt-4">
           {documentToReactComponents(content, renderOptions)}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

@@ -3,39 +3,21 @@
 import { useData } from '@/contexts/DataContext';
 import Topic from '../Topic';
 import Image from 'next/image';
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Team: React.FC = () => {
   const { teams } = useData();
   const team = teams.find((item) => item.slug === 'management-team');
-
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'start -100px'],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const translateY = useTransform(scrollYProgress, [0, 0.5], [50, 0]);
 
   if (!team) {
     return null;
   }
 
   return (
-    <motion.div
-      ref={sectionRef}
-      style={{ opacity, y: translateY, willChange: 'opacity, transform' }}
-      className="pt-6 pb-8"
-    >
-      {/* Section Title */}
+    <div className="pt-6 pb-8">
       <div>
         <Topic text="Meat the Team" />
       </div>
 
-      {/* Description Section */}
       <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
           Our team is a dynamic and diverse group of talented professionals who
@@ -60,7 +42,7 @@ const Team: React.FC = () => {
           ))}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

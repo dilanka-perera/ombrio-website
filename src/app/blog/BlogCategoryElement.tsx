@@ -1,9 +1,7 @@
-import { useRef } from 'react';
 import { BlogPost } from '@/contexts/DataContext';
 import BlogList from './BlogList';
 import Topic from '@/app/Topic';
 import MainButton from '../MainButton';
-import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface BlogCategoryElementProps {
   category: {
@@ -18,16 +16,6 @@ const BlogCategoryElement: React.FC<BlogCategoryElementProps> = ({
   category,
   viewport,
 }) => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'start -100px'],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const translateY = useTransform(scrollYProgress, [0, 0.5], [50, 0]);
-
   const postsToShow = (viewport: string, posts: BlogPost[]) => {
     switch (viewport) {
       case '960':
@@ -42,11 +30,7 @@ const BlogCategoryElement: React.FC<BlogCategoryElementProps> = ({
 
   return (
     <div key={category.slug} id={category.slug}>
-      <motion.div
-        ref={sectionRef}
-        className="pt-10 pb-8"
-        style={{ opacity, y: translateY, willChange: 'opacity, transform' }} // Apply motion styles
-      >
+      <div className="pt-10 pb-8">
         <div>
           <Topic text={category.name} />
         </div>
@@ -71,7 +55,7 @@ const BlogCategoryElement: React.FC<BlogCategoryElementProps> = ({
             <MainButton text="Read More" link={`/blog/${category.slug}`} />
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

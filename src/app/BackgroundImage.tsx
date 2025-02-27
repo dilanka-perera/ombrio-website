@@ -42,7 +42,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ imageUrl }) => {
           backgroundPosition: 'center',
           opacity: 1,
         }}
-      ></div>
+      />
 
       {/* Smooth Infinite Bluish Gradient Overlay */}
       <motion.div

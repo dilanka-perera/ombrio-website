@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import Topic from './Topic';
 import MainButton from './MainButton';
 import { BlogPost, useData } from '@/contexts/DataContext';
@@ -15,17 +14,6 @@ type ExtendedBlogPost = BlogPost & {
 const ExploreOurBlog: React.FC = () => {
   const { blogs, blogCollections } = useData();
   const [viewport, setViewport] = useState<string>('');
-
-  // Refs for scroll animations
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'start -100px'],
-  });
-
-  // Fade-in and slide-up effect
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const translateY = useTransform(scrollYProgress, [0, 0.5], [50, 0]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -77,11 +65,7 @@ const ExploreOurBlog: React.FC = () => {
   });
 
   return (
-    <motion.div
-      ref={sectionRef}
-      style={{ opacity, y: translateY, willChange: 'opacity, transform' }}
-      className="pt-8 pb-[80px]"
-    >
+    <div className="pt-8 pb-[80px]">
       {/* Section Title */}
       <div>
         <Topic text="Explore Our Blog" />
@@ -115,7 +99,7 @@ const ExploreOurBlog: React.FC = () => {
           <MainButton text="Read Our Blog" link="/blog" />
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

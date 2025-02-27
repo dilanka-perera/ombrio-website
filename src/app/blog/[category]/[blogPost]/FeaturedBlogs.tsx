@@ -1,8 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
+'use client';
+
+import { useState, useEffect } from 'react';
 import { BlogCategory, BlogPost } from '@/contexts/DataContext';
 import BlogList from '../../BlogList';
 import BlogTopic from './BlogTopic';
-import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface FeaturedBlogsProps {
   category: BlogCategory;
@@ -11,16 +12,6 @@ interface FeaturedBlogsProps {
 
 const FeaturedBlogs: React.FC<FeaturedBlogsProps> = ({ category, slug }) => {
   const [viewport, setViewport] = useState<string>('');
-
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'start -100px'],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const translateY = useTransform(scrollYProgress, [0, 0.5], [50, 0]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -59,11 +50,7 @@ const FeaturedBlogs: React.FC<FeaturedBlogsProps> = ({ category, slug }) => {
   const filteredPosts = category.blogPosts.filter((post) => post.slug !== slug);
 
   return (
-    <motion.div
-      className="pt-10 pb-[60px]"
-      ref={sectionRef}
-      style={{ opacity, y: translateY, willChange: 'opacity, transform' }}
-    >
+    <div className="pt-10 pb-[60px]">
       <div>
         <BlogTopic text={`Featured in ${category.name}`} />
       </div>
@@ -80,7 +67,7 @@ const FeaturedBlogs: React.FC<FeaturedBlogsProps> = ({ category, slug }) => {
           }))}
         />
       </div>
-    </motion.div>
+    </div>
   );
 };
 

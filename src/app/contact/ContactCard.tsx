@@ -1,9 +1,5 @@
-'use client';
-
 import Image from 'next/image';
 import Topic from '../Topic';
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 
 interface ContactCardProps {
@@ -23,22 +19,8 @@ const ContactCard: React.FC<ContactCardProps> = ({
   buttonText,
   buttonUrl,
 }) => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'start -100px'],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const translateY = useTransform(scrollYProgress, [0, 0.5], [50, 0]);
-
   return (
-    <motion.div
-      ref={sectionRef}
-      style={{ opacity, y: translateY, willChange: 'opacity, transform' }}
-      className="flex flex-col items-center justify-center overflow-hidden md:px-20 py-8 w-full mx-auto text-center"
-    >
+    <div className="flex flex-col items-center justify-center overflow-hidden md:px-20 py-8 w-full mx-auto text-center">
       <div className="flex items-center justify-center w-full">
         <div className="flex flex-col bg-blue-100 shadow-md p-6 mx-6 my-6 items-center justify-center">
           <Image
@@ -66,7 +48,7 @@ const ContactCard: React.FC<ContactCardProps> = ({
       >
         {buttonText}
       </Link>
-    </motion.div>
+    </div>
   );
 };
 

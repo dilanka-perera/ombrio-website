@@ -1,41 +1,19 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React from 'react';
 import TwoHalvesCareers from './TwoHalvesCareers';
 import Topic from '../Topic';
 import { useData } from '@/contexts/DataContext';
 import MainButton from '../MainButton';
-import { motion, useScroll, useTransform } from 'framer-motion';
 
 const JoinUs: React.FC = () => {
   const { websiteImages } = useData();
-  const imageRef = useRef<HTMLDivElement>(null);
-  const imageRefDummy = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress: imageScroll } = useScroll({
-    target: imageRef,
-    offset: ['start end', 'start -100px'],
-  });
-  const { scrollYProgress: textScroll } = useScroll({
-    target: textRef,
-    offset: ['start end', 'start -100px'],
-  });
-
-  // Animations for First Section
-  const imageOpacity = useTransform(imageScroll, [0, 0.5], [0, 1]);
-  const imageSlide = useTransform(imageScroll, [0, 0.5], [50, 0]);
-  const textOpacity = useTransform(textScroll, [0, 0.5], [0, 1]);
-  const textSlide = useTransform(textScroll, [0, 0.5], [50, 0]);
 
   return (
     <div className="pt-10">
-      <motion.div
-        ref={imageRef}
-        style={{ opacity: imageOpacity, y: imageSlide }}
-      >
+      <div>
         <Topic text="Join Us" />
-      </motion.div>
+      </div>
 
       <TwoHalvesCareers
         title="Join the Future of AI & Web Innovation at Ombrio!"
@@ -44,12 +22,6 @@ const JoinUs: React.FC = () => {
             ?.image || 'no.png'
         }`}
         imageFirst={true}
-        imageRef={imageRefDummy}
-        textRef={textRef}
-        imageOpacity={imageOpacity}
-        imageSlide={imageSlide}
-        textOpacity={textOpacity}
-        textSlide={textSlide}
         content={
           <>
             <p>
