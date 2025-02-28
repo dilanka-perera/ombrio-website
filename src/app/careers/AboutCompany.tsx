@@ -1,4 +1,5 @@
 import Topic from '../Topic';
+
 const AboutCompany: React.FC = () => {
   return (
     <div className="pt-10 pb-[60px]">

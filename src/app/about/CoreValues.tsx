@@ -23,7 +23,7 @@ const CoreValues: React.FC = () => {
   }));
 
   return (
-    <div className="bg-white bg-opacity-20 shadow-lg">
+    <div className="bg-white bg-opacity-20 shadow-lg backdrop-blur-lg">
       <StandardContainer>
         <div>
           {/* Section Title */}

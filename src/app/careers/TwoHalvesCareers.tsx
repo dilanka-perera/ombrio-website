@@ -1,5 +1,3 @@
-'use client';
-
 import React, { ReactNode } from 'react';
 import Image from 'next/image';
 
@@ -24,7 +22,7 @@ const TwoHalvesCareers: React.FC<TwoHalvesCareersProps> = ({
     >
       {/* Image Side */}
       <div className={`h-full lg:h-auto lg:w-1/2`}>
-        <div className="h-full max-h-[700px]">
+        <div className="h-full">
           <Image
             src={imageSrc}
             alt="Side Image"
@@ -32,7 +30,7 @@ const TwoHalvesCareers: React.FC<TwoHalvesCareersProps> = ({
             height={800}
             className={`w-full h-full object-cover 
               ${imageFirst ? 'lg:rounded-r-md' : 'lg:rounded-l-md'} 
-              xl:rounded-md`}
+              xl:rounded-md max-h-[300px] sm:max-h-[400px] md:max-h-[500px] lg:max-h-[700px] object-cover`}
             unoptimized
           />
         </div>

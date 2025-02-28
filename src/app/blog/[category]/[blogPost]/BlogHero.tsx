@@ -11,7 +11,7 @@ interface BlogHeroProps {
 
 const BlogHero: React.FC<BlogHeroProps> = ({ post }) => {
   return (
-    <div className="bg-blue-500 bg-opacity-20 shadow-lg">
+    <div className="bg-blue-300 bg-opacity-40 backdrop-blur-lg ring-1 ring-gray-500/10 shadow-lg">
       <StandardContainer>
         <div className="p-8 flex flex-col md:flex-row-reverse items-center justify-center gap-6 md:gap-12">
           {/* Title and metadata */}
@@ -21,7 +21,7 @@ const BlogHero: React.FC<BlogHeroProps> = ({ post }) => {
             </h1>
 
             {/* Authors and Published Date */}
-            <div className="flex flex-col gap-4 text-gray-600 text-sm sm:text-base">
+            <div className="flex flex-col gap-4 text-slate-800 text-sm sm:text-base">
               {/* Render each author */}
               {post.authors.map((author) => {
                 return (

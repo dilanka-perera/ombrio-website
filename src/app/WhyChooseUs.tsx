@@ -1,7 +1,5 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
 import { useData } from '@/contexts/DataContext';
 import ImageSnippets from './ImageSnippets';
 import StandardContainer from './StandardContainer';
@@ -12,21 +10,6 @@ const WhyChooseUs: React.FC = () => {
   const tileCollection = tileCollections.find(
     (item) => item.slug === 'why-choose-us',
   );
-
-  // Ref for the component
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  // Scroll tracking for fade-in and slide-up effect
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  });
-
-  // Fade-in effect
-  const opacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
-
-  // Slide-up effect
-  const translateY = useTransform(scrollYProgress, [0, 0.4], [50, 0]);
 
   if (!tileCollection) {
     return null;
@@ -40,25 +23,19 @@ const WhyChooseUs: React.FC = () => {
   }));
 
   return (
-    <motion.div
-      ref={sectionRef}
-      style={{ opacity, y: translateY }}
-      className="bg-white bg-opacity-20 shadow-lg"
-    >
+    <div className="bg-white bg-opacity-20 shadow-lg backdrop-blur-lg">
       <StandardContainer>
         <div>
-          {/* Section Title */}
-          <motion.div style={{ opacity, y: translateY }} className="pt-10">
+          <div className="pt-10">
             <Topic text="Why Choose Us?" />
-          </motion.div>
+          </div>
 
-          {/* Image Snippets */}
-          <motion.div style={{ opacity, y: translateY }} className="pt-6">
+          <div className="pt-6">
             <ImageSnippets topics={topics} />
-          </motion.div>
+          </div>
         </div>
       </StandardContainer>
-    </motion.div>
+    </div>
   );
 };
 

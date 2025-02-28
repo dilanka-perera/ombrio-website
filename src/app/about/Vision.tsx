@@ -1,3 +1,5 @@
+'use client';
+
 import Topic from '../Topic';
 
 const Vision: React.FC = () => {

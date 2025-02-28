@@ -1,13 +1,12 @@
 import Topic from '../Topic';
+
 const WelcomeToBlog: React.FC = () => {
   return (
     <div className="pt-10 pb-8">
-      {/* Section Title */}
       <div>
         <Topic text="Welcome to Ombrio Blog" />
       </div>
 
-      {/* Description Section */}
       <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
           At Ombrio, we are passionate about the ever-evolving world of

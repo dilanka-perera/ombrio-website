@@ -46,8 +46,12 @@ export async function generateMetadata({
       );
       if (post) {
         blogPostTitle = post.title;
-        imageUrl = post.featuredImage || '/OG.jpg';
-        twitterImageUrl = post.featuredImage || '/Twitter.jpg';
+        imageUrl = post.featuredImage
+          ? `https:${post.featuredImage}`
+          : '/OG.jpg';
+        twitterImageUrl = post.featuredImage
+          ? `https:${post.featuredImage}`
+          : '/Twitter.jpg';
       }
     }
   }

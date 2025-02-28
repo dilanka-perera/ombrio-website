@@ -7,6 +7,7 @@ import StandardContainer from '../StandardContainer';
 import ContactCards from './ContactCards';
 import Breadcrumb from '../Breadcrumb';
 import TableOfContents from '../TableOfContents';
+import ContactBanner from '../ContactBanner';
 
 const title = 'Contact | Ombrio';
 const description =
@@ -15,7 +16,6 @@ const imageUrl = '/OG.jpg';
 const twitterImageUrl = '/Twitter.jpg';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ombrio-website.vercel.app/'),
   title,
   description,
   openGraph: {
@@ -59,6 +59,10 @@ const Contact: NextPage = () => {
       </StandardContainer>
 
       <LayoutBreak />
+
+      <WideContainer>
+        <ContactBanner />
+      </WideContainer>
     </LayoutWrapper>
   );
 };

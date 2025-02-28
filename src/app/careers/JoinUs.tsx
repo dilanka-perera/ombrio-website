@@ -47,7 +47,7 @@ const JoinUs: React.FC = () => {
               Don&apos;t see the perfect fit? Send us your resume and let&apos;s
               talk about how you can contribute to our mission.
             </p>
-            <p className="text-blue-600">Email: careers@ombrio.io</p>
+            <p className="text-blue-900">Email: careers@ombrio.io</p>
           </>
         }
       />

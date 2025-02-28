@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import { BlogCategory, BlogPost } from '@/contexts/DataContext';
 import BlogList from '../../BlogList';

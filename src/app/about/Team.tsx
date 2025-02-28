@@ -14,12 +14,10 @@ const Team: React.FC = () => {
 
   return (
     <div className="pt-6 pb-8">
-      {/* Section Title */}
       <div>
         <Topic text="Meat the Team" />
       </div>
 
-      {/* Description Section */}
       <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
           Our team is a dynamic and diverse group of talented professionals who

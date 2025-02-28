@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import Topic from './Topic';
 import MainButton from './MainButton';
 import { BlogPost, useData } from '@/contexts/DataContext';
@@ -15,17 +14,6 @@ type ExtendedBlogPost = BlogPost & {
 const ExploreOurBlog: React.FC = () => {
   const { blogs, blogCollections } = useData();
   const [viewport, setViewport] = useState<string>('');
-
-  // Refs for scroll animations
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  });
-
-  // Fade-in and slide-up effect
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-  const translateY = useTransform(scrollYProgress, [0, 0.3], [50, 0]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -77,26 +65,22 @@ const ExploreOurBlog: React.FC = () => {
   });
 
   return (
-    <motion.div
-      ref={sectionRef}
-      style={{ opacity, y: translateY }}
-      className="pt-8 pb-[80px]"
-    >
+    <div className="pt-8 pb-[80px]">
       {/* Section Title */}
-      <motion.div style={{ opacity, y: translateY }}>
+      <div>
         <Topic text="Explore Our Blog" />
-      </motion.div>
+      </div>
 
       {/* Description Section */}
-      <motion.div style={{ opacity, y: translateY }} className="pt-6 px-8">
+      <div className="pt-6 px-8">
         <p className="text-base sm:text-lg md:text-xl leading-relaxed">
           Stay updated with the latest trends, insights, and breakthroughs in
           Artificial Intelligence and Web Development.
         </p>
-      </motion.div>
+      </div>
 
       {/* Blog List */}
-      <motion.div style={{ opacity, y: translateY }} className="pt-6">
+      <div className="pt-6">
         <BlogList
           posts={postsToShow(viewport, sortedPosts).map((post) => ({
             slug: post.slug,
@@ -107,18 +91,15 @@ const ExploreOurBlog: React.FC = () => {
             categorySlug: post.categorySlug,
           }))}
         />
-      </motion.div>
+      </div>
 
       {/* Read Our Blog Link */}
-      <motion.div
-        style={{ opacity, y: translateY }}
-        className="pt-6 px-8 sm:flex items-end"
-      >
+      <div className="pt-6 px-8 sm:flex items-end">
         <div className="mr-6 mb-4 sm:mb-0">
           <MainButton text="Read Our Blog" link="/blog" />
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 

@@ -56,7 +56,7 @@ const ContactServices: React.FC = () => {
           next steps. Let&apos;s create something extraordinary together!
         </p>
         <div className="flex items-center justify-center w-full">
-          <div className="flex flex-col bg-slate-200 p-6 mx-6 my-6 rounded-lg shadow-lg w-full max-w-[350px] items-center justify-center">
+          <div className="flex flex-col bg-blue-100 p-6 mx-6 my-6 shadow-lg w-full max-w-[350px] items-center justify-center">
             <Image
               className="opacity-80"
               src={`https:${
@@ -68,7 +68,7 @@ const ContactServices: React.FC = () => {
               height={150}
               unoptimized
             />
-            <p className="text-center mt-5 text-sm sm:text-base md:text-lg text-blue-600">
+            <p className="text-center mt-5 text-sm sm:text-base md:text-lg text-blue-900">
               Email: services@ombrio.io
             </p>
           </div>
@@ -78,7 +78,7 @@ const ContactServices: React.FC = () => {
       <div className="xl:w-1/2 flex">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col flex-grow space-y-4 bg-white p-6 mx-6 rounded-lg shadow-lg"
+          className="flex flex-col flex-grow space-y-4 bg-white p-6 mx-6 shadow-lg"
         >
           <input
             type="text"
@@ -128,7 +128,9 @@ const ContactServices: React.FC = () => {
             <button
               type="button"
               className={`px-4 py-2 border rounded-md ${
-                currency === 'USD' ? 'bg-slate-600 text-white' : 'bg-white'
+                currency === 'USD'
+                  ? 'bg-blue-950 bg-opacity-80 text-white'
+                  : 'bg-white'
               }`}
               onClick={() => setCurrency('USD')}
             >
@@ -137,7 +139,9 @@ const ContactServices: React.FC = () => {
             <button
               type="button"
               className={`px-4 py-2 border rounded-md ${
-                currency === 'LKR' ? 'bg-slate-600 text-white' : 'bg-white'
+                currency === 'LKR'
+                  ? 'bg-blue-950 bg-opacity-80 text-white'
+                  : 'bg-white'
               }`}
               onClick={() => setCurrency('LKR')}
             >
@@ -170,7 +174,7 @@ const ContactServices: React.FC = () => {
 
           <button
             type="submit"
-            className="bg-slate-800 text-white font-normal text-sm sm:text-base md:text-lg px-6 py-3 shadow-lg hover:bg-slate-700 min-w-[200px] text-center rounded-lg"
+            className="bg-blue-950 bg-opacity-80 hover:bg-opacity-90 text-white font-normal text-sm sm:text-base md:text-lg px-6 py-3 shadow-lg min-w-[200px] text-center rounded-lg"
           >
             Send Message
           </button>
