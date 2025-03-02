@@ -12,7 +12,7 @@ const JoinUs: React.FC = () => {
   const { websiteImages } = useData();
 
   const backgroundImage = `url('https:${
-    websiteImages.find((item) => item.slug === 'background-1')?.image ||
+    websiteImages.find((item) => item.slug === 'background-8')?.image ||
     'no.png'
   }')`;
 

@@ -15,7 +15,7 @@ const Team: React.FC = () => {
   }
 
   const backgroundImage = `url('https:${
-    websiteImages.find((item) => item.slug === 'background-1')?.image ||
+    websiteImages.find((item) => item.slug === 'background-8')?.image ||
     'no.png'
   }')`;
 
