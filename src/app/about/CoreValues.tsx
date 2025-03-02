@@ -26,7 +26,7 @@ const CoreValues: React.FC = () => {
   return (
     <WideContainer id="core-values">
       <div className="relative">
-        <div className="absolute inset-0 bg-blue-600 bg-opacity-30" />
+        <div className="absolute inset-0 bg-blue-300" />
 
         <div className="relative">
           <StandardContainer>

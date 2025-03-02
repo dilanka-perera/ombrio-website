@@ -28,7 +28,7 @@ const links = {
 export default function Footer() {
   return (
     <footer className="z-10">
-      <div className="bg-blue-300">
+      <div className="bg-blue-100">
         <div className="max-w-7xl mx-auto flex flex-col justify-between px-6 py-10">
           {/* Logo Section */}
           <div>
@@ -90,7 +90,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="bg-blue-100">
+      <div className="bg-white">
         <div className="max-w-7xl mx-auto text-center py-4 px-6">
           <p className="text-slate-900">©2025 Ombrio. All rights reserved.</p>
         </div>

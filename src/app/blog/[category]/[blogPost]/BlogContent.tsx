@@ -114,7 +114,7 @@ const BlogContent: React.FC<BlogHeroProps> = ({ post, categoryName }) => {
 
         <div
           id="toc-container"
-          className={`md:hidden max-w-screen h-[40px] mx-auto bg-blue-300 ring-1 ring-gray-500/10 shadow-md ${
+          className={`md:hidden max-w-screen h-[40px] mx-auto bg-white ring-1 ring-gray-500/10 shadow-md ${
             isFixed
               ? 'fixed top-[79px] right-1/2 transform translate-x-1/2 w-full z-30 shadow-lg'
               : ''

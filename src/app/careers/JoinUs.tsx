@@ -29,6 +29,8 @@ const JoinUs: React.FC = () => {
           }}
         />
 
+        <div className="absolute inset-0 bg-blue-300 bg-opacity-50" />
+
         <div className="relative">
           <StandardContainer id="join">
             <div className="pt-10 pb-8 lg:pb-16">

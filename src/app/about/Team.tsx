@@ -32,6 +32,8 @@ const Team: React.FC = () => {
           }}
         />
 
+        <div className="absolute inset-0 bg-blue-300 bg-opacity-50" />
+
         <div className="relative">
           <StandardContainer>
             <div className="pt-6 pb-8">
