@@ -101,7 +101,7 @@ const BlogNav: React.FC<BlogNavProps> = ({ setIsDropdownOpen }) => {
                                 href={`/blog/${category.slug}/${post.slug}`}
                                 className="block"
                               >
-                                <div className="bg-blue-100 shadow-md overflow-hidden max-w-[300px] justify-center group cursor-pointer transition-transform duration-300 hover:scale-105">
+                                <div className="bg-white shadow-md overflow-hidden max-w-[300px] justify-center group cursor-pointer transition-transform duration-300 hover:scale-105">
                                   <div className="relative w-full h-50 overflow-hidden">
                                     <Image
                                       src={`https:${post.featuredImage}`}

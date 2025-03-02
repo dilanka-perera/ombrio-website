@@ -13,7 +13,7 @@ const OurJourney: React.FC = () => {
 
         <div className="relative">
           <StandardContainer>
-            <div className="pb-8">
+            <div className="pb-10">
               <div className="pt-10">
                 <TopicWhite text="Discover Who We Are" />
               </div>

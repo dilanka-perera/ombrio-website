@@ -1,8 +1,6 @@
 import React from 'react';
 import { Metadata, NextPage } from 'next';
-import WideContainer from '../WideContainer';
 import HeadBanner from '../HeadBanner';
-import StandardContainer from '../StandardContainer';
 import Vision from './Vision';
 import Mission from './Mission';
 import CoreValues from './CoreValues';
@@ -57,39 +55,15 @@ const About: NextPage = () => {
   return (
     <LayoutWrapper>
       <Breadcrumb />
-
-      <WideContainer>
-        <HeadBanner slug="about" />
-      </WideContainer>
-
+      <HeadBanner slug="about" />
       <TableOfContents sections={sections} />
-
-      <StandardContainer id="about-us">
-        <AboutUs />
-      </StandardContainer>
-
-      <StandardContainer id="vision">
-        <Vision />
-      </StandardContainer>
-
-      <StandardContainer id="mission">
-        <Mission />
-      </StandardContainer>
-
-      <WideContainer id="core-values">
-        <CoreValues />
-      </WideContainer>
-
-      <StandardContainer id="story">
-        <Story />
-      </StandardContainer>
-
-      <StandardContainer id="team">
-        <Team />
-      </StandardContainer>
-
+      <AboutUs />
+      <Vision />
+      <Mission />
+      <CoreValues />
+      <Story />
+      <Team />
       <LayoutBreak />
-
       <ContactBanner />
     </LayoutWrapper>
   );

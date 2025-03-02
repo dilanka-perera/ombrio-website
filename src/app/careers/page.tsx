@@ -1,8 +1,6 @@
 import React from 'react';
 import { Metadata, NextPage } from 'next';
-import WideContainer from '../WideContainer';
 import HeadBanner from '../HeadBanner';
-import StandardContainer from '../StandardContainer';
 import { LayoutBreak, LayoutWrapper } from '../LayoutWrapper';
 import ContactBanner from '../ContactBanner';
 import JoinUs from './JoinUs';
@@ -51,34 +49,17 @@ const Careers: NextPage = () => {
   return (
     <LayoutWrapper>
       <Breadcrumb />
-
-      <WideContainer>
-        <HeadBanner slug="careers" />
-      </WideContainer>
-
+      <HeadBanner slug="careers" />
       <TableOfContents sections={sections} />
-
-      <StandardContainer id="join">
-        <JoinUs />
-      </StandardContainer>
-
-      <StandardContainer id="about-us">
-        <AboutCompany />
-      </StandardContainer>
-
-      <WideContainer id="why-us">
-        <WhyWorkAtCompany />
-      </WideContainer>
-
+      <JoinUs />
+      <AboutCompany />
+      <WhyWorkAtCompany />
       <LayoutBreak />
-
-      <WideContainer>
-        <ContactBanner
-          title="Join Our Team"
-          buttonText="Explore Open Roles"
-          href="https://www.linkedin.com/company/ombrio-io"
-        />
-      </WideContainer>
+      <ContactBanner
+        title="Join Our Team"
+        buttonText="Explore Open Roles"
+        href="https://www.linkedin.com/company/ombrio-io"
+      />
     </LayoutWrapper>
   );
 };

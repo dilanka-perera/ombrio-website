@@ -27,7 +27,7 @@ const ExploreOurBlogCategory: React.FC<ExploreOurBlogCategoryProps> = ({
           style={{
             backgroundImage,
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: '75% center',
             backgroundRepeat: 'no-repeat',
           }}
         />

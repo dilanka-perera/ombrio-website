@@ -48,7 +48,7 @@ const BlogCategories: React.FC<BlogCategoriesProps> = ({ categories }) => {
           style={{
             backgroundImage,
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: '75% center',
             backgroundRepeat: 'no-repeat',
           }}
         />

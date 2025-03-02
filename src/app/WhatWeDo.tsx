@@ -23,12 +23,10 @@ const WhatWeDo: React.FC = () => {
           style={{
             backgroundImage,
             backgroundSize: 'cover',
-            backgroundPosition: 'left',
+            backgroundPosition: '25% center',
             backgroundRepeat: 'no-repeat',
           }}
         />
-
-        <div className="absolute inset-0 bg-white bg-opacity-30" />
 
         <div className="relative">
           <StandardContainer id="what-we-do">

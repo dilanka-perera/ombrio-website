@@ -79,7 +79,7 @@ const ExploreOurBlog: React.FC = () => {
           style={{
             backgroundImage,
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: '75% center',
             backgroundRepeat: 'no-repeat',
           }}
         />
