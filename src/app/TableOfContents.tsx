@@ -98,9 +98,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
                   key={section.id}
                   onClick={(e) => handleSectionClick(e, section.id)}
                   className={`font-normal ${
-                    section.id === activeSection
-                      ? 'bg-blue-400 bg-opacity-50'
-                      : ''
+                    section.id === activeSection ? 'bg-blue-100' : ''
                   } hover:text-slate-700 px-4 h-[40px]`}
                 >
                   {section.name}

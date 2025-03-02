@@ -1,9 +1,7 @@
 import React from 'react';
 import { Metadata, NextPage } from 'next';
 import { LayoutBreak, LayoutWrapper } from '@/app/LayoutWrapper';
-import WideContainer from '@/app/WideContainer';
 import Breadcrumb from '@/app/Breadcrumb';
-import StandardContainer from '@/app/StandardContainer';
 import ContactServices from './ContactServices';
 
 const title = 'Contact Services | Ombrio';
@@ -40,18 +38,12 @@ const Contact: NextPage = () => {
   return (
     <div className="max-w-[1920px] w-full mx-auto bg-blue-950 backdrop-blur-lg flex flex-grow overflow-hidden">
       <LayoutWrapper>
-        <WideContainer>
-          <Breadcrumb
-            nameReplacer={{
-              'contact-services': 'Contact Services',
-            }}
-          />
-        </WideContainer>
-
-        <StandardContainer>
-          <ContactServices />
-        </StandardContainer>
-
+        <Breadcrumb
+          nameReplacer={{
+            'contact-services': 'Contact Services',
+          }}
+        />
+        <ContactServices />
         <LayoutBreak />
       </LayoutWrapper>
     </div>

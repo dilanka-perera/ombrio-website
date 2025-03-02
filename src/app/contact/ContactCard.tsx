@@ -44,7 +44,7 @@ const ContactCard: React.FC<ContactCardProps> = ({
 
       <Link
         href={buttonUrl}
-        className="inline-block bg-blue-950 bg-opacity-80 hover:bg-opacity-90 text-white font-normal text-sm sm:text-base md:text-lg px-6 py-3 shadow-lg min-w-[200px] text-center rounded bg-opacity-75 "
+        className="inline-block bg-blue-950 hover:bg-blue-900 text-white font-normal text-sm sm:text-base md:text-lg px-6 py-3 shadow-lg min-w-[200px] text-center rounded"
       >
         {buttonText}
       </Link>

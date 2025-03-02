@@ -3,12 +3,10 @@
 import { notFound } from 'next/navigation';
 import { useData } from '@/contexts/DataContext';
 import { LayoutBreak, LayoutWrapper } from '@/app/LayoutWrapper';
-import WideContainer from '@/app/WideContainer';
 import Breadcrumb from '@/app/Breadcrumb';
 import ContactBanner from '@/app/ContactBanner';
 import BlogHero from './BlogHero';
 import BlogContent from './BlogContent';
-import StandardContainer from '@/app/StandardContainer';
 import FeaturedBlogs from './FeaturedBlogs';
 
 export default function BlogPostPage({
@@ -36,19 +34,10 @@ export default function BlogPostPage({
           [post.slug]: post.title,
         }}
       />
-
-      <WideContainer>
-        <BlogHero post={post} />
-      </WideContainer>
-
-      <StandardContainer>
-        <BlogContent post={post} categoryName={categoryData.name} />
-      </StandardContainer>
-
+      <BlogHero post={post} />
+      <BlogContent post={post} categoryName={categoryData.name} />
       <FeaturedBlogs category={categoryData} slug={post.slug} />
-
       <LayoutBreak />
-
       <ContactBanner />
     </LayoutWrapper>
   );

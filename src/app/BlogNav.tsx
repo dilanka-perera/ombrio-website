@@ -149,7 +149,7 @@ const BlogNav: React.FC<BlogNavProps> = ({ setIsDropdownOpen }) => {
                             <Link
                               href={`/blog/${category.slug}`}
                               onClick={() => setIsDropdownOpen(null)}
-                              className="inline-block border-l-2 border-yellow-500 bg-white text-black font-normal text-sm text-lg px-3 py-3 shadow-lg bg-opacity-75 hover:bg-opacity-100 min-w-[200px] text-center rounded"
+                              className="inline-block border-l-2 border-yellow-500 bg-white text-black font-normal text-sm text-lg px-3 py-3 shadow-lg hover:bg-slate-200 min-w-[200px] text-center rounded"
                             >
                               Read More
                             </Link>
