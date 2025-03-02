@@ -63,7 +63,7 @@ const BlogNav: React.FC<BlogNavProps> = ({ setIsDropdownOpen }) => {
                         onClick={() => setIsDropdownOpen(null)}
                         className={`block group w-full h-[80px] text-left font-medium transition ${
                           activeCategory === category.slug
-                            ? 'bg-slate-100 bg-opacity-50 border-l-2 border-yellow-500'
+                            ? 'bg-blue-100 bg-opacity-50 border-l-2 border-yellow-500'
                             : ''
                         }`}
                       >
@@ -86,7 +86,7 @@ const BlogNav: React.FC<BlogNavProps> = ({ setIsDropdownOpen }) => {
                 </div>
               </div>
 
-              <div className="w-3/4 p-4 bg-slate-100 bg-opacity-50">
+              <div className="w-3/4 p-4 bg-blue-100 bg-opacity-50">
                 {blogData.categories.map(
                   (category) =>
                     activeCategory === category.slug && (
