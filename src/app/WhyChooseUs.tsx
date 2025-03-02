@@ -3,6 +3,7 @@
 import { useData } from '@/contexts/DataContext';
 import ImageSnippets from './ImageSnippets';
 import StandardContainer from './StandardContainer';
+import WideContainer from './WideContainer';
 import Topic from './Topic';
 
 const WhyChooseUs: React.FC = () => {
@@ -23,19 +24,25 @@ const WhyChooseUs: React.FC = () => {
   }));
 
   return (
-    <div className="bg-white bg-opacity-20 shadow-lg backdrop-blur-lg">
-      <StandardContainer>
-        <div>
-          <div className="pt-10">
-            <Topic text="Why Choose Us?" />
-          </div>
+    <WideContainer id="why-choose-us">
+      <div className="relative">
+        <div className="absolute inset-0 bg-blue-300" />
 
-          <div className="pt-6">
-            <ImageSnippets topics={topics} />
-          </div>
+        <div className="relative">
+          <StandardContainer>
+            <div>
+              <div className="pt-10">
+                <Topic text="Why Choose Us?" />
+              </div>
+
+              <div className="pt-6">
+                <ImageSnippets topics={topics} />
+              </div>
+            </div>
+          </StandardContainer>
         </div>
-      </StandardContainer>
-    </div>
+      </div>
+    </WideContainer>
   );
 };
 

@@ -63,7 +63,7 @@ const BlogNav: React.FC<BlogNavProps> = ({ setIsDropdownOpen }) => {
                         onClick={() => setIsDropdownOpen(null)}
                         className={`block group w-full h-[80px] text-left font-medium transition ${
                           activeCategory === category.slug
-                            ? 'bg-slate-100 bg-opacity-50 border-l-2 border-yellow-500'
+                            ? 'bg-blue-100 bg-opacity-50 border-l-2 border-yellow-500'
                             : ''
                         }`}
                       >
@@ -86,7 +86,7 @@ const BlogNav: React.FC<BlogNavProps> = ({ setIsDropdownOpen }) => {
                 </div>
               </div>
 
-              <div className="w-3/4 p-4 bg-slate-100 bg-opacity-50">
+              <div className="w-3/4 p-4 bg-blue-100 bg-opacity-50">
                 {blogData.categories.map(
                   (category) =>
                     activeCategory === category.slug && (
@@ -101,7 +101,7 @@ const BlogNav: React.FC<BlogNavProps> = ({ setIsDropdownOpen }) => {
                                 href={`/blog/${category.slug}/${post.slug}`}
                                 className="block"
                               >
-                                <div className="bg-blue-100 shadow-md overflow-hidden max-w-[300px] justify-center group cursor-pointer transition-transform duration-300 hover:scale-105">
+                                <div className="bg-white shadow-md overflow-hidden max-w-[300px] justify-center group cursor-pointer transition-transform duration-300 hover:scale-105">
                                   <div className="relative w-full h-50 overflow-hidden">
                                     <Image
                                       src={`https:${post.featuredImage}`}
@@ -149,7 +149,7 @@ const BlogNav: React.FC<BlogNavProps> = ({ setIsDropdownOpen }) => {
                             <Link
                               href={`/blog/${category.slug}`}
                               onClick={() => setIsDropdownOpen(null)}
-                              className="inline-block border-l-2 border-yellow-500 bg-white text-black font-normal text-sm text-lg px-3 py-3 shadow-lg bg-opacity-75 hover:bg-opacity-100 min-w-[200px] text-center rounded"
+                              className="inline-block border-l-2 border-yellow-500 bg-white text-black font-normal text-sm text-lg px-3 py-3 shadow-lg hover:bg-slate-200 min-w-[200px] text-center rounded"
                             >
                               Read More
                             </Link>

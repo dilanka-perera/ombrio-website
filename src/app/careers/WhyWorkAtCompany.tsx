@@ -4,6 +4,7 @@ import { useData } from '@/contexts/DataContext';
 import ImageSnippets from '../ImageSnippets';
 import StandardContainer from '../StandardContainer';
 import Topic from '../Topic';
+import WideContainer from '../WideContainer';
 
 const WhyWorkAtCompany: React.FC = () => {
   const { tileCollections } = useData();
@@ -23,21 +24,27 @@ const WhyWorkAtCompany: React.FC = () => {
   }));
 
   return (
-    <div className="bg-white bg-opacity-20 shadow-lg backdrop-blur-lg">
-      <StandardContainer>
-        <div>
-          {/* Section Title */}
-          <div className="pt-10">
-            <Topic text="Why Work at Ombrio?" />
-          </div>
+    <WideContainer id="why-us">
+      <div className="relative">
+        <div className="absolute inset-0 bg-blue-300" />
 
-          {/* Image Snippets */}
-          <div className="pt-6">
-            <ImageSnippets topics={topics} />
-          </div>
+        <div className="relative">
+          <StandardContainer>
+            <div>
+              {/* Section Title */}
+              <div className="pt-10">
+                <Topic text="Why Work at Ombrio?" />
+              </div>
+
+              {/* Image Snippets */}
+              <div className="pt-6">
+                <ImageSnippets topics={topics} />
+              </div>
+            </div>
+          </StandardContainer>
         </div>
-      </StandardContainer>
-    </div>
+      </div>
+    </WideContainer>
   );
 };
 

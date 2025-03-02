@@ -1,9 +1,7 @@
 import React from 'react';
 import { Metadata, NextPage } from 'next';
 import { LayoutBreak, LayoutWrapper } from '../LayoutWrapper';
-import WideContainer from '../WideContainer';
 import HeadBanner from '../HeadBanner';
-import StandardContainer from '../StandardContainer';
 import ContactCards from './ContactCards';
 import Breadcrumb from '../Breadcrumb';
 import TableOfContents from '../TableOfContents';
@@ -44,25 +42,12 @@ const Contact: NextPage = () => {
 
   return (
     <LayoutWrapper>
-      <WideContainer>
-        <Breadcrumb />
-      </WideContainer>
-
-      <WideContainer>
-        <HeadBanner slug="contact" />
-      </WideContainer>
-
+      <Breadcrumb />
+      <HeadBanner slug="contact" />
       <TableOfContents sections={sections} />
-
-      <StandardContainer id="contact-info">
-        <ContactCards />
-      </StandardContainer>
-
+      <ContactCards />
       <LayoutBreak />
-
-      <WideContainer>
-        <ContactBanner />
-      </WideContainer>
+      <ContactBanner />
     </LayoutWrapper>
   );
 };

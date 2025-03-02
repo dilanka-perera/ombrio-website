@@ -19,7 +19,7 @@ export interface BlogCardProps {
 const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
   return (
     <Link href={`/blog/${post.categorySlug}/${post.slug}`} className="block">
-      <div className="bg-blue-100 shadow-md overflow-hidden max-w-[400px] justify-center group cursor-pointer transition-transform duration-300 hover:scale-105">
+      <div className="bg-white shadow-md overflow-hidden max-w-[400px] justify-center group cursor-pointer transition-transform duration-300 hover:scale-105">
         <div className="relative w-full h-60 overflow-hidden">
           <Image
             src={`https:${post.featuredImage}`}

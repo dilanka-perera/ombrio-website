@@ -5,8 +5,6 @@ import ContactBanner from './ContactBanner';
 import OurJourney from './OurJourney';
 import WhatWeDo from './WhatWeDo';
 import WhyChooseUs from './WhyChooseUs';
-import WideContainer from './WideContainer';
-import StandardContainer from './StandardContainer';
 import { LayoutBreak, LayoutWrapper } from './LayoutWrapper';
 import TableOfContents from './TableOfContents';
 
@@ -51,33 +49,14 @@ const sections = [
 export default function Home() {
   return (
     <LayoutWrapper>
-      <WideContainer>
-        <Carousel />
-      </WideContainer>
-
+      <Carousel />
       <TableOfContents sections={sections} />
-
-      <StandardContainer id="what-we-do">
-        <WhatWeDo />
-      </StandardContainer>
-
-      <WideContainer id="why-choose-us">
-        <WhyChooseUs />
-      </WideContainer>
-
-      <StandardContainer id="our-journey">
-        <OurJourney />
-      </StandardContainer>
-
-      <StandardContainer id="explore-our-blog">
-        <ExploreOurBlog />
-      </StandardContainer>
-
+      <WhatWeDo />
+      <WhyChooseUs />
+      <OurJourney />
+      <ExploreOurBlog />
       <LayoutBreak />
-
-      <WideContainer>
-        <ContactBanner />
-      </WideContainer>
+      <ContactBanner />
     </LayoutWrapper>
   );
 }

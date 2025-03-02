@@ -38,7 +38,7 @@ const ContactNav: React.FC<ContactNavProps> = ({ setIsDropdownOpen }) => {
       <WideContainer>
         <div className="relative w-full align-left bg-slate-200 bg-opacity-50">
           <StandardContainer>
-            <div className="flex flex-wrap justify-center bg-slate-100 bg-opacity-50">
+            <div className="flex flex-wrap justify-center bg-blue-100 bg-opacity-50">
               {contactItems.map(
                 ({
                   slug,
@@ -74,7 +74,7 @@ const ContactNav: React.FC<ContactNavProps> = ({ setIsDropdownOpen }) => {
                       <Link
                         href={buttonUrl}
                         onClick={() => setIsDropdownOpen(null)}
-                        className="inline-block bg-blue-950 bg-opacity-80 hover:bg-opacity-90 text-white font-normal text-sm text-lg px-3 py-3 shadow-lg min-w-[200px] text-center rounded"
+                        className="inline-block bg-blue-950 hover:bg-blue-900 text-white font-normal text-sm text-lg px-3 py-3 shadow-lg min-w-[200px] text-center rounded"
                       >
                         {buttonText}
                       </Link>
