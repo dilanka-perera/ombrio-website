@@ -30,14 +30,12 @@ export default function BlogPostPage({
 
   return (
     <LayoutWrapper>
-      <WideContainer>
-        <Breadcrumb
-          nameReplacer={{
-            [categoryData.slug]: categoryData.name,
-            [post.slug]: post.title,
-          }}
-        />
-      </WideContainer>
+      <Breadcrumb
+        nameReplacer={{
+          [categoryData.slug]: categoryData.name,
+          [post.slug]: post.title,
+        }}
+      />
 
       <WideContainer>
         <BlogHero post={post} />
@@ -47,15 +45,11 @@ export default function BlogPostPage({
         <BlogContent post={post} categoryName={categoryData.name} />
       </StandardContainer>
 
-      <StandardContainer id="featured">
-        <FeaturedBlogs category={categoryData} slug={post.slug} />
-      </StandardContainer>
+      <FeaturedBlogs category={categoryData} slug={post.slug} />
 
       <LayoutBreak />
 
-      <WideContainer>
-        <ContactBanner />
-      </WideContainer>
+      <ContactBanner />
     </LayoutWrapper>
   );
 }

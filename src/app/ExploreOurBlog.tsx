@@ -5,6 +5,8 @@ import Topic from './Topic';
 import MainButton from './MainButton';
 import { BlogPost, useData } from '@/contexts/DataContext';
 import BlogList from './blog/BlogList';
+import StandardContainer from './StandardContainer';
+import WideContainer from './WideContainer';
 
 type ExtendedBlogPost = BlogPost & {
   categoryName: string;
@@ -12,7 +14,7 @@ type ExtendedBlogPost = BlogPost & {
 };
 
 const ExploreOurBlog: React.FC = () => {
-  const { blogs, blogCollections } = useData();
+  const { blogs, blogCollections, websiteImages } = useData();
   const [viewport, setViewport] = useState<string>('');
 
   useEffect(() => {
@@ -64,42 +66,67 @@ const ExploreOurBlog: React.FC = () => {
     return blogSlugs.indexOf(a.slug) - blogSlugs.indexOf(b.slug);
   });
 
+  const backgroundImage = `url('https:${
+    websiteImages.find((item) => item.slug === 'background-5')?.image ||
+    'no.png'
+  }')`;
+
   return (
-    <div className="pt-8 pb-[80px]">
-      {/* Section Title */}
-      <div>
-        <Topic text="Explore Our Blog" />
-      </div>
-
-      {/* Description Section */}
-      <div className="pt-6 px-8">
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-          Stay updated with the latest trends, insights, and breakthroughs in
-          Artificial Intelligence and Web Development.
-        </p>
-      </div>
-
-      {/* Blog List */}
-      <div className="pt-6">
-        <BlogList
-          posts={postsToShow(viewport, sortedPosts).map((post) => ({
-            slug: post.slug,
-            title: post.title,
-            featuredImage: post.featuredImage || 'no.png',
-            publishedDate: post.publishedDate,
-            category: post.categoryName,
-            categorySlug: post.categorySlug,
-          }))}
+    <WideContainer id="explore-our-blog">
+      <div className="relative">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
         />
-      </div>
 
-      {/* Read Our Blog Link */}
-      <div className="pt-6 px-8 sm:flex items-end">
-        <div className="mr-6 mb-4 sm:mb-0">
-          <MainButton text="Read Our Blog" link="/blog" />
+        <div className="absolute inset-0 bg-blue-300 bg-opacity-50" />
+
+        <div className="relative">
+          <StandardContainer id="explore-our-blog">
+            <div className="pt-8 pb-[80px]">
+              {/* Section Title */}
+              <div>
+                <Topic text="Explore Our Blog" />
+              </div>
+
+              {/* Description Section */}
+              <div className="pt-6 px-8">
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed">
+                  Stay updated with the latest trends, insights, and
+                  breakthroughs in Artificial Intelligence and Web Development.
+                </p>
+              </div>
+
+              {/* Blog List */}
+              <div className="pt-6">
+                <BlogList
+                  posts={postsToShow(viewport, sortedPosts).map((post) => ({
+                    slug: post.slug,
+                    title: post.title,
+                    featuredImage: post.featuredImage || 'no.png',
+                    publishedDate: post.publishedDate,
+                    category: post.categoryName,
+                    categorySlug: post.categorySlug,
+                  }))}
+                />
+              </div>
+
+              {/* Read Our Blog Link */}
+              <div className="pt-6 px-8 sm:flex items-end">
+                <div className="mr-6 mb-4 sm:mb-0">
+                  <MainButton text="Read Our Blog" link="/blog" />
+                </div>
+              </div>
+            </div>
+          </StandardContainer>
         </div>
       </div>
-    </div>
+    </WideContainer>
   );
 };
 

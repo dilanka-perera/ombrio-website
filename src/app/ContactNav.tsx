@@ -74,7 +74,7 @@ const ContactNav: React.FC<ContactNavProps> = ({ setIsDropdownOpen }) => {
                       <Link
                         href={buttonUrl}
                         onClick={() => setIsDropdownOpen(null)}
-                        className="inline-block bg-blue-950 bg-opacity-80 hover:bg-opacity-90 text-white font-normal text-sm text-lg px-3 py-3 shadow-lg min-w-[200px] text-center rounded"
+                        className="inline-block bg-blue-950 hover:bg-blue-900 text-white font-normal text-sm text-lg px-3 py-3 shadow-lg min-w-[200px] text-center rounded"
                       >
                         {buttonText}
                       </Link>

@@ -1,6 +1,10 @@
+'use client';
+
 import { useState, useEffect } from 'react';
-import { BlogCategory } from '@/contexts/DataContext';
+import { BlogCategory, useData } from '@/contexts/DataContext';
 import BlogCategoryElement from './BlogCategoryElement';
+import StandardContainer from '../StandardContainer';
+import WideContainer from '../WideContainer';
 
 interface BlogCategoriesProps {
   categories: BlogCategory[];
@@ -8,6 +12,7 @@ interface BlogCategoriesProps {
 
 const BlogCategories: React.FC<BlogCategoriesProps> = ({ categories }) => {
   const [viewport, setViewport] = useState<string>('');
+  const { websiteImages } = useData();
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,16 +35,41 @@ const BlogCategories: React.FC<BlogCategoriesProps> = ({ categories }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const backgroundImage = `url('https:${
+    websiteImages.find((item) => item.slug === 'background-5')?.image ||
+    'no.png'
+  }')`;
+
   return (
-    <div className="pb-[40px]">
-      {categories.map((category) => (
-        <BlogCategoryElement
-          key={category.slug}
-          category={category}
-          viewport={viewport}
+    <WideContainer>
+      <div className="relative">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
         />
-      ))}
-    </div>
+
+        <div className="absolute inset-0 bg-blue-300 bg-opacity-50" />
+
+        <div className="relative">
+          <StandardContainer>
+            <div className="pb-[40px]">
+              {categories.map((category) => (
+                <BlogCategoryElement
+                  key={category.slug}
+                  category={category}
+                  viewport={viewport}
+                />
+              ))}
+            </div>
+          </StandardContainer>
+        </div>
+      </div>
+    </WideContainer>
   );
 };
 

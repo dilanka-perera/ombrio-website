@@ -56,9 +56,7 @@ const About: NextPage = () => {
 
   return (
     <LayoutWrapper>
-      <WideContainer>
-        <Breadcrumb />
-      </WideContainer>
+      <Breadcrumb />
 
       <WideContainer>
         <HeadBanner slug="about" />
@@ -92,9 +90,7 @@ const About: NextPage = () => {
 
       <LayoutBreak />
 
-      <WideContainer>
-        <ContactBanner />
-      </WideContainer>
+      <ContactBanner />
     </LayoutWrapper>
   );
 };

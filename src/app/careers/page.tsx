@@ -50,9 +50,7 @@ const Careers: NextPage = () => {
 
   return (
     <LayoutWrapper>
-      <WideContainer>
-        <Breadcrumb />
-      </WideContainer>
+      <Breadcrumb />
 
       <WideContainer>
         <HeadBanner slug="careers" />

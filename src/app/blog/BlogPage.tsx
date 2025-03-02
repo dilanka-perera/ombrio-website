@@ -3,10 +3,8 @@
 import { notFound } from 'next/navigation';
 import { useData } from '@/contexts/DataContext';
 import { LayoutBreak, LayoutWrapper } from '@/app/LayoutWrapper';
-import WideContainer from '@/app/WideContainer';
 import Breadcrumb from '@/app/Breadcrumb';
 import ContactBanner from '@/app/ContactBanner';
-import StandardContainer from '@/app/StandardContainer';
 import HeadBanner from '@/app/HeadBanner';
 import TableOfContents from '@/app/TableOfContents';
 import BlogCategories from './BlogCategories';
@@ -28,29 +26,13 @@ export default function BlogPage() {
 
   return (
     <LayoutWrapper>
-      <WideContainer>
-        <Breadcrumb />
-      </WideContainer>
-
-      <WideContainer>
-        <HeadBanner slug="blog" />
-      </WideContainer>
-
+      <Breadcrumb />
+      <HeadBanner slug="blog" />
       <TableOfContents sections={sections} />
-
-      <StandardContainer id="welcome-to-blog">
-        <WelcomeToBlog />
-      </StandardContainer>
-
-      <StandardContainer>
-        <BlogCategories categories={blogData.categories} />
-      </StandardContainer>
-
+      <WelcomeToBlog />
+      <BlogCategories categories={blogData.categories} />
       <LayoutBreak />
-
-      <WideContainer>
-        <ContactBanner />
-      </WideContainer>
+      <ContactBanner />
     </LayoutWrapper>
   );
 }

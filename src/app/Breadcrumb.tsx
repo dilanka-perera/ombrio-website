@@ -5,6 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import StandardContainer from './StandardContainer';
+import WideContainer from './WideContainer';
 
 interface BreadcrumbProps {
   nameReplacer?: Record<string, string>;
@@ -25,47 +26,49 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ nameReplacer }) => {
   };
 
   return (
-    <div className="bg-blue-200">
-      <StandardContainer>
-        <nav
-          aria-label="Breadcrumb"
-          className="px-6 py-2 min-h-[40px] font-normal flex items-center overflow-hidden"
-        >
-          <ul
-            className="flex flex-wrap w-full max-w-full"
-            style={{ listStyleType: 'none', padding: 0, margin: 0 }}
+    <WideContainer>
+      <div className="bg-blue-200">
+        <StandardContainer>
+          <nav
+            aria-label="Breadcrumb"
+            className="px-6 py-2 min-h-[40px] font-normal flex items-center overflow-hidden"
           >
-            <li className="flex max-w-full truncate">
-              <Link href="/" className="text-black hover:text-slate-700">
-                Home
-              </Link>
-            </li>
-            {pathnames?.map((pathname, index) => {
-              const href = `/${pathnames.slice(0, index + 1).join('/')}`;
-              const isLast = index === pathnames.length - 1;
-              const displayName = replaceName(pathname);
-              return (
-                <li key={href} className="flex max-w-full truncate">
-                  <span className="mx-2 whitespace-nowrap">{' / '}</span>
-                  {isLast ? (
-                    <span className="truncate whitespace-nowrap">
-                      {displayName}
-                    </span>
-                  ) : (
-                    <Link
-                      href={href}
-                      className="text-black hover:text-slate-700"
-                    >
-                      {displayName}
-                    </Link>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-      </StandardContainer>
-    </div>
+            <ul
+              className="flex flex-wrap w-full max-w-full"
+              style={{ listStyleType: 'none', padding: 0, margin: 0 }}
+            >
+              <li className="flex max-w-full truncate">
+                <Link href="/" className="text-black hover:text-slate-700">
+                  Home
+                </Link>
+              </li>
+              {pathnames?.map((pathname, index) => {
+                const href = `/${pathnames.slice(0, index + 1).join('/')}`;
+                const isLast = index === pathnames.length - 1;
+                const displayName = replaceName(pathname);
+                return (
+                  <li key={href} className="flex max-w-full truncate">
+                    <span className="mx-2 whitespace-nowrap">{' / '}</span>
+                    {isLast ? (
+                      <span className="truncate whitespace-nowrap">
+                        {displayName}
+                      </span>
+                    ) : (
+                      <Link
+                        href={href}
+                        className="text-black hover:text-slate-700"
+                      >
+                        {displayName}
+                      </Link>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        </StandardContainer>
+      </div>
+    </WideContainer>
   );
 };
 

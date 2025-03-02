@@ -128,9 +128,7 @@ const ContactServices: React.FC = () => {
             <button
               type="button"
               className={`px-4 py-2 border rounded-md ${
-                currency === 'USD'
-                  ? 'bg-blue-950 bg-opacity-80 text-white'
-                  : 'bg-white'
+                currency === 'USD' ? 'bg-blue-950 text-white' : 'bg-white'
               }`}
               onClick={() => setCurrency('USD')}
             >
@@ -139,9 +137,7 @@ const ContactServices: React.FC = () => {
             <button
               type="button"
               className={`px-4 py-2 border rounded-md ${
-                currency === 'LKR'
-                  ? 'bg-blue-950 bg-opacity-80 text-white'
-                  : 'bg-white'
+                currency === 'LKR' ? 'bg-blue-950 text-white' : 'bg-white'
               }`}
               onClick={() => setCurrency('LKR')}
             >
@@ -174,7 +170,7 @@ const ContactServices: React.FC = () => {
 
           <button
             type="submit"
-            className="bg-blue-950 bg-opacity-80 hover:bg-opacity-90 text-white font-normal text-sm sm:text-base md:text-lg px-6 py-3 shadow-lg min-w-[200px] text-center rounded-lg"
+            className="bg-blue-950 hover:bg-blue-900 text-white font-normal text-sm sm:text-base md:text-lg px-6 py-3 shadow-lg min-w-[200px] text-center rounded-lg"
           >
             Send Message
           </button>

@@ -3,14 +3,12 @@
 import { notFound } from 'next/navigation';
 import { useData } from '@/contexts/DataContext';
 import { LayoutBreak, LayoutWrapper } from '@/app/LayoutWrapper';
-import WideContainer from '@/app/WideContainer';
 import Breadcrumb from '@/app/Breadcrumb';
 import ContactBanner from '@/app/ContactBanner';
-import StandardContainer from '@/app/StandardContainer';
 import HeadBanner from '@/app/HeadBanner';
 import TableOfContents from '@/app/TableOfContents';
 import AboutCategory from './AboutCategory';
-import ExploreOurBlog from './ExploreOurBlog';
+import ExploreOurBlogCategory from './ExploreOurBlogCategory';
 
 export default function CategoryPage({ category }: { category: string }) {
   const { blogs } = useData();
@@ -37,33 +35,17 @@ export default function CategoryPage({ category }: { category: string }) {
 
   return (
     <LayoutWrapper>
-      <WideContainer>
-        <Breadcrumb
-          nameReplacer={{
-            [categoryData.slug]: categoryData.name,
-          }}
-        />
-      </WideContainer>
-
-      <WideContainer>
-        <HeadBanner slug={categoryData.headerImageSlug} />
-      </WideContainer>
-
+      <Breadcrumb
+        nameReplacer={{
+          [categoryData.slug]: categoryData.name,
+        }}
+      />
+      <HeadBanner slug={categoryData.headerImageSlug} />
       <TableOfContents sections={sections} />
-
-      <StandardContainer id="intro">
-        <AboutCategory description={categoryData.description} />
-      </StandardContainer>
-
-      <StandardContainer id="blog">
-        <ExploreOurBlog posts={blogPostCards} />
-      </StandardContainer>
-
+      <AboutCategory description={categoryData.description} />
+      <ExploreOurBlogCategory posts={blogPostCards} />
       <LayoutBreak />
-
-      <WideContainer>
-        <ContactBanner />
-      </WideContainer>
+      <ContactBanner />
     </LayoutWrapper>
   );
 }
